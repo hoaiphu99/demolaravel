@@ -19,10 +19,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 Route::get('/', function () {
-    $tasks = Tasks::orderBy('created_at', 'desc')->get();
-    return view('task', [
-        'tasks' => $tasks
-    ]);
+//    $tasks = Tasks::orderBy('created_at', 'desc')->get();
+//    return view('task', [
+//        'tasks' => $tasks
+//    ]);
+    return view('welcome');
 });
 
 Route::get('user', function () {
