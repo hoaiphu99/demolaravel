@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/vendor/angular-material.min.css">
 	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/vendor/font-awesome.css">
 	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/1.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 </head>
 <body ng-app="myApp" ng-controller="MyController">
 
