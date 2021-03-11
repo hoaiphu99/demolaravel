@@ -13,42 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Models\Tasks;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 Route::get('/', function () {
-    // $tasks = Tasks::orderBy('created_at', 'desc')->get();
-    // return view('task', [
-    //     'tasks' => $tasks
-    // ]);
     return view('welcome');
 });
-
-Route::get('user', function () {
-    return view('welcome');
-});
-
-//Route::post('task', function (Request $req) {
-//    $validate = Validator::make($req->all(), [
-//        'name' => 'required|max:255'
-//    ]);
-//
-//    if($validate->fails()){
-//        return redirect('/')
-//            ->withInput()
-//            ->withErrors($validate);
-//    }
-//
-//    $task = new Tasks();
-//    $task->name = $req->name;
-//    $task->save();
-//
-//    return redirect('/');
-//});
-//
-//Route::delete('task/{task}', function ($id) {
-//    Tasks::findOrFail($id)->delete();
-//    return redirect('/');
-//});

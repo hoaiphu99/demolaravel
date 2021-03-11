@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Str;
 
-//$DATABASE_URL = parse_url('postgres://euvqvxcesjidok:3fd0b5c0e1fe2835574e7ce54a6c73a31875cd7892173eee4b7a995a5c6f7f71@ec2-54-164-22-242.compute-1.amazonaws.com:5432/d4ilt8lbht71i7');
-
 return [
 
     /*
@@ -16,8 +14,8 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
- 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,9 +48,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'angular_php'),
-            'username' => env('DB_USERNAME', 'hoaiphu'),
-            'password' => env('DB_PASSWORD', '123456'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
