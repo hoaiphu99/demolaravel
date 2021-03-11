@@ -4,10 +4,10 @@
 	<title> Document  </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
-	<link rel="stylesheet" href="resource/vendor/bootstrap.css">
-	<link rel="stylesheet" href="resource/vendor/angular-material.min.css">
-	<link rel="stylesheet" href="resource/vendor/font-awesome.css">
-	<link rel="stylesheet" href="resource/1.css">
+	<link rel="stylesheet" href="../resource/vendor/bootstrap.css">
+	<link rel="stylesheet" href="../resource/vendor/angular-material.min.css">
+	<link rel="stylesheet" href="../resource/vendor/font-awesome.css">
+	<link rel="stylesheet" href="../resource/1.css">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 </head>
@@ -50,12 +50,12 @@
 
 
 
-	<script type="text/javascript" src="resource/vendor/bootstrap.js"></script>  
-	<script type="text/javascript" src="resource/vendor/angular-1.5.min.js"></script>  
-	<script type="text/javascript" src="resource/vendor/angular-animate.min.js"></script>
-	<script type="text/javascript" src="resource/vendor/angular-aria.min.js"></script>
-	<script type="text/javascript" src="resource/vendor/angular-messages.min.js"></script>
-	<script type="text/javascript" src="resource/vendor/angular-material.min.js"></script>  
-	<script type="text/javascript" src="resource/1.js"></script>
+	<script type="text/javascript" src="../resource/vendor/bootstrap.js"></script>  
+	<script type="text/javascript" src="../resource/vendor/angular-1.5.min.js"></script>  
+	<script type="text/javascript" src="../resource/vendor/angular-animate.min.js"></script>
+	<script type="text/javascript" src="../resource/vendor/angular-aria.min.js"></script>
+	<script type="text/javascript" src="../resource/vendor/angular-messages.min.js"></script>
+	<script type="text/javascript" src="../resource/vendor/angular-material.min.js"></script>  
+	<script type="text/javascript" src="../resource/1.js"></script>
 </body>
 </html>
