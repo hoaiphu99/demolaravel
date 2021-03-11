@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../resource/vendor/angular-material.min.css">
 	<link rel="stylesheet" href="../resource/vendor/font-awesome.css">
 	<link rel="stylesheet" href="../resource/1.css">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 
 </head>
 <body ng-app="myApp" ng-controller="MyController">
