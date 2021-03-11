@@ -4,10 +4,10 @@
 	<title> Document  </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
-	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/vendor/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/vendor/angular-material.min.css">
-	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/vendor/font-awesome.css">
-	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/1.css">
+	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/vendor/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/vendor/angular-material.min.css">
+	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/vendor/font-awesome.css">
+	<link rel="stylesheet" href="<?php echo URL::to('/'); ?>/public/1.css">
 </head>
 <body ng-app="myApp" ng-controller="MyController">
 
@@ -48,12 +48,12 @@
 
 
 
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/bootstrap.js"></script>  
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/angular-1.5.min.js"></script>  
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/angular-animate.min.js"></script>
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/angular-aria.min.js"></script>
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/angular-messages.min.js"></script>
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/vendor/angular-material.min.js"></script>  
-	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/1.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/bootstrap.js"></script>  
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/angular-1.5.min.js"></script>  
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/angular-animate.min.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/angular-aria.min.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/angular-messages.min.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/vendor/angular-material.min.js"></script>  
+	<script type="text/javascript" src="<?php echo URL::to('/'); ?>/public/1.js"></script>
 </body>
 </html>
