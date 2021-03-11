@@ -14,7 +14,7 @@
 <div class="inra">
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, admin!</h1>
+            <h1 class="display-4">Hello, admin!</h1> 
             <p class="lead">User manager</p>
             <hr class="my-4">
             <ul>
