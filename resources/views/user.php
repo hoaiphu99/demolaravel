@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="../resource/vendor/angular-material.min.css">
 	<link rel="stylesheet" href="../resource/vendor/font-awesome.css">
 	<link rel="stylesheet" href="../resource/1.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
+
     <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 
 </head>
