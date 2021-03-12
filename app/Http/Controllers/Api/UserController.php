@@ -64,4 +64,8 @@ class UserController extends Controller
     {
         //
     }
+
+    public function userByID($id) {
+        return response()->json(User::find($id), 200);
+    }
 }
