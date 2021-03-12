@@ -19,7 +19,7 @@
 				<p class="lead">Quản lý User</p>
 				<hr class="my-4">
 				<div class="search mb-2">
-					<h4 class="display-2">Tìm nhanh</h4>
+					<h4 class="display-6">Tìm nhanh</h4>
 					<input type="text" class="form-control" ng-model="keyword">
 				</div>
 				<ul>
