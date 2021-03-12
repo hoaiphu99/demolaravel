@@ -1,4 +1,7 @@
-﻿var app = angular.module('myApp',['ngMaterial']);
+﻿var app = angular.module('myApp',['ngMaterial'], function($interpolateProvider) {
+	$interpolateProvider.startSymbol('<%');
+	$interpolateProvider.endSymbol('%>');
+});
 app.controller('MyController',  function($scope){
 
 	$scope.sua = function(x) {
