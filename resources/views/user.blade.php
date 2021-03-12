@@ -58,6 +58,6 @@
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>  
-	<script type="text/javascript" src="{{ secure_asset('resource/1.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('1.js') }}"></script>
 </body>
 </html>
