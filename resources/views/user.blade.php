@@ -19,7 +19,7 @@
 				<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 				<hr class="my-4">
 				<div class="search mb-2">
-					<h4 class="display-4">Tìm nhanh</h4>
+					<h4 class="display-2">Tìm nhanh</h4>
 					<input type="text" class="form-control" ng-model="keyword">
 				</div>
 				<ul>
