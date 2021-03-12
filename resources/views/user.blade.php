@@ -4,10 +4,10 @@
 	<title> Document  </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
-	<link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('vendor/angular-material.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/1.css') }}">
+	<link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('vendor/angular-material.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('vendor/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/1.css') }}">
 
 </head>
 <body ng-app="myApp" ng-controller="MyController">
@@ -50,12 +50,12 @@
 
 
 
-	<script type="text/javascript" src="{{ URL::asset('vendor/bootstrap.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('vendor/angular-1.5.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('vendor/angular-animate.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('vendor/angular-aria.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('vendor/angular-messages.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('vendor/angular-material.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/1.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset(''vendor/angular-aria.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/1.js') }}"></script>
 </body>
 </html>
