@@ -22,7 +22,7 @@
 				<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 				<hr class="my-4">
 				<ul>
-					<!-- <div ng-repeat="motnguoi in nhieunguoi" ng-init="motnguoi.hienra=false">
+					{{-- <!-- <div ng-repeat="motnguoi in nhieunguoi" ng-init="motnguoi.hienra=false">
 						<div class="card bg-primary|secondary|success|danger|warning|info|light|dark border-primary|secondary|success|danger|warning|info|light|dark sua" ng-show="motnguoi.hienra">
 							<div class="card-header">
 							Thông tin về <input type="text" class="form-control" ng-model="motnguoi.ten">
@@ -44,7 +44,7 @@
 								<b>Điện thoại: </b> <i>{{motnguoi.dienthoai}}</i> <br>
 							</div>
 						</div>
-					</div> -->
+					</div> --> --}}
 				</ul>
 			</div>
 		</div>
