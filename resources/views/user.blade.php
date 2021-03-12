@@ -53,7 +53,7 @@
 	<script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>
-	<script type="text/javascript" src="{{ secure_asset(''vendor/angular-aria.min.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('js/1.js') }}"></script>
