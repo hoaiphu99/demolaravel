@@ -15,8 +15,8 @@
 	<div class="inra">
 		<div class="container">
 			<div class="jumbotron">
-				<h1 class="display-4">Hello, world!</h1>
-				<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+				<h1 class="display-4">Hello, admin!</h1>
+				<p class="lead">Quản lý User</p>
 				<hr class="my-4">
 				<div class="search mb-2">
 					<h4 class="display-2">Tìm nhanh</h4>
