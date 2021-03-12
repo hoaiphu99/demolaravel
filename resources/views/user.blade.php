@@ -18,8 +18,12 @@
 				<h1 class="display-4">Hello, world!</h1>
 				<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 				<hr class="my-4">
+				<div class="search mb-2">
+					<h4 class="display-4">Tìm nhanh</h4>
+					<input type="text" class="form-control" ng-model="keyword">
+				</div>
 				<ul>
-					<div ng-repeat="u in user" ng-init="u.hienra=false">
+					<div ng-repeat="u in user | filter:keyword" ng-init="u.hienra=false">
 						<div class="card bg-primary|secondary|success|danger|warning|info|light|dark border-primary|secondary|success|danger|warning|info|light|dark sua" ng-show="u.hienra">
 							<div class="card-header">
 								Thông tin về <input type="text" class="form-control" ng-model="u.name">
