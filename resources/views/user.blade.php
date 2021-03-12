@@ -7,10 +7,7 @@
 	<link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ secure_asset('vendor/angular-material.min.css') }}">
 	<link rel="stylesheet" href="{{ secure_asset('vendor/font-awesome.css') }}">
-	<link rel="stylesheet" href="{{ secure_asset('1.css') }}">
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script> -->
-
-    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+	<link rel="stylesheet" href="{{ secure_asset('css/1.css') }}">
 
 </head>
 <body ng-app="myApp" ng-controller="MyController">
@@ -58,6 +55,6 @@
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>  
-	<script type="text/javascript" src="{{ secure_asset('1.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/1.js') }}"></script>
 </body>
 </html>
