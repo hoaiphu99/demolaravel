@@ -87,7 +87,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.html">
-                            <img class="img-fluid" src="{{ secure_asset('assets/images/logo.png') }}" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{{ URL::asset('assets/images/logo.png') }}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -115,7 +115,7 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="{{ secure_asset('assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                    <img src="{{ URL::asset('assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
                                     <span>Admin</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -143,7 +143,7 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="{{ secure_asset('assets/images/avatar-4.jpg') }}" alt="User-Profile-Image">
+                                    <img class="img-40 img-radius" src="{{ URL::asset('assets/images/avatar-4.jpg') }}" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>Admin</span>
                                         <span id="more-details">Developer<i class="ti-angle-down"></i></span>
@@ -232,31 +232,31 @@
         <ul class="iew-download">
             <li>
                 <a href="http://www.google.com/chrome/">
-                    <img src="{{ secure_asset('assets/images/browser/chrome.png') }}" alt="Chrome">
+                    <img src="{{ URL::asset('assets/images/browser/chrome.png') }}" alt="Chrome">
                     <div>Chrome</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="{{ secure_asset('assets/images/browser/firefox.png') }}" alt="Firefox">
+                    <img src="{{ URL::asset('assets/images/browser/firefox.png') }}" alt="Firefox">
                     <div>Firefox</div>
                 </a>
             </li>
             <li>
                 <a href="http://www.opera.com">
-                    <img src="{{ secure_asset('assets/images/browser/opera.png') }}" alt="Opera">
+                    <img src="{{ URL::asset('assets/images/browser/opera.png') }}" alt="Opera">
                     <div>Opera</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.apple.com/safari/">
-                    <img src="{{ secure_asset('assets/images/browser/safari.png') }}" alt="Safari">
+                    <img src="{{ URL::asset('assets/images/browser/safari.png') }}" alt="Safari">
                     <div>Safari</div>
                 </a>
             </li>
             <li>
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="{{ secure_asset('assets/images/browser/ie.png') }}" alt="">
+                    <img src="{{ URL::asset('assets/images/browser/ie.png') }}" alt="">
                     <div>IE (9 & above)</div>
                 </a>
             </li>

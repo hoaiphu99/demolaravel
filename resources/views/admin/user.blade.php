@@ -94,5 +94,5 @@
 <!-- Hover table card end -->
 </div>
 <!-- Page-body end -->
-</div>                    
+</div>
 @endsection
