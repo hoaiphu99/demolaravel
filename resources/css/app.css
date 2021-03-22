@@ -1,0 +1,13 @@
+*{margin: 0; padding: 0;}
+
+.motin {
+    border-bottom: 1px solid gray;
+    padding: 10px 0;
+}
+
+.luoi .motin {
+    width: 31%;
+    margin-right: 2%;
+    float: left;
+    height: 300px;
+}

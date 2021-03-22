@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', function () {
-    return view('user');
+Route::get('index', function () {
+    return view('index');
+});
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('dashboard', function () {
+        return view('admin.index');
+    });
+
+    Route::get('user', function () {
+        return view('admin.user');
+    });
 });
