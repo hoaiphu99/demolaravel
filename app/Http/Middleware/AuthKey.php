@@ -21,7 +21,7 @@ class AuthKey
 //        if($token == '') {
 //          return response()->json(['message' => 'No token found! '.$token], 401);
 //        }
-        else if($token != 'ABCDE') {
+        if($token != 'ABCDE') {
             return response()->json(['message' => 'Invalid token! '.$token], 401);
         }
         return $next($request);
