@@ -17,12 +17,13 @@ class AuthKey
     public function handle(Request $request, Closure $next)
     {
         //$request->headers->add(['API_KEY' => 'ABCDE']);
-        $token = $request->header('API_KEY');
+//        $token = $request->header('API_KEY');
 //        if($token == '') {
 //          return response()->json(['message' => 'No token found! '.$token], 401);
 //        }
-        if($token != 'ABCDE') {
-            return response()->json(['message' => 'Invalid token! '.$token], 401);
+        $token = $request->header('APP_KEY');
+        if($token != 'PHU') {
+            return response()->json(['message' => 'App key not found'], 401);
         }
         return $next($request);
     }
