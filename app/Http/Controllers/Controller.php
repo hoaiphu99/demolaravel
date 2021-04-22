@@ -50,9 +50,9 @@ class Controller extends BaseController
 
         $client = new Client(['base_uri' => $base_uri]);
         $res = $client->request('GET','user', [
-            "headers" => ["API_KEY" => "ABCDE"],
+            'headers' => ['API_KEY' => 'ABCDE'],
         ]);
-        echo __DIR__;
+        //echo __DIR__;
         //var_dump($res->getBody()->getContents());
         return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
     }
