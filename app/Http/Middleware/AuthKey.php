@@ -18,10 +18,10 @@ class AuthKey
     {
         $token = $request->headers->get('API_KEY');
         if($token == '') {
-            return response()->json(['message' => 'No token found!'], 401);
+            return response()->json(['message' => $token], 401);
         }
         else if($token != 'ABCDE') {
-            return response()->json(['message' => 'Invalid token'], 401);
+            return response()->json(['message' => $token], 401);
         }
         return $next($request);
     }
