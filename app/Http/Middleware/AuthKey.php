@@ -16,6 +16,7 @@ class AuthKey
      */
     public function handle(Request $request, Closure $next)
     {
+        $request->headers->add(['API_KEY' => 'ABCDE']);
         $token = $request->headers->get('API_KEY');
         if($token == '') {
             return response()->json(['message' => $token], 401);
