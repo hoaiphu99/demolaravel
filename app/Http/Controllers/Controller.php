@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 //require_once '../../../vendor/autoload.php';
-require '../vendor/autoload.php';
+require base_path().'/vendor/autoload.php';
 
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
