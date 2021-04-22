@@ -45,7 +45,7 @@ class Controller extends BaseController
         $client = new Client(['base_uri' => $base_uri]);
         try {
             $res = $client->get('user', [
-                'header' => ['API_KEY' => 'PHU'],
+                'headers' => ['API_KEY' => 'PHU'],
             ]);
             return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
         } catch (GuzzleException $e) {
