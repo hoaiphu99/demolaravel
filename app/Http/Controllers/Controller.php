@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 require_once __DIR__.'/../../../vendor/autoload.php';
 
 use App\Models\Category;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -45,13 +46,16 @@ class Controller extends BaseController
     }
 
     public function getUser() {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api';
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
 
         $client = new Client(['base_uri' => $base_uri]);
-        $res = $client->get('user', [
-            'headers' => ['API_KEY' => 'ABCDE'],
-        ]);
+        try {
+            $res = $client->request('GET', '/user', [
+                'headers' => ['API_KEY' => 'ABCDE'],
+            ]);
+        } catch (GuzzleException $e) {
+        }
         //echo __DIR__;
         //var_dump($res->getBody()->getContents());
         return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
