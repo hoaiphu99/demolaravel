@@ -25,7 +25,5 @@ Route::group(['prefix' => 'admin'], function() {
         return view('admin.index');
     });
 
-    Route::get('user', function () {
-        return view('admin.user');
-    });
+    Route::get('user', [\App\Http\Controllers\Controller::class, 'getUser']);
 });
