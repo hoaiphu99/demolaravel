@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 //require_once '../../../vendor/autoload.php';
-require app_path().'/vendor/autoload.php';
+require 'http://project-api-levi.herokuapp.com/vendor/autoload.php';
 
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
