@@ -22,6 +22,7 @@ class AuthKey
 //          return response()->json(['message' => 'No token found! '.$token], 401);
 //        }
         $token = $request->header('APP_KEY');
+        echo $token;
         if($token == 'PHU') {
             return response()->json(['message' => 'App key not found'.$token], 401);
         }
