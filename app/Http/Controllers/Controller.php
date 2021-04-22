@@ -49,7 +49,7 @@ class Controller extends BaseController
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
 
         $client = new Client(['base_uri' => $base_uri]);
-        $res = $client->request('GET','user', [
+        $res = $client->get('user', [
             'headers' => ['API_KEY' => 'ABCDE'],
         ]);
         //echo __DIR__;
