@@ -49,6 +49,7 @@ class Controller extends BaseController
         $res = $client->get('user', [
             'headers' => ['API_KEY' => 'ABCDE']
         ]);
+        echo $res->hasHeader('API_KEY');
         //var_dump($res->getBody()->getContents());
         return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
     }
