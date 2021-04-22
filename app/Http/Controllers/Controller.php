@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+require_once "vendor/autoload.php";
 
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
