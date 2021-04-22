@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 //require_once __DIR__.'../../../vendor/autoload.php';
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
 
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -47,6 +47,7 @@ class Controller extends BaseController
     public function getUser() {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
+        echo __DIR__;
         $client = new Client(['base_uri' => $base_uri]);
         $res = $client->request('GET','user', [
             "headers" => ["API_KEY" => "ABCDE"],
