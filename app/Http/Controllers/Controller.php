@@ -45,11 +45,9 @@ class Controller extends BaseController
     public function getUser() {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
-        $client = new Client(['base_uri' => $base_uri]);
-        $res = $client->get('user', [
-            'headers' => ['API_KEY' => 'ABCDE']
-        ]);
-        echo $res->hasHeader('API_KEY');
+        $client = new Client(['base_uri' => $base_uri, 'headers' => ['API_KEY' => 'ABCDE']]);
+        $res = $client->get('user');
+
         //var_dump($res->getBody()->getContents());
         return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
     }
