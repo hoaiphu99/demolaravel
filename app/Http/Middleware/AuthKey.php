@@ -19,10 +19,10 @@ class AuthKey
         //$request->headers->add(['API_KEY' => 'ABCDE']);
         $token = $request->headers->get('API_KEY');
         if($token == '') {
-            return response()->json(['message' => storage_path()], 401);
+            return response()->json(['message' => app_path()], 401);
         }
         else if($token != 'ABCDE') {
-            return response()->json(['message' => storage_path()], 401);
+            return response()->json(['message' => app_path()], 401);
         }
         return $next($request);
     }
