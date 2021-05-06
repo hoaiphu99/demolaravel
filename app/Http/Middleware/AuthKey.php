@@ -22,7 +22,7 @@ class AuthKey
 //          return response()->json(['message' => 'No token found! '.$token], 401);
 //        }
         ;
-        $token = $request->header('API_KEY');
+        $token = $request->header("API_KEY");
 
         echo $token;
         if($token != 'PHU') {
