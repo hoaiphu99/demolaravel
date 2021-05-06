@@ -16,15 +16,8 @@ class AuthKey
      */
     public function handle(Request $request, Closure $next)
     {
-        //$request->headers->add(['API_KEY' => 'ABCDE']);
-//        $token = $request->header('API_KEY');
-//        if($token == '') {
-//          return response()->json(['message' => 'No token found! '.$token], 401);
-//        }
-        ;
-        $token = $request->header("API_KEY");
+        $token = $request->header('APIKEY');
 
-        echo $token;
         if($token != 'PHU') {
             return response()->json(['message' => 'App key not found'.$token." !"], 401);
         }
