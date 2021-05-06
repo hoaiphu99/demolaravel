@@ -17,10 +17,12 @@ class AuthKey
     public function handle(Request $request, Closure $next)
     {
         $token = $request->header('APIKEY');
-
-        if($token != 'PHU') {
-            return response()->json(['message' => 'App key not found'.$token." !"], 401);
-        }
+         if($token == '') {
+             return response()->json(['message' => 'No token found!'], 401);
+         }
+         else if($token != 'VSBG') {
+             return response()->json(['message' => 'Invalid token'], 401);
+         }
         return $next($request);
     }
 }

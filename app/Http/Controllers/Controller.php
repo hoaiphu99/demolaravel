@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+require 'C:/xampp/htdocs/WebChiaSeAnh/vendor/autoload.php';
 
 use App\Models\Category;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise;
+use GuzzleHttp\Pool;
 
 class Controller extends BaseController
 {
@@ -39,28 +44,22 @@ class Controller extends BaseController
     }
 
     public function getUser() {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $base_uri = 'http://127.0.0.1:8000/api/';
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
-
         $client = new Client(['base_uri' => $base_uri]);
-        try {
-            $res = $client->get('user', [
-                'headers' => ['API_KEY' => 'PHU'],
-            ]);
-            return view('admin.user', ['user' => json_decode($res->getBody()->getContents())]);
-        } catch (GuzzleException $e) {
-            return $e;
-        }
-        //echo __DIR__;
+        $res = $client->get('user', [
+            'headers' => ['API_KEY' => 'PHU']
+        ]);
+        //echo $res->getBody()->getContents();
         //var_dump($res->getBody()->getContents());
-
+        return view('admin.user', ['users' => json_decode($res->getBody())]);
     }
 
     public function getCategory() {
-        $base_uri = './api/';
+        $base_uri = 'http://127.0.0.1:8000/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $res = $client->get('category',[
-            'headers' => ['API_KEY' => 'ABCDE']
+            'headers' => ['API_KEY' => 'PHU']
         ]);
 
         return view('admin.category', ['category' => json_decode($res->getBody())]);
@@ -68,14 +67,14 @@ class Controller extends BaseController
     }
 
     public function getPost() {
-        $base_uri = './api/';
+        $base_uri = 'http://127.0.0.1:8000/api/';
 
         $client = new Client(['base_uri' => $base_uri]);
         $res = $client->get('post', [
-            'headers' => ['API_KEY' => 'ABCDE']
+            'headers' => ['API_KEY' => 'PHU']
         ]);
 
-        return view('admin.post', ['post' => json_decode($res->getBody())]);
+        return view('admin.post', ['posts' => json_decode($res->getBody())]);
     }
 
     public function showCategory($name) {

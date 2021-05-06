@@ -17,19 +17,19 @@
       <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
       <meta name="author" content="CodedThemes">
       <!-- Favicon icon -->
-      <link rel="icon" href="{{ secure_asset('assets/images/favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
       <!-- Required Fremwork -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
       <!-- themify-icons line icon -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/themify-icons/themify-icons.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/icon/themify-icons/themify-icons.css') }}">
       <!-- ico font -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/icofont/css/icofont.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/icon/icofont/css/icofont.css') }}">
       <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/style.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/jquery.mCustomScrollbar.css') }}">
-      <link rel="stylesheet" href="{{ secure_asset('vendor/angular-material.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/style.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/jquery.mCustomScrollbar.css') }}">
+      <link rel="stylesheet" href="{{ URL::asset('vendor/angular-material.min.css') }}">
   </head>
 
   <body ng-app="myApp" >
@@ -126,7 +126,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="auth-normal-sign-in.html">
+                                        <a href="login.blade.php">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -154,7 +154,7 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="#"><i class="ti-user"></i>View Profile</a>
-                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a href="login.blade.php"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -169,23 +169,30 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Chức năng</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="active">
-                                    <a href="{{url('admin/dashboard')}}">
+                                    <a href="{{ route('admin.dashboard')}}">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('admin/user')}}">
+                                    <a href="{{ route('admin.user')}}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">User</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('admin/404')}}">
+                                    <a href="{{ route('admin.post')}}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Images</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Post</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Category</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -267,33 +274,33 @@
 <![endif]-->
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
-<script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/angular-1.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/angular-animate.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/angular-aria.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/angular-messages.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/angular-material.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/popper.js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- jquery slimscroll js -->
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
-<script type="text/javascript" src="{{ secure_asset('assets/js/modernizr/modernizr.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/modernizr/modernizr.js') }}"></script>
 <!-- am chart -->
-<script src="{{ secure_asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
-<script src="{{ secure_asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
+<script src="{{ URL::asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
+<script src="{{ URL::asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
 <!-- Todo js -->
-<script type="text/javascript " src="{{ secure_asset('assets/pages/todo/todo.js') }} "></script>
+<script type="text/javascript " src="{{ URL::asset('assets/pages/todo/todo.js') }} "></script>
 <!-- Custom js -->
-<script type="text/javascript" src="{{ secure_asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/script.js') }}"></script>
-<script type="text/javascript " src="{{ secure_asset('assets/js/SmoothScroll.js') }}"></script>
-<script src="{{ secure_asset('assets/js/pcoded.min.js') }}"></script>
-<script src="{{ secure_asset('assets/js/demo-12.js') }}"></script>
-<script src="{{ secure_asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/script.js') }}"></script>
+<script type="text/javascript " src="{{ URL::asset('assets/js/SmoothScroll.js') }}"></script>
+<script src="{{ URL::asset('assets/js/pcoded.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/demo-12.js') }}"></script>
+<script src="{{ URL::asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
 <script>
 var $window = $(window);

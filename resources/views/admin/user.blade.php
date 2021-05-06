@@ -15,7 +15,7 @@
             </div>
             <hr>
             <div>
-                <button type="button" class="btn btn-primary" ng-click="show1()">Thêm</button>
+                <button type="button" class="btn btn-primary" ng-click="show()">Thêm</button>
             </div>
         </div>
         <div class="col-lg-4">
@@ -43,7 +43,6 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Username</th>
                         <th>Password</th>
                         <th>Name</th>
@@ -53,39 +52,35 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr ng-show="!show" ng-init="u">
-                        <th scope="row"><% u.id %></th>
-                        <td><input type="text" class="form-control" ng-model="u.username"></td>
-                        <td><input type="text" class="form-control" ng-model="u.password"></td>
-                        <td><input type="text" class="form-control" ng-model="u.name"></td>
-                        <td><input type="text" class="form-control" ng-model="u.email"></td>
-                        <td><input type="text" class="form-control" ng-model="u.phone"></td>
-                        <td><input type="text" class="form-control" ng-model="u.birthday"></td>
-                        <td><i class="fa fa-pencil"><a ng-click="create(u)" href="{{url('admin/user')}}">Lưu</a></i></td>
+                    <tr ng-show="!show">
+                        <form action="{{ route('user.create') }}" method="post">
+                            @csrf
+                            <td><input type="text" class="form-control" name="username"></td>
+                            <td><input type="text" class="form-control" name="password"></td>
+                            <td><input type="text" class="form-control" name="name"></td>
+                            <td><input type="text" class="form-control" name="email"></td>
+                            <td><input type="text" class="form-control" name="phone"></td>
+                            <td><input type="text" class="form-control" name="birthday"></td>
+                            <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
+                        </form>
+
                     </tr>
                 </thead>
-                <tbody ng-repeat="u in user" ng-init="u.show=false">
-                    <tr ng-show="!u.show">
-                        <th scope="row"><% u.id %></th>
-                        <td><% u.username %></td>
-                        <td><% u.password %></td>
-                        <td><% u.name %></td>
-                        <td><% u.email %></td>
-                        <td><% u.phone %></td>
-                        <td><% u.birthday %></td>
-                        <td><i class="fa fa-pencil"><b ng-click="show(u)">Sửa</b></i></td>
-                        <td><i class="fa fa-pencil"><a ng-click="delete(u)" href="{{url('admin/user')}}">Xóa</a></i></td>
+                <tbody>
+                @foreach($users->data as $u)
+                    <tr>
+                        <th scope="row">{{ $u->id }}</th>
+                        <td>{{ $u->username }}</td>
+                        <td>{{ $u->password }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ $u->email }}</td>
+                        <td>{{ $u->phone }}</td>
+                        <td>{{ $u->birthday }}</td>
+                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td>
+                        <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>
                     </tr>
-                    <tr ng-show="u.show">
-                        <th scope="row"><% u.id %></th>
-                        <td><input type="text" class="form-control" ng-model="u.username"></td>
-                        <td><input type="text" class="form-control" ng-model="u.password"></td>
-                        <td><input type="text" class="form-control" ng-model="u.name"></td>
-                        <td><input type="text" class="form-control" ng-model="u.email"></td>
-                        <td><input type="text" class="form-control" ng-model="u.phone"></td>
-                        <td><input type="text" class="form-control" ng-model="u.birthday"></td>
-                        <td><i class="fa fa-pencil"><b ng-click="update(u)">Lưu</b></i></td>
-                    </tr>
+                @endforeach
+
                 </tbody>
             </table>
         </div>

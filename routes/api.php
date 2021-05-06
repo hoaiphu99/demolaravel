@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +22,35 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('user', 'App\Http\Controllers\Api\User\UserController@index');
+// Login
+Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
-Route::post('user', 'App\Http\Controllers\Api\User\UserController@store');
+// User
+Route::get('user', [UserController::class, 'index'])->name('api.admin.user');
+//Route::get('user', [Controller::class, 'index']);
 
-Route::put('user/{user}', 'App\Http\Controllers\Api\User\UserController@update');
+Route::post('user', [UserController::class, 'store']);
 
-Route::delete('user/{user}', 'App\Http\Controllers\Api\User\UserController@destroy');
+Route::put('user/{id}', [UserController::class, 'update']);
+
+Route::delete('user/{id}', [UserController::class, 'destroy']);
+
+// Post
+Route::get('post', 'App\Http\Controllers\Api\PostController@index');
+
+Route::post('post', [PostController::class, 'store'])->name('post.created');
+
+Route::put('post/{post}', 'App\Http\Controllers\Api\PostController@update');
+
+Route::delete('post/{post}', 'App\Http\Controllers\Api\PostController@destroy');
+
+// Category
+Route::get('category', 'App\Http\Controllers\Api\CategoryController@index');
+
+Route::get('category/{name}', 'App\Http\Controllers\Api\CategoryController@show');
+
+Route::post('category', 'App\Http\Controllers\Api\CategoryController@store');
+
+Route::put('category/{id}', 'App\Http\Controllers\Api\CategoryController@update');
+
+Route::delete('category/{category}', 'App\Http\Controllers\Api\CategoryController@destroy');

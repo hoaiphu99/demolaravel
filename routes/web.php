@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +16,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('index', function () {
-    return view('index');
+Route::get('/', function () {
+    return view('admin.login');
+})->name('index');
+
+Route::get('login', function () {
+    return view('admin.login');
 });
+Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
+
+Route::get('/category/{name}', function ($name) {
+    return view('user.category', ['name' => $name]);
+})->name('category.name');
+
+Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
+
+Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('dashboard', function () {
         return view('admin.index');
-    });
+    })->name('admin.dashboard');
 
-    Route::get('user', [\App\Http\Controllers\Controller::class, 'getUser']);
+    Route::get('user', [UserController::class, 'getUser'])->name('admin.user');
+    Route::post('user/create', [UserController::class, 'createUser'])->name('user.create');
+    Route::post('user/update/{id}', [UserController::class, 'updateUser'])->where(['id'])->name('user.update');
+
+    Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
+    Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
+
+    Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
+});
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
 });
