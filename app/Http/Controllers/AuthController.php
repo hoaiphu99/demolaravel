@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function login(Request $request) {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api';
         $username = $request->get('username');
         $password = $request->get('password');
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('login', [
             'headers' => [
-                'API_KEY' => 'PHU'
+                'APIKEY' => 'VSBG'
             ],
             'form_params' => [
                 'username' => $username,

@@ -11,11 +11,11 @@ use Illuminate\Http\Client\Response;
 class UserController extends Controller
 {
     public function getUser() {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = './api/';
         //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('user', [
-            'headers' => ['API_KEY' => 'PHU']
+            'headers' => ['APIKEY' => 'PHU']
         ]);
         //echo $res->getBody()->getContents();
         //var_dump($res->getBody()->getContents());
@@ -27,7 +27,7 @@ class UserController extends Controller
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('user', [
             'headers' => [
-                'API_KEY' => 'PHU'
+                'APIKEY' => 'PHU'
             ],
             'form_params' => [
                'username' => $_POST['username'],
@@ -46,7 +46,7 @@ class UserController extends Controller
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->put('user/'.$id, [
            'headers' => [
-               'API_KEY' => 'PHU'
+               'APIKEY' => 'PHU'
            ],
             'form_params' => [
                 'username' => $_POST['username'],
