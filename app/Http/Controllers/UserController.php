@@ -14,7 +14,7 @@ class UserController extends Controller
         $base_uri = './api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('user', [
-            'headers' => ['APIKEY' => 'PHU']
+            'headers' => ['APIKEY' => 'VSBG']
         ]);
         return view('admin.user', ['users' => json_decode($response->getBody())]);
     }
