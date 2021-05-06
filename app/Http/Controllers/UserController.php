@@ -12,13 +12,10 @@ class UserController extends Controller
 {
     public function getUser() {
         $base_uri = './api/';
-        //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('user', [
             'headers' => ['APIKEY' => 'PHU']
         ]);
-        //echo $res->getBody()->getContents();
-        //var_dump($res->getBody()->getContents());
         return view('admin.user', ['users' => json_decode($response->getBody())]);
     }
 
