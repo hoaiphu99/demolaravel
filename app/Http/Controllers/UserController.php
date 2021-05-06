@@ -11,7 +11,7 @@ use Illuminate\Http\Client\Response;
 class UserController extends Controller
 {
     public function getUser() {
-        $base_uri = './api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('user', [
             'headers' => ['APIKEY' => 'VSBG']
@@ -20,11 +20,11 @@ class UserController extends Controller
     }
 
     public function createUser() {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('user', [
             'headers' => [
-                'APIKEY' => 'PHU'
+                'APIKEY' => 'VSBG'
             ],
             'form_params' => [
                'username' => $_POST['username'],
@@ -39,11 +39,11 @@ class UserController extends Controller
     }
 
     public function updateUser($id) {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->put('user/'.$id, [
            'headers' => [
-               'APIKEY' => 'PHU'
+               'APIKEY' => 'VSBG'
            ],
             'form_params' => [
                 'username' => $_POST['username'],

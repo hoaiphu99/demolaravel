@@ -12,23 +12,20 @@ use GuzzleHttp\Psr7;
 class PostController extends Controller
 {
     public function getPost() {
-        $base_uri = 'http://127.0.0.1:8000/api/';
-        //$base_uri = 'http://localhost:81/WebChiaSeAnh/public/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('post', [
-            'headers' => ['API_KEY' => 'PHU']
+            'headers' => ['APIKEY' => 'VSBG']
         ]);
-        //echo $res->getBody()->getContents();
-        //var_dump($res->getBody()->getContents());
         return view('admin.post', ['posts' => json_decode($response->getBody())]);
     }
 
     public function createPost(Request $request) {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('post', [
             'headers' => [
-                'API_KEY' => 'PHU'
+                'APIKEY' => 'VSBG'
             ],
             'multipart' => [
                 [
@@ -64,11 +61,11 @@ class PostController extends Controller
     }
 
     public function updatePost($id) {
-        $base_uri = 'http://127.0.0.1:8000/api/';
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->put('post/'.$id, [
            'headers' => [
-               'API_KEY' => 'PHU'
+               'APIKEY' => 'VSBG'
            ],
             'form_params' => [
                 'username' => $_POST['username'],
