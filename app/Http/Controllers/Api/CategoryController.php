@@ -53,13 +53,15 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $name)
     {
         $category = Category::where('name', $name)->first();
-        $category->update($request->all());
+        if(is_null($category)) {
+            return response()->json(['message' => 'Record not found'], 404);
+        }
+        else $category->update($request->all());
         return response()->json(['status' => 1, 'data' => $category], 200);
     }
 
