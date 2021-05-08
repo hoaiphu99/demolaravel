@@ -22,8 +22,8 @@ class AuthController extends Controller
             ]
         ]);
 
-        dd($response->getBody());
+        //dd($response->getBody());
         //return $a = $response->getBody()->getContents();
-        //return view('admin.user', ['users' => json_decode($response->getBody())]);
+        return view('admin.user', ['users' => json_decode($response->getBody())]);
     }
 }
