@@ -58,7 +58,7 @@
                     <!-- Authentication card start -->
                     <div class="login-card card-block auth-body mr-auto ml-auto">
                         <form action="{{ route('login') }}" class="md-float-material" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="text-center">
                                 <img src="assets/images/auth/logo-dark.png" alt="logo.png">
                             </div>
