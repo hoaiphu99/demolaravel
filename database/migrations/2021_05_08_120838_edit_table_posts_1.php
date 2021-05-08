@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EditTablePostsRmpost extends Migration
+class EditTablePosts1 extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,6 @@ class EditTablePostsRmpost extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->dropForeign(['cate_id']);
             $table->dropColumn('cate_id');
-            $table->renameColumn('description', 'content');
-            $table->dropColumn('title');
         });
     }
 
