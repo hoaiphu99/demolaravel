@@ -50,10 +50,10 @@ Route::get('category', [CategoryController::class, 'index']);
 
 Route::get('category/{name}', [CategoryController::class, 'show']);
 
-Route::get('category/{id}', [CategoryController::class, 'showByID']);
+//Route::get('category/{id}', [CategoryController::class, 'showByID']);
 
 Route::post('category', [CategoryController::class, 'store']);
 
-Route::put('category/{id}', [CategoryController::class, 'update']);
+Route::put('category/{name}', [CategoryController::class, 'update']);
 
 Route::delete('category/{category}', [CategoryController::class, 'destroy']);

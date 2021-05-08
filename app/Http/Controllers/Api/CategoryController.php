@@ -56,9 +56,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $name)
     {
-        $category = Category::where('id', $id)->first();
+        $category = Category::where('name', $name)->first();
         $category->update($request->all());
         return response()->json(['status' => 1, 'data' => $category], 200);
     }
