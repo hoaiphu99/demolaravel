@@ -26,7 +26,7 @@ class CreateDb extends Migration
             $table->string('phone', 50)->nullable();
             $table->string('birthday', 50)->nullable();
             $table->integer('created')->unsigned();
-                
+
         });
         DB::table('users')->insert([
             [
@@ -49,17 +49,34 @@ class CreateDb extends Migration
             ],
         ]);
 
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('description', 500);
+            $table->integer('created')->unsigned();
+
+        });
+        DB::table('categories')->insert([
+            [
+                'name' => 'Anime',
+                'description' => 'Anime',
+                'created' => $unixTimestamp
+            ]
+        ]);
+
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
             $table->string('description', 500);
             $table->string('image', 100);
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('cate_id')->unsigned();
             $table->integer('created')->unsigned();
-                
+
         });
         Schema::table('posts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('cate_id')->references('id')->on('categories');
         });
         DB::table('posts')->insert([
             [
@@ -67,29 +84,7 @@ class CreateDb extends Migration
                 'description' => 'test',
                 'image' => '1.jpg',
                 'user_id' => 1,
-                'created' => $unixTimestamp
-            ]
-        ]);
-
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 100);
-            $table->string('description', 500);
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('post_id')->unsigned();
-            $table->integer('created')->unsigned();
-                
-        });
-        Schema::table('categories', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('post_id')->references('id')->on('posts');
-        });
-        DB::table('categories')->insert([
-            [
-                'name' => 'test',
-                'description' => 'test',
-                'user_id' => 1,
-                'post_id' => 1,
+                'cate_id' => 1,
                 'created' => $unixTimestamp
             ]
         ]);
@@ -99,7 +94,7 @@ class CreateDb extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('post_id')->unsigned();
             $table->integer('created')->unsigned();
-                
+
         });
         Schema::table('likes', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
@@ -119,7 +114,7 @@ class CreateDb extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('post_id')->unsigned();
             $table->integer('created')->unsigned();
-                
+
         });
         Schema::table('comments', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
