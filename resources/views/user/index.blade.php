@@ -10,7 +10,7 @@
                             <h2 class="mb-3"></h2>
                             <a href="{{ route('category.name', ['name' => $c->name]) }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
                         </div>
-                        <img src="{{  secure_asset('assets/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
+                        <img src="{{  secure_asset('assets/user/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
                     </div>
                 </div>
              @endforeach
