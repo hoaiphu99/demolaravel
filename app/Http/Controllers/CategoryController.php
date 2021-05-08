@@ -13,7 +13,9 @@ class CategoryController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('category', [
-            'headers' => ['APIKEY' => 'VSBG']
+            'headers' => [
+                'APIKEY' => 'VSBG'
+            ]
         ]);
         return view('user.index', ['categories' => json_decode($response->getBody())]);
     }
