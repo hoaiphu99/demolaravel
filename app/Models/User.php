@@ -17,4 +17,8 @@ class User extends Model
         'phone',
         'birthday'
     ];
+
+    public function post() {
+        return $this->hasMany('App\Models\Post', 'user_id', 'id');
+    }
 }
