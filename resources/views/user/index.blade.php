@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid" data-aos="fade" data-aos-delay="500" ng-controller="MyController" >
         <div class="row">
-             @foreach ($category as $c)
+             @foreach ($category->data as $c)
                 <div class="col-lg-4">
                     <div class="image-wrap-2">
                         <div class="image-info">
