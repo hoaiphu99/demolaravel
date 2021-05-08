@@ -21,8 +21,8 @@ class PostResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'image' => $this->image,
-            'user' => new UserResource($this->user),
-            'category' => new CategoryResource($this->category)
+            'user' => UserResource::collection($this->user),
+            'category' => CategoryResource::collection($this->category)
         ];
     }
 }
