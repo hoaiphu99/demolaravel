@@ -30,9 +30,7 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 
-Route::get('/category/{name}', function ($name) {
-    return view('user.category', ['name' => $name]);
-})->name('category.name');
+Route::get('/category/{name}', [CategoryController::class, 'getCategoryByName'])->where(['name'])->name('category.name');
 
 Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
 

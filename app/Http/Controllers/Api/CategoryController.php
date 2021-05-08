@@ -44,7 +44,7 @@ class CategoryController extends Controller
     {
         $category = Category::where('name', $name)->first();
         if(is_null($category)) {
-            return response()->json(["message" => "Record not found"], 404);
+            return response()->json(['message' => 'Record not found'], 404);
         }
         return response()->json(['status' => 1, 'data' => $category], 200);
     }

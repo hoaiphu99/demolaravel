@@ -29,7 +29,7 @@ class CategoryController extends Controller
             ]
         ]);
 
-        return view('admin.category', ['category' => json_decode($res->getBody())]);
+        return view('user.category', ['category' => json_decode($res->getBody())]);
     }
 
     public function updateCategory($id) {
