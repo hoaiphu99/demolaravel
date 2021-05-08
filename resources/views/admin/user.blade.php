@@ -63,7 +63,6 @@
                             <td><input type="text" class="form-control" name="birthday"></td>
                             <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
                         </form>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +79,6 @@
                         <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
         </div>
