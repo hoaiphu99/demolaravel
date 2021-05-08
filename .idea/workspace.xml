@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_085612_edit_table_categories_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_085612_edit_table_categories_1.php" afterDir="false" />
-    </list>
+    <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +165,7 @@
       <workItem from="1619080514235" duration="10797000" />
       <workItem from="1619097025699" duration="12000" />
       <workItem from="1619101291368" duration="5025000" />
-      <workItem from="1620454986932" duration="4656000" />
+      <workItem from="1620454986932" duration="4913000" />
     </task>
     <servers />
   </component>
