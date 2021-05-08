@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,14 +46,14 @@ Route::put('post/{post}', 'App\Http\Controllers\Api\PostController@update');
 Route::delete('post/{post}', 'App\Http\Controllers\Api\PostController@destroy');
 
 // Category
-Route::get('category', 'App\Http\Controllers\Api\CategoryController@index');
+Route::get('category', [CategoryController::class, 'index']);
 
-Route::get('category/{name}', 'App\Http\Controllers\Api\CategoryController@show');
+Route::get('category/{name}', [CategoryController::class, 'show']);
 
-Route::get('category/{id}', 'App\Http\Controllers\Api\CategoryController@showByID');
+Route::get('category/{id}', [CategoryController::class, 'showByID']);
 
-Route::post('category', 'App\Http\Controllers\Api\CategoryController@store');
+Route::post('category', [CategoryController::class, 'store']);
 
-Route::put('category/{id}', 'App\Http\Controllers\Api\CategoryController@update');
+Route::put('category/{id}', [CategoryController::class, 'update']);
 
-Route::delete('category/{category}', 'App\Http\Controllers\Api\CategoryController@destroy');
+Route::delete('category/{category}', [CategoryController::class, 'destroy']);
