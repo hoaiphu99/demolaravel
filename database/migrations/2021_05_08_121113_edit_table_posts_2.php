@@ -14,7 +14,7 @@ class EditTablePosts2 extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('description', 'content');
+            $table->dropColumn('title');
         });
     }
 
