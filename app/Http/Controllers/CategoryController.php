@@ -14,7 +14,7 @@ class CategoryController extends Controller
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->get('category', [
             'headers' => [
-                'APIKEY' => 'VSBG'
+                'APIKEY' => 'aaa'
             ]
         ]);
         return view('user.index', ['categories' => json_decode($response->getBody())]);
