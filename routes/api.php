@@ -49,6 +49,8 @@ Route::get('category', 'App\Http\Controllers\Api\CategoryController@index');
 
 Route::get('category/{name}', 'App\Http\Controllers\Api\CategoryController@show');
 
+Route::get('category/{id}', 'App\Http\Controllers\Api\CategoryController@showByID');
+
 Route::post('category', 'App\Http\Controllers\Api\CategoryController@store');
 
 Route::put('category/{id}', 'App\Http\Controllers\Api\CategoryController@update');
