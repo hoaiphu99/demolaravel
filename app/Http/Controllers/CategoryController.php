@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $response = $client->get('category', [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('user.index', ['category' => json_decode($response->getBody())]);
+        return view('user.index', ['categories' => json_decode($response->getBody())]);
     }
 
     public function getCategoryByName($name) {
