@@ -61,8 +61,8 @@
                   <ul class="dropdown">
                     <li><a href="{{ route('category.name', ['name' => 'Anime'])}}">Anime</a></li>
                     <li><a href="{{ route('category.name', ['name' => 'Travel'])}}">Travel</a></li>
-                    <li><a href="{{ route('category.name', ['name' => 'Animals'])}}">Animals</a></li>
-                    <li><a href="{{ route('category.name', ['name' => 'Sports'])}}">Sports</a></li>
+                    <li><a href="{{ route('category.name', ['name' => 'Animal'])}}">Animal</a></li>
+                    <li><a href="{{ route('category.name', ['name' => 'Sport'])}}">Sport</a></li>
                   </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
