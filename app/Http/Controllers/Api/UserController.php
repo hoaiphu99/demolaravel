@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user->update($request->all());
-        return response()->json(['status' => 1, 'data' => $user], 200);
+        return response()->json($user, 200);
     }
 
     /**
