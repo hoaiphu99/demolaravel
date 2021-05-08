@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/fonts/icomoon/style.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/icomoon/style.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/magnific-popup.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/jquery-ui.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/magnific-popup.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.theme.default.min.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/lightgallery.min.css')}}">    
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/lightgallery.min.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/bootstrap-datepicker.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap-datepicker.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/fonts/flaticon/font/flaticon.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/flaticon/font/flaticon.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/swiper.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/swiper.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/aos.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/aos.css')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/user/css/style.css')}}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/style.css')}}">
 
 </head>
 <body ng-app="myApp">
@@ -39,7 +39,7 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
 
 
 
@@ -63,7 +63,7 @@
                     <li><a href="{{ url('category/{travel}')}}">Travel</a></li>
                     <li><a href="{{ url('category/{animal')}}">Animals</a></li>
                     <li><a href="{{ url('category/{sport}')}}">Sports</a></li>
-                    
+
                   </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
@@ -97,13 +97,13 @@
 
         </div>
       </div>
-      
+
     </header>
 
     @section('content')
     @show
 
-    
+
 
     <div class="footer py-4">
       <div class="container-fluid text-center">
@@ -115,43 +115,43 @@
       </div>
     </div>
 
-    
 
-    
-    
+
+
+
   </div>
-  <script type="text/javascript" src="{{ URL::asset('vendor/bootstrap.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('vendor/angular-1.5.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('vendor/angular-animate.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('vendor/angular-aria.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('vendor/angular-messages.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('vendor/angular-material.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('assets/js/jquery/jquery.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('assets/js/popper.js/popper.min.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
 
-  <script src="{{ URL::asset('assets/user/js/jquery-3.3.1.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery-ui.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/popper.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/bootstrap.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/owl.carousel.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery.stellar.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery.countdown.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery.magnific-popup.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/bootstrap-datepicker.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/swiper.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/aos.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery-3.3.1.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery-ui.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/popper.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/bootstrap.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/owl.carousel.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery.stellar.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery.countdown.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/swiper.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/aos.js')}}"></script>
 
-  <script src="{{ URL::asset('assets/user/js/picturefill.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/lightgallery-all.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/js/jquery.mousewheel.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/picturefill.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/lightgallery-all.min.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/jquery.mousewheel.min.js')}}"></script>
 
-  <script src="{{ URL::asset('assets/user/js/main.js')}}"></script>
-  <script src="{{ URL::asset('assets/user/main.js')}}"></script>
-  
+  <script src="{{ secure_asset('assets/user/js/main.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/main.js')}}"></script>
+
   <script>
     $(document).ready(function(){
       $('#lightgallery').lightGallery();

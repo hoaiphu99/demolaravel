@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    public function  getCategory() {
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $client = new Client(['base_uri' => $base_uri]);
+        $response = $client->get('category', [
+            'headers' => ['APIKEY' => 'VSBG']
+        ]);
+        return view('user.index', ['category' => json_decode($response->getBody())]);
+    }
+
     public function getCategoryByName($name) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);

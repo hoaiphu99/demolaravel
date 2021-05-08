@@ -12,33 +12,33 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $category = Category::all();
 
-        return response()->json(CategoryResource::collection($category));
+        return response()->json(['status' => 1, 'data' => $category]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         $category = Category::create($request->all());
 
-        return response()->json($category, 201);
+        return response()->json(['status' => 1, 'data' => $category], 201);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($name)
     {
@@ -46,7 +46,7 @@ class CategoryController extends Controller
         if(is_null($category)) {
             return response()->json(["message" => "Record not found"], 404);
         }
-        return response()->json($category, 200);
+        return response()->json(['status' => 1, 'data' => $category], 200);
     }
 
     /**
@@ -54,13 +54,13 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
         $category = Category::where('id', $id)->first();
         $category->update($request->all());
-        return response()->json($category, 200);
+        return response()->json(['status' => 1, 'data' => $category], 200);
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
         if(is_null($category)) {
             return response()->json(["message" => "Record not found"], 404);
         }
-        return response()->json(($category), 200);
+        return response()->json(['status' => 1, 'data' => $category], 200);
     }
 
 }

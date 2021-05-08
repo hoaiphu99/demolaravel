@@ -3,18 +3,18 @@
 @section('content')
     <div class="container-fluid" data-aos="fade" data-aos-delay="500" ng-controller="MyController" >
         <div class="row">
-            {{-- @foreach ($category as $c) --}}
-                <div class="col-lg-4" ng-repeat="category in c">
+             @foreach ($category as $c)
+                <div class="col-lg-4">
                     <div class="image-wrap-2">
                         <div class="image-info">
-                            <h2 class="mb-3"><% c.name %></h2>
+                            <h2 class="mb-3"></h2>
                             <a href="{{ route('category.name', ['name' => $c->name]) }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
                         </div>
-                        <img src="{{  asset('assets/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
+                        <img src="{{  secure_asset('assets/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
                     </div>
                 </div>
-            {{-- @endforeach --}}
-            
+             @endforeach
+
             {{-- <div class="col-lg-4">
                 <div class="image-wrap-2">
                     <div class="image-info">
