@@ -314,10 +314,10 @@
                                 </span>
                                 <span><h6>Create template, admin with responsive<span class="label bg-c-pink m-l-10">2 week</span></h6></span>
                                 <div class="task-card-img m-l-40">
-                                    <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40"></a>
-                                    <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-3.jpg') }}" data-toggle="tooltip" title="Suzen" alt="" class="img-40 m-l-10"></a>
-                                    <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-4.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40 m-l-10"></a>
-                                    <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
+                                    <a href="#!"><img src="{{ secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40"></a>
+                                    <a href="#!"><img src="{{ secure_asset('assets/images/avatar-3.jpg') }}" data-toggle="tooltip" title="Suzen" alt="" class="img-40 m-l-10"></a>
+                                    <a href="#!"><img src="{{ secure_asset('assets/images/avatar-4.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40 m-l-10"></a>
+                                    <a href="#!"><img src="{{ secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
                                 </div>
                             </label>
                         </div>
@@ -332,9 +332,9 @@
                                 <span><h6>Meeting With HOD's and borad</h6>
                                     <p class="text-muted m-l-40">23 january 2003</p></span>
                                     <div class="task-card-img m-l-40">
-                                        <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
-                                        <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-3.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
-                                        <a href="#!"><img src="{{ URL::secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
+                                        <a href="#!"><img src="{{ secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
+                                        <a href="#!"><img src="{{ secure_asset('assets/images/avatar-3.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
+                                        <a href="#!"><img src="{{ secure_asset('assets/images/avatar-2.jpg') }}" data-toggle="tooltip" title="Josephin Doe" alt="" class="img-40 m-l-10"></a>
                                     </div>
                                 </label>
                             </div>
