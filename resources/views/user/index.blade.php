@@ -7,7 +7,7 @@
                 <div class="col-lg-4">
                     <div class="image-wrap-2">
                         <div class="image-info">
-                            <h2 class="mb-3"></h2>
+                            <h2 class="mb-3">{{ $c->name }}</h2>
                             <a href="{{ route('category.name', ['name' => $c->name]) }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
                         </div>
                         <img src="{{  secure_asset('assets/user/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
