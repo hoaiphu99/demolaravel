@@ -39,7 +39,7 @@ Route::delete('user/{id}', [UserController::class, 'destroy']);
 // Post
 Route::get('post', 'App\Http\Controllers\Api\PostController@index');
 
-Route::get('post/{userid}', [PostController::class, 'getPostByUserID']);
+Route::get('post/user/{userid}', [PostController::class, 'getPostByUserID']);
 
 Route::post('post', [PostController::class, 'store'])->name('post.created');
 
