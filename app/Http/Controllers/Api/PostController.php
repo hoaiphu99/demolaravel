@@ -60,11 +60,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = Post::create($request->all());
-        $decode_data = base64_decode($request->get('image'));
-        $newImage = $this->saveImgBase64($request->get('image'), 'assets/uploads');
+        //$decode_data = base64_decode($request->get('image'));
+        $newImage = $this->saveImgBase64($request->get('image'), 'uploads');
 
         // $image = $request->file('image');
-        $path = "https://project-api-levi.herokuapp.com/assets/upload/".$newImage;
+        $path = "https://project-api-levi.herokuapp.com/uploads/".$newImage;
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
