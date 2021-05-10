@@ -41,19 +41,19 @@ class PostController extends Controller
         $decode_data = base64_decode($request->get('image'));
         $file = fopen("assets/images/post.jpg", "w+");
         fwrite($file, $decode_data);
-        fclose($file);
+
         $img_path = "assets/images/post.jpg";
         $image = file_get_contents($img_path);
-        $type = pathinfo($image.get_include_path(), PATHINFO_EXTENSION);
-        $name = pathinfo($image.get_include_path(), PATHINFO_FILENAME);
+        $type = pathinfo($file.get_include_path(), PATHINFO_EXTENSION);
+        $name = pathinfo($file.get_include_path(), PATHINFO_FILENAME);
 
         // $image = $request->file('image');
         $newImage = $name."_".$post->id.".jpg";
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
-        File::move($img_path, public_path('assets/images'));
+        File::move($file.get_include_path(), public_path('assets/images'));
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
-
+        fclose($file);
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
 
