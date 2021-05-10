@@ -39,13 +39,13 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         $decode_data = base64_decode($request->get('image'));
-        $file = fopen("assets/images/post.jpg", "w+");
+        $file = fopen(public_path("assets/images/post.jpg"), "w+");
         fwrite($file, $decode_data);
-
-        $img_path = "assets/images/post.jpg";
+        fclose($file);
+        $img_path = public_path("assets/images/post.jpg");
         $image = file_get_contents($img_path);
-        $type = pathinfo($file.get_include_path(), PATHINFO_EXTENSION);
-        $name = pathinfo($file.get_include_path(), PATHINFO_FILENAME);
+        $type = pathinfo($img_path.get_include_path(), PATHINFO_EXTENSION);
+        $name = pathinfo($img_path.get_include_path(), PATHINFO_FILENAME);
 
         // $image = $request->file('image');
         $newImage = $name."_".$post->id.".jpg";
@@ -53,7 +53,7 @@ class PostController extends Controller
         File::move($file.get_include_path(), public_path('assets/images'));
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
-        fclose($file);
+
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
 
