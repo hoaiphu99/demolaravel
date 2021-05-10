@@ -23,39 +23,40 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
+        $data = $request->file('image');
+        $encode_data = base64_encode($data);
+
         $response = $client->post('post', [
             'headers' => [
                 'APIKEY' => 'VSBG'
             ],
-            'multipart' => [
-                [
-                    'name' => 'title',
-                    'contents' => $request->input('title')
-                ],
-                [
-                    'name' => 'description',
-                    'contents' => $request->input('description')
-                ],
-                [
-                    'name' => 'image',
-                    'contents' => Psr7\Utils::streamFor($request->file('image')->getFilename())
-                ],
-                [
-                    'name' => 'user_id',
-                    'contents' => $request->input('user_id')
-                ],
-                [
-                    'name' => 'cate_id',
-                    'contents' => $request->input('cate_id')
-                ]
-            ]
-//            'form_params' => [
-//               'title' => $request->input('title'),
-//               'description' => $request->input('description'),
-//               'image' => $request->file('image'),
-//               'user_id' => $request->input('user_id'),
-//               'cate_id' => $request->input('cate_id'),
-//           ]
+//            'multipart' => [
+//                [
+//                    'name' => 'title',
+//                    'contents' => $request->input('title')
+//                ],
+//                [
+//                    'name' => 'description',
+//                    'contents' => $request->input('description')
+//                ],
+//                [
+//                    'name' => 'image',
+//                    'contents' => Psr7\Utils::streamFor($request->file('image')->getFilename())
+//                ],
+//                [
+//                    'name' => 'user_id',
+//                    'contents' => $request->input('user_id')
+//                ],
+//                [
+//                    'name' => 'cate_id',
+//                    'contents' => $request->input('cate_id')
+//                ]
+//            ]
+            'form_params' => [
+               'content' => $request->input('content'),
+               'image' => $encode_data,
+               'user_id' => $request->input('user_id')
+           ]
         ]);
         return redirect(route('admin.post'));
     }
