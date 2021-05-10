@@ -32,8 +32,8 @@ class PostController extends Controller
         $post = Post::create($request->all());
         $image = $request->file('image');
         $newImage = $image->getFilename().".".$image->getClientOriginalExtension();
-        $path = "images/".$newImage;
-        $image->move(public_path('images'), $newImage);
+        $path = "assets/images/".$newImage;
+        $image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
