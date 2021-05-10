@@ -38,10 +38,10 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         $decode_data = base64_decode($request->get('image'));
-        $file = fopen("./assets/images/post.jpg", "w+");
+        $file = fopen("assets/images/post.jpg", "w+");
         fwrite($file, $decode_data);
         fclose($file);
-        $img_path = "./assets/images/post.jpg";
+        $img_path = "assets/images/post.jpg";
         $type = pathinfo($img_path, PATHINFO_EXTENSION);
         $name = pathinfo($img_path, PATHINFO_FILENAME);
         //$image = file_get_contents($img_path);
