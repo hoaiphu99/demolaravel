@@ -42,9 +42,10 @@ class PostController extends Controller
         fwrite($file, $decode_data);
         fclose($file);
         $img_path = "assets/images/post.jpg";
-        $type = pathinfo($img_path, PATHINFO_EXTENSION);
-        $name = pathinfo($img_path, PATHINFO_FILENAME);
-        //$image = file_get_contents($img_path);
+        $image = file_get_contents($img_path);
+        $type = pathinfo($image.get_include_path(), PATHINFO_EXTENSION);
+        $name = pathinfo($image.get_include_path(), PATHINFO_FILENAME);
+
         // $image = $request->file('image');
         $newImage = $name."_".$post->id.".".$type;
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
