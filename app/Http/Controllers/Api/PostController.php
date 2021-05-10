@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -49,6 +50,7 @@ class PostController extends Controller
         // $image = $request->file('image');
         $newImage = $name."_".$post->id.".jpg";
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
+        File::file($img_path, public_path('assets/images'));
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
