@@ -54,7 +54,7 @@ class PostController extends Controller
 //            ]
             'form_params' => [
                'content' => $request->input('content'),
-               'image' => $encode_data,
+               'image' => $request->input('image'),
                'user_id' => $request->input('user_id')
            ]
         ]);
