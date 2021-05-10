@@ -25,18 +25,18 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         $post = Post::create($request->all());
         $image = $request->file('image');
-        $newImage = $post->id.".".$image->getClientOriginalExtension();
+        $newImage = $image->getFilename().".".$image->getClientOriginalExtension();
         $path = "images/".$newImage;
         $image->move(public_path('images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
-        return response()->json($post, 201);
+        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
 
     /**
