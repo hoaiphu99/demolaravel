@@ -21,6 +21,13 @@ class PostController extends Controller
         return response()->json(['status' => 1, 'data' => PostResource::collection($post)]);
     }
 
+    public function getPostByUserID($userid)
+    {
+        $post = Post::where(['user_id' => $userid]);
+
+        return response()->json(['status' => 1, 'data' => PostResource::collection($post)]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
