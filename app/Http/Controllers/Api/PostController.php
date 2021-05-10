@@ -47,7 +47,7 @@ class PostController extends Controller
         $name = pathinfo($image.get_include_path(), PATHINFO_FILENAME);
 
         // $image = $request->file('image');
-        $newImage = $name."_".$post->id.".".$type;
+        $newImage = $name."_".$post->id.".jpg";
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
