@@ -41,7 +41,7 @@ Route::get('post', 'App\Http\Controllers\Api\PostController@index');
 
 Route::post('post', [PostController::class, 'store'])->name('post.created');
 
-Route::put('post/{post}', 'App\Http\Controllers\Api\PostController@update');
+Route::put('post/{id}', [PostController::class, 'update']);
 
 Route::delete('post/{post}', 'App\Http\Controllers\Api\PostController@destroy');
 
