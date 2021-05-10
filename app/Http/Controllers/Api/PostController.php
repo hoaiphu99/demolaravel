@@ -37,7 +37,7 @@ class PostController extends Controller
         preg_match('/.([0-9]+) /', microtime(), $m);
         $fileName = sprintf('img%s%s.%s', date('YmdHis'), $m[1], $tmpExtension[1]);
         $content = explode(',', $content)[1];
-        $destinationPath = public_path().$folder;
+        $destinationPath = public_path().'/'.$folder;
         file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
 //        $storage = Storage::disk('public');
 //
