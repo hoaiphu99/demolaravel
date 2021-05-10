@@ -24,7 +24,9 @@ class PostController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $data = $request->file('image');
+        $type = $data->getClientOriginalExtension();
         $encode_data = base64_encode($data);
+        $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         $response = $client->post('post', [
             'headers' => [
@@ -54,7 +56,7 @@ class PostController extends Controller
 //            ]
             'form_params' => [
                'content' => $request->input('content'),
-               'image' => $request->input('image'),
+               'image' => $base64String,
                'user_id' => $request->input('user_id')
            ]
         ]);
