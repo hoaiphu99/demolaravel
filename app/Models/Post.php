@@ -10,11 +10,9 @@ class Post extends Model
     protected $tableName = 'posts';
 
     protected $fillable = [
-        'title',
-        'description',
+        'content',
         'image',
         'user_id',
-        'cate_id'
     ];
 
     public function user() {
