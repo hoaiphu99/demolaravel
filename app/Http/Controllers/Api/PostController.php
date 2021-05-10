@@ -62,7 +62,7 @@ class PostController extends Controller
         $post = Post::where(['id' => $id]);
         $post->update($request->all());
 
-        return response()->json(['status' => 1, 'data' => $post], 200);
+        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
     }
 
     /**
