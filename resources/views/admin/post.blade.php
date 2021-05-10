@@ -44,11 +44,9 @@
                 <thead>
                     <tr>
 {{--                        <th>ID</th>--}}
-                        <th>Tiêu đề</th>
-                        <th>Mô tả</th>
-                        <th>Link ảnh</th>
+                        <th>Nội dung</th>
+                        <th>Chọn hình ảnh</th>
                         <th>Tác giả</th>
-                        <th>Thể loại</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -64,12 +62,10 @@
                 </thead>
                 <tbody>
                 <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <td><input type="text" class="form-control" name="title"></td>
-                    <td><input type="text" class="form-control" name="description"></td>
+                    @csrf
+                    <td><input type="text" class="form-control" name="content"></td>
                     <td><input type="file" class="form-control" name="image" required="true"></td>
                     <td><input type="text" class="form-control" name="user_id"></td>
-                    <td><input type="text" class="form-control" name="cate_id"></td></td>
                     <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
                 </form>
 {{--                    @foreach ($posts as $p)--}}
