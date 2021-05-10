@@ -38,10 +38,15 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         $decode_data = base64_decode($request->get('image'));
-        $file = fopen("post.jpg", "w");
-        $image = fwrite($file, $decode_data);
+        $file = fopen("./assets/images/post.jpg", "w+");
+        fwrite($file, $decode_data);
+        fclose($file);
+        $img_path = "./assets/images/post.jpg";
+        $type = pathinfo($img_path, PATHINFO_EXTENSION);
+        $name = pathinfo($img_path, PATHINFO_FILENAME);
+        $image = file_get_contents($img_path);
         // $image = $request->file('image');
-        $newImage = $image->getFilename()."_".$post->id.".".$image->getClientOriginalExtension();
+        $newImage = $name."_".$post->id.".".$type;
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
         $image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
@@ -52,12 +57,14 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::where(['id' => $id])->first();
+
+        return response()->json(['status' => 1, 'data' => PostResource::collection($post)], 201);
     }
 
     /**
