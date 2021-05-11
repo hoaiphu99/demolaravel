@@ -28,7 +28,7 @@ class PostController extends Controller
 
         //dd($data);
         $type = $data->getClientOriginalExtension();
-        $x = file_get_contents($request->file('image')->getPath());
+        $x = file_get_contents($request->file('image')->path());
         $encode_data = base64_encode($x);
         $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
