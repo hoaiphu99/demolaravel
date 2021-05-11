@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 use GuzzleHttp\Psr7;
+use Intervention\Image\Image;
 
 class PostController extends Controller
 {
@@ -23,11 +24,11 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
-        $type = $request->file('image')->getClientOriginalExtension();
-        $data = file_get_contents($request->file('image')->path());
-        // $type = $data->getClientOriginalExtension();
-        $encode_data = base64_encode($data);
-        $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
+        $data = $request->file('image');
+        var_dump($data);
+        $type = $data->getClientOriginalExtension();
+        //$encode_data = base64_encode($data);
+        $base64String = 'data:image/' . $type . ';base64,' . $data;
 
         $response = $client->post('post', [
             'headers' => [
