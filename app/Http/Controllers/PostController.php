@@ -27,8 +27,8 @@ class PostController extends Controller
         $data = $request->file('image');
         var_dump($data);
         $type = $data->getClientOriginalExtension();
-        //$encode_data = base64_encode($data);
-        $base64String = $data;
+        $encode_data = base64_encode($data);
+        $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         $response = $client->post('post', [
             'headers' => [
