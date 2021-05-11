@@ -24,7 +24,7 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
-        $data = $request->input('base64');
+        $data = $request->input('image');
         dd($data);
         $type = $data->getClientOriginalExtension();
         $encode_data = base64_encode($data);
