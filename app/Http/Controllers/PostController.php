@@ -26,11 +26,10 @@ class PostController extends Controller
         $client = new Client(['base_uri' => $base_uri]);
         $data = $request->file('image');
 
-
         $type = $data->getClientOriginalExtension();
         $encode_data = base64_encode($data);
         $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
-        dd($base64String);
+//        dd($base64String);
         $response = $client->post('post', [
             'headers' => [
                 'APIKEY' => 'VSBG'

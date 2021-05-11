@@ -40,17 +40,17 @@ class PostController extends Controller
         $content = explode(',', $content)[1];
         $destinationPath = public_path().'/'.$folder;
         //Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
-        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
+        //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
 
-//        $storage = Storage::disk('public');
-//
-//        $checkDirectory = $storage->exists($folder);
-//
-//        if (!$checkDirectory) {
-//            $storage->makeDirectory($folder);
-//        }
-//
-//        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
+        $storage = Storage::disk('public');
+
+        $checkDirectory = $storage->exists($folder);
+
+        if (!$checkDirectory) {
+            $storage->makeDirectory($folder);
+        }
+
+        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
 
         return $fileName;
     }
