@@ -39,8 +39,8 @@ class PostController extends Controller
         $fileName = sprintf('img%s%s.%s', date('YmdHis'), $m[1], $tmpExtension[1]);
         $content = explode(',', $content)[1];
         $destinationPath = public_path().'/'.$folder;
-        Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
-        //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
+        //Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
+        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
 
 //        $storage = Storage::disk('public');
 //
