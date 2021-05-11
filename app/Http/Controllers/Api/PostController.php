@@ -52,7 +52,7 @@ class PostController extends Controller
 //
 //        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
 
-        return $param;
+        return $fileName;
     }
 
     /**
