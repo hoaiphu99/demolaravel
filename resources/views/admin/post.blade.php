@@ -64,7 +64,12 @@
                 <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <td><input type="text" class="form-control" name="content"></td>
-                    <td><input type="file" class="form-control" name="image" required="true"></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="file" id="fileUpload" class="form-control">
+                            <input type="hidden" name="base64" id="inputBase64">
+                        </div>
+                    </td>
                     <td><input type="text" class="form-control" name="user_id"></td>
                     <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
                 </form>
