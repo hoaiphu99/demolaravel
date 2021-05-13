@@ -34,11 +34,9 @@ class PostController extends Controller
                 'Accept' => 'application/json',
 
             ],
-            'multipart' => [
-                [
-                    'name' => 'image',
-                    'contents' => $request->file('image'),
-                ]
+            'form_params' => [
+                'image' => $encode_data,
+
             ]
         ]);
         dd($image->getBody()->getContents());
