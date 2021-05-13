@@ -25,16 +25,16 @@ class PostController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
 
-        $file = $request->file('image');
-        $type = $file->getClientOriginalExtension();
-        $name = 'post_'.time().'.'.$type;
-        $path = public_path().'/assets/images/';
-
-        $file->move($path, $name);
-        //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
-
-        // Upload hinh anh len Imgur bang API
-        $resource = fopen($path, "r") or die("File upload Problems");
+//        $file = $request->file('image');
+//        $type = $file->getClientOriginalExtension();
+//        $name = 'post_'.time().'.'.$type;
+//        $path = public_path().'/assets/images/';
+//
+//        $file->move($path, $name);
+//        //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
+//
+//        // Upload hinh anh len Imgur bang API
+//        $resource = fopen($path, "r") or die("File upload Problems");
 
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('post', [

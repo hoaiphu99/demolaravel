@@ -70,7 +70,16 @@ class PostController extends Controller
 
         $imgur_uri = 'https://api.imgur.com/3/';
         $imgur_clientID = 'db12bcd4537c063';
-        //$path = public_path().'/assets/images/'.$request->get('image');
+        $file = $request->file('image');
+        $type = $file->getClientOriginalExtension();
+        $name = 'post_'.time().'.'.$type;
+        $path = public_path().'/assets/images/';
+
+        $file->move($path, $name);
+        //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
+
+        // Upload hinh anh len Imgur bang API
+        $resource = fopen($path, "r") or die("File upload Problems");
 
         $imgur_client = new Client(['base_uri' => $imgur_uri]);
         $imgur_response = $imgur_client->post('image', [
@@ -82,7 +91,7 @@ class PostController extends Controller
                 [
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                     'name' => 'image',
-                    'contents' => $request->get('image'),
+                    'contents' => $resource,
                 ]
             ]
         ]);
