@@ -70,8 +70,8 @@ class PostController extends Controller
 
         $imgur_uri = 'https://api.imgur.com/3/';
         $imgur_clientID = 'db12bcd4537c063';
-        $path = public_path().'/assets/images/'.$request->get('image');
-        $resource = fopen($path, "r") or die("File open Problems");
+        //$path = public_path().'/assets/images/'.$request->get('image');
+
         $imgur_client = new Client(['base_uri' => $imgur_uri]);
         $imgur_response = $imgur_client->post('image', [
             'headers' => [
@@ -82,7 +82,7 @@ class PostController extends Controller
                 [
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                     'name' => 'image',
-                    'contents' => $resource,
+                    'contents' => $request->get('image'),
                 ]
             ]
         ]);

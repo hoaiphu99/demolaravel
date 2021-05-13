@@ -34,18 +34,35 @@ class PostController extends Controller
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
-
+        $resource = fopen($path, "r") or die("File upload Problems");
 
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('post', [
             'headers' => [
                 'APIKEY' => 'VSBG'
             ],
-            'form_params' => [
-                'content' => $request->input('content'),
-                'image' => $name,
-                'user_id' => $request->input('user_id')
-            ]
+            'multipart' => [
+                [
+
+                    'name' => 'content',
+                    'contents' => $request->input('content'),
+                ],
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resource,
+                ],
+                [
+
+                    'name' => 'user_id',
+                    'contents' => $request->input('user_id'),
+                ],
+            ],
+//            'form_params' => [
+//                'content' => $request->input('content'),
+//                'image' => $name,
+//                'user_id' => $request->input('user_id')
+//            ]
         ]);
         return redirect(route('admin.post'));
     }
