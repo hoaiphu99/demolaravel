@@ -23,64 +23,44 @@ class PostController extends Controller
 
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        if ($request->hasFile('image')) {
-            $file = $request->get('image');
-        }
-        $data_1 = $request->file('image');
-        dd($data_1);
-        $handle = fopen($data_1->getFilename(), 'r');
-        $data = fread($handle, filesize($data_1->getFilename()));
-        //$type = $data->getClientOriginalExtension();
-        $encode_data = base64_encode($data);
         $imgur_uri = 'https://api.imgur.com/3/';
-        $upload_to_imgur = new Client(['base_uri' => $imgur_uri]);
-        $image = $upload_to_imgur->post('image', [
+        $imgur_clientID = 'db12bcd4537c063';
+
+        $file = $request->file('image');
+        $type = $file->getClientOriginalExtension();
+        $name = 'post_'.time().'.'.$type;
+        $path = public_path().'/assets/images/';
+        $resource = fopen($file, "r") or die("File upload Problems");
+        $file->move($path, $name);
+        //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
+
+        // Upload hinh anh len Imgur bang API
+        $imgur_client = new Client(['base_uri' => $imgur_uri]);
+        $imgur_response = $imgur_client->post('image', [
             'headers' => [
-                'Authorization' => 'Client-ID db12bcd4537c063',
-                'Accept' => 'application/json',
+                'Authorization' => 'Client-ID '.$imgur_clientID,
 
             ],
-            'form_params' => [
-                'image' => $encode_data,
-
+            'multipart' => [
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resource,
+                ]
             ]
         ]);
-        dd($image->getBody()->getContents());
-        $client = new Client(['base_uri' => $base_uri]);
+        $img_link = json_decode($imgur_response->getBody())->data->link;
 
-        $base64String = 'data:image/' . $type . ';base64,' . $encode_data;
-//        dd($base64String);
+        $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('post', [
             'headers' => [
                 'APIKEY' => 'VSBG'
             ],
-//            'multipart' => [
-//                [
-//                    'name' => 'title',
-//                    'contents' => $request->input('title')
-//                ],
-//                [
-//                    'name' => 'description',
-//                    'contents' => $request->input('description')
-//                ],
-//                [
-//                    'name' => 'image',
-//                    'contents' => Psr7\Utils::streamFor($request->file('image')->getFilename())
-//                ],
-//                [
-//                    'name' => 'user_id',
-//                    'contents' => $request->input('user_id')
-//                ],
-//                [
-//                    'name' => 'cate_id',
-//                    'contents' => $request->input('cate_id')
-//                ]
-//            ]
             'form_params' => [
-               'content' => $request->input('content'),
-               'image' => $base64String,
-               'user_id' => $request->input('user_id')
-           ]
+                'content' => $request->input('content'),
+                'image' => $img_link,
+                'user_id' => $request->input('user_id')
+            ]
         ]);
         return redirect(route('admin.post'));
     }
@@ -89,9 +69,9 @@ class PostController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->put('post/'.$id, [
-           'headers' => [
-               'APIKEY' => 'VSBG'
-           ],
+            'headers' => [
+                'APIKEY' => 'VSBG'
+            ],
             'form_params' => [
                 'username' => $_POST['username'],
                 'password' => $_POST['password'],
