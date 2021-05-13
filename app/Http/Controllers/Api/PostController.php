@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -66,8 +67,29 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = Post::create($request->all());
-        $link_img = $request->get('image');
-        Post::where(['id' => $post->id])->update(['image' => $link_img]);
+
+        $imgur_uri = 'https://api.imgur.com/3/';
+        $imgur_clientID = 'db12bcd4537c063';
+        $path = public_path().'/assets/images/'.$request->get('image');
+        $resource = fopen($path, "r") or die("File open Problems");
+        $imgur_client = new Client(['base_uri' => $imgur_uri]);
+        $imgur_response = $imgur_client->post('image', [
+            'headers' => [
+                'Authorization' => 'Client-ID '.$imgur_clientID,
+
+            ],
+            'multipart' => [
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resource,
+                ]
+            ]
+        ]);
+        $img_link = json_decode($imgur_response->getBody())->data->link;
+
+        //$link_img = $request->get('image');
+        Post::where(['id' => $post->id])->update(['image' => $img_link]);
 
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
