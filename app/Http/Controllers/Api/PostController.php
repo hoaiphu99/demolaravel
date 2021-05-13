@@ -70,7 +70,7 @@ class PostController extends Controller
 
         $imgur_uri = 'https://api.imgur.com/3/';
         $imgur_clientID = 'db12bcd4537c063';
-        $file = $request->file('image');
+        dd($file = $request->file('image'));
         $type = $file->getClientOriginalExtension();
         $name = 'post_'.time().'.'.$type;
         $path = public_path().'/assets/images/';

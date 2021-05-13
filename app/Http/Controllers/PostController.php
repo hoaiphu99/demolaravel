@@ -25,7 +25,7 @@ class PostController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
 
-//        $file = $request->file('image');
+        $file = $request->file('image');
 //        $type = $file->getClientOriginalExtension();
 //        $name = 'post_'.time().'.'.$type;
 //        $path = public_path().'/assets/images/';
@@ -50,7 +50,7 @@ class PostController extends Controller
                 [
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                     'name' => 'image',
-                    'contents' => $request->file('image'),
+                    'contents' => fopen($file, "r"),
                 ],
                 [
 
