@@ -23,8 +23,10 @@ class PostController extends Controller
 
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $data = $request->file('image');
-        $type = $data->getClientOriginalExtension();
+        $data_1 = $request->file('image');
+        $handle = fopen($data_1->getFilename(), 'r');
+        $data = fread($handle, filesize($data_1->getFilename()));
+        //$type = $data->getClientOriginalExtension();
         $encode_data = base64_encode($data);
         $imgur_uri = 'https://api.imgur.com/3/';
         $upload_to_imgur = new Client(['base_uri' => $imgur_uri]);
