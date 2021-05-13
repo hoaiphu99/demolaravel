@@ -68,10 +68,10 @@ class PostController extends Controller
         //$decode_data = base64_decode($request->get('image'));
         //$newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
         $img = $request->get('image');
-        list($extension, $content) = explode(';', $img);
-        $tmpExtension = explode('/', $extension);
+        $arr = explode(';', $img);
+        $tmpExtension = explode('/', $arr[0]);
         $folder = 'assets/images';
-        $content = explode(',', $content);
+        $content = explode(',', $arr[1]);
         $destinationPath = public_path().'/'.$folder;
         $fileName = 'post_'.$post->id.'.'.$tmpExtension[1];
         file_put_contents($destinationPath.'/'.$fileName, base64_decode($content)[1]);
