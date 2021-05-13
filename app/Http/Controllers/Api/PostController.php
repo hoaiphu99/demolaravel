@@ -70,7 +70,7 @@ class PostController extends Controller
         $img = $request->file('image');
         $base64String = 'data:image/' . $img->getClientOriginalExtension() . ';base64,' . base64_encode($img);
         $arr = explode(';', $base64String);
-        dd($arr);
+        //dd($arr);
         $tmpExtension = explode('/', $arr[0]);
         $folder = 'assets/images';
         $content = explode(',', $arr[1]);
