@@ -76,7 +76,7 @@ class PostController extends Controller
         $content = explode(',', $arr[1]);
         $destinationPath = public_path().'/'.$folder;
         $fileName = 'post_'.$post->id.'.'.$tmpExtension[1];
-        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content)[1]);
+        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content[1]));
         // $image = $request->file('image');
         $path = "https://project-api-levi.herokuapp.com/assets/images/".$fileName;
         //$image->move(public_path('assets/images'), $newImage);
