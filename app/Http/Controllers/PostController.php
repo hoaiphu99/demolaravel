@@ -28,13 +28,15 @@ class PostController extends Controller
         $encode_data = base64_encode($data);
         $imgur_uri = 'https://api.imgur.com/3/';
         $upload_to_imgur = new Client(['base_uri' => $imgur_uri]);
-        $image = $upload_to_imgur->get('upload', [
+        $image = $upload_to_imgur->post('upload', [
             'headers' => [
                 'Authorization' => 'Client-ID db12bcd4537c063',
+                'Accept' => 'application/json',
 
             ],
-            'form_params' => [
-                'image' => $encode_data
+            'multipart' => [
+                'name' => 'image',
+                'content' => $encode_data,
             ]
         ]);
         dd($image->getBody()->getContents());
