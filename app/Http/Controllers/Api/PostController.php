@@ -74,12 +74,12 @@ class PostController extends Controller
         $type = $file->getClientOriginalExtension();
         $name = 'post_'.time().'.'.$type;
         $path = public_path().'/assets/images/';
-
+        $resource = fopen($file, "r") or die("File upload Problems");
         $file->move($path, $name);
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
-        $resource = fopen($file, "r") or die("File upload Problems");
+
 
         $imgur_client = new Client(['base_uri' => $imgur_uri]);
         $imgur_response = $imgur_client->post('image', [
