@@ -37,7 +37,7 @@ class PostController extends Controller
             'multipart' => [
                 [
                     'name' => 'image',
-                    'contents' => $request->file('image'),
+                    'contents' => base64_encode($request->file('image')),
                 ]
             ]
         ]);
