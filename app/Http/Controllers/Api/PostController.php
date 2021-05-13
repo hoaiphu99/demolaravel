@@ -67,7 +67,8 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         //$decode_data = base64_decode($request->get('image'));
-        $newImage = $this->saveImgBase64($request->input('image'), 'assets/images');
+        dd($request->get('image'));
+        $newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
         //$img = $request->file('image');
 //        $base64String = 'data:image/' . $img->getClientOriginalExtension() . ';base64,' . base64_encode($img);
 //        $arr = explode(';', $base64String);
