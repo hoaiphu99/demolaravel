@@ -61,8 +61,8 @@
 {{--                    </tr> --}}
                 </thead>
                 <tbody>
-                <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <td><input type="text" class="form-control" name="content"></td>
                     <td><input type="file" class="form-control" name="image" required="true"></td>
                     <td><input type="text" class="form-control" name="user_id"></td>

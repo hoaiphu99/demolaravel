@@ -23,6 +23,9 @@ class PostController extends Controller
 
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        if ($request->hasFile('image')) {
+            $file = $request->get('image');
+        }
         $data_1 = $request->file('image');
         dd($data_1);
         $handle = fopen($data_1->getFilename(), 'r');
