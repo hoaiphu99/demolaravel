@@ -35,8 +35,10 @@ class PostController extends Controller
 
             ],
             'multipart' => [
-                'name' => 'image',
-                'content' => $encode_data,
+                [
+                    'name' => 'image',
+                    'contents' => $request->file('image'),
+                ]
             ]
         ]);
         dd($image->getBody()->getContents());
