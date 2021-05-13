@@ -48,7 +48,7 @@ class PostController extends Controller
                     'contents' => $request->input('content'),
                 ],
                 [
-                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'Content-Type' => 'multipart/form-data',
                     'name' => 'image',
                     'contents' => fopen($file, "r"),
                 ],
