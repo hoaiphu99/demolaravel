@@ -40,17 +40,17 @@ class PostController extends Controller
         $content = explode(',', $content)[1];
         $destinationPath = public_path().'/'.$folder;
         //Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
-        //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
+        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
 
-        $storage = Storage::disk('public');
-
-        $checkDirectory = $storage->exists($folder);
-
-        if (!$checkDirectory) {
-            $storage->makeDirectory($folder);
-        }
-
-        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
+//        $storage = Storage::disk('public');
+//
+//        $checkDirectory = $storage->exists($folder);
+//
+//        if (!$checkDirectory) {
+//            $storage->makeDirectory($folder);
+//        }
+//
+//        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
 
         return $fileName;
     }
@@ -66,10 +66,17 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         //$decode_data = base64_decode($request->get('image'));
-        $newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
-
+        //$newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
+        $img = $request->get('image');
+        list($extension, $content) = explode(';', $img);
+        $tmpExtension = explode('/', $extension);
+        $folder = 'assets/images';
+        $content = explode(',', $content);
+        $destinationPath = public_path().'/'.$folder;
+        $fileName = 'post_'.$post->id.'.'.$tmpExtension[1];
+        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content)[1]);
         // $image = $request->file('image');
-        $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
+        $path = "https://project-api-levi.herokuapp.com/assets/images/".$fileName;
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
