@@ -41,17 +41,17 @@ class PostController extends Controller
         $content = explode(',', $content)[1];
         $destinationPath = public_path().'/'.$folder;
         //Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
-        file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
+        //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
 
-//        $storage = Storage::disk('public');
-//
-//        $checkDirectory = $storage->exists($folder);
-//
-//        if (!$checkDirectory) {
-//            $storage->makeDirectory($folder);
-//        }
-//
-//        $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
+        $storage = Storage::disk('local');
+
+        $checkDirectory = $storage->exists($folder);
+
+        if (!$checkDirectory) {
+            $storage->makeDirectory($folder);
+        }
+
+        $storage->put($folder . '/' . $fileName, base64_decode($content), 'local');
 
         return $fileName;
     }
@@ -67,20 +67,20 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
         //$decode_data = base64_decode($request->get('image'));
-        //$newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
-        $img = $request->file('image');
-        $base64String = 'data:image/' . $img->getClientOriginalExtension() . ';base64,' . base64_encode($img);
-        $arr = explode(';', $base64String);
-        //dd($arr);
-        $tmpExtension = explode('/', $arr[0]);
-        $folder = 'assets/images';
-        $content = explode(',', $arr[1]);
-        $destinationPath = public_path().'/'.$folder;
-        $fileName = 'post_'.$post->id.'.'.$tmpExtension[1];
-        Image::make(base64_decode($content[1]))->save($destinationPath.'/'.$fileName);
+        $newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
+        //$img = $request->file('image');
+//        $base64String = 'data:image/' . $img->getClientOriginalExtension() . ';base64,' . base64_encode($img);
+//        $arr = explode(';', $base64String);
+//        //dd($arr);
+//        $tmpExtension = explode('/', $arr[0]);
+//        $folder = 'assets/images';
+//        $content = explode(',', $arr[1]);
+//        $destinationPath = public_path().'/'.$folder;
+//        $fileName = 'post_'.$post->id.'.'.$tmpExtension[1];
+//        Image::make(base64_decode($content[1]))->save($destinationPath.'/'.$fileName);
         //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content[1]));
         // $image = $request->file('image');
-        $path = "https://project-api-levi.herokuapp.com/assets/images/".$fileName;
+        $path = "https://project-api-levi.herokuapp.com/assets/images/".$newImage;
         //$image->move(public_path('assets/images'), $newImage);
         Post::where(['id' => $post->id])->update(['image' => $path]);
 
