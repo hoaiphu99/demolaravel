@@ -60,3 +60,21 @@ Route::post('category', [CategoryController::class, 'store']);
 Route::put('category/{name}', [CategoryController::class, 'update']);
 
 Route::delete('category/{category}', [CategoryController::class, 'destroy']);
+
+// Comment
+Route::get('comment', [CommentController::class, 'index']);
+
+Route::post('comment', [CommentController::class, 'store']);
+
+Route::put('comment/{id}', [CommentController::class, 'update']);
+
+Route::delete('comment/{id}', [CommentController::class, 'destroy']);
+
+// Like
+Route::get('like', [LikeController::class, 'index']);
+
+Route::post('like', [LikeController::class, 'store']);
+
+Route::put('like/{id}', [LikeController::class, 'update']);
+
+Route::delete('like/{id}', [LikeController::class, 'destroy']);

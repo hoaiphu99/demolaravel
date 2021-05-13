@@ -126,7 +126,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="login.blade.php">
+                                        <a /*href="login.blade.php"*/ href="{{ route('login') }}">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -154,7 +154,7 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="#"><i class="ti-user"></i>View Profile</a>
-                                            <a href="login.blade.php"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a /*href="login.blade.php"*/ href="{{ route('login') }}"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
