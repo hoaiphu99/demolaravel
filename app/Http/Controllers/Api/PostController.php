@@ -69,6 +69,7 @@ class PostController extends Controller
         //$newImage = $this->saveImgBase64($request->get('image'), 'assets/images');
         $img = $request->get('image');
         $arr = explode(';', $img);
+        dd($arr);
         $tmpExtension = explode('/', $arr[0]);
         $folder = 'assets/images';
         $content = explode(',', $arr[1]);
