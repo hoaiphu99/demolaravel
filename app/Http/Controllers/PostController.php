@@ -31,7 +31,7 @@ class PostController extends Controller
 
             ],
             'form_params' => [
-                'image' => $request->file('image')
+                'image' => base64_encode($request->file('image'))
             ]
         ]);
         dd($image->getBody()->getContents());
