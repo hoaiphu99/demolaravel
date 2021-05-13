@@ -25,14 +25,14 @@ class PostController extends Controller
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $imgur_uri = 'https://api.imgur.com/3/';
         $upload_to_imgur = new Client(['base_uri' => $imgur_uri]);
-        $image = $upload_to_imgur->post('upload', [
+        $image = $upload_to_imgur->get('image/LneEC9V', [
             'headers' => [
                 'Authorization' => 'Client-ID db12bcd4537c063',
 
             ],
-            'form_params' => [
-                'image' => base64_encode($request->file('image'))
-            ]
+//            'form_params' => [
+//                'image' => base64_encode($request->file('image'))
+//            ]
         ]);
         dd($image->getBody()->getContents());
         $client = new Client(['base_uri' => $base_uri]);
