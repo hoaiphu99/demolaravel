@@ -79,8 +79,6 @@ class PostController extends Controller
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
-
-
         $imgur_client = new Client(['base_uri' => $imgur_uri]);
         $imgur_response = $imgur_client->post('image', [
             'headers' => [

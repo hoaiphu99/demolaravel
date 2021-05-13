@@ -50,7 +50,7 @@ class PostController extends Controller
                 [
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                     'name' => 'image',
-                    'contents' => $resource,
+                    'contents' => $request->file('image'),
                 ],
                 [
 
