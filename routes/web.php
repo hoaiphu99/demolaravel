@@ -30,11 +30,11 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 
-Route::get('/category/{name}', [CategoryController::class, 'getCategoryByName'])->where(['name'])->name('category.name');
+//Route::get('/category/{name}', [CategoryController::class, 'getCategoryByName'])->where(['name'])->name('category.name');
 
-Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
+//Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
 
-Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
+//Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('dashboard', function () {
