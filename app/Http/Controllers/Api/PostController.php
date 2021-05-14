@@ -82,10 +82,10 @@ class PostController extends Controller
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
-        $imgur_client = new Client(['base_uri' => Config::get('siteVar.IMGUR_URL_API')]);
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
         $imgur_response = $imgur_client->post('image', [
             'headers' => [
-                'Authorization' => 'Client-ID '.Config::get('siteVar.IMGUR_CLIENT_ID'),
+                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
 
             ],
             'multipart' => [
@@ -133,10 +133,10 @@ class PostController extends Controller
         $resource = fopen($file, "r") or die("File upload Problems");
 
         // Upload hinh anh len Imgur bang API
-        $imgur_client = new Client(['base_uri' => Config::get('siteVar.IMGUR_URL_API')]);
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
         $imgur_response = $imgur_client->post('image', [
             'headers' => [
-                'Authorization' => 'Client-ID '.Config::get('siteVar.IMGUR_CLIENT_ID'),
+                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
 
             ],
             'multipart' => [
