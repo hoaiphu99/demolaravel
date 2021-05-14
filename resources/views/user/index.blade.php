@@ -1,16 +1,16 @@
 @extends('user.master')
-@section('title', 'Wibu')
+@section('title', 'WibuGram')
 @section('content')
     <div class="container-fluid" data-aos="fade" data-aos-delay="500" ng-controller="MyController" >
         <div class="row">
-             @foreach ($categories->data as $c)
+             @foreach ($posts->data as $p)
                 <div class="col-lg-4">
                     <div class="image-wrap-2">
                         <div class="image-info">
-                            <h2 class="mb-3">{{ $c->name }}</h2>
-                            <a href="{{ route('category.name', ['name' => $c->name]) }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+{{--                            <h2 class="mb-3">{{ $p->name }}</h2>--}}
+                            <a href="{{ route('post.id', ['id' => $p->id]) }}" class="btn btn-outline-white py-2 px-4">Click me</a>
                         </div>
-                        <img src="{{  secure_asset('assets/user/images/img_1.jpg')  }}" alt="Image" class="img-fluid">
+                        <img src="{{ $p->image }}" alt="{{ $p->content }}" class="img-fluid">
                     </div>
                 </div>
              @endforeach

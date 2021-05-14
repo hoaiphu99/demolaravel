@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,7 @@ use App\Http\Controllers\CategoryController;
 //     return view('welcome');
 // });
 
-Route::get('/', [CategoryController::class, 'getCategory'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('login', function () {
     return view('admin.login');
@@ -30,7 +30,7 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 
-//Route::get('/category/{name}', [CategoryController::class, 'getCategoryByName'])->where(['name'])->name('category.name');
+Route::get('/post/{id}', [PostController::class, 'getPostByID'])->where(['id'])->name('post.id');
 
 //Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
 
