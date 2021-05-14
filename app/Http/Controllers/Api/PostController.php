@@ -7,6 +7,7 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -68,21 +69,23 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
-        $imgur_uri = 'https://api.imgur.com/3/';
-        $imgur_clientID = 'db12bcd4537c063';
+        //$imgur_uri = 'https://api.imgur.com/3/';
+        //$imgur_clientID = 'db12bcd4537c063';
         $file = $request->file('image');
+        $resource = fopen($file, "r") or die("File upload Problems");
+
+        // Upload truc tiep le heroku (loi moi khi commit se mat het hinh da them truoc do)
         //$type = $file->getClientOriginalExtension();
         //$name = 'post_'.time().'.'.$type;
         //$path = public_path().'/assets/images/';
-        $resource = fopen($file, "r") or die("File upload Problems");
         //$file->move($path, $name);
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
-        $imgur_client = new Client(['base_uri' => $imgur_uri]);
+        $imgur_client = new Client(['base_uri' => Config::get('siteVar.IMGUR_URL_API')]);
         $imgur_response = $imgur_client->post('image', [
             'headers' => [
-                'Authorization' => 'Client-ID '.$imgur_clientID,
+                'Authorization' => 'Client-ID '.Config::get('siteVar.IMGUR_CLIENT_ID'),
 
             ],
             'multipart' => [
@@ -125,6 +128,29 @@ class PostController extends Controller
     {
         $post = Post::where(['id' => $id]);
         $post->update($request->all());
+
+        $file = $request->file('image');
+        $resource = fopen($file, "r") or die("File upload Problems");
+
+        // Upload hinh anh len Imgur bang API
+        $imgur_client = new Client(['base_uri' => Config::get('siteVar.IMGUR_URL_API')]);
+        $imgur_response = $imgur_client->post('image', [
+            'headers' => [
+                'Authorization' => 'Client-ID '.Config::get('siteVar.IMGUR_CLIENT_ID'),
+
+            ],
+            'multipart' => [
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resource,
+                ]
+            ]
+        ]);
+        $img_link = json_decode($imgur_response->getBody())->data->link;
+
+        //$link_img = $request->get('image');
+        Post::where(['id' => $id])->update(['image' => $img_link]);
 
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
     }
