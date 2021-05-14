@@ -59,10 +59,10 @@
                 <li class="has-children">
                   <a href="#">Gallery</a>
                   <ul class="dropdown">
-                    <li><a href="{{ route('category.name', ['name' => 'Anime'])}}">Anime</a></li>
-                    <li><a href="{{ route('category.name', ['name' => 'Travel'])}}">Travel</a></li>
-                    <li><a href="{{ route('category.name', ['name' => 'Animal'])}}">Animal</a></li>
-                    <li><a href="{{ route('category.name', ['name' => 'Sport'])}}">Sport</a></li>
+                    <li><a href="#">Anime</a></li>
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Animal</a></li>
+                    <li><a href="#">Sport</a></li>
                   </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
