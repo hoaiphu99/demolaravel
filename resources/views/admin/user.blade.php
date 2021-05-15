@@ -52,8 +52,8 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <form action="{{ route('user.create') }}" method="post" class="inser-users">
+                    <tr class="insert-users">
+                        <form action="{{ route('user.create') }}" method="post">
                             @csrf
                             <td><input type="text" class="form-control" name="username"></td>
                             <td><input type="text" class="form-control" name="password"></td>
