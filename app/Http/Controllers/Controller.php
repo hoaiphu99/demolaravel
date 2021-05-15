@@ -19,5 +19,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
+    public function testController(Request $request) {
+        $base64_data = base64_encode($request->get('image'));
+        dd($base64_data);
+    }
 }

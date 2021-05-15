@@ -46,7 +46,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('user/update/{id}', [UserController::class, 'updateUser'])->where(['id'])->name('user.update');
 
     Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
-    Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
+    //Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
+    Route::post('post/create', [Controller::class, 'testController'])->name('post.create');
 
     Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
 });
