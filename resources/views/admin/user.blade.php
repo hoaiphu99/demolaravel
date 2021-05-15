@@ -61,7 +61,7 @@
                             <td><input type="text" class="form-control" name="email"></td>
                             <td><input type="text" class="form-control" name="phone"></td>
                             <td><input type="text" class="form-control" name="birthday"></td>
-                            <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
+                            <td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i></td>
                         </form>
                     </tr>
                 </thead>

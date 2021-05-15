@@ -4,5 +4,11 @@ $(document).ready(function () {
         $('.insert-user').css(
             {"display": "inline-block"}
         );
-    })
+    });
+
+    $('.btn-submit-user').click(function () {
+        $('.insert-user').css(
+            {"display": "none"}
+        );
+    });
 });
