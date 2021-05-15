@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $('.btn-insert').click(function () {
         $('.insert-user').css(
-            {"display": "inline"}
+            {"display": "inline-block"}
         );
     })
 });
