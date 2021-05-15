@@ -15,7 +15,7 @@
             </div>
             <hr>
             <div>
-                <button type="button" class="btn btn-primary" ng-click="show()">Thêm</button>
+                <button type="button" class="btn btn-primary btn-insert" >Thêm</button>
             </div>
         </div>
         <div class="col-lg-4">
@@ -52,8 +52,8 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr ng-show="!show">
-                        <form action="{{ route('user.create') }}" method="post">
+                    <tr>
+                        <form action="{{ route('user.create') }}" method="post" class="inser-users">
                             @csrf
                             <td><input type="text" class="form-control" name="username"></td>
                             <td><input type="text" class="form-control" name="password"></td>

@@ -29,6 +29,7 @@
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/style.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/jquery.mCustomScrollbar.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/main.css') }}">
       <link rel="stylesheet" href="{{ secure_asset('vendor/angular-material.min.css') }}">
   </head>
 
@@ -126,7 +127,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a /*href="login.blade.php"*/ href="{{ route('login') }}">
+                                        <a href="{{ route('login') }}">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -154,7 +155,7 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="#"><i class="ti-user"></i>View Profile</a>
-                                            <a /*href="login.blade.php"*/ href="{{ route('login') }}"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a href="{{ route('login') }}"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -280,7 +281,6 @@
 <script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
@@ -301,6 +301,7 @@
 <script src="{{ secure_asset('assets/js/pcoded.min.js') }}"></script>
 <script src="{{ secure_asset('assets/js/demo-12.js') }}"></script>
 <script src="{{ secure_asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('js/script.js') }}"></script>
 
 <script>
 var $window = $(window);
