@@ -20,7 +20,18 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function testController(Request $request) {
-        $base64_data = base64_encode($request->file('image'));
-        dd($base64_data);
+        $file = $request->file('image');
+
+        $type = $file->getClientOriginalExtension();
+        $name = time().'.'.$type;
+        $path = public_path().'/assets/images/';
+
+        $file->move($path, $name);
+        $path_1 = $path.$name;
+        $data = file_get_contents($path_1);
+        $base64_data = base64_encode($data);
+        $base64String = 'data:image/' . $type . ';base64,' . $base64_data;
+
+        dd($base64String);
     }
 }
