@@ -44,7 +44,7 @@
                 <thead>
                     <tr>
                         <th>Username</th>
-                        <th>Password</th>
+{{--                        <th>Password</th>--}}
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -70,7 +70,7 @@
                     <tr>
                         <th scope="row">{{ $u->id }}</th>
                         <td>{{ $u->username }}</td>
-                        <td>{{ $u->password }}</td>
+{{--                        <td>{{ $u->password }}</td>--}}
                         <td>{{ $u->name }}</td>
                         <td>{{ $u->email }}</td>
                         <td>{{ $u->phone }}</td>
