@@ -52,7 +52,7 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr class="insert-users">
+                    <tr class="insert-user">
                         <form action="{{ route('user.create') }}" method="post">
                             @csrf
                             <td><input type="text" class="form-control" name="username"></td>
