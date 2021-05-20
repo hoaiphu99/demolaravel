@@ -163,7 +163,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::where(['id' => $id])->get();
+        $post = Post::where(['id' => $id])->first();
         $post->delete();
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);

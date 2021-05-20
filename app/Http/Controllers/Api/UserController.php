@@ -65,7 +65,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(User $user, $id)
+    public function destroy($id)
     {
         $user = User::where('id', $id)->first();
         $user->delete();
