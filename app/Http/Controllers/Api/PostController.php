@@ -99,7 +99,7 @@ class PostController extends Controller
         $img_link = json_decode($imgur_response->getBody())->data->link;
 
         //$link_img = $request->get('image');
-        Post::where(['id' => $post->id])->update(['image' => $img_link]);
+        Post::where(['id' => $post->id])->update(['content' => $request->get('content'), 'image' => $img_link, 'user_id' => $request->get('user_id')]);
 
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
