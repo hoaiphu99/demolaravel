@@ -67,8 +67,8 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
-        //$post = Post::create($request->all());
+        //$post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
+        $post = Post::create($request->all());
         //$imgur_uri = 'https://api.imgur.com/3/';
         //$imgur_clientID = 'db12bcd4537c063';
         $file = $request->file('image');
@@ -99,7 +99,7 @@ class PostController extends Controller
         $img_link = json_decode($imgur_response->getBody())->data->link;
 
         //$link_img = $request->get('image');
-        Post::where(['id' => $post->id])->update(['content' => $request->get('content'), 'image' => $img_link, 'user_id' => $request->get('user_id')]);
+        Post::where(['id' => $post->id])->update(['image' => $img_link]);
 
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
     }
