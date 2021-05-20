@@ -159,12 +159,13 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+        $post = Post::where(['id' => $id])->get();
         $post->delete();
 
-        return response()->json(null, 404);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);
     }
 }
