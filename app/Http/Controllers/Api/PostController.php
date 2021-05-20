@@ -67,7 +67,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $post = Post::create($request->all());
+        $post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
 
         //$imgur_uri = 'https://api.imgur.com/3/';
         //$imgur_clientID = 'db12bcd4537c063';
@@ -126,6 +126,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $post = Post::where(['id' => $id]);
         $post->update($request->all());
 
