@@ -13,8 +13,13 @@ class AuthController extends Controller
         $user = User::where(['username' => $request->get('username')])->first();
         //dd($request->get('password'));
         if($user == null)
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'message' => 'User is null']);
 
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => $user]);
+        else {
+            if($user->password != $request->get('password'))
+                return response()->json(['status' => Config::get('siteMsg.invalid_code'), 'message' => 'Sai password']);
+            else
+                return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => $user]);
+        }
     }
 }
