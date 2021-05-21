@@ -191,14 +191,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('admin.like') }}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Category</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Like</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('admin/404')}}">
+                                    <a href="{{ route('admin.comment') }}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Comments</span>
                                         <span class="pcoded-mcaret"></span>

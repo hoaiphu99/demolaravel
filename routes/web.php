@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +52,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
 
     Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
+
+    Route::get('comment', [CommentController::class, 'getComment'])->name('admin.comment');
+    Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
+    Route::delete('comment/delete/{id}', [CommentController::class, 'deleteComment'])->where(['id'])->name('comment.delete');
+
+    Route::get('like', [LikeController::class, 'getLike'])->name('admin.like');
+    Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');
+    Route::delete('like/delete/{id}', [LikeController::class, 'deleteLike'])->where(['id'])->name('like.delete');
 });
 
 // Route::get('/clear-cache', function() {
