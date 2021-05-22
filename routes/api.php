@@ -30,7 +30,8 @@ Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
 // User
 Route::get('user', [UserController::class, 'index'])->name('api.admin.user');
-//Route::get('user', [Controller::class, 'index']);
+
+Route::get('user/{id}', [Controller::class, 'show']);
 
 Route::post('user', [UserController::class, 'store']);
 

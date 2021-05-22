@@ -38,11 +38,13 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::where(['id' => $id])->get();
+
+        return response()->json(['status' => 1, 'data' => UserResource::collection($user)], 201);
     }
 
     /**
