@@ -39,7 +39,8 @@ Route::put('user/{id}', [UserController::class, 'update']);
 Route::delete('user/{id}', [UserController::class, 'destroy']);
 
 // Post
-Route::get('post', 'App\Http\Controllers\Api\PostController@index');
+Route::get('post', [PostController::class, 'index']);
+
 Route::get('post/{id}', [PostController::class, 'show']);
 
 Route::get('post/user/{userid}', [PostController::class, 'getPostByUserID']);
