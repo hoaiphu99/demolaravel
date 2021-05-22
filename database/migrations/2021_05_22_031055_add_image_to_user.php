@@ -13,7 +13,7 @@ class AddImageToUser extends Migration
      */
     public function up()
     {
-        Schema::table('User', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('avatar', 500)->nullable();
             $table->string('utype')->default('USR')->nullable()->comment('ADM for Admin and USR for User');
         });

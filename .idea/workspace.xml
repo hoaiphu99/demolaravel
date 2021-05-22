@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_22_031055_add_image_to_user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_22_031055_add_image_to_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_22_031055_add_image_to_user.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +199,7 @@
       <workItem from="1621499197489" duration="1135000" />
       <workItem from="1621505766805" duration="3683000" />
       <workItem from="1621651233983" duration="763000" />
-      <workItem from="1621652823348" duration="432000" />
+      <workItem from="1621652823348" duration="605000" />
     </task>
     <servers />
   </component>
