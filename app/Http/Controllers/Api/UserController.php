@@ -69,6 +69,6 @@ class UserController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user->delete();
-        return response()->json(null, 404);
+        return response()->json(['status' => 1, 'data' => null], 404);
     }
 }
