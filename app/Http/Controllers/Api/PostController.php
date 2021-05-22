@@ -113,9 +113,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::where(['id' => $id])->first();
+        $post = Post::where(['id' => $id])->get();
 
-        return response()->json(['status' => 1, 'data' => $post], 201);
+        return response()->json(['status' => 1, 'data' => PostResource::collection($post)], 201);
     }
 
     /**
