@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+        $post = Post::all()->sortDesc();
 
         return response()->json(['status' => 1, 'data' => PostResource::collection($post)]);
     }
