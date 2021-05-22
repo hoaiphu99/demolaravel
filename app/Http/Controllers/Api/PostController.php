@@ -115,7 +115,7 @@ class PostController extends Controller
     {
         $post = Post::where(['id' => $id])->first();
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection($post)], 201);
+        return response()->json(['status' => 1, 'data' => $post], 201);
     }
 
     /**
