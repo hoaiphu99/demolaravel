@@ -23,13 +23,14 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all()->sortDesc();
+        //$post = Post::orderBy(['id' => 'DESC'])->get();
 
         return response()->json(['status' => 1, 'data' => PostResource::collection($post)]);
     }
 
     public function getPostByUserID($userid)
     {
-        $posts = Post::where(['user_id' => $userid])->get();
+        $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
 
         return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
     }
