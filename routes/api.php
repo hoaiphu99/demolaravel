@@ -31,7 +31,7 @@ Route::post('login', [AuthController::class, 'login'])->name('api.login');
 // User
 Route::get('user', [UserController::class, 'index'])->name('api.admin.user');
 
-Route::get('user/{id}', [Controller::class, 'show']);
+Route::get('user/{id}', [UserController::class, 'show']);
 
 Route::post('user', [UserController::class, 'store']);
 
@@ -51,19 +51,6 @@ Route::post('post', [PostController::class, 'store'])->name('post.created');
 Route::put('post/{id}', [PostController::class, 'update']);
 
 Route::delete('post/{id}', [PostController::class, 'destroy']);
-
-//// Category
-//Route::get('category', [CategoryController::class, 'index']);
-//
-//Route::get('category/{name}', [CategoryController::class, 'show']);
-//
-////Route::get('category/{id}', [CategoryController::class, 'showByID']);
-//
-//Route::post('category', [CategoryController::class, 'store']);
-//
-//Route::put('category/{name}', [CategoryController::class, 'update']);
-//
-//Route::delete('category/{category}', [CategoryController::class, 'destroy']);
 
 // Comment
 Route::get('comment', [CommentController::class, 'index']);
