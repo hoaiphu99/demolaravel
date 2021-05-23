@@ -21,9 +21,10 @@ class AuthController extends Controller
                 'password' => $password
             ]
         ]);
+        $status = json_decode($response->getBody()->getContents());
 
-        //dd($response->getBody());
+        dd($status);
         //return $a = $response->getBody()->getContents();
-        return view('admin.user', ['users' => json_decode($response->getBody())]);
+        return view('admin.dashboard');
     }
 }
