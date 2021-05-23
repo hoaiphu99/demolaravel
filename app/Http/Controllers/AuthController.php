@@ -21,7 +21,7 @@ class AuthController extends Controller
                 'password' => $password
             ]
         ]);
-        $status = json_decode($response->getBody()->status);
+        $status = json_decode($response->getBody())['status'];
 
         dd($status);
         //return $a = $response->getBody()->getContents();
