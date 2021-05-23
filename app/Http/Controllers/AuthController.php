@@ -21,7 +21,7 @@ class AuthController extends Controller
                 'password' => $password
             ]
         ]);
-        $status = $response->getBody()->getContents();
+        $status = $response->getBody();
 
         dd($status);
         //return $a = $response->getBody()->getContents();
