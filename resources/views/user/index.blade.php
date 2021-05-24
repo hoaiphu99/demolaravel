@@ -88,35 +88,35 @@
                                         <h4 class="widget-title">Who's follownig</h4>
                                         <ul class="followers">
                                             <li>
-                                                <figure><img src="images/resources/friend-avatar2.jpg" alt=""></figure>
+                                                <figure><img src="{{secure_asset('images/resources/friend-avatar2.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Kelly Bill</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="images/resources/friend-avatar4.jpg" alt=""></figure>
+                                                <figure><img src="{{secure_asset('images/resources/friend-avatar4.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Issabel</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="images/resources/friend-avatar6.jpg" alt=""></figure>
+                                                <figure><img src="{{secure_asset('images/resources/friend-avatar6.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Andrew</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="images/resources/friend-avatar8.jpg" alt=""></figure>
+                                                <figure><img src="{{secure_asset('images/resources/friend-avatar8.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Sophia</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="images/resources/friend-avatar3.jpg" alt=""></figure>
+                                                <figure><img src="{{secure_asset('images/resources/friend-avatar3.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Allen</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
@@ -130,7 +130,7 @@
                                 <div class="central-meta">
                                     <div class="new-postbox">
                                         <figure>
-                                            <img src="images/resources/admin2.jpg" alt="">
+                                            <img src="{{secure_asset('images/resources/admin2.jpg')}}" alt="">
                                         </figure>
                                         <div class="newpst-input">
                                             <form method="post">
@@ -175,14 +175,14 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar10.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar10.jpg')}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
-                                                    <img src="images/resources/user-post.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/user-post.jpg')}}" alt="">
                                                     <div class="we-video-info">
                                                         <ul>
                                                             <li>
@@ -256,7 +256,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-1.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -269,7 +269,7 @@
                                                         <ul>
                                                             <li>
                                                                 <div class="comet-avatar">
-                                                                    <img src="images/resources/comet-2.jpg" alt="">
+                                                                    <img src="{{secure_asset('images/resources/comet-2.jpg')}}" alt="">
                                                                 </div>
                                                                 <div class="we-comment">
                                                                     <div class="coment-head">
@@ -282,7 +282,7 @@
                                                             </li>
                                                             <li>
                                                                 <div class="comet-avatar">
-                                                                    <img src="images/resources/comet-3.jpg" alt="">
+                                                                    <img src="{{secure_asset('images/resources/comet-3.jpg')}}" alt="">
                                                                 </div>
                                                                 <div class="we-comment">
                                                                     <div class="coment-head">
@@ -297,7 +297,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-1.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -315,7 +315,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-1.jpg')}}" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -349,7 +349,7 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/nearly1.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/nearly1.jpg')}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Sara Grey</a></ins>
@@ -430,7 +430,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-1.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -444,7 +444,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-2.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -462,7 +462,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-2.jpg')}}" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -496,7 +496,7 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/nearly6.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/nearly6.jpg')}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Sophia</a></ins>
@@ -581,7 +581,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-1.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -595,7 +595,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-2.jpg')}}" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -613,7 +613,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="{{secure_asset('images/resources/comet-2.jpg')}}" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -741,7 +741,7 @@
                                         <h4 class="widget-title">Your page</h4>
                                         <div class="your-page">
                                             <figure>
-                                                <a href="#" title=""><img src="images/resources/friend-avatar9.jpg" alt=""></a>
+                                                <a href="#" title=""><img src="{{secure_asset('images/resources/friend-avatar9.jpg')}}" alt=""></a>
                                             </figure>
                                             <div class="page-meta">
                                                 <a href="#" title="" class="underline">My page</a>
@@ -760,25 +760,25 @@
                                                         <a href="#" title="weekly-likes">35 new likes this week</a>
                                                         <div class="users-thumb-list">
                                                             <a href="#" title="Anderw" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-1.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-1.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="frank" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-2.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-2.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sara" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-3.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-3.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Amy" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-4.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-4.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Ema" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-5.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-5.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sophie" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-6.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-6.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Maria" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-7.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-7.jpg')}}" alt="">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -787,25 +787,25 @@
                                                         <a href="#" title="weekly-likes">440 new views this week</a>
                                                         <div class="users-thumb-list">
                                                             <a href="#" title="Anderw" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-1.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-1.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="frank" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-2.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-2.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sara" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-3.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-3.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Amy" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-4.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-4.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Ema" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-5.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-5.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sophie" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-6.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-6.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Maria" data-toggle="tooltip">
-                                                                <img src="images/resources/userlist-7.jpg" alt="">
+                                                                <img src="{{secure_asset('images/resources/userlist-7.jpg')}}" alt="">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -815,7 +815,7 @@
                                     </div><!-- page like widget -->
                                     <div class="widget">
                                         <div class="banner medium-opacity bluesh">
-                                            <div class="bg-image" style="background-image: url(images/resources/baner-widgetbg.jpg)"></div>
+                                            <div class="bg-image" style="background-image: url(assets/user/images/resources/baner-widgetbg.jpg)"></div>
                                             <div class="baner-top">
                                                 <span><img alt="" src="images/book-icon.png"></span>
                                                 <i class="fa fa-ellipsis-h"></i>
@@ -835,7 +835,7 @@
                                         <ul id="people-list" class="friendz-list">
                                             <li>
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -845,7 +845,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar2.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar2.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -855,7 +855,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar3.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar3.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -865,7 +865,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar4.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar4.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -876,7 +876,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar5.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar5.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -887,7 +887,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar6.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar6.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -898,7 +898,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar7.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar7.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -909,7 +909,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar5.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar5.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -920,7 +920,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar2.jpg" alt="">
+                                                    <img src="{{secure_asset('images/resources/friend-avatar2.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -941,7 +941,7 @@
                                             <div class="chat-list">
                                                 <ul>
                                                     <li class="me">
-                                                        <div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{secure_asset('images/resources/chatlist1.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -950,7 +950,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="you">
-                                                        <div class="chat-thumb"><img src="images/resources/chatlist2.jpg" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{secure_asset('images/resources/chatlist2.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -959,7 +959,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="me">
-                                                        <div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{secure_asset('images/resources/chatlist1.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -1014,7 +1014,7 @@
 {{--                            <h2 class="mb-3">{{ $p->name }}</h2>--}}
 {{--                            <a href="{{ route('post.id', ['id' => $p->id]) }}" class="btn btn-outline-white py-2 px-4">Click me</a>--}}
 {{--                        </div>--}}
-{{--                        <img src="{{ $p->image }}" alt="{{ $p->content }}" class="img-fluid">--}}
+{{--                        <img src="{{secure_asset('{{ $p->image }}" alt="{{ $p->content }}" class="img-fluid">--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--             @endforeach--}}
@@ -1025,7 +1025,7 @@
 {{--                        <h2 class="mb-3">Portrait</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_2.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_2.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 {{--            <div class="col-lg-4">--}}
@@ -1034,7 +1034,7 @@
 {{--                        <h2 class="mb-3">People</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1044,7 +1044,7 @@
 {{--                        <h2 class="mb-3">Architecture</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1054,7 +1054,7 @@
 {{--                        <h2 class="mb-3">Animals</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_5.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_5.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1064,7 +1064,7 @@
 {{--                        <h2 class="mb-3">Sports</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_6.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_6.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1074,7 +1074,7 @@
 {{--                        <h2 class="mb-3">Travel</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_7.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_7.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1084,7 +1084,7 @@
 {{--                        <h2 class="mb-3">People</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div>--}}
 
@@ -1094,7 +1094,7 @@
 {{--                        <h2 class="mb-3">Architecture</h2>--}}
 {{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
 {{--                    </div>--}}
-{{--                    <img src="<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
+{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
 {{--                </div>--}}
 {{--            </div> --}}
 
