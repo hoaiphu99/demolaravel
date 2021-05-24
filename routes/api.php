@@ -55,6 +55,8 @@ Route::delete('post/{id}', [PostController::class, 'destroy']);
 // Comment
 Route::get('comment', [CommentController::class, 'index']);
 
+Route::get('comment/{post_id}', [CommentController::class, 'getCommentByPost']);
+
 Route::post('comment', [CommentController::class, 'store']);
 
 Route::put('comment/{id}', [CommentController::class, 'update']);

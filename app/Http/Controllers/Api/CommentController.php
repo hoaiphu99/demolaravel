@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Http\Resources\CommentResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class CommentController extends Controller
 {
@@ -19,6 +20,11 @@ class CommentController extends Controller
         //
         $comment = Comment::all();
         return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)]);
+    }
+
+    public function getCommentByPost($post_id) {
+        $comment = Comment::where(['post_id' => $post_id])->get()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => $comment]);
     }
 
     /**
