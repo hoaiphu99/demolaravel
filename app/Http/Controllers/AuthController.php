@@ -23,8 +23,11 @@ class AuthController extends Controller
         ]);
         $status = json_decode($response->getBody()->getContents(), true)['status'];
 
-        dd($status);
-        //return $a = $response->getBody()->getContents();
-        return view('admin.dashboard');
+        if ($status != 1) {
+            return view('login', ['msg' => 'Đăng nhập không thành công']);
+        }
+        else {
+            return view('admin.dashboard');
+        }
     }
 }

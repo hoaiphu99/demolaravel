@@ -66,6 +66,9 @@
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
                                         <h3 class="text-left txt-primary">Đăng nhập</h3>
+                                        @if(!is_null($msg))
+                                            <span>{{$msg}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <hr/>
