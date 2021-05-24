@@ -24,7 +24,7 @@ class CommentController extends Controller
 
     public function getCommentByPost($post_id) {
         $comment = Comment::where(['post_id' => $post_id])->get()->sortDesc();
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => $comment]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)]);
     }
 
     /**
