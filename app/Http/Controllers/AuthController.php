@@ -27,7 +27,7 @@ class AuthController extends Controller
             return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
-            return view('admin.dashboard');
+            return view('admin.index');
         }
     }
 }
