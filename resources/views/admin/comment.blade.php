@@ -62,16 +62,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($comments->data as $m)
+                @foreach($comments->data as $cmt)
                     <tr>
                         <th scope="row">{{ $m->id }}</th>
-                        <td>{{ $m->content }}</td>
-                        <td>{{ $m->user_id->id }}</td>
-                        <td>{{ $m->post_id->id }}</td>
-                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$m->id}})">Sửa</b></i></td>
+                        <td>{{ $cmt->content }}</td>
+                        <td>{{ $cmt->user_id->name }}</td>
+                        <td>{{ $cmt->post_id->content }}</td>
+                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>
                         {{--<td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td>--}}
                         <td>
-                        <form action="{{ route('comment.delete', $m->id) }}" method="post">
+                        <form action="{{ route('comment.delete', $cmt->id) }}" method="post">
                             @method('DELETE')
                             @csrf
                             <i class="fa fa-pencil"><input class="btn btn-danger" type="submit" value="Xóa"/></i>
