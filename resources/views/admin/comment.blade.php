@@ -64,7 +64,7 @@
                 <tbody>
                 @foreach($comments->data as $cmt)
                     <tr>
-                        <th scope="row">{{ $m->id }}</th>
+                        <th scope="row">{{ $cmt->id }}</th>
                         <td>{{ $cmt->content }}</td>
                         <td>{{ $cmt->user_id->name }}</td>
                         <td>{{ $cmt->post_id->content }}</td>
