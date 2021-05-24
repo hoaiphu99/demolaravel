@@ -4,6 +4,12 @@
   <title>@yield('title')</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{secure_asset('images/fav.png')}}" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="{{secure_asset('css/main.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/color.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/responsive.css')}}">
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/icomoon/style.css')}}">
