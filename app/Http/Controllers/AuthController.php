@@ -24,7 +24,7 @@ class AuthController extends Controller
         $status = json_decode($response->getBody()->getContents(), true)['status'];
 
         if ($status != 1) {
-            return view('login', ['msg' => 'Đăng nhập không thành công']);
+            return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
             return view('admin.dashboard');
