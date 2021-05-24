@@ -41,7 +41,7 @@
 				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
 			</span>
         <span class="mh-text">
-				<a href="newsfeed.html" title=""><img src="{{secure_asset('images/logo2.png')}}" alt=""></a>
+				<a href="newsfeed.html" title=""><img src="{{secure_asset('assets/user/images/logo2.png')}}" alt=""></a>
 			</span>
         <span class="mh-btns-right">
 				<a class="fa fa-sliders" href="#shoppingbag"></a>
@@ -224,7 +224,7 @@
 </div><!-- responsive header -->
     <div class="topbar stick">
     <div class="logo">
-        <a title="" href="newsfeed.html"><img src="{{secure_asset('images/logo.png')}}" alt=""></a>
+        <a title="" href="newsfeed.html"><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
     </div>
 
     <div class="top-area">
@@ -302,7 +302,7 @@
                     <ul class="drops-menu">
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-1.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>sarah Loren</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -313,7 +313,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-2.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Jhon doe</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -324,7 +324,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-3.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Andrew</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -335,7 +335,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-4.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Tom cruse</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -346,7 +346,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-5.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Amy</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -366,7 +366,7 @@
                     <ul class="drops-menu">
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-1.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>sarah Loren</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -377,7 +377,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-2.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Jhon doe</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -388,7 +388,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-3.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Andrew</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -399,7 +399,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-4.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Tom cruse</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -410,7 +410,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{secure_asset('images/resources/thumb-5.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Amy</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -433,7 +433,7 @@
             </li>
         </ul>
         <div class="user-img">
-            <img src="{{secure_asset('images/resources/admin.jpg')}}" alt="">
+            <img src="{{secure_asset('assets/user/images/resources/admin.jpg')}}" alt="">
             <span class="status f-online"></span>
             <div class="user-setting">
                 <a href="#" title=""><span class="status f-online"></span>online</a>
@@ -459,7 +459,7 @@
                 <div class="widget">
                     <div class="foot-logo">
                         <div class="logo">
-                            <a href="index-2.html" title=""><img src="{{secure_asset('images/logo.png')}}" alt=""></a>
+                            <a href="index-2.html" title=""><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
                         </div>
                         <p>
                             The trio took this simple idea and built it into the world’s leading carpooling platform.
@@ -531,7 +531,7 @@
         <div class="row">
             <div class="col-md-12">
                 <span class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                <i><img src="{{secure_asset('images/credit-cards.png')}}" alt=""></i>
+                <i><img src="{{secure_asset('assets/user/images/credit-cards.png')}}" alt=""></i>
             </div>
         </div>
     </div>
