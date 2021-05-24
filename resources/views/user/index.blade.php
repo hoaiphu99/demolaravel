@@ -176,10 +176,10 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="{{$p->user_id->avatar}}" alt="">
+                                                    <img src="{{$p->user->avatar}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="time-line.html" title="">{{$p->user_id->username}}</a></ins>
+                                                    <ins><a href="time-line.html" title="">{{$p->user->username}}</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
