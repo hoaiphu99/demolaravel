@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="login-reg-bg">
-                    <div class="log-reg-area reg">
+                    <div class="log-reg-area sign">
                         <h2 class="log-title">Register</h2>
                         @isset($msg)
                             <p>{{$msg}}</p>
