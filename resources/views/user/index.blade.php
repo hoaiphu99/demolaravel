@@ -172,25 +172,16 @@
                                                             <li>
 															<span class="views" data-toggle="tooltip" title="views">
 																<i class="fa fa-eye"></i>
-																<ins>1.2k</ins>
 															</span>
                                                             </li>
                                                             <li>
 															<span class="comment" data-toggle="tooltip" title="Comments">
-																<i class="fa fa-comments-o"></i>
-																<ins>52</ins>
+																<i class="far fa-comments"></i>
 															</span>
                                                             </li>
                                                             <li>
 															<span class="like" data-toggle="tooltip" title="like">
-																<i class="ti-heart"></i>
-																<ins>2.2k</ins>
-															</span>
-                                                            </li>
-                                                            <li>
-															<span class="dislike" data-toggle="tooltip" title="dislike">
-																<i class="ti-heart-broken"></i>
-																<ins>200</ins>
+																<i class="far fa-heart"></i>
 															</span>
                                                             </li>
                                                             <li class="social-media">
