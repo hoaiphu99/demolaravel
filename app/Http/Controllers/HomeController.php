@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
-    public function index() {
-
+    public function index(Request $request) {
+        if(!$request->session()->has('user_id')){
+            return redirect(route('login'));
+        }
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $post_res = $client->get('post', [
             'headers' => [
