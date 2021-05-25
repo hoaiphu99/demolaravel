@@ -28,7 +28,10 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('login', function () {
     return view('admin.login');
 });
+
 Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 

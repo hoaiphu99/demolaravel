@@ -117,7 +117,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="{{ secure_asset('assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
-                                    <span>Admin</span>
+                                    <span>{{session()->get('user')->username}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -127,7 +127,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('login') }}">
+                                        <a href="{{ route('logout') }}">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -146,8 +146,8 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{ secure_asset('assets/images/avatar-4.jpg') }}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>Admin</span>
-                                        <span id="more-details">Developer<i class="ti-angle-down"></i></span>
+                                        <span>{{session()->get('user')->username}}</span>
+                                        <span id="more-details">{{session()->get('user')->name}}<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
 
@@ -155,7 +155,7 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="#"><i class="ti-user"></i>View Profile</a>
-                                            <a href="{{ route('login') }}"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a href="{{ route('logout') }}"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
