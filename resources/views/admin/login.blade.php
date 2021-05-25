@@ -6,13 +6,13 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Wibu Social Network Media</title>
-    <link rel="icon" href="{{secure_asset('images/fav.png" type="image/png')}}" sizes="16x16">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="{{secure_asset('css/main.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/color.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/responsive.css')}}">
+    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png" type="image/png')}}" sizes="16x16">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/assets/user/css/font-awesome.min.assets/user/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/assets/user/css/themify-icons.assets/user/css">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.assets/user/css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.assets/user/css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.assets/user/css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.assets/user/css')}}">
 
 </head>
 <body>
@@ -28,7 +28,7 @@
                             Wibu Media is free to use for as long as you want with two active projects.
                         </p>
                         <div class="friend-logo">
-                            <span><img src="{{secure_asset('images/wink.png')}}" alt=""></span>
+                            <span><img src="{{secure_asset('assets/user/images/wink.png')}}" alt=""></span>
                         </div>
                         <a href="#" title="" class="folow-me">Follow Us on</a>
                     </div>
@@ -110,7 +110,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
-<script src="{{secure_asset('js/script.js')}}"></script>
+<script src="{{secure_asset('assets/user/js/script.js')}}"></script>
 
 </body>
 
@@ -136,15 +136,15 @@
 {{--    <!-- Favicon icon -->--}}
 {{--    <link rel="icon" href="{{secure_asset('assets/images/favicon.ico" type="image/x-icon">--}}
 {{--    <!-- Google font-->--}}
-{{--    <link href="{{secure_asset('https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">--}}
+{{--    <link href="{{secure_asset('https://fonts.googleapis.com/assets/user/css?family=Open+Sans:400,600,800" rel="stylesheet">--}}
 {{--    <!-- Required Fremwork -->--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{secure_asset('assets/css/bootstrap/css/bootstrap.min.css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/assets/user/css/bootstrap/assets/user/css/bootstrap.min.assets/user/css">--}}
 {{--    <!-- themify-icons line icon -->--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{secure_asset('assets/icon/themify-icons/themify-icons.css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/icon/themify-icons/themify-icons.assets/user/css">--}}
 {{--    <!-- ico font -->--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{secure_asset('assets/icon/icofont/css/icofont.css">--}}
-{{--    <!-- Style.css -->--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{secure_asset('assets/css/style.css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/icon/icofont/assets/user/css/icofont.assets/user/css">--}}
+{{--    <!-- Style.assets/user/css -->--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/assets/user/css/style.assets/user/css">--}}
 {{--</head>--}}
 
 {{--<body class="fix-menu">--}}
@@ -292,7 +292,7 @@
 {{--    <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>--}}
 {{--    <!-- modernizr js -->--}}
 {{--    <script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>--}}
-{{--    <script type="text/javascript" src="assets/js/modernizr/css-scrollbars.js"></script>--}}
+{{--    <script type="text/javascript" src="assets/js/modernizr/assets/user/css-scrollbars.js"></script>--}}
 {{--    <script type="text/javascript" src="assets/js/common-pages.js"></script>--}}
 {{--</body>--}}
 
