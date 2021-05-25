@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="https://unpkg.com/themify@1.0.0/_themify.scss">
     <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
 
     <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
+
     <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
     <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
     <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">

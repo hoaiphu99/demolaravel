@@ -286,6 +286,8 @@
 <script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- jquery slimscroll js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript" src="{{ secure_asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
 <script type="text/javascript" src="{{ secure_asset('assets/js/modernizr/modernizr.js') }}"></script>
