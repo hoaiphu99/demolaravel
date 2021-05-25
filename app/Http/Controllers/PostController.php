@@ -24,7 +24,7 @@ class PostController extends Controller
     public function getPostByUser($username) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->get('post/user/'.$username, [
+        $response = $client->get('post/'.$username, [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
         return view('user.profile', ['posts' => json_decode($response->getBody()->getContents())]);
