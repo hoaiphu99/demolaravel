@@ -131,7 +131,7 @@
                             <div class="col-lg-6">
                                 <div class="central-meta">
                                     <ul class="photos">
-                                        @if(!isset($posts))
+                                        @if(!isset($posts->data))
                                             <span>Không có ảnh nào</span>
                                         @endif
                                         @foreach($posts->data as $p)
