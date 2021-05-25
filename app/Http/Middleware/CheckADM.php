@@ -10,7 +10,7 @@ class CheckADM
     protected $except =[
         'login',
         'logout',
-        'signup'
+        'register'
     ];
     /**
      * Handle an incoming request.
