@@ -82,7 +82,7 @@
                             </div>
                             <a href="{{route('login')}}" title="" class="already-have">Already have an account</a>
                             <div class="submit-btns">
-                                <button class="mtr-btn signup" type="submit"><span>Register</span></button>
+                                <button class="mtr-btn signin" type="submit"><span>Register</span></button>
                             </div>
                         </form>
                     </div>
