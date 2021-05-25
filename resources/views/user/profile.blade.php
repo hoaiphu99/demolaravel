@@ -4,7 +4,7 @@
 
     <section>
     <div class="feature-photo">
-        <figure><img src="{{secure_asset('images/resources/timeline-1.jpg')}}" alt=""></figure>
+        <figure><img src="{{secure_asset('assets/user/images/resources/timeline-1.jpg')}}" alt=""></figure>
         <div class="add-btn">
             <span>1205 followers</span>
             <a href="#" title="" data-ripple="">Add Friend</a>
