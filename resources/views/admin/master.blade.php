@@ -116,7 +116,7 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="{{ secure_asset('assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                    <img src="{{session()->get('user')->avatar}}" class="img-radius" alt="User-Profile-Image">
                                     <span>{{session()->get('user')->username}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -144,7 +144,7 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="{{ secure_asset('assets/images/avatar-4.jpg') }}" alt="User-Profile-Image">
+                                    <img class="img-40 img-radius" src="{{session()->get('user')->avatar}}" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>{{session()->get('user')->username}}</span>
                                         <span id="more-details">{{session()->get('user')->name}}<i class="ti-angle-down"></i></span>

@@ -29,6 +29,7 @@ class PostController extends Controller
         if($user_id == null) {
             $user_id = $user->id;
         }
+        dd($user_id);
 
         $file = $request->file('image');
 //        $type = $file->getClientOriginalExtension();

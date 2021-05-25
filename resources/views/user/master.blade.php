@@ -433,7 +433,7 @@
             </li>
         </ul>
         <div class="user-img">
-            <img src="{{secure_asset('assets/user/images/resources/admin.jpg')}}" alt="">
+            <img src="{{session()->get('user')->avatar}}" alt="">
             <span class="status f-online"></span>
             <div class="user-setting">
                 <a href="#" title=""><span class="status f-online"></span>online</a>
