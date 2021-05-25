@@ -131,12 +131,7 @@
                             <div class="col-lg-6">
                                 <div class="central-meta">
                                     <ul class="photos">
-
                                         @foreach($posts->data as $p)
-                                            @if(!isset($p->user->id))
-                                                <span>Không có ảnh nào</span>
-                                                @break(null)
-                                            @endif
                                         <li>
                                             <a class="strip" href="{{$p->image}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
                                                 <img src="{{$p->image}}" alt="{{$p->content}}"></a>
