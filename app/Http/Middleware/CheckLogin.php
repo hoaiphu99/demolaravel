@@ -8,6 +8,12 @@ use mysql_xdevapi\Exception;
 
 class CheckLogin
 {
+    // Except routes
+    protected $except =[
+        'login',
+        'logout',
+        'signup'
+    ];
     /**
      * Handle an incoming request.
      *
@@ -15,11 +21,6 @@ class CheckLogin
      * @param  \Closure  $next
      * @return mixed
      */
-    protected $except =[
-        'login',
-        'logout',
-        'signup'
-    ];
 
     public function handle(Request $request, Closure $next)
     {

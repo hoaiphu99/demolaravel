@@ -27,7 +27,13 @@ class AuthController extends Controller
             return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
-            return redirect(route('admin.dashboard'));
+            $user = json_decode($response->getBody()->getContents(), true)['data'];
+            dd($user);
+            $request->session()->put('user', $user);
+            if ($user->utype == 'ADM')
+                return redirect(route('admin.dashboard'));
+            else
+                return redirect(route('index'));
         }
     }
 }
