@@ -24,7 +24,7 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
-        
+
         $file = $request->file('image');
 //        $type = $file->getClientOriginalExtension();
 //        $name = 'post_'.time().'.'.$type;
@@ -64,7 +64,13 @@ class PostController extends Controller
 //                'user_id' => $request->input('user_id')
 //            ]
         ]);
-        return redirect(route('admin.post'));
+
+        $user = session()->get('user');
+        if($user->utype == 'ADM')
+            return redirect(route('admin.post'));
+        else
+            return redirect(route('index'));
+
     }
 
     public function updatePost($id) {
