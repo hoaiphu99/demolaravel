@@ -51,6 +51,7 @@ class AuthController extends Controller
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
                 'birthday' => '1/1/2000',
+                'avatar' => 'https://i.imgur.com/BdtG3S7.jpg'
             ]
         ]);
         $data = json_decode($response->getBody()->getContents());
