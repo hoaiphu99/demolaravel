@@ -24,6 +24,11 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
+        $user_id = $request->input('user_id');
+        $user = session()->get('user');
+        if($user_id == null) {
+            $user_id = $user->id;
+        }
 
         $file = $request->file('image');
 //        $type = $file->getClientOriginalExtension();
@@ -55,7 +60,7 @@ class PostController extends Controller
                 [
 
                     'name' => 'user_id',
-                    'contents' => $request->input('user_id'),
+                    'contents' => $user_id,
                 ],
             ],
 //            'form_params' => [
@@ -65,7 +70,7 @@ class PostController extends Controller
 //            ]
         ]);
 
-        $user = session()->get('user');
+
         if($user->utype == 'ADM')
             return redirect(route('admin.post'));
         else
