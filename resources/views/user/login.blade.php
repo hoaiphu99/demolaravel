@@ -69,6 +69,7 @@
                             <p>{{$msg}}</p>
                         @endisset
                         <form action="{{route('register')}}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <input type="text" name="name" required="required"/>
                                 <label class="control-label" for="input">Full name</label><i class="mtrl-select"></i>
@@ -99,7 +100,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="number" name="phone" required="required"/>
-                                <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                <label class="control-label" for="input">Phone</label><i class="mtrl-select"></i>
                             </div>
                             <div class="checkbox">
                                 <label>
