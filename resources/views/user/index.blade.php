@@ -130,7 +130,7 @@
                                 <div class="central-meta">
                                     <div class="new-postbox">
                                         <figure>
-                                            <img src="{{secure_asset('assets/user/images/resources/admin2.jpg')}}" alt="">
+                                            <img src="{{session()->get('user')->avatar}}" alt="">
                                         </figure>
                                         <div class="newpst-input">
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
@@ -145,7 +145,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <button type="submit">Post</button>
+                                                            <button type="submit">Đăng</button>
                                                         </li>
                                                     </ul>
                                                 </div>
