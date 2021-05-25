@@ -4,33 +4,33 @@
   <title>@yield('title')</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
 
-    <link rel="stylesheet" href="{{asset('assets/user/css/main.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/user/css/color.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/user/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/fonts/icomoon/style.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/icomoon/style.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap.min.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/magnific-popup.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/jquery-ui.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/owl.carousel.min.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/owl.theme.default.min.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap.min.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/magnific-popup.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/jquery-ui.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.carousel.min.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.theme.default.min.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/lightgallery.min.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/lightgallery.min.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap-datepicker.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap-datepicker.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/fonts/flaticon/font/flaticon.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/flaticon/font/flaticon.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/swiper.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/swiper.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/aos.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/aos.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ asset('assets/user/css/style.css')}}">--}}
+{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/style.css')}}">--}}
 
 </head>
 <body ng-app="myApp">
@@ -41,7 +41,7 @@
 				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
 			</span>
         <span class="mh-text">
-				<a href="newsfeed.html" title=""><img src="{{asset('assets/user/images/logo2.png')}}" alt=""></a>
+				<a href="newsfeed.html" title=""><img src="{{secure_asset('assets/user/images/logo2.png')}}" alt=""></a>
 			</span>
         <span class="mh-btns-right">
 				<a class="fa fa-sliders" href="#shoppingbag"></a>
@@ -224,7 +224,7 @@
 </div><!-- responsive header -->
     <div class="topbar stick">
     <div class="logo">
-        <a title="" href="newsfeed.html"><img src="{{asset('assets/user/images/logo.png')}}" alt=""></a>
+        <a title="" href="newsfeed.html"><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
     </div>
 
     <div class="top-area">
@@ -302,7 +302,7 @@
                     <ul class="drops-menu">
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>sarah Loren</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -313,7 +313,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Jhon doe</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -324,7 +324,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Andrew</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -335,7 +335,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Tom cruse</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -346,7 +346,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Amy</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -366,7 +366,7 @@
                     <ul class="drops-menu">
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-1.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>sarah Loren</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -377,7 +377,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-2.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Jhon doe</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -388,7 +388,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-3.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Andrew</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -399,7 +399,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-4.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Tom cruse</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -410,7 +410,7 @@
                         </li>
                         <li>
                             <a href="notifications.html" title="">
-                                <img src="{{asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
+                                <img src="{{secure_asset('assets/user/images/resources/thumb-5.jpg')}}" alt="">
                                 <div class="mesg-meta">
                                     <h6>Amy</h6>
                                     <span>Hi, how r u dear ...?</span>
@@ -433,7 +433,7 @@
             </li>
         </ul>
         <div class="user-img">
-            <img src="{{asset('assets/user/images/resources/admin.jpg')}}" alt="">
+            <img src="{{secure_asset('assets/user/images/resources/admin.jpg')}}" alt="">
             <span class="status f-online"></span>
             <div class="user-setting">
                 <a href="#" title=""><span class="status f-online"></span>online</a>
@@ -459,7 +459,7 @@
                 <div class="widget">
                     <div class="foot-logo">
                         <div class="logo">
-                            <a href="index-2.html" title=""><img src="{{asset('assets/user/images/logo.png')}}" alt=""></a>
+                            <a href="index-2.html" title=""><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
                         </div>
                         <p>
                             The trio took this simple idea and built it into the world’s leading carpooling platform.
@@ -531,7 +531,7 @@
         <div class="row">
             <div class="col-md-12">
                 <span class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                <i><img src="{{asset('assets/user/images/credit-cards.png')}}" alt=""></i>
+                <i><img src="{{secure_asset('assets/user/images/credit-cards.png')}}" alt=""></i>
             </div>
         </div>
     </div>
@@ -691,41 +691,41 @@
 
 {{--  </div>--}}
 
-<script src="{{ asset('assets/user/js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery-ui.js')}}"></script>
-<script src="{{ asset('assets/user/js/popper.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/bootstrap.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/owl.carousel.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery.stellar.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery.countdown.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/swiper.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/aos.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery-ui.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/popper.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/bootstrap.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/owl.carousel.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery.stellar.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery.countdown.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/swiper.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/aos.js')}}"></script>
 
-<script src="{{ asset('assets/user/js/picturefill.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/lightgallery-all.min.js')}}"></script>
-<script src="{{ asset('assets/user/js/jquery.mousewheel.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/picturefill.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/lightgallery-all.min.js')}}"></script>
+<script src="{{ secure_asset('assets/user/js/jquery.mousewheel.min.js')}}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
-<script src="{{asset('assets/user/js/script.js')}}"></script>
-<script src="{{asset('assets/user/js/map-init.js')}}"></script>
+<script src="{{secure_asset('assets/user/js/script.js')}}"></script>
+<script src="{{secure_asset('assets/user/js/map-init.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
-  <script type="text/javascript" src="{{ asset('vendor/bootstrap.js') }}"></script>
-{{--  <script type="text/javascript" src="{{ asset('vendor/angular-1.5.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ asset('vendor/angular-animate.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ asset('vendor/angular-aria.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ asset('vendor/angular-messages.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ asset('vendor/angular-material.min.js') }}"></script>--}}
-  <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
+{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>--}}
+{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>--}}
+{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>--}}
+{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>--}}
+{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>--}}
+  <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
 
-  <script src="{{ asset('assets/user/js/main.js')}}"></script>
-  <script src="{{ asset('assets/user/main.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/js/main.js')}}"></script>
+  <script src="{{ secure_asset('assets/user/main.js')}}"></script>
 
   <script>
     $(document).ready(function(){
