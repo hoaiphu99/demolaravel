@@ -131,12 +131,14 @@
                             <div class="col-lg-6">
                                 <div class="central-meta">
                                     <ul class="photos">
+                                        @if(!isset($posts))
+                                            <span>Không có ảnh nào</span>
+                                        @endif
                                         @foreach($posts->data as $p)
                                         <li>
                                             <a class="strip" href="{{$p->image}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
                                                 <img src="{{$p->image}}" alt="{{$p->content}}"></a>
                                         </li>
-
                                         @endforeach
                                     </ul>
                                     <div class="lodmore"><button class="btn-view btn-load-more"></button></div>
