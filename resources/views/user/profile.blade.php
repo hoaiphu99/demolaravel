@@ -21,7 +21,7 @@
                 <div class="col-lg-2 col-sm-3">
                     <div class="user-avatar">
                         <figure>
-                            <img src="{{session()->get('user')->avatar}}" alt="">
+                            <img src="{{$user->avatar}}" alt="">
                             <form class="edit-phto">
                                 <i class="fa fa-camera-retro"></i>
                                 <label class="fileContainer">
@@ -36,8 +36,8 @@
                     <div class="timeline-info">
                         <ul>
                             <li class="admin-name">
-                                <h5>{{session()->get('user')->username}}</h5>
-                                <span>{{session()->get('user')->name}}</span>
+                                <h5>{{$user->username}}</h5>
+{{--                                <span>{{session()->get('user')->name}}</span>--}}
                             </li>
                             <li>
                                 <a class="active" href="timeline-photos.html" title="" data-ripple="">Photos</a>
