@@ -133,7 +133,8 @@
                                             <img src="{{secure_asset('assets/user/images/resources/admin2.jpg')}}" alt="">
                                         </figure>
                                         <div class="newpst-input">
-                                            <form method="post">
+                                            <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <textarea rows="2" placeholder="write something"></textarea>
                                                 <div class="attachments">
                                                     <ul>
@@ -146,7 +147,7 @@
                                                         <li>
                                                             <i class="fa fa-image"></i>
                                                             <label class="fileContainer">
-                                                                <input type="file">
+                                                                <input type="file" name="image">
                                                             </label>
                                                         </li>
                                                         <li>
