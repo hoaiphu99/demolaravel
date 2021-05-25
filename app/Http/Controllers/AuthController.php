@@ -21,9 +21,11 @@ class AuthController extends Controller
                 'password' => $password
             ]
         ]);
-        $status = json_decode($response->getBody()->getContents(), true)['status'];
-        $user = json_decode($response->getBody()->getContents(), true)['data'];
-        dd($user);
+        $data = json_decode($response->getBody()->getContents(), true);
+        dd($data);
+//        $status = json_decode($response->getBody()->getContents(), true)['status'];
+//        $user = json_decode($response->getBody()->getContents(), true)['data'];
+
         if ($status != 1) {
             return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
