@@ -37,6 +37,8 @@ Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 
 Route::get('/post/{id}', [PostController::class, 'getPostByID'])->where(['id'])->name('post.id');
 
+Route::get('/profile/{username}', [PostController::class, 'getPostByUser'])->where(['username'])->name('profile.username');
+
 Route::post('user/create', [UserController::class, 'createUser'])->name('user.create');
 
 Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');

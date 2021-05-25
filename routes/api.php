@@ -46,6 +46,8 @@ Route::get('post/{id}', [PostController::class, 'show']);
 
 Route::get('post/user/{userid}', [PostController::class, 'getPostByUserID']);
 
+Route::get('post/user/{username}', [PostController::class, 'getPostByUser']);
+
 Route::post('post', [PostController::class, 'store'])->name('post.created');
 
 Route::put('post/{id}', [PostController::class, 'update']);

@@ -162,7 +162,7 @@
                                                     <img src="{{$p->user->avatar}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="time-line.html" title="">{{$p->user->username}}</a></ins>
+                                                    <ins><a href="{{route('profile.username', ['username' => $p->user->username])}}" title="">{{$p->user->username}}</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -31,6 +32,15 @@ class PostController extends Controller
     public function getPostByUserID($userid)
     {
         $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
+
+        return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
+    }
+
+    public function getPostByUser($username)
+    {
+        $user = User::where(['username' => $username])->first();
+        $user_id = $user->id;
+        $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
 
         return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
     }
