@@ -28,7 +28,6 @@ class AuthController extends Controller
         }
         else {
             $user = $data->data;
-            dd($user);
             $request->session()->put('user', $user);
             if ($user->utype == 'ADM')
                 return redirect(route('admin.dashboard'));
