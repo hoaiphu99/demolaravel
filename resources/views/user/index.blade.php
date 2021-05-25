@@ -135,31 +135,13 @@
                                         <div class="newpst-input">
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
-                                                <textarea rows="2" placeholder="write something"></textarea>
+                                                <textarea rows="2" placeholder="write something" name="content"></textarea>
                                                 <div class="attachments">
                                                     <ul>
-                                                        <li>
-                                                            <i class="fa fa-music"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
-                                                        </li>
                                                         <li>
                                                             <i class="fa fa-image"></i>
                                                             <label class="fileContainer">
                                                                 <input type="file" name="image">
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fa fa-video-camera"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fa fa-camera"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
                                                             </label>
                                                         </li>
                                                         <li>
