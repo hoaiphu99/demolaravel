@@ -95,8 +95,8 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
                             <div class="form-group">
-                                <input type="text" name="email" required="required"/>
-                                <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[email&#160;protected]</a></label><i class="mtrl-select"></i>
+                                <input type="email" name="email" required="required"/>
+                                <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">
                                 <input type="number" name="phone" required="required"/>
