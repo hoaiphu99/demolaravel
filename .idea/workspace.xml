@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/user/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +171,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\php\demolaravel\resources\views\user" />
       <recent name="D:\Documents\hoc-php\demolaravel\app\Http\Resources" />
       <recent name="D:\Documents\hoc-php\demolaravel\public\assets" />
       <recent name="D:\Documents\hoc-php\demolaravel\database\migrations" />
@@ -212,7 +215,7 @@
       <workItem from="1621652823348" duration="2665000" />
       <workItem from="1621656958071" duration="1884000" />
       <workItem from="1621821174202" duration="10631000" />
-      <workItem from="1621912326935" duration="19773000" />
+      <workItem from="1621912326935" duration="20282000" />
     </task>
     <servers />
   </component>
