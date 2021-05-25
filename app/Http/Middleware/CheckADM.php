@@ -26,7 +26,7 @@ class CheckADM
                 return $next($request);
             }
         }
-        if(!$request->session()->has('user')){
+        if($request->session()->has('user')){
             if (session()->get('user')->utype == 'USR')
                 return redirect(route('index'));
         }
