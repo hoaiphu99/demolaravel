@@ -7,12 +7,12 @@
     <meta name="keywords" content="" />
     <title>Wibu Social Network Media</title>
     <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/assets/user/css/font-awesome.min.assets/user/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/assets/user/css/themify-icons.assets/user/css">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.assets/user/css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.assets/user/css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.assets/user/css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.assets/user/css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/assets/user/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/assets/user/css/themify-icons.css">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">
 
 </head>
 <body>
