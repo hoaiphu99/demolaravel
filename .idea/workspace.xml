@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/accordion.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/accordion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/breadcrumb.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/breadcrumb.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/button.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/color.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/color.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/form-elements-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-elements-component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/icon-themify.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-themify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/label-badge.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/label-badge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/map-google.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/map-google.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/progress-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/progress-bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sample-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sample-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tabs.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tabs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tooltip.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tooltip.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/typography.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/typography.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +176,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/user" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -173,6 +188,9 @@
       <recent name="D:\Documents\hoc-php\demolaravel\public\assets" />
       <recent name="D:\Documents\hoc-php\demolaravel\database\migrations" />
       <recent name="C:\xampp\htdocs\WebChiaSeAnh\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\php\demolaravel\resources\views\user" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,7 +227,7 @@
       <workItem from="1621652823348" duration="2665000" />
       <workItem from="1621656958071" duration="1884000" />
       <workItem from="1621821174202" duration="10631000" />
-      <workItem from="1621912326935" duration="16112000" />
+      <workItem from="1621912326935" duration="16230000" />
     </task>
     <servers />
   </component>
