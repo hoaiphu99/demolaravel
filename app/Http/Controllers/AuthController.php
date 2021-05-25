@@ -22,15 +22,14 @@ class AuthController extends Controller
             ]
         ]);
         $data = json_decode($response->getBody()->getContents(), true);
-        dd($data);
-//        $status = json_decode($response->getBody()->getContents(), true)['status'];
-//        $user = json_decode($response->getBody()->getContents(), true)['data'];
-
+        $status = $data['status'];
+        
         if ($status != 1) {
             return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
-
+            $user = $data['data'];
+            dd($user);
             $request->session()->put('user', $user);
             if ($user->utype == 'ADM')
                 return redirect(route('admin.dashboard'));
