@@ -42,7 +42,7 @@ class PostController extends Controller
         $user_id = $user->id;
         $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
+        return response()->json(['status' => 1, 'data' => PostResource::collection($posts), 'user' => $user]);
     }
 
 //    protected function saveImgBase64($param, $folder)

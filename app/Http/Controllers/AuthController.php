@@ -58,7 +58,7 @@ class AuthController extends Controller
         $user = $data->data;
         if($user == null)
             return view('user.login', ['msg' => 'Create account unsuccessfully']);
-        $request->session()->put('user', $user);
+        session()->put('user', $user);
         return redirect(route('index'));
     }
 

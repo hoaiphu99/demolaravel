@@ -28,8 +28,9 @@ class PostController extends Controller
             'headers' => ['APIKEY' => 'VSBG']
         ]);
         $posts = json_decode($response->getBody()->getContents());
-        $user = $posts->data[0]->user;
-
+        $user = $posts->user;
+//        if ($posts != null)
+//            $user = $posts->data[0]->user;
         return view('user.profile', ['posts' => $posts, 'user' => $user]);
     }
 
