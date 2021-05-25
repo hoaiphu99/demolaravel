@@ -38,6 +38,9 @@
                 <div class="login-reg-bg">
                     <div class="log-reg-area sign">
                         <h2 class="log-title">Login</h2>
+                        @isset($msg)
+                            <p>{{$msg}}</p>
+                        @endisset
                         <form action="{{route('login')}}" method="post">
                             @csrf
                             <div class="form-group">
@@ -62,35 +65,41 @@
                     </div>
                     <div class="log-reg-area reg">
                         <h2 class="log-title">Register</h2>
-
-                        <form method="post">
+                        @isset($msg)
+                            <p>{{$msg}}</p>
+                        @endisset
+                        <form action="{{route('register')}}" method="post">
                             <div class="form-group">
-                                <input type="text" required="required"/>
+                                <input type="text" name="name" required="required"/>
                                 <label class="control-label" for="input">Full name</label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">
-                                <input type="text" required="required"/>
+                                <input type="text" name="username" required="required"/>
                                 <label class="control-label" for="input">User Name</label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">
-                                <input type="password" required="required"/>
+                                <input type="password" name="password" required="required"/>
                                 <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
                             </div>
-                            <div class="form-radio">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="radio" checked="checked"/><i class="check-box"></i>Male
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="radio"/><i class="check-box"></i>Female
-                                    </label>
-                                </div>
+{{--                            <div class="form-radio">--}}
+{{--                                <div class="radio">--}}
+{{--                                    <label>--}}
+{{--                                        <input type="radio" name="radio" checked="checked"/><i class="check-box"></i>Male--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                                <div class="radio">--}}
+{{--                                    <label>--}}
+{{--                                        <input type="radio" name="radio"/><i class="check-box"></i>Female--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <div class="form-group">
+                                <input type="text" name="email" required="required"/>
+                                <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[email&#160;protected]</a></label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">
-                                <input type="text" required="required"/>
-                                <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[email&#160;protected]</a></label><i class="mtrl-select"></i>
+                                <input type="number" name="phone" required="required"/>
+                                <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
                             </div>
                             <div class="checkbox">
                                 <label>

@@ -12,7 +12,7 @@ class CheckLogin
     protected $except =[
         'login',
         'logout',
-        'signup'
+        'register'
     ];
     /**
      * Handle an incoming request.

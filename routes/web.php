@@ -29,6 +29,8 @@ Route::get('login', function () {
     return view('user.login');
 });
 
+Route::post('register', [HomeController::class, 'register'])->name('register');
+
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
