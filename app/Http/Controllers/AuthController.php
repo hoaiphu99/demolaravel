@@ -22,12 +22,12 @@ class AuthController extends Controller
             ]
         ]);
         $status = json_decode($response->getBody()->getContents(), true)['status'];
-
+        dd($status);
         if ($status != 1) {
             return view('admin.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
-            $user = json_decode($response->getBody()->getContents());
+            $user = json_decode($response->getBody()->getContents(), true);
             dd($user);
             $request->session()->put('user', $user);
             if ($user->utype == 'ADM')
