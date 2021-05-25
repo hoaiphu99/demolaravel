@@ -23,7 +23,7 @@ use App\Http\Controllers\CommentController;
 //     return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('web');
 
 Route::get('login', function () {
     return view('admin.login');
@@ -38,7 +38,7 @@ Route::get('/post/{id}', [PostController::class, 'getPostByID'])->where(['id'])-
 
 //Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['web']], function() {
     Route::get('dashboard', function () {
         return view('admin.index');
     })->name('admin.dashboard');
