@@ -11,12 +11,13 @@ class HomeController extends Controller
     public function index() {
 
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-        $response = $client->get('post', [
+        $post_res = $client->get('post', [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
         ]);
 
-        return view('user.index', ['posts' => json_decode($response->getBody())]);
+
+        return view('user.index', ['posts' => json_decode($post_res->getBody())]);
     }
 }
