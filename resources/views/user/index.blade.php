@@ -1,5 +1,5 @@
 @extends('user.master')
-@section('title', 'WibuGram')
+@section('title', 'Wibu Media')
 @section('content')
 
     <section>
