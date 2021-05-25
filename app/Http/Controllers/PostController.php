@@ -29,7 +29,7 @@ class PostController extends Controller
         ]);
         $posts = json_decode($response->getBody()->getContents());
         $user = $posts->data[0]->user;
-        dd($user);
+
         return view('user.profile', ['posts' => $posts, 'user' => $user]);
     }
 

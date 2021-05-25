@@ -37,7 +37,7 @@
                         <ul>
                             <li class="admin-name">
                                 <h5>{{$user->username}}</h5>
-{{--                                <span>{{session()->get('user')->name}}</span>--}}
+                                <span>{{$user->name}}</span>
                             </li>
                             <li>
                                 <a class="active" href="timeline-photos.html" title="" data-ripple="">Photos</a>
