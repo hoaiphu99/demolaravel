@@ -26,7 +26,7 @@ use App\Http\Controllers\CommentController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('login', function () {
-    return view('admin.login');
+    return view('user.login');
 });
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
