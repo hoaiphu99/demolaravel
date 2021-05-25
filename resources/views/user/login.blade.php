@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Wibu Social Network Media</title>
-    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png" type="image/png')}}" sizes="16x16">
+    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/assets/user/css/font-awesome.min.assets/user/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/assets/user/css/themify-icons.assets/user/css">
     <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.assets/user/css')}}">
@@ -109,7 +109,8 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="{{secure_asset('assets/user/js/main.min.js')}}"></script>
 <script src="{{secure_asset('assets/user/js/script.js')}}"></script>
 
 </body>
