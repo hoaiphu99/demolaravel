@@ -30,7 +30,7 @@
                                                         <ul>
                                                             <li>
 															<span class="comment" data-toggle="tooltip" title="Comments">
-																<i class="far fa-heart"></i>
+																<i class="far fa-comments"></i>
 																<ins>2.2k</ins>
 															</span>
                                                             </li>
