@@ -118,7 +118,7 @@
                                                                 <input name="post_id" type="hidden" value="{{$post->id}}">
                                                                 <div class="add-smiles">
                                                                     <button type="submit">
-                                                                        <i class="fas fa-paper-plane"></i>
+                                                                        <i class="ti-comment-alt"></i>
                                                                     </button>
                                                                 </div>
 
