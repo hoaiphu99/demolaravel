@@ -49,6 +49,8 @@ Route::post('user/create', [UserController::class, 'createUser'])->name('user.cr
 
 Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
 
+Route::get('post/delete/{id}', [HomeController::class, 'deletePost'])->where(['id'])->name('post.delete.id');
+
 Route::post('comment/create', [HomeController::class, 'postComment'])->name('comment.post');
 
 Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');

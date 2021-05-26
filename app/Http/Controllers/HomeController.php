@@ -42,6 +42,17 @@ class HomeController extends Controller
         return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody())]);
     }
 
+    public function deletePost($id) {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->delete('post/'.$id, [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ]
+        ]);
+
+        return redirect(route('index'));
+    }
+
     public function postComment(Request $request) {
         $base_uri = Config::get('siteVars.API_URL');
         $client = new Client(['base_uri' => $base_uri]);

@@ -26,7 +26,7 @@
                                                 </div>
                                                 @if(session()->get('user')->username == $post->user->username)
                                                 <a href="#" style="float: right; top: 0%; right: 3%; position: absolute;"><i class="fas fa-edit"></i></a>
-                                                <a href="#" style="float: right; top: 0%; position: absolute;"><i class="fas fa-trash"></i></a>
+                                                <a href="{{route('post.delete.id', ['id' => $post->id])}}" style="float: right; top: 0%; position: absolute;"><i class="fas fa-trash"></i></a>
                                                 @endif
                                                 <div class="post-meta">
                                                     <img src="{{$post->image}}" alt="">
