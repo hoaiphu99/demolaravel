@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 use GuzzleHttp\Psr7;
 use Intervention\Image\Image;
+use mysql_xdevapi\Exception;
 
 class PostController extends Controller
 {
@@ -59,36 +60,39 @@ class PostController extends Controller
 //
 //        // Upload hinh anh len Imgur bang API
 //        $resource = fopen($file, "r") or die("File upload Problems");
-
-        $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->post('post', [
-            'headers' => [
-                'APIKEY' => 'VSBG'
-            ],
-            'multipart' => [
-                [
-
-                    'name' => 'content',
-                    'contents' => $request->input('content'),
+        try {
+            $client = new Client(['base_uri' => $base_uri]);
+            $response = $client->post('post', [
+                'headers' => [
+                    'APIKEY' => 'VSBG'
                 ],
-                [
-                    'Content-Type' => 'multipart/form-data',
-                    'name' => 'image',
-                    'contents' => fopen($file, "r"),
-                ],
-                [
+                'multipart' => [
+                    [
 
-                    'name' => 'user_id',
-                    'contents' => $user_id,
+                        'name' => 'content',
+                        'contents' => $request->input('content'),
+                    ],
+                    [
+                        'Content-Type' => 'multipart/form-data',
+                        'name' => 'image',
+                        'contents' => fopen($file, "r"),
+                    ],
+                    [
+
+                        'name' => 'user_id',
+                        'contents' => $user_id,
+                    ],
                 ],
-            ],
 //            'form_params' => [
 //                'content' => $request->input('content'),
 //                'image' => $name,
 //                'user_id' => $request->input('user_id')
 //            ]
-        ]);
-
+            ]);
+        }
+        catch (\Exception $e) {
+            echo '<script type="text/javascript">alert("Please upload a image!");</script>';
+        }
 
         if($user->utype == 'ADM')
             return redirect(route('admin.post'));
