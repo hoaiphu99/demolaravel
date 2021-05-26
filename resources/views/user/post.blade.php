@@ -24,8 +24,10 @@
                                                     <ins><a href="{{route('profile.username', ['username' => $post->user->username])}}" title="">{{$post->user->username}}</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
+                                                @if(session()->get('user')->username == $post->user->username)
                                                 <a href="#" style="float: right; top: 0%; right: 3%; position: absolute;"><i class="fas fa-edit"></i></a>
                                                 <a href="#" style="float: right; top: 0%; position: absolute;"><i class="fas fa-trash"></i></a>
+                                                @endif
                                                 <div class="post-meta">
                                                     <img src="{{$post->image}}" alt="">
                                                     <div class="we-video-info">
