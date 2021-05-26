@@ -41,7 +41,9 @@ class CommentController extends Controller
         // update lai so comment
         $comment = json_decode($comment);
         $post = Post::where(['id' => $comment->post_id])->first();
-        $post->update(['comment_count' => $post->comment_count++]);
+        $cmt_count = $post->comment_count++;
+        dd($cmt_count);
+        $post->update(['comment_count' => $cmt_count]);
 //        $post_client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
 //        $post_response = $post_client->get('post/'.$comment->post_id, [
 //            'headers' => [
