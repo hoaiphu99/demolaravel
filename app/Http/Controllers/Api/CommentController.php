@@ -43,23 +43,7 @@ class CommentController extends Controller
         $post = Post::where(['id' => $comment->post_id])->first();
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => ++$cmt_count]);
-//        $post_client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-//        $post_response = $post_client->get('post/'.$comment->post_id, [
-//            'headers' => [
-//                'APIKEY' => Config::get('siteVars.API_KEY'),
-//            ]
-//        ]);
-//        $post = json_decode($post_response->getBody())->data[0];
-//        $cmt_count = $post->comment_count++;
-//        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-//        $response = $client->put('post/'.$post->id, [
-//            'headers' => [
-//                'APIKEY' => Config::get('siteVars.API_KEY'),
-//            ],
-//            'form_params' => [
-//                'comment_count' => $cmt_count,
-//            ]
-//        ]);
+
         return response()->json(['status' => 1, 'data' => CommentResource::collection(Comment::all())], 201);
     }
 

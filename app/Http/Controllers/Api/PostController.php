@@ -163,6 +163,7 @@ class PostController extends Controller
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);
     }
 
+    // Ham nay dung de dem lai so comment cua tat ca bai viet
     public function updateCount(){
         $posts = Post::all();
         $posts = json_decode($posts);
@@ -171,17 +172,6 @@ class PostController extends Controller
             $comments = json_decode($comments);
             $cmt_count = count($comments);
             $p = Post::where(['id' => $post->id])->update(['comment_count' => $cmt_count]);
-
-//            $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-//            $response = $client->put('post/'.$post->id, [
-//                'headers' => [
-//                    'APIKEY' => Config::get('siteVars.API_KEY'),
-//                ],
-//                'form_params' => [
-//                    'comment_count' => $cmt_count,
-//                ]
-//            ]);
-
         }
     }
 }
