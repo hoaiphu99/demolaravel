@@ -171,9 +171,11 @@
                                                         <ul>
 
                                                             <li>
-															<a href="{{route('post.id', ['id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
-																<i class="ti-comments"></i>
-                                                                <ins>{{$p->comment_count}}</ins>
+															<a href="{{route('post.id', ['id' => $p->id])}}">
+                                                                <span  class="comment" data-toggle="tooltip" title="Comments">
+                                                                    <i class="ti-comments"></i>
+                                                                    <ins>{{$p->comment_count}}</ins>
+                                                                </span>
 															</a>
                                                             </li>
                                                             <li>
