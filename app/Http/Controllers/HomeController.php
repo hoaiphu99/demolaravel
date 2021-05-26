@@ -23,9 +23,9 @@ class HomeController extends Controller
         return view('user.index', ['posts' => json_decode($post_res->getBody())]);
     }
 
-    public function singlePost($post_id) {
+    public function singlePost($id) {
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-        $post_res = $client->get('post/'.$post_id, [
+        $post_res = $client->get('post/'.$id, [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
@@ -33,7 +33,7 @@ class HomeController extends Controller
 
         $post = json_decode($post_res->getBody())['data'][0];
         dd($post);
-        $comment_res = $client->get('comment/'.$post_id, [
+        $comment_res = $client->get('comment/'.$id, [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]

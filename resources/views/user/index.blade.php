@@ -175,7 +175,7 @@
 															</span>
                                                             </li>
                                                             <li>
-															<a href="{{route('post.id', ['post_id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
+															<a href="{{route('post.id', ['id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
 																<i class="far fa-comments"></i>
 															</a>
                                                             </li>
