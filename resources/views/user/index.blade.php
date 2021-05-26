@@ -173,11 +173,13 @@
                                                             <li>
 															<a href="{{route('post.id', ['id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
 																<i class="far fa-comments"></i>
+                                                                <ins>{{$p->comment_count}}</ins>
 															</a>
                                                             </li>
                                                             <li>
 															<span class="like" data-toggle="tooltip" title="like">
 																<i class="far fa-heart"></i>
+                                                                <ins>{{$p->like_count}}</ins>
 															</span>
                                                             </li>
                                                             <li class="social-media">

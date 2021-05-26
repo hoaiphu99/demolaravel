@@ -35,13 +35,13 @@
                                                             <li>
 															<span class="comment" data-toggle="tooltip" title="Comments">
 																<i class="far fa-comments"></i>
-																<ins>2.2k</ins>
+																<ins>{{$p->comment_count}}</ins>
 															</span>
                                                             </li>
                                                             <li>
 															<span class="like" data-toggle="tooltip" title="like">
 																<i class="ti-heart"></i>
-																<ins>2.2k</ins>
+																<ins>{{$p->like_count}}</ins>
 															</span>
                                                             </li>
                                                             <li class="social-media">
