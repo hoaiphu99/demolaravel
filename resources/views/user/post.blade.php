@@ -21,7 +21,7 @@
                                                     <img src="{{$post->user->avatar}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="{{$post->user->username}}" title="">{{$post->user->name}}</a></ins>
+                                                    <ins><a href="{{route('profile.username', ['username' => $post->user->username])}}" title="">{{$post->user->username}}</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
