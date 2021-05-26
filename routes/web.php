@@ -41,7 +41,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/test', [Controller::class, 'testAPI'])->name('index.test');
 
-Route::get('/post/{id}', [PostController::class, 'getPostByID'])->where(['id'])->name('post.id');
+Route::get('/post/{id}', [HomeController::class, 'singlePost'])->where(['id'])->name('post.id');
 
 Route::get('/profile/{username}', [PostController::class, 'getPostByUser'])->where(['username'])->name('profile.username');
 
@@ -52,6 +52,7 @@ Route::post('post/create', [PostController::class, 'createPost'])->name('post.cr
 Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
 
 Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');
+
 //Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
 
 //Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
