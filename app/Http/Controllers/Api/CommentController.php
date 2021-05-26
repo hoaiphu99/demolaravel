@@ -35,7 +35,6 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $comment = Comment::create($request->all());
         return response()->json(['status' => 1, 'data' => CommentResource::collection(Comment::all())], 201);
     }
