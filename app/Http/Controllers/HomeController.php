@@ -31,7 +31,7 @@ class HomeController extends Controller
             ]
         ]);
 
-        $post = json_decode($post_res->getBody())['data'][0];
+        $post = json_decode($post_res->getBody(), true)['data'][0];
         dd($post);
         $comment_res = $client->get('comment/'.$id, [
             'headers' => [
