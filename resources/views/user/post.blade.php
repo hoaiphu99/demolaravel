@@ -29,6 +29,12 @@
                                                     <div class="we-video-info">
                                                         <ul>
                                                             <li>
+															<span class="comment" data-toggle="tooltip" title="Comments">
+																<i class="far fa-heart"></i>
+																<ins>2.2k</ins>
+															</span>
+                                                            </li>
+                                                            <li>
 															<span class="like" data-toggle="tooltip" title="like">
 																<i class="ti-heart"></i>
 																<ins>2.2k</ins>
@@ -106,7 +112,9 @@
                                                                 <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                 <input name="post_id" type="hidden" value="{{$post->id}}">
                                                                 <div class="add-smiles">
-                                                                    <button type="submit">Comment</button>
+                                                                    <button type="submit">
+                                                                        <i class="fas fa-paper-plane"></i>
+                                                                    </button>
                                                                 </div>
 
                                                             </form>
