@@ -264,7 +264,7 @@
             <img height="45px" src="{{session()->get('user')->avatar}}" alt="">
             <span class="status f-online"></span>
             <div class="user-setting">
-                <a href="{{route('profile.username', ['username' => session()->get('username')->username])}}" title=""><i class="ti-user"></i> view profile</a>
+                <a href="{{route('profile.username', ['username' => session()->get('user')->username])}}" title=""><i class="ti-user"></i> view profile</a>
                 <a href="#" title=""><i class="ti-pencil-alt"></i>edit profile</a>
                 <a href="{{route('logout')}}" title=""><i class="ti-power-off"></i>log out</a>
             </div>
