@@ -142,29 +142,6 @@ class PostController extends Controller
         $post = Post::where(['id' => $id]);
         $post->update($request->all());
 
-        $file = $request->file('image');
-        $resource = fopen($file, "r") or die("File upload Problems");
-
-        // Upload hinh anh len Imgur bang API
-        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        $imgur_response = $imgur_client->post('image', [
-            'headers' => [
-                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
-            ],
-            'multipart' => [
-                [
-                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-                    'name' => 'image',
-                    'contents' => $resource,
-                ]
-            ]
-        ]);
-        $img_link = json_decode($imgur_response->getBody())->data->link;
-
-        //$link_img = $request->get('image');
-        Post::where(['id' => $id])->update(['image' => $img_link]);
-
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
     }
 
@@ -193,7 +170,15 @@ class PostController extends Controller
             $comments = Comment::where(['post_id' => $post->id])->get();
             $comments = json_decode($comments);
             $cmt_count = count($comments);
-            dd($cmt_count);
+            $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+            $response = $client->put('post/'.$post->id, [
+                'headers' => [
+                    'APIKEY' => Config::get('siteVars.API_KEY'),
+                ],
+                'form_params' => [
+                    'comment_count' => $cmt_count,
+                ]
+            ]);
         }
 
     }
