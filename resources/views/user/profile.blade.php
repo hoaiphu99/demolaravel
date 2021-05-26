@@ -104,7 +104,7 @@
                                             </li>
                                             <li>
                                                 <i class="ti-power-off"></i>
-                                                <a href="landing.html" title="">Logout</a>
+                                                <a href="{{route('logout')}}" title="">Logout</a>
                                             </li>
                                         </ul>
                                     </div><!-- Shortcuts -->
