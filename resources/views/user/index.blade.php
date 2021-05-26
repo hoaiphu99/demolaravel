@@ -169,11 +169,7 @@
                                                     <img src="{{$p->image}}" alt="">
                                                     <div class="we-video-info">
                                                         <ul>
-                                                            <li>
-															<span class="views" data-toggle="tooltip" title="views">
-																<i class="fa fa-eye"></i>
-															</span>
-                                                            </li>
+
                                                             <li>
 															<a href="{{route('post.id', ['id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
 																<i class="far fa-comments"></i>

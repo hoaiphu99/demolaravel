@@ -29,27 +29,9 @@
                                                     <div class="we-video-info">
                                                         <ul>
                                                             <li>
-															<span class="views" data-toggle="tooltip" title="views">
-																<i class="fa fa-eye"></i>
-																<ins>1.2k</ins>
-															</span>
-                                                            </li>
-                                                            <li>
-															<span class="comment" data-toggle="tooltip" title="Comments">
-																<i class="fa fa-comments-o"></i>
-																<ins>52</ins>
-															</span>
-                                                            </li>
-                                                            <li>
 															<span class="like" data-toggle="tooltip" title="like">
 																<i class="ti-heart"></i>
 																<ins>2.2k</ins>
-															</span>
-                                                            </li>
-                                                            <li>
-															<span class="dislike" data-toggle="tooltip" title="dislike">
-																<i class="ti-heart-broken"></i>
-																<ins>200</ins>
 															</span>
                                                             </li>
                                                             <li class="social-media">
@@ -104,8 +86,8 @@
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
-                                                                <h5><a href="{{$cmt->user->username}}" title="">{{$cmt->user->name}}</a></h5>
-                                                                <span>1 week ago</span>
+                                                                <h5><a href="{{route('profile.username', ['username' => $cmt->user->username])}}" title="">{{$cmt->user->username}}</a></h5>
+{{--                                                                <span>1 week ago</span>--}}
                                                                 <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                                             </div>
                                                             <p>
@@ -116,14 +98,17 @@
                                                     @endforeach
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="{{session()->get('user')->avatar}}" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
                                                                 <textarea placeholder="Post your comment" name="content"></textarea>
                                                                 <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                 <input name="post_id" type="hidden" value="{{$post->id}}">
-                                                                <button type="submit">Comment</button>
+                                                                <div class="add-smiles">
+                                                                    <button type="submit">Comment</button>
+                                                                </div>
+
                                                             </form>
                                                         </div>
                                                     </li>
