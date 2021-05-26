@@ -39,7 +39,7 @@ class HomeController extends Controller
             ]
         ]);
 
-        return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody()->getContents())]);
+        return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody())]);
     }
 
 }
