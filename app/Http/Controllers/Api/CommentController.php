@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Http\Resources\CommentResource;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
@@ -36,6 +37,24 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $comment = Comment::create($request->all());
+        // update lai so comment
+        $post_client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $post_response = $post_client->get('post/'.$comment->post_id, [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ]
+        ]);
+        $post = json_decode($post_response->getBody())->data[0];
+        $cmt_count = $post->comment_count++;
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->put('post/'.$post->id, [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ],
+            'form_params' => [
+                'comment_count' => $cmt_count,
+            ]
+        ]);
         return response()->json(['status' => 1, 'data' => CommentResource::collection(Comment::all())], 201);
     }
 
