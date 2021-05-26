@@ -42,4 +42,20 @@ class HomeController extends Controller
         return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody())]);
     }
 
+    public function postComment(Request $request) {
+        $base_uri = Config::get('siteVars.API_URL');
+        $client = new Client(['base_uri' => $base_uri]);
+        $response = $client->post('comment', [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY')
+            ],
+            'form_params' => [
+                'content' => $request->get('content'),
+                'user_id' => $request->get('user_id'),
+                'post_id' => $request->get('post_id'),
+            ]
+        ]);
+        return redirect($request->path());
+    }
+
 }

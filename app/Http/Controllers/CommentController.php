@@ -20,7 +20,7 @@ class CommentController extends Controller
         return view('admin.comment', ['comments' => json_decode($response->getBody())]);
     }
 
-    public function createComment() {
+    public function createComment(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('comment', [
@@ -28,9 +28,9 @@ class CommentController extends Controller
                 'APIKEY' => 'VSBG'
             ],
             'form_params' => [
-               'content' => $_POST['content'],
-               'user_id' => $_POST['user_id'],
-               'post_id' => $_POST['post_id'],
+               'content' => $request->get('content'),
+               'user_id' => $request->get('user_id'),
+               'post_id' => $request->get('post_id'),
            ]
         ]);
         return redirect(route('admin.comment'));

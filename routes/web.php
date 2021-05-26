@@ -49,7 +49,7 @@ Route::post('user/create', [UserController::class, 'createUser'])->name('user.cr
 
 Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
 
-Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
+Route::post('comment/create', [HomeController::class, 'postComment'])->name('comment.post');
 
 Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');
 
@@ -72,6 +72,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
 
     Route::get('comment', [CommentController::class, 'getComment'])->name('admin.comment');
+
+    Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
 
     Route::delete('comment/delete/{id}', [CommentController::class, 'deleteComment'])->where(['id'])->name('comment.delete');
 

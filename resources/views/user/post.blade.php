@@ -107,7 +107,8 @@
                                                             <img src="{{session()->get('user')->avatar}}" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
-                                                            <form method="post">
+                                                            <form action="{{route('comment.post')}}" method="post">
+                                                                @csrf
                                                                 <textarea placeholder="Post your comment" name="content"></textarea>
                                                                 <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                 <input name="post_id" type="hidden" value="{{$post->id}}">
