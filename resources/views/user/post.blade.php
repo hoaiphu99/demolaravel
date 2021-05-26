@@ -18,14 +18,14 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="{{$post->data->user->avatar}}" alt="">
+                                                    <img src="{{$post->user->avatar}}" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="{{$post->data->user->username}}" title="">{{$post->data->user->name}}</a></ins>
+                                                    <ins><a href="{{$post->user->username}}" title="">{{$post->user->name}}</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
-                                                    <img src="{{$post->data->image}}" alt="">
+                                                    <img src="{{$post->image}}" alt="">
                                                     <div class="we-video-info">
                                                         <ul>
                                                             <li>
@@ -90,7 +90,7 @@
                                                     <div class="description">
 
                                                         <p>
-                                                            {{$post->data->content}}
+                                                            {{$post->content}}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -120,7 +120,9 @@
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
-                                                                <textarea placeholder="Post your comment"></textarea>
+                                                                <textarea placeholder="Post your comment" name="content"></textarea>
+                                                                <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
+                                                                <input name="post_id" type="hidden" value="{{$post->id}}">
                                                                 <button type="submit">Comment</button>
                                                             </form>
                                                         </div>
