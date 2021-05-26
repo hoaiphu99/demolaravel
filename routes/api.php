@@ -54,6 +54,8 @@ Route::put('post/{id}', [PostController::class, 'update']);
 
 Route::delete('post/{id}', [PostController::class, 'destroy']);
 
+Route::get('post/update/count', [PostController::class, 'updateCount']);
+
 // Comment
 Route::get('comment', [CommentController::class, 'index']);
 
