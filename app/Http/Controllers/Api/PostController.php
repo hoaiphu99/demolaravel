@@ -192,7 +192,7 @@ class PostController extends Controller
         foreach ($posts as $post) {
             $comments = Comment::where(['post_id' => $post->id])->get();
             $comments = json_decode($comments);
-            $cmt_count = $comments.ob_get_length();
+            $cmt_count = count($comments);
             dd($cmt_count);
         }
 
