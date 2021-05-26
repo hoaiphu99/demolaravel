@@ -39,6 +39,7 @@ class CommentController extends Controller
     {
         $comment = Comment::create($request->all());
         // update lai so comment
+        dd($comment);
         $post = Post::where(['id' => $comment->post_id])->first();
         $post->update(['comment_count' => $post->comment_count++]);
 //        $post_client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
