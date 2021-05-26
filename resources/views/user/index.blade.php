@@ -166,7 +166,7 @@
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
-                                                    <a href="{{route('post.id', ['id' => $p->image])}}"><img src="{{$p->image}}" alt=""></a>
+                                                    <a href="{{route('post.id', ['id' => $p->id])}}"><img src="{{$p->image}}" alt=""></a>
                                                     <div class="we-video-info">
                                                         <ul>
 
