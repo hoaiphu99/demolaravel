@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use GuzzleHttp\Client;
@@ -175,6 +176,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $comment = Comment::where(['post_id' => $id])->get();
+        foreach ($comment as $cmt) {
+            $cmt->delete();
+        }
         $post = Post::where(['id' => $id])->first();
         $post->delete();
 
