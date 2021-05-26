@@ -29,9 +29,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all())->toArray();
+        $user = User::create($request->all());
 
-        return response()->json(['status' => 1, 'data' => UserResource::collection($user)], 201);
+        return response()->json(['status' => 1, 'data' => UserResource::collection(User::where(['username' => $request->get('username')->get()]))], 201);
     }
 
     /**
