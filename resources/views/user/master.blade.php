@@ -399,7 +399,7 @@
             </li>
         </ul>
         <div class="user-img">
-            <img src="{{secure_asset('assets/user/images/logo.png')}}" alt="">
+            <img height="45px" src="{{secure_asset('assets/user/images/logo.png')}}" alt="">
             <span class="status f-online"></span>
             <div class="user-setting">
                 <a href="#" title=""><span class="status f-online"></span>online</a>
