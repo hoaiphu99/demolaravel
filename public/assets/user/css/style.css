@@ -1964,10 +1964,11 @@ li.post-comment .comet-avatar {
 }
 
 .post-comt-box form button {
-    bottom: 2px;
+    bottom: -7px;
     position: absolute;
-    right: 0;
+    right: -13px;
     background: none;
+    color: black;
 }
 
 
