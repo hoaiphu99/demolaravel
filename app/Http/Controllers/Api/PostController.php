@@ -170,15 +170,17 @@ class PostController extends Controller
             $comments = Comment::where(['post_id' => $post->id])->get();
             $comments = json_decode($comments);
             $cmt_count = count($comments);
-            $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-            $response = $client->put('post/'.$post->id, [
-                'headers' => [
-                    'APIKEY' => Config::get('siteVars.API_KEY'),
-                ],
-                'form_params' => [
-                    'comment_count' => $cmt_count,
-                ]
-            ]);
+            $p = Post::where(['id' => $post->id])->update(['comment_count' => $cmt_count]);
+
+//            $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+//            $response = $client->put('post/'.$post->id, [
+//                'headers' => [
+//                    'APIKEY' => Config::get('siteVars.API_KEY'),
+//                ],
+//                'form_params' => [
+//                    'comment_count' => $cmt_count,
+//                ]
+//            ]);
 
         }
     }
