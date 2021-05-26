@@ -133,7 +133,7 @@
                                     <ul class="photos">
                                         @foreach($posts->data as $p)
                                         <li>
-                                            <a class="strip" href="{{$p->image}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+                                            <a class="strip" href="{{route('post.id', ['id' => $p->id])}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
                                                 <img src="{{$p->image}}" alt="{{$p->content}}"></a>
                                         </li>
                                         @endforeach
