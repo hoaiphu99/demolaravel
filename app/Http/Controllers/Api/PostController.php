@@ -179,7 +179,7 @@ class PostController extends Controller
                     'comment_count' => $cmt_count,
                 ]
             ]);
+            dd($response);
         }
-
     }
 }
