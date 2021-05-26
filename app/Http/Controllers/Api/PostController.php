@@ -185,4 +185,12 @@ class PostController extends Controller
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);
     }
+
+    public function updateCount(){
+        $posts = Post::all();
+        foreach ($posts as $post) {
+            $comments = Comment::where(['post_id' => $post->id]);
+            dd($comments);
+        }
+    }
 }
