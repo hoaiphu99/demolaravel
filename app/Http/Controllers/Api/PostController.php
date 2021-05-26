@@ -188,9 +188,11 @@ class PostController extends Controller
 
     public function updateCount(){
         $posts = Post::all();
+        dd($posts);
         foreach ($posts as $post) {
             $comments = Comment::where(['post_id' => $post->id])->get();
-            dd($comments);
+
         }
+
     }
 }
