@@ -55,6 +55,7 @@ class HomeController extends Controller
                 'post_id' => $request->get('post_id'),
             ]
         ]);
+
         return redirect($request->path());
     }
 
