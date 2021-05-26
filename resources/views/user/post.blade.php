@@ -25,8 +25,8 @@
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 @if(session()->get('user')->username == $post->user->username)
-                                                <a href="#" style="float: right; top: 0%; right: 3%; position: absolute;"><i class="fas fa-edit"></i></a>
-                                                <a href="{{route('post.delete.id', ['id' => $post->id])}}" style="float: right; top: 0%; position: absolute; color: red;"><i class="fas fa-trash"></i></a>
+                                                <a href="#" style="float: right; top: 0%; right: 3%; position: absolute;"><i class="ti-pencil-alt"></i></a>
+                                                <a href="{{route('post.delete.id', ['id' => $post->id])}}" style="float: right; top: 0%; position: absolute; color: red;"><i class="ti-trash"></i></a>
                                                 @endif
                                                 <div class="post-meta">
                                                     <img src="{{$post->image}}" alt="">
@@ -34,7 +34,7 @@
                                                         <ul>
                                                             <li>
 															<span class="comment" data-toggle="tooltip" title="Comments">
-																<i class="far fa-comments"></i>
+																<i class="ti-comments"></i>
 																<ins>{{$post->comment_count}}</ins>
 															</span>
                                                             </li>

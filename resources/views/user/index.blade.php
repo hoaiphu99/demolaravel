@@ -139,7 +139,7 @@
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
-                                                            <i class="fa fa-image"></i>
+                                                            <i class="ti-image"></i>
                                                             <label class="fileContainer">
                                                                 <input type="file" name="image">
                                                             </label>
@@ -172,13 +172,13 @@
 
                                                             <li>
 															<a href="{{route('post.id', ['id' => $p->id])}}" class="comment" data-toggle="tooltip" title="Comments">
-																<i class="far fa-comments"></i>
+																<i class="ti-comments"></i>
                                                                 <ins>{{$p->comment_count}}</ins>
 															</a>
                                                             </li>
                                                             <li>
 															<span class="like" data-toggle="tooltip" title="like">
-																<i class="far fa-heart"></i>
+																<i class="ti-heart"></i>
                                                                 <ins>{{$p->like_count}}</ins>
 															</span>
                                                             </li>
