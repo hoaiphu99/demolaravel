@@ -77,8 +77,8 @@
                         <td>{{ $u->phone }}</td>
                         <td>{{ $u->birthday }}</td>
                         <td><b ng-click="showUpdate({{$u->id}})">Sửa</b></td>
-                        <!-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td> -->
-                        <!-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> -->
+                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td>--}}
+                        {{--<td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
                         <td>
                             <form action="{{ route('user.delete', $u->id) }}" method="post">
                                 @method('DELETE')

@@ -68,7 +68,8 @@
                         <td>{{ $cmt->content }}</td>
                         <td>{{ $cmt->user->name }}</td>
                         <td>{{ $cmt->post->content }}</td>
-                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>
+                        <td><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></td>
+                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>--}}
                         {{--<td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td>--}}
                         <td>
                         <form action="{{ route('comment.delete', $cmt->id) }}" method="post">
