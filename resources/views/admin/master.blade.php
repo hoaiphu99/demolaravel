@@ -23,7 +23,8 @@
       <!-- Required Fremwork -->
       <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
       <!-- themify-icons line icon -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/themify-icons/themify-icons.css') }}">
+      <!-- <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/themify-icons/themify-icons.css') }}"> -->
+      <link rel="stylesheet" type="text/css" href="{{ 'assets/icon/themify-icons/themify-icons.css' }}">
       <!-- ico font -->
       <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/icofont/css/icofont.css') }}">
       <!-- Style.css -->
