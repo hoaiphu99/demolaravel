@@ -66,8 +66,8 @@
                     <tr>
                         <th scope="row">{{ $cmt->id }}</th>
                         <td>{{ $cmt->content }}</td>
-                        <td>{{ $cmt->user_id->name }}</td>
-                        <td>{{ $cmt->post_id->content }}</td>
+                        <td>{{ $cmt->user->name }}</td>
+                        <td>{{ $cmt->post->content }}</td>
                         <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>
                         {{--<td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td>--}}
                         <td>
