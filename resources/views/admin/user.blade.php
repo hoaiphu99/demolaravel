@@ -43,6 +43,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Username</th>
 {{--                        <th>Password</th>--}}
                         <th>Name</th>

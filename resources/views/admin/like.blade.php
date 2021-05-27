@@ -44,8 +44,8 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>User_id</th>
-                        <th>Post_id</th>
+                        <th>Tên Người Dùng</th>
+                        <th>Bài Đăng</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -63,8 +63,8 @@
                 @foreach($likes->data as $l)
                     <tr>
                         <th scope="row">{{ $l->id }}</th>
-                        <td>{{ $l->user_id->id }}</td>
-                        <td>{{ $l->post_id->id }}</td>
+                        <td>{{ $l->user->name }}</td>
+                        <td>{{ $l->post->content }}</td>
                         <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$l->id}})">Sửa</b></i></td>
                         <td>
                             <form action="{{ route('like.delete', $l->id) }}" method="post">

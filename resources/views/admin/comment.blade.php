@@ -44,9 +44,9 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Content</th>
-                        <th>User_id</th>
-                        <th>Post_id</th>
+                        <th>Nội Dung</th>
+                        <th>Tên Người Dùng</th>
+                        <th>Bài Đăng</th>
                         <th></th>
                         <th></th>
                     </tr>
