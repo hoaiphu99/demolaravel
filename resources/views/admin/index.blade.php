@@ -2,6 +2,11 @@
 @section('title', 'Dashboard')
 @section('content')
 
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+</head>
+
 <div class="page-body">
     <div class="row">
         <!-- card1 start -->
