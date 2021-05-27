@@ -57,4 +57,20 @@ class UserController extends Controller
         ]);
         return redirect(route('admin.user'));
     }
+
+    public function deleteUser($id) {
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $client = new Client(['base_uri' => $base_uri]);
+        $response = $client->delete('user/'.$id, [
+           'headers' => [
+               'APIKEY' => 'VSBG'
+           ],
+            /*'form_params' => [
+                'content' => $_POST['content'],
+                'user_id' => $_POST['user_id'],
+                'post_id' => $_POST['post_id'],
+            ]*/
+        ]);
+        return redirect(route('admin.user'));
+    }
 }

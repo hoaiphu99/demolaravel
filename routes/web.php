@@ -68,6 +68,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
 
     Route::post('user/update/{id}', [UserController::class, 'updateUser'])->where(['id'])->name('user.update');
 
+    Route::delete('user/delete/{id}', [UserController::class, 'destroy'])->where(['id'])->name('user.delete');
+
     Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
     //Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
 
