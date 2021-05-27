@@ -66,7 +66,8 @@
                     <td><input type="text" class="form-control" name="content"></td>
                     <td><input type="file" class="form-control" name="image"></td>
                     <td><input type="text" class="form-control" name="user_id"></td>
-                    <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
+                    <td><button class="btn btn-primary" type="submit">Lưu</button></td>
+                    {{--<td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>--}}
                 </form>
                 @foreach($posts->data as $p)
                     <tr>
@@ -74,14 +75,13 @@
                         <td><img src = "{{ $p->image }}" alt = ""></td>
                         <td>{{ $p->user->name }}</td>
                         <td><b ng-click="showUpdate({{$p->id}})">Sửa</b></td>
-                        <!-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td> -->
-                        <!-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> -->
+                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$p->id}})">Sửa</b></i></td> --}}
+                        {{-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
                         <td>
                             <form action="{{ route('post.delete.$p->id', $p->id) }}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Xóa"/>
-                                <!-- <i class="fa fa-pencil"></i> -->
                                 {{--<i class="fa fa-pencil"><a href="{{ route('post.delete.$p->id', $p->id) }}">Xóa</a></i>--}}
                             </form>
                         </td>
