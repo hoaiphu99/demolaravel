@@ -78,7 +78,7 @@
                         {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$p->id}})">Sửa</b></i></td> --}}
                         {{-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
                         <td>
-                            <form action="{{ route('post.delete.$p->id', $p->id) }}" method="post">
+                            <form action="{{ route('post.delete', $p->id) }}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Xóa"/>
