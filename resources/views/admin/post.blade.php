@@ -73,7 +73,7 @@
                         <th scope="row">{{ $p->content }}</th>
                         <td><img src = "{{ $p->image }}" alt = ""></td>
                         <td>{{ $p->user->name }}</td>
-                        <td><b ng-click="showUpdate({{$u->id}})">Sửa</b></td>
+                        <td><b ng-click="showUpdate({{$p->id}})">Sửa</b></td>
                         <!-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td> -->
                         <!-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> -->
                         <td>
