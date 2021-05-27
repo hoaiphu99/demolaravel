@@ -76,8 +76,18 @@
                         <td>{{ $u->email }}</td>
                         <td>{{ $u->phone }}</td>
                         <td>{{ $u->birthday }}</td>
-                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td>
-                        <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>
+                        <td><b ng-click="showUpdate({{$u->id}})">Sửa</b></td>
+                        <!-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td> -->
+                        <!-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> -->
+                        <td>
+                            <form action="{{ route('user.delete', $u->id) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <input class="btn btn-danger" type="submit" value="Xóa"/>
+                                <!-- <i class="fa fa-pencil"></i> -->
+                                {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', $u->id) }}">Xóa</a></i>--}}
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -49,7 +49,7 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr ng-show="!show">
+                    <!-- <tr ng-show="!show">
                         <form action="{{ route('like.create') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <td></td>
@@ -57,7 +57,7 @@
                             <td><input type="text" class="form-control" name="post_id"></td>
                             <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
                         </form>
-                    </tr>
+                    </tr> -->
                 </thead>
                 <tbody>
                 @foreach($likes->data as $l)
@@ -65,7 +65,8 @@
                         <th scope="row">{{ $l->id }}</th>
                         <td>{{ $l->user->name }}</td>
                         <td>{{ $l->post->content }}</td>
-                        <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$l->id}})">Sửa</b></i></td>
+                        <!-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$l->id}})">Sửa</b></i></td> -->
+                        <td><b ng-click="showUpdate({{$l->id}})">Sửa</b></td>
                         <td>
                             <form action="{{ route('like.delete', $l->id) }}" method="post">
                                 @method('DELETE')
