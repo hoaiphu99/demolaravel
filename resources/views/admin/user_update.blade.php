@@ -47,29 +47,29 @@
                                 <div class="inbox-details-heading">Form</div>
                                 <div class="inbox-details-body">
                                     {{--<div class="alert alert-info">${message}</div>--}}
-                                    <form action="{{ route('user.update', $user_detail->data->id) }}" class="com-mail" method="POST">
+                                    <form action="{{ route('user.update', $user_detail->id) }}" class="com-mail" method="POST">
                                         <label>Id</label>
-                                        <input type="text" name="id" value="{{$user_detail->data->id}}" readonly/>
+                                        <input type="text" name="id" value="{{$user_detail->id}}" readonly/>
                                         <label>Họ và tên</label>
-                                        <input type="text" name="name" value="{{$user_detail->data->name}}" required="required" />
+                                        <input type="text" name="name" value="{{$user_detail->name}}" required="required" />
                                         <label>Username</label>
-                                        <input type="text" name="username" value="{{$user_detail->data->username}}" readonly />
+                                        <input type="text" name="username" value="{{$user_detail->username}}" readonly />
                                         <label>Password</label>
-                                        <input type="password" name="password" value="{{$user_detail->data->password}}" readonly />
+                                        <input type="password" name="password" value="{{$user_detail->password}}" readonly />
                                         <br>
                                         <label>Email</label>
-                                        <input type="text" name="email" value="{{$user_detail->data->email}}" required="required"/>
+                                        <input type="text" name="email" value="{{$user_detail->email}}" required="required"/>
                                         <br>
                                         <br>
                                         <label>Phone</label>
-                                        <input type="number" name="phone" value="{{$user_detail->data->phone}}" required="required"/>
+                                        <input type="number" name="phone" value="{{$user_detail->phone}}" required="required"/>
                                         <br>
                                         <br>
                                         <label>Birthday</label>
-                                        <input type="number" name="birthday" value="{{$user_detail->data->birthday}}" required="required"/>
+                                        <input type="number" name="birthday" value="{{$user_detail->birthday}}" required="required"/>
                                         <label>Avatar</label>
                                         <!-- Combobox -->
-                                        <img src = "{{ $user_detail->data->avatar }}" alt = "" height="100" width="100">
+                                        <img src = "{{ $user_detail->avatar }}" alt = "" height="100" width="100">
                                         <form class="edit-phto">
                                             {{--<i class="fa fa-camera-retro"></i>--}}
                                             <label class="fileContainer">
@@ -80,7 +80,7 @@
                                         <br>
                                         <br>
                                         <button type="submit">Cập nhật</button>
-                                    </form:form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
