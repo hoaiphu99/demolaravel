@@ -57,7 +57,7 @@
                                         <label>Username</label>
                                         <input type="text" name="username" value="{{$u->username}}" readonly />
                                         <label>Password</label>
-                                        <input type="password" name="password" value="{{$u->password}}" readonly />
+                                        <input type="text" name="password" value="{{$u->password}}" readonly />
                                         <br>
                                         <label>Email</label>
                                         <input type="text" name="email" value="{{$u->email}}" required="required"/>
