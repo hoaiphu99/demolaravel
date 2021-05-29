@@ -51,43 +51,43 @@
   @foreach($users->data as $u)
   <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
     <div class="form-group">
-      <label for="uname">Họ và Tên:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="{{$u->name}}" required>
+      <label for="name">Họ và Tên:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{$u->name}}" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="uname">Username:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="{{$u->username}}" required readonly>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="{{$u->password}}" required readonly>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="uname">Email:</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter email" name="{{$u->email}}" required >
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{$u->email}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="uname">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="{{$u->phone}}" required >
+      <label for="phone">Phone:</label>
+      <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="uname">Birthday:</label>
-      <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" name="{{$u->birthday}}" required >
+      <label for="birthday">Birthday:</label>
+      <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="uname">Avatar</label>
+      <label for="avatar">Avatar</label>
       <br>
       <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
     </div>
