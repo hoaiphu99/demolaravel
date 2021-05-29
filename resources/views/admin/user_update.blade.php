@@ -36,7 +36,7 @@
 
 <!-- Page-body start -->
 <div class="page-body">
-    <div class="page-container">
+    <div class="card">
         <div class="left-content">
             <div class="mother-grid-inner">
                 <div class="inner-block">
