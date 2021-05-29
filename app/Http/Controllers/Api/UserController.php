@@ -44,8 +44,8 @@ class UserController extends Controller
     {
         $user = User::where(['id' => $id])->get();
 
-        //return response()->json(['status' => 1, 'data' => UserResource::collection($user)], 201);
-        return response()->json(['status' => 1, 'data' => $user], 201);
+        return response()->json(['status' => 1, 'data' => UserResource::collection($user)], 201);
+        //return response()->json(['status' => 1, 'data' => $user], 201);
     }
 
     /**
