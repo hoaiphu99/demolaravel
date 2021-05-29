@@ -83,7 +83,7 @@
                                         <div class="col-lg-2 col-sm-3">
                                             <div class="user-avatar">
                                                 <figure>
-                                                    <img src="{{$user->avatar}}" alt="">
+                                                    <img src="{{$u->avatar}}" alt="">
                                                     <form class="edit-phto">
                                                         <i class="fa fa-camera-retro"></i>
                                                         <label class="fileContainer">
