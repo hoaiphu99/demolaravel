@@ -44,7 +44,7 @@
                         <h2>Cập Nhật Người Dùng</h2>
                         <div class="col-md-12 compose-right">
                             <div class="inbox-details-default">
-                                <div class="inbox-details-heading">Form</div>
+                                {{--<div class="inbox-details-heading">Form</div>--}}
                                 <div class="inbox-details-body">
                                     {{--<div class="alert alert-info">${message}  </div>--}}
                                     @foreach($users->data as $u)
@@ -58,6 +58,7 @@
                                         <input type="text" name="username" value="{{$u->username}}" readonly />
                                         <label>Password</label>
                                         <input type="text" name="password" value="{{$u->password}}" readonly />
+                                        <br>
                                         <br>
                                         <label>Email</label>
                                         <input type="text" name="email" value="{{$u->email}}" required="required"/>
@@ -80,18 +81,22 @@
                                                 {{--<input type="file"/>--}}
                                             {{--</label>--}}
                                         {{--</form>--}}
-                                        <div class="col-lg-2 col-sm-3">
-                                            <div class="user-avatar">
-                                                <figure>
-                                                    <img src="{{$u->avatar}}" alt="">
-                                                    <form class="edit-phto">
-                                                        <i class="fa fa-camera-retro"></i>
-                                                        <label class="fileContainer">
-                                                            Edit Display Photo
-                                                            <input type="file"/>
-                                                        </label>
-                                                    </form>
-                                                </figure>
+                                        <div class="container-fluid">
+                                            <div class="row merged">
+                                                <div class="col-lg-2 col-sm-3">
+                                                    <div class="user-avatar">
+                                                        <figure>
+                                                            <img src="{{$u->avatar}}" alt="" height="200" width="200">
+                                                            <form class="edit-phto">
+                                                                <i class="fa fa-camera-retro"></i>
+                                                                <label class="fileContainer">
+                                                                    Edit Display Photo
+                                                                    <input type="file"/>
+                                                                </label>
+                                                            </form>
+                                                        </figure>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
