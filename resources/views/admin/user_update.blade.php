@@ -91,8 +91,8 @@
                                                                 <i class="fa fa-camera-retro"></i>
                                                                 <label class="fileContainer">
                                                                     <img src="{{$u->avatar}}" alt="" height="200" width="200">
-                                                                    <!-- Edit Display Photo
-                                                                    <input type="file"/> -->
+                                                                    <!-- Edit Display Photo-->
+                                                                    <input type="file"/>
                                                                 </label>
                                                             </form>
                                                         </figure>
