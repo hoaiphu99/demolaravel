@@ -34,8 +34,7 @@ class UserController extends Controller
             return view('errors.404');
         }
 
-        //return view('admin.user_update', ['user_detail' => $user_detail]);
-        return view('admin.user_update')->with('user_detail', $user_detail);
+        return view('admin.user', ['users' => $user_detail]);
     }
 
     public function createUser() {
