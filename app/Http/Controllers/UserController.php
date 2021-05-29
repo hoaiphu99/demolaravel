@@ -26,7 +26,8 @@ class UserController extends Controller
         $response = $client->get('user/'.$id, [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('admin.user_update', ['user_detail' => json_decode($response->getBody())]);
+        $user_detail = json_decode($response->getBody()->getContents());
+        return view('admin.user_update', ['user_detail' => $user_detail]);
     }
 
     public function createUser() {
