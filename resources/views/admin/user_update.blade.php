@@ -81,21 +81,23 @@
                                                 {{--<input type="file"/>--}}
                                             {{--</label>--}}
                                         {{--</form>--}}
-                                        <div class="container-fluid">
-                                            <div class="row merged">
-                                                <div class="col-lg-2 col-sm-3">
-                                                    <div class="user-avatar">
-                                                        <figure>
-                                                            {{--<img src="{{$u->avatar}}" alt="" height="200" width="200">--}}
-                                                            <form class="edit-phto">
-                                                                <i class="fa fa-camera-retro"></i>
-                                                                <label class="fileContainer">
-                                                                    <img src="{{$u->avatar}}" alt="" height="200" width="200">
-                                                                    <!-- Edit Display Photo-->
-                                                                    <input type="file"/>
-                                                                </label>
-                                                            </form>
-                                                        </figure>
+                                        <div class="feature-photo">
+                                            <div class="container-fluid">
+                                                <div class="row merged">
+                                                    <div class="col-lg-2 col-sm-3">
+                                                        <div class="user-avatar">
+                                                            <figure>
+                                                                {{--<img src="{{$u->avatar}}" alt="" height="200" width="200">--}}
+                                                                <form class="edit-phto">
+                                                                    <i class="fa fa-camera-retro"></i>
+                                                                    <label class="fileContainer">
+                                                                        <img src="{{$u->avatar}}" alt="" height="200" width="200">
+                                                                        <!-- Edit Display Photo-->
+                                                                        <input type="file"/>
+                                                                    </label>
+                                                                </form>
+                                                            </figure>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
