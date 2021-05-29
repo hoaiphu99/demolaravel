@@ -82,7 +82,7 @@
     </div>
     <div class="form-group">
       <label for="uname">Birthday:</label>
-      <input type="text" class="form-control" id="birthday" placeholder="Enter username" name="{{$u->birthday}}" required >
+      <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" name="{{$u->birthday}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
