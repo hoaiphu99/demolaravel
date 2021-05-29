@@ -51,8 +51,8 @@
   @foreach($users->data as $u)
   <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
     <div class="form-group">
-      <label for="name">Họ và Tên:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{$u->name}}" required>
+      <label for="ten">Họ và Tên:</label>
+      <input type="text" class="form-control" id="ten" placeholder="Enter name" name="name" value="{{$u->name}}" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -69,20 +69,20 @@
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{$u->email}}" required >
+      <label for="mail">Email:</label>
+      <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="phone">Phone:</label>
-      <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
+      <label for="sdt">Phone:</label>
+      <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
-      <label for="birthday">Birthday:</label>
-      <input type="text" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
+      <label for="ngaysinh">Birthday:</label>
+      <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
