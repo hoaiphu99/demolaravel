@@ -37,11 +37,11 @@
 <!-- Page-body start -->
 <div class="page-body">
     <div class="card">
-        <div class="left-content">
+        <div class="d-flex justify-content-between">
             <div class="mother-grid-inner">
                 <div class="inner-block">
                     <div class="inbox">
-                        <h2>Cập Nhật Người Dùng</h2>
+                        <!-- <h2>Cập Nhật Người Dùng</h2> -->
                         <div class="col-md-12 compose-right">
                             <div class="inbox-details-default">
                                 {{--<div class="inbox-details-heading">Form</div>--}}
