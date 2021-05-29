@@ -55,23 +55,23 @@
                                         <label>Họ và tên</label>
                                         <input type="text" name="name" value="{{$u->name}}" required="required" />
                                         <label>Username</label>
-                                        <input type="text" name="username" value="{{$user_detail->username}}" readonly />
+                                        <input type="text" name="username" value="{{$u->username}}" readonly />
                                         <label>Password</label>
-                                        <input type="password" name="password" value="{{$user_detail->password}}" readonly />
+                                        <input type="password" name="password" value="{{$u->password}}" readonly />
                                         <br>
                                         <label>Email</label>
-                                        <input type="text" name="email" value="{{$user_detail->email}}" required="required"/>
+                                        <input type="text" name="email" value="{{$u->email}}" required="required"/>
                                         <br>
                                         <br>
                                         <label>Phone</label>
-                                        <input type="number" name="phone" value="{{$user_detail->phone}}" required="required"/>
+                                        <input type="number" name="phone" value="{{$u->phone}}" required="required"/>
                                         <br>
                                         <br>
                                         <label>Birthday</label>
-                                        <input type="number" name="birthday" value="{{$user_detail->birthday}}" required="required"/>
+                                        <input type="number" name="birthday" value="{{$u->birthday}}" required="required"/>
                                         <label>Avatar</label>
                                         <!-- Combobox -->
-                                        <img src = "{{ $user_detail->avatar }}" alt = "" height="100" width="100">
+                                        <img src = "{{ $u->avatar }}" alt = "" height="100" width="100">
                                         <form class="edit-phto">
                                             {{--<i class="fa fa-camera-retro"></i>--}}
                                             <label class="fileContainer">
