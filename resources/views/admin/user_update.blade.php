@@ -2,8 +2,131 @@
 @section('title', 'User_Update')
 @section('content')
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div  ng-controller="MyController">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="icofont icofont-table bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h4>Cập Nhật User</h4>
+                    </div>
+                </div>
+                <hr>
+                {{--<div>--}}
+                    {{--<button type="button" class="btn btn-primary btn-insert" >Thêm</button>--}}
+                {{--</div>--}}
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="{{url('admin/dashboard')}}">
+                            <i class="icofont icofont-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="{{url('admin/user_update')}}">User</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+  <h2>Form Update</h2>
+  <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
+  <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
+  @foreach($users->data as $u)
+  <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="uname">Họ và Tên:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="{{$u->name}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="uname">Username:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="{{$u->username}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="{{$u->password}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="uname">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="{{$u->email}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="uname">Phone:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="{{$u->phone}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="uname">Birthday:</label>
+      <input type="text" class="form-control" id="birthday" placeholder="Enter username" name="{{$u->birthday}}" required readonly>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="uname">Avatar</label>
+      <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+    </div>
+    <!-- <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Check this checkbox to continue.</div>
+      </label>
+    </div> -->
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  @endforeach
+</div>
+
+<script>
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+</body>
+</html>
+
 <!-- Page-header start -->
-<div  ng-controller="MyController">
+<!-- <div  ng-controller="MyController">
 <div class="page-header card">
     <div class="row align-items-end">
         <div class="col-lg-8">
@@ -31,28 +154,28 @@
         </div>
     </div>
 </div>
-</div>
+</div> -->
 <!-- Page-header end -->
 
 <!-- Page-body start -->
-<div class="page-body">
+<!-- <div class="page-body">
     <div class="card">
         <div class="d-flex justify-content-between">
             <div class="mother-grid-inner">
                 <div class="inner-block">
-                    <div class="inbox">
+                    <div class="inbox"> -->
                         <!-- <h2>Cập Nhật Người Dùng</h2> -->
-                        <div class="col-md-12 compose-right">
+                        <!-- <div class="col-md-12 compose-right">
                             <div class="inbox-details-default">
                                 {{--<div class="inbox-details-heading">Form</div>--}}
                                 <div class="inbox-details-body">
                                     {{--<div class="alert alert-info">${message}  </div>--}}
                                     @foreach($users->data as $u)
                                     <form action="{{ route('user.update', $u->id) }}" class="com-mail" method="post">
-                                        @csrf
+                                        @csrf -->
                                         <!-- <label>Id</label>
                                         <input type="text" name="id" value="{{$u->id}}" readonly/> -->
-                                        <label>Họ và tên</label>
+                                        <!-- <label>Họ và tên</label>
                                         <input type="text" name="name" value="{{$u->name}}" required="required" />
                                         <label>Username</label>
                                         <input type="text" name="username" value="{{$u->username}}" readonly />
@@ -71,9 +194,9 @@
                                         <label>Birthday</label>
                                         <input type="text" name="birthday" value="{{$u->birthday}}" required="required"/>
                                         <br>
-                                        <label>Avatar</label>
+                                        <label>Avatar</label> -->
                                         <!-- Combobox -->
-                                        <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                                        <!-- <img src = "{{ $u->avatar }}" alt = "" height="200" width="200"> -->
                                         {{--<form class="edit-phto">--}}
                                             {{--<i class="fa fa-camera-retro"></i>--}}
                                             {{--<label class="fileContainer">--}}
@@ -102,7 +225,7 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <br>
+                                        <!-- <br>
                                         <br>
                                         <button class="btn btn-success" type="submit" value="Cập Nhật">Cập nhật</button>
                                     </form>
@@ -116,8 +239,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 <!-- Page-body end -->
-</div>
+<!-- </div> -->
 
 @endsection
