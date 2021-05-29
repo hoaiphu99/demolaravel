@@ -73,7 +73,7 @@
                                         <br>
                                         <label>Avatar</label>
                                         <!-- Combobox -->
-                                        <img src = "{{ $u->avatar }}" alt = "" height="100" width="100">
+                                        <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
                                         {{--<form class="edit-phto">--}}
                                             {{--<i class="fa fa-camera-retro"></i>--}}
                                             {{--<label class="fileContainer">--}}
