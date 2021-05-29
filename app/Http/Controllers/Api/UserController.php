@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all()->sortDesc();
+        $user = User::all()->sort();
         //return response()->json($user);
         return response()->json(['status' => 1, 'data' => UserResource::collection($user)]);
     }
