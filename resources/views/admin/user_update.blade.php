@@ -47,12 +47,13 @@
                                 <div class="inbox-details-heading">Form</div>
                                 <div class="inbox-details-body">
                                     {{--<div class="alert alert-info">${message}  </div>--}}
-                                    <form action="{{ route('user.update', $users->id) }}" class="com-mail" method="post">
+                                    @foreach($users->data as $u)
+                                    <form action="{{ route('user.update', $u->id) }}" class="com-mail" method="post">
                                         @csrf
                                         <label>Id</label>
-                                        <input type="text" name="id" value="{{$users->id}}" readonly/>
+                                        <input type="text" name="id" value="{{$u->id}}" readonly/>
                                         <label>Họ và tên</label>
-                                        <input type="text" name="name" value="{{$users->name}}" required="required" />
+                                        <input type="text" name="name" value="{{$u->name}}" required="required" />
                                         <label>Username</label>
                                         <input type="text" name="username" value="{{$user_detail->username}}" readonly />
                                         <label>Password</label>
@@ -82,6 +83,7 @@
                                         <br>
                                         <button type="submit">Cập nhật</button>
                                     </form>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
