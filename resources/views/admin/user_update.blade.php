@@ -50,8 +50,8 @@
                                     @foreach($users->data as $u)
                                     <form action="{{ route('user.update', $u->id) }}" class="com-mail" method="post">
                                         @csrf
-                                        <label>Id</label>
-                                        <input type="text" name="id" value="{{$u->id}}" readonly/>
+                                        <!-- <label>Id</label>
+                                        <input type="text" name="id" value="{{$u->id}}" readonly/> -->
                                         <label>Họ và tên</label>
                                         <input type="text" name="name" value="{{$u->name}}" required="required" />
                                         <label>Username</label>
@@ -61,7 +61,7 @@
                                         <br>
                                         <br>
                                         <label>Email</label>
-                                        <input type="text" name="email" value="{{$u->email}}" required="required"/>
+                                        <input type="email" name="email" value="{{$u->email}}" required="required"/>
                                         <br>
                                         <br>
                                         <label>Phone</label>
@@ -73,7 +73,7 @@
                                         <br>
                                         <label>Avatar</label>
                                         <!-- Combobox -->
-                                        {{--<img src = "{{ $u->avatar }}" alt = "" height="100" width="100">--}}
+                                        <img src = "{{ $u->avatar }}" alt = "" height="100" width="100">
                                         {{--<form class="edit-phto">--}}
                                             {{--<i class="fa fa-camera-retro"></i>--}}
                                             {{--<label class="fileContainer">--}}
@@ -81,7 +81,7 @@
                                                 {{--<input type="file"/>--}}
                                             {{--</label>--}}
                                         {{--</form>--}}
-                                        <div class="feature-photo">
+                                        <!-- <div class="feature-photo">
                                             <div class="container-fluid">
                                                 <div class="row merged">
                                                     <div class="col-lg-2 col-sm-3">
@@ -92,7 +92,7 @@
                                                                     <i class="fa fa-camera-retro"></i>
                                                                     <label class="fileContainer">
                                                                         <img src="{{$u->avatar}}" alt="" height="200" width="200">
-                                                                        <!-- Edit Display Photo-->
+                                                                        Edit Display Photo
                                                                         <input type="file"/>
                                                                     </label>
                                                                 </form>
@@ -101,7 +101,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <br>
                                         <br>
                                         <button class="btn btn-success" type="submit" value="Cập Nhật">Cập nhật</button>
