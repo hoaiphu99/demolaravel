@@ -37,7 +37,7 @@ class UserController extends Controller
         return view('admin.user_update', ['users' => $user_detail]);
     }
 
-    public function createUser() {
+    public function createUser(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('user', [
@@ -45,13 +45,19 @@ class UserController extends Controller
                 'APIKEY' => 'VSBG'
             ],
             'form_params' => [
-               'username' => $_POST['username'],
-               'password' => $_POST['password'],
-               'name' => $_POST['name'],
-               'email' => $_POST['email'],
-               'phone' => $_POST['phone'],
-               'birthday' => $_POST['birthday'],
-               'avatar' => $_POST['https://i.imgur.com/g8vFDMR.jpg']
+                'username' => $request->get('username'),
+                'password' => $request->get('password'),
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'phone' => $request->get('phone'),
+                'birthday' => $request->get('birthday'),
+                'avatar' => 'https://i.imgur.com/BdtG3S7.jpg'
+            //    'username' => $_POST['username'],
+            //    'password' => $_POST['password'],
+            //    'name' => $_POST['name'],
+            //    'email' => $_POST['email'],
+            //    'phone' => $_POST['phone'],
+            //    'birthday' => $_POST['birthday'],
            ]
         ]);
         return redirect(route('admin.user'));
