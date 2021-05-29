@@ -50,6 +50,7 @@
   <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
   @foreach($users->data as $u)
   <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
+    @csrf
     <div class="form-group">
       <label>Họ và Tên:</label>
       <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
