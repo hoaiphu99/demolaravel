@@ -46,10 +46,10 @@
                             <div class="inbox-details-default">
                                 <div class="inbox-details-heading">Form</div>
                                 <div class="inbox-details-body">
-                                    {{--<div class="alert alert-info">${message} {{ route('user.update', $user_detail->id) }}</div>--}}
+                                    {{--<div class="alert alert-info">${message} {{ route('user.update', $user_detail->id) }} {{$user_detail->id}}</div>--}}
                                     <form action="#" class="com-mail" method="POST">
                                         <label>Id</label>
-                                        <input type="text" name="id" value="{{$user_detail->id}}" readonly/>
+                                        <input type="text" name="id" value="" readonly/>
                                         <label>Họ và tên</label>
                                         <input type="text" name="name" value="{{$user_detail->name}}" required="required" />
                                         <label>Username</label>
