@@ -51,6 +51,7 @@ class UserController extends Controller
                'email' => $_POST['email'],
                'phone' => $_POST['phone'],
                'birthday' => $_POST['birthday'],
+               'avatar' => $_POST['https://i.imgur.com/g8vFDMR.jpg']
            ]
         ]);
         return redirect(route('admin.user'));
