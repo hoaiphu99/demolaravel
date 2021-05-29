@@ -68,20 +68,35 @@
                                         <br>
                                         <br>
                                         <label>Birthday</label>
-                                        <input type="number" name="birthday" value="{{$u->birthday}}" required="required"/>
+                                        <input type="text" name="birthday" value="{{$u->birthday}}" required="required"/>
+                                        <br>
                                         <label>Avatar</label>
                                         <!-- Combobox -->
-                                        <img src = "{{ $u->avatar }}" alt = "" height="100" width="100">
-                                        <form class="edit-phto">
+                                        {{--<img src = "{{ $u->avatar }}" alt = "" height="100" width="100">--}}
+                                        {{--<form class="edit-phto">--}}
                                             {{--<i class="fa fa-camera-retro"></i>--}}
-                                            <label class="fileContainer">
-                                                Edit Display Photo
-                                                <input type="file"/>
-                                            </label>
-                                        </form>
+                                            {{--<label class="fileContainer">--}}
+                                                <!-- Edit Display Photo -->
+                                                {{--<input type="file"/>--}}
+                                            {{--</label>--}}
+                                        {{--</form>--}}
+                                        <div class="col-lg-2 col-sm-3">
+                                            <div class="user-avatar">
+                                                <figure>
+                                                    <img src="{{$user->avatar}}" alt="">
+                                                    <form class="edit-phto">
+                                                        <i class="fa fa-camera-retro"></i>
+                                                        <label class="fileContainer">
+                                                            Edit Display Photo
+                                                            <input type="file"/>
+                                                        </label>
+                                                    </form>
+                                                </figure>
+                                            </div>
+                                        </div>
                                         <br>
                                         <br>
-                                        <button type="submit">Cập nhật</button>
+                                        <button class="btn btn-success" type="submit">Cập nhật</button>
                                     </form>
                                     @endforeach
                                 </div>
