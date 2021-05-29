@@ -47,7 +47,7 @@
                                 <div class="inbox-details-heading">Form</div>
                                 <div class="inbox-details-body">
                                     {{--<div class="alert alert-info">${message}  </div>--}}
-                                    <form action="{{ route('user.update', $user_detail->Id) }}" class="com-mail" method="post">
+                                    <form action="{{ route('user.update', $user_detail->id) }}" class="com-mail" method="post">
                                         @csrf
                                         <label>Id</label>
                                         <input type="text" name="id" value="{{$user_detail->id}}" readonly/>
