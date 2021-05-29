@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <!-- <title>Bootstrap Example</title> -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -51,8 +51,8 @@
   @foreach($users->data as $u)
   <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
     <div class="form-group">
-      <label for="ten">Họ và Tên:</label>
-      <input type="text" class="form-control" id="ten" placeholder="Enter name" name="name" value="{{$u->name}}" required>
+      <label>Họ và Tên:</label>
+      <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
