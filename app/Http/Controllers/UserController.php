@@ -20,6 +20,15 @@ class UserController extends Controller
         return view('admin.user', ['users' => json_decode($response->getBody())]);
     }
 
+    public function getUserDetail($id) {
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $client = new Client(['base_uri' => $base_uri]);
+        $response = $client->get('user/'.$id, [
+            'headers' => ['APIKEY' => 'VSBG']
+        ]);
+        return view('admin.user_update', ['user_detail' => json_decode($response->getBody())]);
+    }
+
     public function createUser() {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);

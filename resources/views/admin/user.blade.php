@@ -62,7 +62,8 @@
                             <td><input type="text" class="form-control" name="email"></td>
                             <td><input type="text" class="form-control" name="phone"></td>
                             <td><input type="text" class="form-control" name="birthday"></td>
-                            <td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i></td>
+                            {{--<td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i></td>--}}
+                            <td><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></td>
                         </form>
                     </tr>
                 </thead>
@@ -76,7 +77,7 @@
                         <td>{{ $u->email }}</td>
                         <td>{{ $u->phone }}</td>
                         <td>{{ $u->birthday }}</td>
-                        <td><a href="#"><b>Sửa</b></a></td>
+                        <td><a href="{{ route('user.detail', $u->id) }}"><b>Sửa</b></a></td>
                         {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td>--}}
                         {{--<td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
                         <td>
