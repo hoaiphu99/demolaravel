@@ -104,7 +104,7 @@
                                         </div>
                                         <br>
                                         <br>
-                                        <button class="btn btn-success" type="submit">Cập nhật</button>
+                                        <button class="btn btn-success" type="submit" value="Cập Nhật">Cập nhật</button>
                                     </form>
                                     @endforeach
                                 </div>
