@@ -44,7 +44,7 @@
         </div>
     </div>
     </div>
-    
+
   <h2>Form Update</h2>
   <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
   <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
@@ -52,7 +52,7 @@
   <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
     <div class="form-group">
       <label for="uname">Họ và Tên:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="{{$u->name}}" required readonly>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="{{$u->name}}" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -70,24 +70,25 @@
     </div>
     <div class="form-group">
       <label for="uname">Email:</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter email" name="{{$u->email}}" required readonly>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="{{$u->email}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="uname">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="{{$u->phone}}" required readonly>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="{{$u->phone}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="uname">Birthday:</label>
-      <input type="text" class="form-control" id="birthday" placeholder="Enter username" name="{{$u->birthday}}" required readonly>
+      <input type="text" class="form-control" id="birthday" placeholder="Enter username" name="{{$u->birthday}}" required >
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="uname">Avatar</label>
+      <br>
       <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
     </div>
     <!-- <div class="form-group form-check">
