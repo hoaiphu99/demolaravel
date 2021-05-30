@@ -120,23 +120,28 @@ class PostController extends Controller
                 'headers' => [
                     'APIKEY' => 'VSBG'
                 ],
-                'multipart' => [
-                    [
+                'form_params' => [
+                    'content' => $_POST['content'],
+                    'user_id' => $_POST['image'],
+                    'post_id' => $_POST['user_id'],
+                ]
+                // 'multipart' => [
+                //     [
 
-                        'name' => 'content',
-                        'contents' => $request->input('content'),
-                    ],
-                    [
-                        'Content-Type' => 'multipart/form-data',
-                        'name' => 'image',
-                        'contents' => fopen($file, "r"),
-                    ],
-                    [
+                //         'name' => 'content',
+                //         'contents' => $request->input('content'),
+                //     ],
+                //     [
+                //         'Content-Type' => 'multipart/form-data',
+                //         'name' => 'image',
+                //         'contents' => fopen($file, "r"),
+                //     ],
+                //     [
 
-                        'name' => 'user_id',
-                        'contents' => $user_id,
-                    ],
-                ],
+                //         'name' => 'user_id',
+                //         'contents' => $user_id,
+                //     ],
+                // ],
             ]);
         }
         catch (\Exception $e) {
