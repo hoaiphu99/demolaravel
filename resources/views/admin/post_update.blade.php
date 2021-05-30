@@ -137,3 +137,5 @@
     <script src="{{secure_asset('assets/user/js/script.js')}}"></script>
 </body>
 </html>
+
+@endsection
