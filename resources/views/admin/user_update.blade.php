@@ -120,9 +120,9 @@
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
             }
             form.classList.add('was-validated');
         }, false);
