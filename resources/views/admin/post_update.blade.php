@@ -59,7 +59,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
-                        <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$p->content}}" required="required"/>
+                        <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$p->content}}" required="required" height="50"/>
                         <!-- <textarea class="form-control" id="nd" rows="5" placeholder="write something" name="content" value="{{$p->content}}" required="required"></textarea> -->
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <div class="col-xs-3">
                             <label for="uname">Người Đăng:</label>
-                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->name}}" required="required"/>
+                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->name}}" required="required" size="50"/>
                             <!-- <div class="valid-feedback">Valid.</div> -->
                             <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                         </div>
