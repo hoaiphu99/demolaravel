@@ -76,7 +76,7 @@
                         <label for="image">Hình Ảnh:</label>
                         <br>
                         <img src="{{$p->image}}" alt="" height="300" width="300">
-                        <div class="col-sm-offset-5 col-sm-10">
+                        <div class="col-sm-offset-9 col-sm-10">
                             <label class="fileContainer">
                                 Edit Display Photo
                                 <input type="file" id="image" name="image" required="required"/>
