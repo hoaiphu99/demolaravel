@@ -60,7 +60,7 @@
                         <label>Họ và Tên:</label>
                         <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required="required"/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="uname">Username:</label>
@@ -132,24 +132,25 @@
         //     }, false)
         //     })
         // })()
+
         // Disable form submissions if there are invalid fields
-        (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-            });
-        }, false);
-        })();
+        // (function() {
+        // 'use strict';
+        // window.addEventListener('load', function() {
+        //     // Get the forms we want to add validation styles to
+        //     var forms = document.getElementsByClassName('needs-validation');
+        //     // Loop over them and prevent submission
+        //     var validation = Array.prototype.filter.call(forms, function(form) {
+        //     form.addEventListener('submit', function(event) {
+        //         if (form.checkValidity() === false) {
+        //             event.preventDefault();
+        //             event.stopPropagation();
+        //         }
+        //         form.classList.add('was-validated');
+        //     }, false);
+        //     });
+        // }, false);
+        // })();
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
