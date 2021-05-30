@@ -77,12 +77,12 @@
                         <br>
                         <div class="user-avatar">
                             <figure>
-                                <img src="{{$p->image}}" alt="">
+                                <img src="{{$p->image}}" alt="" height="300" width="300">
                                 <form class="edit-phto">
                                     <i class="fa fa-camera-retro"></i>
                                     <label class="fileContainer">
                                         <!-- Edit Display Photo -->
-                                        <input type="file"/>
+                                        <input type="file" id="image" name="image" required="required"/>
                                     </label>
                                 </form>
                             </figure>
