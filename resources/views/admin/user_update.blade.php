@@ -58,39 +58,39 @@
                     @csrf
                     <div class="form-group">
                         <label>Họ và Tên:</label>
-                        <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
+                        <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required="required"/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="uname">Username:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
+                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required="required" readonly/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required="required" readonly/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="mail">Email:</label>
-                        <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
+                        <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required="required" />
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="sdt">Phone:</label>
-                        <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
+                        <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required="required" />
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="ngaysinh">Birthday:</label>
-                        <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
+                        <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required="required" />
                         <!-- <div class="valid-feedback">Valid.</div> -->
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="avatar">Avatar</label>
