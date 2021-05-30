@@ -55,7 +55,7 @@
             <div class="card-body">
                 @foreach($posts->data as $p)
                 <form action="{{ route('post.update', $p->id) }}" method="post">
-                <!-- class="needs-validation" novalidate="true" -->
+                    <!-- class="needs-validation" novalidate="true" -->
                     @csrf
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
@@ -75,23 +75,34 @@
                     <div class="form-group">
                         <label for="image">Hình Ảnh:</label>
                         <br>
-                        <div class="user-avatar">
+                        <img src="{{$p->image}}" alt="" height="300" width="300">
+                        <div class="col-sm-offset-5 col-sm-10">
+                            <label class="fileContainer">
+                                Edit Display Photo
+                                <input type="file" id="image" name="image" required="required"/>
+                            </label>
+                        </div>
+                        <!-- <div class="user-avatar">
                             <figure>
                                 <img src="{{$p->image}}" alt="" height="300" width="300">
                                 <form class="edit-phto">
                                     <i class="fa fa-camera-retro"></i>
                                     <label class="fileContainer">
-                                        <!-- Edit Display Photo -->
+                                        Edit Display Photo
                                         <input type="file" id="image" name="image" required="required"/>
                                     </label>
                                 </form>
                             </figure>
-                        </div>
+                        </div> -->
                         <!-- <img src = "{{ $p->image }}" alt = "" height="200" width="200">
                         <div class="col-md-auto col-sm-6">
                             <input type="file" class="form-control" id="image" name="image" required="required"/>
                         </div> -->
                     </div>
+                    <!-- <form class="edit-phto">
+                        <i class="fa fa-camera-retro"></i>
+                        
+                    </form> -->
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
