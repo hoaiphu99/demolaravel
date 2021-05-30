@@ -45,64 +45,68 @@
             </div>
         </div>
 
-        <div class="page-body card">
-            <h2>Form Update</h2>
-            <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
-            <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
-            @foreach($users->data as $u)
-            <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
-                @csrf
-                <div class="form-group">
-                    <label>Họ và Tên:</label>
-                    <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
-                <div class="form-group">
-                    <label for="uname">Username:</label>
-                    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
-                    <!-- <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div> -->
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
-                    <!-- <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div> -->
-                </div>
-                <div class="form-group">
-                    <label for="mail">Email:</label>
-                    <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
-                    <!-- <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div> -->
-                </div>
-                <div class="form-group">
-                    <label for="sdt">Phone:</label>
-                    <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
-                    <!-- <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div> -->
-                </div>
-                <div class="form-group">
-                    <label for="ngaysinh">Birthday:</label>
-                    <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
-                    <!-- <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div> -->
-                </div>
-                <div class="form-group">
-                    <label for="avatar">Avatar</label>
-                    <br>
-                    <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
-                </div>
-                <!-- <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Check this checkbox to continue.</div>
-                </label>
-                </div> -->
-                <button type="submit" class="btn btn-success">Submit</button>
-            </form>
-            @endforeach
+        <div class = "card text-center">
+            <div class = "card-header">
+                <h2>Form Update</h2>
+                <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
+                <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
+            </div>
+            <div class="card-body">
+                @foreach($users->data as $u)
+                <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
+                    @csrf
+                    <div class="form-group">
+                        <label>Họ và Tên:</label>
+                        <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uname">Username:</label>
+                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Email:</label>
+                        <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="sdt">Phone:</label>
+                        <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="ngaysinh">Birthday:</label>
+                        <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">Avatar</label>
+                        <br>
+                        <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                    </div>
+                    <!-- <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    </label>
+                    </div> -->
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+                @endforeach
+            </div>
         </div>
     </div>
 
