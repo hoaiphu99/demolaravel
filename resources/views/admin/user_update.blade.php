@@ -58,38 +58,38 @@
                     <div class="form-group">
                         <label>Họ và Tên:</label>
                         <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <!-- <div class="valid-feedback">Valid.</div> -->
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="uname">Username:</label>
                         <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
-                        <!-- <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
                         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
-                        <!-- <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="mail">Email:</label>
                         <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
-                        <!-- <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="sdt">Phone:</label>
                         <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
-                        <!-- <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="ngaysinh">Birthday:</label>
                         <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
-                        <!-- <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="avatar">Avatar</label>
@@ -103,7 +103,7 @@
                         <div class="invalid-feedback">Check this checkbox to continue.</div>
                     </label>
                     </div> -->
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Cập Nhật</button>
                 </form>
                 @endforeach
             </div>
@@ -116,11 +116,11 @@
     'use strict';
     window.addEventListener('load', function() {
         // Get the forms we want to add validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
+        var forms = document.querySelectorAll('.needs-validation');
         // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
+        Array.prototype.slice.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
+            if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
             }
