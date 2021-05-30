@@ -56,12 +56,12 @@
                     <tr class="insert-user">
                         <form action="{{ route('user.create') }}" method="post">
                             @csrf
-                            <td><input type="text" class="form-control" name="username"></td>
-                            <td><input type="text" class="form-control" name="password"></td>
-                            <td><input type="text" class="form-control" name="name"></td>
-                            <td><input type="text" class="form-control" name="email"></td>
-                            <td><input type="text" class="form-control" name="phone"></td>
-                            <td><input type="text" class="form-control" name="birthday"></td>
+                            <td><input type="text" class="form-control" name="username" required="required"></td>
+                            <td><input type="text" class="form-control" name="password" required="required"></td>
+                            <td><input type="text" class="form-control" name="name" required="required"></td>
+                            <td><input type="text" class="form-control" name="email" required="required"></td>
+                            <td><input type="text" class="form-control" name="phone" required="required"></td>
+                            <td><input type="text" class="form-control" name="birthday" required="required"></td>
                             {{--<td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i></td>--}}
                             <td><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></td>
                         </form>

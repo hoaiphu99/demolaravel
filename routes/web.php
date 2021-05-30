@@ -73,7 +73,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     Route::delete('user/delete/{id}', [UserController::class, 'deleteUser'])->where(['id'])->name('user.delete');
 
     Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
+
     //Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
+
+    Route::get('post/{id}', [PostController::class, 'getPostDetail'])->where(['id'])->name('post.detail');
+
+    Route::post('post/update/{id}', [PostController::class, 'updatePost'])->where(['id'])->name('post.update');
+
     Route::delete('post/delete/{id}', [PostController::class, 'deletePost'])->where(['id'])->name('post.delete');
 
     Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');

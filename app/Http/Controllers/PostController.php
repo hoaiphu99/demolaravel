@@ -22,6 +22,15 @@ class PostController extends Controller
         return view('admin.post', ['posts' => json_decode($response->getBody())]);
     }
 
+    public function getPostDetail($id) {
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+        $client = new Client(['base_uri' => $base_uri]);
+        $response = $client->get('post/'.$id, [
+            'headers' => ['APIKEY' => 'VSBG']
+        ]);
+        return view('admin.post', ['posts' => json_decode($response->getBody())]);
+    }
+
     public function getPostByUser($username) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
@@ -101,21 +110,69 @@ class PostController extends Controller
 
     }
 
-    public function updatePost($id) {
+    public function updatePost(Request $request, $id) {
+        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
+
+        $file = $request->file('image');
+        try {
+            $client = new Client(['base_uri' => $base_uri]);
+            $response = $client->put('post/'.$id, [
+                'headers' => [
+                    'APIKEY' => 'VSBG'
+                ],
+                'multipart' => [
+                    [
+
+                        'name' => 'content',
+                        'contents' => $request->input('content'),
+                    ],
+                    [
+                        'Content-Type' => 'multipart/form-data',
+                        'name' => 'image',
+                        'contents' => fopen($file, "r"),
+                    ],
+                    [
+
+                        'name' => 'user_id',
+                        'contents' => $user_id,
+                    ],
+                ],
+            ]);
+        }
+        catch (\Exception $e) {
+            echo '<script type="text/javascript">alert("Please upload a image!");</script>';
+        }
+
+        // $client = new Client(['base_uri' => $base_uri]);
+        // $response = $client->put('post/'.$id, [
+        //     'headers' => [
+        //         'APIKEY' => 'VSBG'
+        //     ],
+        //     'form_params' => [
+        //         'content' => $_POST['username'],
+        //         'password' => $_POST['password'],
+        //         'name' => $_POST['name'],
+        //         'email' => $_POST['email'],
+        //         'phone' => $_POST['phone'],
+        //         'birthday' => $_POST['birthday'],
+        //     ]
+        // ]);
+
+        return redirect(route('admin.post'));
+    }
+
+    public function deletePost($id) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->put('post/'.$id, [
-            'headers' => [
-                'APIKEY' => 'VSBG'
-            ],
-            'form_params' => [
-                'username' => $_POST['username'],
-                'password' => $_POST['password'],
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'birthday' => $_POST['birthday'],
-            ]
+        $response = $client->delete('post/'.$id, [
+           'headers' => [
+               'APIKEY' => 'VSBG'
+           ],
+            /*'form_params' => [
+                'content' => $_POST['content'],
+                'user_id' => $_POST['user_id'],
+                'post_id' => $_POST['post_id'],
+            ]*/
         ]);
         return redirect(route('admin.post'));
     }
