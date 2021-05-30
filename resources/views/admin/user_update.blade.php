@@ -14,116 +14,118 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <div  ng-controller="MyController">
-    <div class="page-header card">
-        <div class="row align-items-end">
-            <div class="col-lg-8">
-                <div class="page-header-title">
-                    <i class="icofont icofont-table bg-c-blue"></i>
-                    <div class="d-inline">
-                        <h4>Cập Nhật User</h4>
+    <div class="container">
+        <div  ng-controller="MyController">
+            <div class="page-header card">
+                <div class="row align-items-end">
+                    <div class="col-lg-8">
+                        <div class="page-header-title">
+                            <i class="icofont icofont-table bg-c-blue"></i>
+                            <div class="d-inline">
+                                <h4>Cập Nhật User</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        {{--<div>--}}
+                            {{--<button type="button" class="btn btn-primary btn-insert" >Thêm</button>--}}
+                        {{--</div>--}}
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="page-header-breadcrumb">
+                            <ul class="breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a href="{{url('admin/dashboard')}}">
+                                    <i class="icofont icofont-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{{url('admin/user_update')}}">User</a></li>
+                        </ul>
                     </div>
                 </div>
-                <hr>
-                {{--<div>--}}
-                    {{--<button type="button" class="btn btn-primary btn-insert" >Thêm</button>--}}
-                {{--</div>--}}
-            </div>
-            <div class="col-lg-4">
-                <div class="page-header-breadcrumb">
-                    <ul class="breadcrumb-title">
-                    <li class="breadcrumb-item">
-                        <a href="{{url('admin/dashboard')}}">
-                            <i class="icofont icofont-home"></i>
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="{{url('admin/user_update')}}">User</a></li>
-                </ul>
             </div>
         </div>
-    </div>
+
+        <div class="page-body card">
+            <h2>Form Update</h2>
+            <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
+            <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
+            @foreach($users->data as $u)
+            <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
+                @csrf
+                <div class="form-group">
+                    <label>Họ và Tên:</label>
+                    <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="uname">Username:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
+                    <!-- <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
+                    <!-- <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group">
+                    <label for="mail">Email:</label>
+                    <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
+                    <!-- <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group">
+                    <label for="sdt">Phone:</label>
+                    <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
+                    <!-- <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group">
+                    <label for="ngaysinh">Birthday:</label>
+                    <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
+                    <!-- <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avatar</label>
+                    <br>
+                    <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                </div>
+                <!-- <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                </label>
+                </div> -->
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+            @endforeach
+        </div>
     </div>
 
-  <h2>Form Update</h2>
-  <!-- <p>In this example, we use <code>.needs-validation</code>, which will add the validation effect AFTER the form has been submitting (if there's anything missing).</p>
-  <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
-  @foreach($users->data as $u)
-  <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>
-    @csrf
-    <div class="form-group">
-      <label>Họ và Tên:</label>
-      <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required>
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="uname">Username:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required readonly>
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required readonly>
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="mail">Email:</label>
-      <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required >
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="sdt">Phone:</label>
-      <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required >
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="ngaysinh">Birthday:</label>
-      <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required >
-      <!-- <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div> -->
-    </div>
-    <div class="form-group">
-      <label for="avatar">Avatar</label>
-      <br>
-      <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
-    </div>
-    <!-- <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Check this checkbox to continue.</div>
-      </label>
-    </div> -->
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-  @endforeach
-</div>
-
-<script>
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
+    <script>
+    // Disable form submissions if there are invalid fields
+    (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Get the forms we want to add validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+        });
+    }, false);
+    })();
+    </script>
 </body>
 </html>
 
