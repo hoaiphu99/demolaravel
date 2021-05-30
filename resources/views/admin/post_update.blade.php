@@ -54,7 +54,7 @@
             </div>
             <div class="card-body">
                 @foreach($posts->data as $p)
-                <form action="{{ route('post.update', $p->id) }}" method="post">
+                <form action="{{ route('post.update', $p->id) }}" method="post" enctype="multipart/form-data">
                     <!-- class="needs-validation" novalidate="true" -->
                     @csrf
                     <div class="form-group">
