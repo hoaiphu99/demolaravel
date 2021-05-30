@@ -75,10 +75,22 @@
                     <div class="form-group">
                         <label for="image">Hình Ảnh:</label>
                         <br>
-                        <img src = "{{ $p->image }}" alt = "" height="200" width="200">
-                        <div class="col-lg-2 col-sm-3">
-                            <input type="file" class="form-control" id="image" name="image" required="required"/>
+                        <div class="user-avatar">
+                            <figure>
+                                <img src="{{$p->image}}" alt="">
+                                <form class="edit-phto">
+                                    <i class="fa fa-camera-retro"></i>
+                                    <label class="fileContainer">
+                                        <!-- Edit Display Photo -->
+                                        <input type="file"/>
+                                    </label>
+                                </form>
+                            </figure>
                         </div>
+                        <!-- <img src = "{{ $p->image }}" alt = "" height="200" width="200">
+                        <div class="col-md-auto col-sm-6">
+                            <input type="file" class="form-control" id="image" name="image" required="required"/>
+                        </div> -->
                     </div>
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
