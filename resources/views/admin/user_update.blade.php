@@ -116,7 +116,7 @@
     'use strict';
     window.addEventListener('load', function() {
         // Get the forms we want to add validation styles to
-        var forms = document.querySelectorAll('.needs-validation');
+        var forms = document.querySelectorAll('needs-validation');
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
