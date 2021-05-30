@@ -28,7 +28,7 @@ class PostController extends Controller
         $response = $client->get('post/'.$id, [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('admin.post', ['posts' => json_decode($response->getBody())]);
+        return view('admin.post_update', ['posts' => json_decode($response->getBody())]);
     }
 
     public function getPostByUser($username) {
