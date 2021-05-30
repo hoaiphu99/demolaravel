@@ -23,7 +23,7 @@
                         <div class="page-header-title">
                             <i class="icofont icofont-table bg-c-blue"></i>
                             <div class="d-inline">
-                                <h4>Cập Nhật User</h4>
+                                <h4>Cập Nhật Bài Đăng</h4>
                             </div>
                         </div>
                         <hr>
@@ -39,7 +39,7 @@
                                     <i class="icofont icofont-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('admin/user_update')}}">User</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('admin/post_update')}}">Bài Đăng</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,13 +59,14 @@
                     @csrf
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
-                        <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$p->content}}" required="required"/>
+                        <!-- <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$p->content}}" required="required"/> -->
+                        <textarea id="nd" rows="2" placeholder="write something" name="content" value="{{$p->content}}" required="required"></textarea>
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="uname">Người Đăng:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->name}}" required="required" />
+                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->name}}" required="required" width="300"/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
@@ -73,7 +74,8 @@
                         <label for="image">Hình Ảnh:</label>
                         <br>
                         <img src = "{{ $p->image }}" alt = "" height="200" width="200">
-                        <input type="file" class="form-control" id="image" placeholder="Enter image" name="image" value="{{$p->image}}" required="required"/>
+                        <br>
+                        <input type="file" class="form-control" id="image" placeholder="Enter image" name="image" value="{{$p->image}}" required="required" width="300"/>
                     </div>
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
