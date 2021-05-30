@@ -76,8 +76,9 @@
                         <label for="image">Hình Ảnh:</label>
                         <br>
                         <img src = "{{ $p->image }}" alt = "" height="200" width="200">
-                        <br>
-                        <input type="file" class="form-control" id="image" placeholder="Enter image" name="image" value="{{$p->image}}" required="required" width="300"/>
+                        <div class="col-lg-2 col-sm-3">
+                            <input type="file" class="form-control" id="image" name="image" required="required"/>
+                        </div>
                     </div>
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
