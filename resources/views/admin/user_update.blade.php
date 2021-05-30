@@ -54,11 +54,12 @@
             </div>
             <div class="card-body">
                 @foreach($users->data as $u)
-                <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate="true">
+                <form action="{{ route('user.update', $u->id) }}" method="post">
+                <!-- class="needs-validation" novalidate="true" -->
                     @csrf
                     <div class="form-group">
-                        <label>Họ và Tên:</label>
-                        <input type="text" class="form-control" placeholder="Enter name" name="name" value="{{$u->name}}" required="required"/>
+                        <label for="ten">Họ và Tên:</label>
+                        <input type="text" class="form-control" id="ten" placeholder="Enter name" name="name" value="{{$u->name}}" required="required"/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
