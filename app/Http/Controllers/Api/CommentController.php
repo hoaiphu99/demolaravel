@@ -57,7 +57,7 @@ class CommentController extends Controller
     public function show($id)
     {
         $comment = Comment::where(['id' => $id])->get();
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)], 200);
+        return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)], 201);
     }
 
     /**
