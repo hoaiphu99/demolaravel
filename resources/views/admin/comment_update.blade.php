@@ -53,8 +53,8 @@
                 <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
             </div>
             <div class="card-body">
-                @foreach($comments->data as $cmt)
-                <form action="{{ route('comment.update', $cmt->id) }}" method="post" >
+                <!-- @foreach($comments->data as $cmt) -->
+                <form action="{{ route('comment.update', $comments->data->id) }}" method="post" >
                     <!-- class="needs-validation" novalidate="true" enctype="multipart/form-data"-->
                     @csrf
                     <div class="form-group">
