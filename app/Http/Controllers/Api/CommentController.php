@@ -91,6 +91,9 @@ class CommentController extends Controller
         //
         $comment = Comment::where('id', $id)->first();
         $comment->delete();
+        $post = Post::where(['id' => $comment->post_id])->first();
+        $cmt_count = $post->comment_count;
+        $post->update(['comment_count' => --$cmt_count]);
         return response()->json(['status' => 1, 'message' => 'Delete Successfully!'], 200);
     }
 }
