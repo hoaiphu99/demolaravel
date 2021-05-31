@@ -139,9 +139,9 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
 
-        $post = Post::where(['id' => $id]);
+        $post = Post::where(['id' => $id])->first();
         $post->update($request->all());
-
+        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
         // $file = $request->file('image');
         // $resource = fopen($file, "r") or die("File upload Problems");
         // $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
@@ -162,8 +162,7 @@ class PostController extends Controller
 
         // //$link_img = $request->get('image');
         // Post::where(['id' => $post->id])->update(['image' => $img_link]);
-        
-        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
+
     }
 
     /**

@@ -119,7 +119,7 @@ class PostController extends Controller
         //     $user_id = $user->id;
         // }
 
-        $file = $request->file('image');
+        //$file = $request->file('image');
         try {
             $client = new Client(['base_uri' => $base_uri]);
             $response = $client->put('post/'.$id, [
@@ -128,6 +128,7 @@ class PostController extends Controller
                 ],
                 'form_params' => [
                     'content' => $_POST['content'],
+                    'user_id' => $_POST['user_id'],
                     // 'user_id' => $_POST['image'],
                     // 'image' => $_POST['multipart' => [
                     //     [
@@ -136,7 +137,6 @@ class PostController extends Controller
                     //         'contents' => fopen($file, "r"),
                     //     ]
                     // ]],
-                    'user_id' => $_POST['user_id'],
                 ]
                 // 'multipart' => [
                 //     [
