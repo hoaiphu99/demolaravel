@@ -56,7 +56,7 @@
                 <!-- @foreach($comments->data as $cmt) -->
                 <form action="{{ route('comment.update', $comments->data->id) }}" method="post" >
                     <!-- class="needs-validation" novalidate="true" enctype="multipart/form-data"-->
-                    @csrf
+                    <!-- @csrf -->
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
                         <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$cmt->content}}" required="required"/>
@@ -85,7 +85,7 @@
                     </div> -->
                     <button type="submit" class="btn btn-success">Cập Nhật</button>
                 </form>
-                @endforeach
+                <!-- @endforeach -->
             </div>
         </div>
     </div>
