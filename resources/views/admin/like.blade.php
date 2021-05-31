@@ -71,7 +71,8 @@
                             <form action="{{ route('like.delete', $l->id) }}" method="post">
                                 @method('DELETE')
                                 @csrf
-                                <i class="fa fa-pencil"><input class="btn btn-danger" type="submit" value="Xóa"/></i>
+                                <input class="btn btn-danger" type="submit" value="Xóa"/>
+                                <!-- <i class="fa fa-pencil"><input class="btn btn-danger" type="submit" value="Xóa"/></i> -->
                                 {{--<i class="fa fa-pencil"><a href="{{ route('like.delete', $l->id) }}">Xóa</a></i>--}}
                             </form>
                         <!-- @method('DELETE')

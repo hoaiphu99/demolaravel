@@ -53,9 +53,10 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($id)
     {
-        //
+        $comment = Comment::where(['id' => $id])->get();
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)], 201);
     }
 
     /**

@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
         return view('admin.index');
     })->name('admin.dashboard');
 
+    // User
     Route::get('user', [UserController::class, 'getUser'])->name('admin.user');
 
     Route::get('user/{id}', [UserController::class, 'getUserDetail'])->Where(['id'])->name('user.detail');
@@ -71,7 +72,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     Route::post('user/update/{id}', [UserController::class, 'updateUser'])->where(['id'])->name('user.update');
 
     Route::delete('user/delete/{id}', [UserController::class, 'deleteUser'])->where(['id'])->name('user.delete');
-
+    
+    // Post
     Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
 
     //Route::post('post/create', [PostController::class, 'createPost'])->name('post.create');
@@ -82,14 +84,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
 
     Route::delete('post/delete/{id}', [PostController::class, 'deletePost'])->where(['id'])->name('post.delete');
 
-    Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
-
+    //Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
+    
+    // Comment
     Route::get('comment', [CommentController::class, 'getComment'])->name('admin.comment');
 
     Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
 
+    Route::get('comment/{id}', [CommentController::class, 'getCommentDetail'])->where(['id'])->name('comment.detail');
+
+    Route::post('comment/update/{id}', [CommentController::class, 'updateComment'])->where(['id'])->name('comment.update');
+
     Route::delete('comment/delete/{id}', [CommentController::class, 'deleteComment'])->where(['id'])->name('comment.delete');
 
+    // Like
     Route::get('like', [LikeController::class, 'getLike'])->name('admin.like');
 
     Route::delete('like/delete/{id}', [LikeController::class, 'deleteLike'])->where(['id'])->name('like.delete');
