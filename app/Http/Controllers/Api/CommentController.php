@@ -51,16 +51,15 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  $id
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        // \App\Models\Comment  $comment
         $comment = Comment::where(['id' => $id])->get();
         //$comment = Comment::find($id);
-        return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)], 201);
-        //return response()->json(['status' => 1, 'data' => $comment], 200);
+        //return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)], 201);
+        return response()->json(['status' => 1, 'data' => 'ShowDetail!'], 200);
     }
 
     /**
