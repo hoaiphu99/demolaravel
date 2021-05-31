@@ -145,7 +145,7 @@ class PostController extends Controller
         $file = $request->file('image');
         $resource = fopen($file, "r") or die("File upload Problems");
         $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        $imgur_response = $imgur_client->put('image', [
+        $imgur_response = $imgur_client->post('image', [
             'headers' => [
                 'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
 
