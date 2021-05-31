@@ -60,7 +60,6 @@
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
                         <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$cmt->content}}" required="required"/>
-                        <!-- <textarea class="form-control" id="nd" rows="5" placeholder="write something" name="content" value="{{$p->content}}" required="required"></textarea> -->
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
