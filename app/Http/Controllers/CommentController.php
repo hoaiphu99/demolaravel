@@ -23,7 +23,7 @@ class CommentController extends Controller
     public function getCommentDetail($id) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->get('comment/'.$id, [
+        $response = $client->get('comment/detail/'.$id, [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
         return view('admin.comment_update', ['commentDetail' => json_decode($response->getBody())]);
