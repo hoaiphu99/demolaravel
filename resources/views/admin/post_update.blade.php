@@ -54,8 +54,8 @@
             </div>
             <div class="card-body">
                 @foreach($posts->data as $p)
-                <form action="{{ route('post.update', $p->id) }}" method="post" >
-                    <!-- class="needs-validation" novalidate="true" enctype="multipart/form-data"-->
+                <form action="{{ route('post.update', $p->id) }}" method="post" enctype="multipart/form-data">
+                    <!-- class="needs-validation" novalidate="true" "-->
                     @csrf
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
@@ -80,7 +80,7 @@
                         <div class="col-sm-offset-7 col-sm-10">
                             <label class="fileContainer">
                                 Edit Display Photo
-                                <input type="file" id="image" name="image" required="required"/>
+                                <input type="file" id="image" name="image"/>
                             </label>
                         </div>
                         <!-- <div class="user-avatar">

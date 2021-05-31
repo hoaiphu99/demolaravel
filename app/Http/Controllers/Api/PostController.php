@@ -142,26 +142,26 @@ class PostController extends Controller
         $post = Post::where(['id' => $id]);
         $post->update($request->all());
 
-        // $file = $request->file('image');
-        // $resource = fopen($file, "r") or die("File upload Problems");
-        // $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        // $imgur_response = $imgur_client->post('image', [
-        //     'headers' => [
-        //         'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
+        $file = $request->file('image');
+        $resource = fopen($file, "r") or die("File upload Problems");
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
+        $imgur_response = $imgur_client->put('image', [
+            'headers' => [
+                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
 
-        //     ],
-        //     'multipart' => [
-        //         [
-        //             'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-        //             'name' => 'image',
-        //             'contents' => $resource,
-        //         ]
-        //     ]
-        // ]);
-        // $img_link = json_decode($imgur_response->getBody())->data->link;
+            ],
+            'multipart' => [
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resource,
+                ]
+            ]
+        ]);
+        $img_link = json_decode($imgur_response->getBody())->data->link;
 
-        // //$link_img = $request->get('image');
-        // Post::where(['id' => $post->id])->update(['image' => $img_link]);
+        //$link_img = $request->get('image');
+        Post::where(['id' => $post->id])->update(['image' => $img_link]);
         
         return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
     }
