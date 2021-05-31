@@ -26,7 +26,7 @@ class CommentController extends Controller
         $response = $client->get('comment/'.$id, [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('admin.comment_update', ['comments' => json_decode($response->getBody())]);
+        return view('admin.comment', ['comments' => json_decode($response->getBody())]);
     }
 
     public function createComment(Request $request) {
