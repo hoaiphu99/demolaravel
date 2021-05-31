@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <div  ng-controller="MyController">
+        <div ng-controller="MyController">
             <div class="page-header card">
                 <div class="row align-items-end">
                     <div class="col-lg-8">
@@ -39,7 +39,7 @@
                                     <i class="icofont icofont-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('admin/post_update')}}">Bình Luận</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('admin/comment_update')}}">Bình Luận</a></li>
                         </ul>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group">
                         <label for="uname">Bài Đăng:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$cmt->post->content}}" required="required"/>
+                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="post_id" value="{{$cmt->post->content}}" required="required"/>
                     </div>
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
