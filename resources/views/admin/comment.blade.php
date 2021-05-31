@@ -57,7 +57,8 @@
                             <td><input type="text" class="form-control" name="content"></td>
                             <td><input type="text" class="form-control" name="user_id"></td>
                             <td><input type="text" class="form-control" name="post_id"></td>
-                            <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>
+                            <td><button class="btn btn-primary" type="submit">Lưu</button></td>
+                            <!-- <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td> -->
                         </form>
                     </tr>
                 </thead>
