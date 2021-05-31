@@ -129,13 +129,13 @@ class PostController extends Controller
                 'form_params' => [
                     'content' => $_POST['content'],
                     // 'user_id' => $_POST['image'],
-                    'image' => $_POST['multipart' => [
-                        [
-                            'Content-Type' => 'multipart/form-data',
-                            'name' => 'image',
-                            'contents' => fopen($file, "r"),
-                        ]
-                    ]],
+                    // 'image' => $_POST['multipart' => [
+                    //     [
+                    //         'Content-Type' => 'multipart/form-data',
+                    //         'name' => 'image',
+                    //         'contents' => fopen($file, "r"),
+                    //     ]
+                    // ]],
                     'user_id' => $_POST['user_id'],
                 ]
                 // 'multipart' => [
