@@ -123,7 +123,7 @@ class PostController extends Controller
                 'form_params' => [
                     'content' => $_POST['content'],
                     // 'user_id' => $_POST['image'],
-                    'post_id' => $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                 ]
                 // 'multipart' => [
                 //     [
