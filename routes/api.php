@@ -59,6 +59,8 @@ Route::get('post/update/count', [PostController::class, 'updateCount']);
 // Comment
 Route::get('comment', [CommentController::class, 'index']);
 
+Route::get('comment/{id}', [CommentController::class, 'show']);
+
 Route::get('comment/{post_id}', [CommentController::class, 'getCommentByPost']);
 
 Route::post('comment', [CommentController::class, 'store']);

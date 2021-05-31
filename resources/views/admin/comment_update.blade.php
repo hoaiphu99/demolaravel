@@ -53,10 +53,10 @@
                 <p>Try to submit this form before filling out the input fields, to see the effect.</p> -->
             </div>
             <div class="card-body">
-                <!-- @foreach($comments->data as $cmt) -->
-                <form action="{{ route('comment.update', $comments->data->id) }}" method="post" >
+                @foreach($commentDetail->data as $cmt)
+                <form action="{{ route('comment.update', $cmt->id) }}" method="post" >
                     <!-- class="needs-validation" novalidate="true" enctype="multipart/form-data"-->
-                    <!-- @csrf -->
+                    @csrf
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
                         <input type="text" class="form-control" id="nd" placeholder="Enter Content" name="content" value="{{$cmt->content}}" required="required"/>
@@ -65,12 +65,10 @@
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-3">
-                            <label for="uname">Người Đăng:</label>
-                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$cmt->user->name}}" required="required"/>
-                            <!-- <div class="valid-feedback">Valid.</div> -->
-                            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
-                        </div>
+                        <label for="uname">Người Đăng:</label>
+                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$cmt->user->name}}" required="required"/>
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="uname">Bài Đăng:</label>
@@ -85,7 +83,7 @@
                     </div> -->
                     <button type="submit" class="btn btn-success">Cập Nhật</button>
                 </form>
-                <!-- @endforeach -->
+                @endforeach
             </div>
         </div>
     </div>
