@@ -21,7 +21,7 @@ class CommentController extends Controller
     public function index()
     {
         //
-        $comment = Comment::all();
+        $comment = Comment::all()->sort();
         return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)]);
     }
 
