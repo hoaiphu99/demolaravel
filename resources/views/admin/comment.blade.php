@@ -69,7 +69,7 @@
                         <td>{{ $cmt->content }}</td>
                         <td>{{ $cmt->user->name }}</td>
                         <td>{{ $cmt->post->content }}</td>
-                        <td><b ng-click="{{ route('comment.detail', $cmt->id) }}">Sửa</b></td>
+                        <td><a href="{{ route('comment.detail', $cmt->id) }}">Sửa</a></td>
                         {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>--}}
                         {{--<td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td>--}}
                         <td>
