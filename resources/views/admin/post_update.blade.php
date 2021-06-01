@@ -72,7 +72,7 @@
                             <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                             @isset($msg)
                             <p>{{$msg}}</p>
-                        @endisset
+                            @endisset
                         </div>
                     </div>
                     <div class="form-group">

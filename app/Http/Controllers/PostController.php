@@ -136,7 +136,7 @@ class PostController extends Controller
             $post_response = $client->get('post/'.$id, [
                 'headers' => ['APIKEY' => 'VSBG']
             ]);
-            return view('user.post_update', ['posts' => json_decode($post_response->getBody())], ['msg' => 'Đăng nhập không thành công']);
+            return view('user.post_update', ['posts' => json_decode($post_response->getBody())], ['msg' => 'Mã người không tồn tại!']);
         }
         try {
             $response = $client->put('post/'.$id, [

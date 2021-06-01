@@ -44,7 +44,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::where(['id' => $id])->get();
-        if($user == null)
+        $user_id = User::where(['id' => $id])->first();
+        if($user_id == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
         }
