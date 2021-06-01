@@ -180,15 +180,17 @@
                                                             </li>
                                                             <li>
                                                                 <form action="{{ route('like.create') }}" method="post">
-                                                                    @csrf
+                                                                    {{ csrf_field() }}
                                                                     <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                     <input name="post_id" type="hidden" value="{{$p->id}}">
-                                                                    <button type = "submit">
-                                                                        <span class="like" data-toggle="tooltip" title="like">
-                                                                            <i class="ti-heart"></i>
-                                                                            <ins>{{$p->like_count}}</ins>
-                                                                        </span>
-                                                                    </button>
+                                                                    <div class="add-smiles">
+                                                                        <button type = "submit">
+                                                                            <span class="like" data-toggle="tooltip" title="like">
+                                                                                <i class="ti-heart"></i>
+                                                                                <ins>{{$p->like_count}}</ins>
+                                                                            </span>
+                                                                        </button>
+                                                                    </div>
                                                                 </form>
                                                             </li>
                                                             <li class="social-media">
