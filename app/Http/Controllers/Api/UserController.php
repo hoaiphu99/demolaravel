@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class UserController extends Controller
 {
@@ -43,7 +44,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::where(['id' => $id])->get();
-        if($user->id == null)
+        if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
         }
