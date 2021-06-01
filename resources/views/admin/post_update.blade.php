@@ -54,8 +54,8 @@
             </div>
             <div class="card-body">
                 @foreach($posts->data as $p)
-                <form action="{{ route('post.update', $p->id) }}" method="post" >
-                    <!-- class="needs-validation" novalidate="true" enctype="multipart/form-data"-->
+                <form action="{{ route('post.update', $p->id) }}" method="post" enctype="multipart/form-data">
+                    <!-- class="needs-validation" novalidate="true" -->
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="nd">Nội Dung:</label>
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <div class="col-xs-3">
                             <label for="uname">Người Đăng:</label>
-                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->name}}" required="required" size="50"/>
+                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user_id}}" required="required" size="50"/>
                             <!-- <div class="valid-feedback">Valid.</div> -->
                             <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                         </div>
@@ -77,12 +77,12 @@
                         <br>
                         <img src="{{$p->image}}" alt="" height="300" width="300">
                         <br></br>
-                        <!-- <div class="col-sm-offset-7 col-sm-10">
+                        <div class="col-sm-offset-7 col-sm-10">
                             <label class="fileContainer">
                                 Edit Display Photo
                                 <input type="file" id="image" name="image"/>
                             </label>
-                        </div> -->
+                        </div>
                         <!-- <div class="user-avatar">
                             <figure>
                                 <img src="{{$p->image}}" alt="" height="300" width="300">

@@ -113,22 +113,23 @@ class PostController extends Controller
     public function updatePost(Request $request, $id) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
-        // $user_id = $request->input('user_id');
-        // $user = session()->get('user');
-        // if($user_id == null) {
-        //     $user_id = $user->id;
-        // }
+        $user_id = $request->input('user_id');
+        $user = session()->get('user');
+        if($user_id == null) {
+            $user_id = $user->id;
+        }
 
-        //$file = $request->file('image');
+        $file = $request->file('image');
         try {
             $client = new Client(['base_uri' => $base_uri]);
             $response = $client->put('post/'.$id, [
                 'headers' => [
                     'APIKEY' => 'VSBG'
                 ],
-                'form_params' => [
-                    'content' => $_POST['content'],
-                    'user_id' => $_POST['user_id'],
+                //'form_params' => [
+                    // 'content' => $_POST['content'],
+                    // 'user_id' => $_POST['user_id'],
+
                     // 'user_id' => $_POST['image'],
                     // 'image' => $_POST['multipart' => [
                     //     [
@@ -137,24 +138,24 @@ class PostController extends Controller
                     //         'contents' => fopen($file, "r"),
                     //     ]
                     // ]],
-                ]
-                // 'multipart' => [
-                //     [
+                //]
+                'multipart' => [
+                    [
 
-                //         'name' => 'content',
-                //         'contents' => $request->input('content'),
-                //     ],
-                //     [
-                //         'Content-Type' => 'multipart/form-data',
-                //         'name' => 'image',
-                //         'contents' => fopen($file, "r"),
-                //     ],
-                //     [
+                        'name' => 'content',
+                        'contents' => $request->input('content'),
+                    ],
+                    [
+                        'Content-Type' => 'multipart/form-data',
+                        'name' => 'image',
+                        'contents' => fopen($file, "r"),
+                    ],
+                    [
 
-                //         'name' => 'user_id',
-                //         'contents' => $user_id,
-                //     ],
-                // ],
+                        'name' => 'user_id',
+                        'contents' => $user_id,
+                    ],
+                ],
             ]);
         }
         catch (\Exception $e) {
