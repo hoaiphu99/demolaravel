@@ -31,6 +31,12 @@ class LikeController extends Controller
     {
         //
         $like = Like::create($request->all());
+
+        $like = json_decode($like);
+        $post = Post::where(['id' => $like->post_id])->first();
+        $like_count = $post->like_count;
+        $post->update(['like_count' => ++$like_count]);
+
         return response()->json(['status' => 1, 'data' => LikeResource::collection(Like::all())], 201);
     }
 

@@ -179,10 +179,15 @@
 															</a>
                                                             </li>
                                                             <li>
-															<span class="like" data-toggle="tooltip" title="like">
-																<i class="ti-heart"></i>
-                                                                <ins>{{$p->like_count}}</ins>
-															</span>
+                                                                <form action="{{ route('like.create') }}" method="post">
+                                                                    @csrf
+                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
+                                                                    <input name="post_id" type="hidden" value="{{$p->id}}">
+                                                                    <span class="like" data-toggle="tooltip" title="like">
+                                                                        <i class="ti-heart"></i>
+                                                                        <ins>{{$p->like_count}}</ins>
+                                                                    </span>
+                                                                </form>
                                                             </li>
                                                             <li class="social-media">
                                                                 <div class="menu">
