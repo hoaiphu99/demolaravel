@@ -20,7 +20,7 @@ class LikeController extends Controller
         return view('admin.like', ['likes' => json_decode($response->getBody())]);
     }
 
-    public function createLike() {
+    public function createLike(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('like', [
@@ -28,11 +28,14 @@ class LikeController extends Controller
                 'APIKEY' => 'VSBG'
             ],
             'form_params' => [
-               'user_id' => $_POST['user_id'],
-               'post_id' => $_POST['post_id'],
+                'user_id' => $request->get('user_id'),
+                'post_id' => $request->get('post_id'),
+            //    'user_id' => $_POST['user_id'],
+            //    'post_id' => $_POST['post_id'],
            ]
         ]);
-        return redirect(route('admin.like'));
+        //return redirect(route('admin.like'));
+        return redirect(route('index'));
     }
 
     public function deleteLike($id) {
