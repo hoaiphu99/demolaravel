@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <div class="col-xs-3">
                             <label for="uname">Người Đăng:</label>
-                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user_id}}" required="required" size="50"/>
+                            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$p->user->id}}" required="required"/>
                             <!-- <div class="valid-feedback">Valid.</div> -->
                             <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                         </div>
