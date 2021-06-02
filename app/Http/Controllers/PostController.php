@@ -53,13 +53,13 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
 
-        // $user_id = $request->input('user_id');
-        // $user = session()->get('user');
-        // if($user_id == null) {
-        //     $user_id = $user->id;
-        // }
+        $user_id = $request->input('user_id');
+        $user = session()->get('user');
+        if($user_id == null) {
+            $user_id = $user->id;
+        }
 
-        // $file = $request->file('image');
+        $file = $request->file('image');
 
 //        $type = $file->getClientOriginalExtension();
 //        $name = 'post_'.time().'.'.$type;
