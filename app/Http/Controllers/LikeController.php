@@ -28,9 +28,8 @@ class LikeController extends Controller
                 'APIKEY' => 'VSBG'
             ],
             'form_params' => [
-                '_token' => csrf_token(),
                 'user_id' => $request->get('user_id'),
-                'post_id' => $request->get('post_id'),
+                'post_id' => $request->get('post_id')
             //    'user_id' => $_POST['user_id'],
             //    'post_id' => $_POST['post_id'],
            ]

@@ -179,8 +179,8 @@
 															</a>
                                                             </li>
                                                             <li>
-                                                                <form action="{{ route('like.create') }}" method="post">
-                                                                    {{ csrf_field() }}
+                                                                <form action="{{ route('like.create') }}" method="POST">
+                                                                    @csrf
                                                                     <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                     <input name="post_id" type="hidden" value="{{$p->id}}">
                                                                     <button type = "submit" class="like" data-toggle="tooltip" title="like">
