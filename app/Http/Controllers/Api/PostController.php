@@ -214,5 +214,7 @@ class PostController extends Controller
             $like_count = count($likes);
             $p = Post::where(['id' => $post->id])->update(['like_count' => $like_count]);
         }
+
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);
     }
 }
