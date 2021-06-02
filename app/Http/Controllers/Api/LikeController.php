@@ -78,6 +78,9 @@ class LikeController extends Controller
         //
         $like = Like::where('id', $id)->first();
         $like->delete();
+        $post = Post::where(['id' => $like->post_id])->first();
+        $like_count = $post->like_count;
+        $post->update(['like_count' => --$like_count]);
         return response()->json(['status' => 1, 'message' => 'Delete Successfully!'], 200);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Like;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
@@ -178,6 +179,13 @@ class PostController extends Controller
         foreach ($comment as $cmt) {
             $cmt->delete();
         }
+
+        $like = Like::where(['post_id' => $id])->get();
+        foreach ($like as $l)
+        {
+            $l->delete();
+        }
+
         $post = Post::where(['id' => $id])->first();
         $post->delete();
 
@@ -193,6 +201,18 @@ class PostController extends Controller
             $comments = json_decode($comments);
             $cmt_count = count($comments);
             $p = Post::where(['id' => $post->id])->update(['comment_count' => $cmt_count]);
+        }
+    }
+
+    // Ham nay dung de dem lai so like cua tat ca bai viet
+    public function updateLike(){
+        $posts = Post::all();
+        $posts = json_decode($posts);
+        foreach ($posts as $post) {
+            $likes = Like::where(['post_id' => $post->id])->get();
+            $likes = json_decode($likes);
+            $like_count = count($likes);
+            $p = Post::where(['id' => $post->id])->update(['like_count' => $like_count]);
         }
     }
 }
