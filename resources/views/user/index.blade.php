@@ -239,8 +239,6 @@
                                         </div>
                                     </div>
                                     @endforeach
-
-
                                 </div>
                             </div><!-- centerl meta -->
                             <div class="col-lg-3">
