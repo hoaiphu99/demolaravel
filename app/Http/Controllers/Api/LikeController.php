@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Like;
 use App\Http\Resources\LikeResource;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class LikeController extends Controller
 {
