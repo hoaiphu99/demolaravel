@@ -56,7 +56,7 @@ Route::delete('post/{id}', [PostController::class, 'destroy']);
 
 Route::get('post/update/count', [PostController::class, 'updateCount']);
 
-Route::get('post/update/like', [PostController::class, 'updateLike'];)
+Route::get('post/update/like', [PostController::class, 'updateLike']);
 
 // Comment
 Route::get('comment', [CommentController::class, 'index']);
