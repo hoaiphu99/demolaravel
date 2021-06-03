@@ -17,7 +17,8 @@ class User extends Model
         'phone',
         'birthday',
         'avatar',
-        'utype'
+        'utype',
+        'post_count'
     ];
 
     public function post() {

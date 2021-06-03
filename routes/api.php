@@ -39,6 +39,8 @@ Route::put('user/{id}', [UserController::class, 'update']);
 
 Route::delete('user/{id}', [UserController::class, 'destroy']);
 
+Route::get('user/update/count', [UserController::class, 'updateCount']);
+
 // Post
 Route::get('post', [PostController::class, 'index']);
 

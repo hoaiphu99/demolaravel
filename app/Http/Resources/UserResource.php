@@ -23,7 +23,8 @@ class UserResource extends JsonResource
             'phone' => $this->phone,
             'birthday' => $this->birthday,
             'avatar' => $this->avatar,
-            'utype' => $this->utype
+            'utype' => $this->utype,
+            'post_count' => $this->post_count
         ];
     }
 }

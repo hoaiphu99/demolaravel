@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -78,5 +79,17 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         $user->delete();
         return response()->json(['status' => 1, 'data' => null], 200);
+    }
+
+    // Ham nay dung de dem lai so post cua tat ca user
+    public function updateCount(){
+        $users = User::all();
+        $users = json_decode($users);
+        foreach ($users as $user) {
+            $posts = Post::where(['user_id' => $user->id])->get();
+            $posts = json_decode($posts);
+            $post_count = count($posts);
+            User::where(['id' => $user->id])->update(['post_count' => $post_count]);
+        }
     }
 }
