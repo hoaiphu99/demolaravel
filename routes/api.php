@@ -33,6 +33,8 @@ Route::get('user', [UserController::class, 'index'])->name('api.admin.user');
 
 Route::get('user/{id}', [UserController::class, 'show']);
 
+Route::get('user/post/count', [UserController::class, 'getUserWthPostCount']);
+
 Route::post('user', [UserController::class, 'store']);
 
 Route::put('user/{id}', [UserController::class, 'update']);

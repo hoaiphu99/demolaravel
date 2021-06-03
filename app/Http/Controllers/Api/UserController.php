@@ -81,6 +81,11 @@ class UserController extends Controller
         return response()->json(['status' => 1, 'data' => null], 200);
     }
 
+    public function getUserWthPostCount() {
+        $user = User::orderBy(['post_count' => 'DESC'])->get();
+        return response()->json(['status' => 1, 'data' => UserResource::collection($user)]);
+    }
+
     // Ham nay dung de dem lai so post cua tat ca user
     public function updateCount(){
         $users = User::all();
