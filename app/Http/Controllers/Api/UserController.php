@@ -82,7 +82,8 @@ class UserController extends Controller
     }
 
     public function getUserWthPostCount() {
-        $user = User::orderBy(['post_count' => 'DESC'])->get();
+        //$user = User::orderBy(['post_count' => 'DESC'])->get();
+        $user = User::idDescending()->get();
         return response()->json(['status' => 1, 'data' => UserResource::collection($user)]);
     }
 
