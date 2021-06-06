@@ -65,13 +65,13 @@
                     </div>
                     <div class="form-group">
                         <label for="uname">Người Đăng:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="user_id" value="{{$cmt->user->name}}" required="required"/>
+                        <input type="text" class="form-control" id="uname" placeholder="{{$cmt->user->id}}" name="user_id" value="{{$cmt->user->name}}" required="required"/>
                         <!-- <div class="valid-feedback">Valid.</div> -->
                         <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
                     </div>
                     <div class="form-group">
                         <label for="post">Bài Đăng:</label>
-                        <input type="text" class="form-control" id="post" placeholder="Enter post" name="post_id" value="{{$cmt->post->content}}" required="required"/>
+                        <input type="text" class="form-control" id="post" placeholder="{{$cmt->post->id}}" name="post_id" value="{{$cmt->post->content}}" required="required"/>
                     </div>
                     <!-- <div class="form-group form-check">
                     <label class="form-check-label">
