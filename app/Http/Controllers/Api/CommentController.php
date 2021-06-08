@@ -22,7 +22,7 @@ class CommentController extends Controller
     {
         //
         $comment = Comment::all()->sort();
-        return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)]);
     }
 
     public function getCommentByPost($post_id) {
@@ -45,7 +45,7 @@ class CommentController extends Controller
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => ++$cmt_count]);
 
-        return response()->json(['status' => 1, 'data' => CommentResource::collection(Comment::all())], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection(Comment::all())], 201);
     }
 
     /**
@@ -58,7 +58,7 @@ class CommentController extends Controller
     {
         $comment = Comment::where(['id' => $id])->get();
         //$comment = Comment::find($id);
-        return response()->json(['status' => 1, 'data' => CommentResource::collection($comment)], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)], 201);
         //return response()->json(['status' => 1, 'data' => 'ShowDetail!'], 200);
     }
 
@@ -74,7 +74,7 @@ class CommentController extends Controller
         //
         $comment = Comment::where(['id' => $id]);
         $comment->update($request->all());
-        return response()->json(['status' => 1, 'data' => CommentResource::collection(Comment::all())], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection(Comment::all())], 200);
         /*$comment = Comment::findOrFail($id)->first();
         $comment->update($request->all());
         return response()->json(['status' => 1, 'data' => $comment], 200);*/
@@ -94,6 +94,6 @@ class CommentController extends Controller
         $post = Post::where(['id' => $comment->post_id])->first();
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => --$cmt_count]);
-        return response()->json(['status' => 1, 'message' => 'Delete Successfully!'], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')], 200);
     }
 }

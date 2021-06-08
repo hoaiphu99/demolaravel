@@ -126,7 +126,11 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::where(['id' => $id])->get();
-
+        $post_id = Post::where(['id' => $id])->first();
+        if($post_id == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+        }
         return response()->json(['status' => 1, 'data' => PostResource::collection($post)], 201);
     }
 
