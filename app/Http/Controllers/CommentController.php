@@ -69,7 +69,7 @@ class CommentController extends Controller
         $data = json_decode($user_response->getBody()->getContents());
         $status = $data->status;
         if ($status != 1) {
-            $comment_response = $client->get('comment/'.$id, [
+            $comment_response = $client->get('comment/detail/'.$id, [
                 'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')],
                 // 'headers' => ['APIKEY' => 'VSBG']
             ]);
@@ -85,7 +85,7 @@ class CommentController extends Controller
         $data_post = json_decode($post_response->getBody()->getContents());
         $status_post = $data_post->status;
         if ($status_post != 1) {
-            $comment_response = $client->get('comment/'.$id, [
+            $comment_response = $client->get('comment/detail/'.$id, [
                 'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')],
                 // 'headers' => ['APIKEY' => 'VSBG']
             ]);
