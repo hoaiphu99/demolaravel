@@ -20,8 +20,8 @@ class AuthKey
          if($token == '') {
              return response()->json(['message' => 'No token found!'], 401);
          }
-         else if($token != 'VSBG') {
-             return response()->json(['message' => 'Invalid token'], 401);
+         else if($token != 'ASUNA') {
+             return response()->json(['message' => 'API Not response!'], 401);
          }
         return $next($request);
     }
