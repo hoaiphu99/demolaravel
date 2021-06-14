@@ -183,7 +183,7 @@
                                                                     @csrf
                                                                     <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                     <input name="post_id" type="hidden" value="{{$p->id}}">
-                                                                    <button type = "submit" class="like" data-toggle="tooltip" title="like">
+                                                                    <button type = "submit" class="btn btn-outline-light" class="like" data-toggle="tooltip" title="like">
                                                                         <!-- <span class="like" data-toggle="tooltip" title="like"> -->
                                                                             <i class="ti-heart"></i>
                                                                             <ins>{{$p->like_count}}</ins>
