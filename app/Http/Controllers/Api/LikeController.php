@@ -7,6 +7,7 @@ use App\Models\Like;
 use App\Http\Resources\LikeResource;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Config;
 
 class LikeController extends Controller
 {
@@ -31,6 +32,12 @@ class LikeController extends Controller
     public function store(Request $request)
     {
         //
+        $like_find = Like::where(['user_id' => $request->get('user_id')], ['post_id' => $request->get('post_id')])->first();
+        if ($like_find != null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => Like::collection($like_find)], 201);
+        }
+
         $like = Like::create($request->all());
 
         $like = json_decode($like);
@@ -47,7 +54,7 @@ class LikeController extends Controller
      * @param  \App\Models\Like  $like
      * @return \Illuminate\Http\Response
      */
-    public function show(Like $like)
+    public function show($id)
     {
         //
     }

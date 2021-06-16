@@ -23,6 +23,27 @@ class LikeController extends Controller
     public function createLike(Request $request) {
         $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $client = new Client(['base_uri' => $base_uri]);
+
+        // $user_id = $request->get('user_id');
+        // $post_id = $request->get('post_id');
+
+        // $user_response = $client->get('user/'.$user_id, [
+        //     'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')],
+        // ]);
+        // $data = json_decode($user_response->getBody()->getContents());
+        // $status = $data->status;
+
+        // $post_response = $client->get('post/'.$post_id, [
+        //     'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')],
+        // ]);
+        // $data_post = json_decode($post_response->getBody()->getContents());
+        // $status_post = $data_post->status;
+
+        // if ($status_post == 1 && $status == 1)
+        // {
+
+        // }
+        
         $response = $client->post('like', [
             'headers' => [
                 'APIKEY' => 'VSBG'
