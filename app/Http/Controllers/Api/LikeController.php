@@ -32,7 +32,7 @@ class LikeController extends Controller
     public function store(Request $request)
     {
         //
-        $like_find = Like::where(['user_id' => $request->get('user_id')], ['post_id' => $request->get('post_id')])->get();
+        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->get();
         if ($like_find != null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => LikeResource::collection($like_find)], 201);
