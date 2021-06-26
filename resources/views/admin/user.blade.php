@@ -167,6 +167,9 @@
             formData.append('avatar', data.avatar[0])
             fetch('http://project-api-levi.herokuapp.com/api/user', {
                 method: 'POST',
+                headers: {
+                    'APIKEY': 'VSBG'
+                },
                 body: formData
             })
             .then(response => response.json())
