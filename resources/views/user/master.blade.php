@@ -321,11 +321,11 @@
     <script src="{{ asset('assets/user/js/strip.pkgd.min.js')}}"></script>
     <script src="{{ asset('assets/user/js/handle.js')}}"></script>
 
-  <script>
-    $(document).ready(function(){
-      $('#lightgallery').lightGallery();
-    });
-  </script>
+{{--  <script>--}}
+{{--    $(document).ready(function(){--}}
+{{--      $('#lightgallery').lightGallery();--}}
+{{--    });--}}
+{{--  </script>--}}
 
 </body>
 </html>
