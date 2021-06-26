@@ -17,22 +17,22 @@
       <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
       <meta name="author" content="CodedThemes">
       <!-- Favicon icon -->
-      <link rel="icon" href="{{ secure_asset('assets/images/favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
       <!-- Required Fremwork -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
       <!-- themify-icons line icon -->
-      <!-- <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/themify-icons/themify-icons.css') }}"> -->
+      <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/themify-icons/themify-icons.css') }}"> -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
       <!-- ico font -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/icon/icofont/css/icofont.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/icofont/css/icofont.css') }}">
       <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/style.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/jquery.mCustomScrollbar.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/main.css') }}">
-      <link rel="stylesheet" href="{{ secure_asset('vendor/angular-material.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+      <link rel="stylesheet" href="{{ asset('vendor/angular-material.min.css') }}">
   </head>
 
   <body ng-app="myApp" >
@@ -90,7 +90,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.html">
-                            <img class="img-fluid" src="{{ secure_asset('assets/images/logo.png') }}" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{{ asset('assets/images/logo.png') }}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -224,11 +224,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="fixed-button">
-                    <a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">
-                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
-                    </a>
-                </div>
+{{--                <div class="fixed-button">--}}
+{{--                    <a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">--}}
+{{--                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro--}}
+{{--                    </a>--}}
+{{--                </div>--}}
             </div>
         </div>
 
@@ -242,31 +242,31 @@
         <ul class="iew-download">
             <li>
                 <a href="http://www.google.com/chrome/">
-                    <img src="{{ secure_asset('assets/images/browser/chrome.png') }}" alt="Chrome">
+                    <img src="{{ asset('assets/images/browser/chrome.png') }}" alt="Chrome">
                     <div>Chrome</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="{{ secure_asset('assets/images/browser/firefox.png') }}" alt="Firefox">
+                    <img src="{{ asset('assets/images/browser/firefox.png') }}" alt="Firefox">
                     <div>Firefox</div>
                 </a>
             </li>
             <li>
                 <a href="http://www.opera.com">
-                    <img src="{{ secure_asset('assets/images/browser/opera.png') }}" alt="Opera">
+                    <img src="{{ asset('assets/images/browser/opera.png') }}" alt="Opera">
                     <div>Opera</div>
                 </a>
             </li>
             <li>
                 <a href="https://www.apple.com/safari/">
-                    <img src="{{ secure_asset('assets/images/browser/safari.png') }}" alt="Safari">
+                    <img src="{{ asset('assets/images/browser/safari.png') }}" alt="Safari">
                     <div>Safari</div>
                 </a>
             </li>
             <li>
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="{{ secure_asset('assets/images/browser/ie.png') }}" alt="">
+                    <img src="{{ asset('assets/images/browser/ie.png') }}" alt="">
                     <div>IE (9 & above)</div>
                 </a>
             </li>
@@ -277,35 +277,35 @@
 <![endif]-->
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
-<script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/angular-1.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/angular-animate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/angular-aria.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/angular-messages.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/angular-material.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- jquery slimscroll js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- modernizr js -->
-<script type="text/javascript" src="{{ secure_asset('assets/js/modernizr/modernizr.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/modernizr/modernizr.js') }}"></script>
 <!-- am chart -->
-<script src="{{ secure_asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
-<script src="{{ secure_asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
+<script src="{{ asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
+<script src="{{ asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
 <!-- Todo js -->
-<script type="text/javascript " src="{{ secure_asset('assets/pages/todo/todo.js') }} "></script>
+<script type="text/javascript " src="{{ asset('assets/pages/todo/todo.js') }} "></script>
 <!-- Custom js -->
-<script type="text/javascript" src="{{ secure_asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/script.js') }}"></script>
-<script type="text/javascript " src="{{ secure_asset('assets/js/SmoothScroll.js') }}"></script>
-<script src="{{ secure_asset('assets/js/pcoded.min.js') }}"></script>
-<script src="{{ secure_asset('assets/js/demo-12.js') }}"></script>
-<script src="{{ secure_asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+<script type="text/javascript " src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
+<script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
+<script src="{{ asset('assets/js/demo-12.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 
 <script>
 var $window = $(window);
