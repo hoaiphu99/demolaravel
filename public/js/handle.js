@@ -178,6 +178,7 @@ Validator.isConfirmed = function(selector, getConfirmValue, msg) {
 }
 
 const postUser = (data) => {
+    console.log(data)
     const formData = new FormData()
     formData.append('username', data.username)
     formData.append('password', data.password)
