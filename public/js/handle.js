@@ -176,7 +176,8 @@ Validator.isConfirmed = function(selector, getConfirmValue, msg) {
         }
     }
 }
-
+const tbodyElement = document.querySelector("#list-user")
+console.log(tbodyElement.innerHTML)
 const postUser = (data) => {
     const formData = new FormData()
     formData.append('username', data.username)
@@ -196,7 +197,7 @@ const postUser = (data) => {
         .then(response => response.json())
         .then(result => {
             const tbodyElement = document.querySelector("#list-user")
-            console.log([tbodyElement])
+            console.log(tbodyElement.innerHTML)
             const textNode = `<th scope="row">${result.data.id}</th>
                         <td>${result.data.username}</td>
                         <td>${result.data.name}</td>
@@ -215,10 +216,7 @@ const postUser = (data) => {
                                 {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', ${result.data.id}) }}">Xóa</a></i>--}}
                             </form>
                         </td>`
-            const para = document.createElement("tr")
-            const node = document.createTextNode(textNode)
-            para.appendChild(node)
-            tbodyElement.appendChild(para)
+
             console.log(result)
         })
         .catch(error => {
