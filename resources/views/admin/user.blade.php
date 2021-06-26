@@ -103,7 +103,7 @@
                     </tr>
 
                 </thead>
-                <tbody>
+                <tbody id="list-user">
                 @foreach($users->data as $u)
                     <tr>
                         <th scope="row">{{ $u->id }}</th>

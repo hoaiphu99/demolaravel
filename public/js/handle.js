@@ -177,8 +177,10 @@ Validator.isConfirmed = function(selector, getConfirmValue, msg) {
     }
 }
 
+const tbodyElement = document.querySelector("#list-user")
+console.log(tbodyElement)
+
 const postUser = (data) => {
-    console.log(data)
     const formData = new FormData()
     formData.append('username', data.username)
     formData.append('password', data.password)
@@ -193,6 +195,24 @@ const postUser = (data) => {
             'APIKEY': 'VSBG'
         },
         body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-user")
+
+            console.log(result)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const getUser = () => {
+    fetch('http://project-api-levi.herokuapp.com/api/user', {
+        method: 'GET',
+        headers: {
+            'APIKEY': 'VSBG'
+        }
     })
         .then(response => response.json())
         .then(result => {
