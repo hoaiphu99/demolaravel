@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
@@ -32,6 +33,27 @@ class UserApiController extends Controller
     public function store(Request $request)
     {
         $user = User::create($request->all());
+        $file = $request->file('avatar');
+        $resource = fopen($file, "r") or die("File upload Problems");
+
+        // Upload hinh anh len Imgur bang API
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
+        $imgur_response = $imgur_client->post('image', [
+            'headers' => [
+                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
+
+            ],
+            'multipart' => [
+                [
+                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                    'name' => 'image',
+                    'contents' => $resourcse,
+                ]
+            ]
+        ]);
+        $img_link = json_decode($imgur_response->getBody())->data->link;
+
+        User::where(['id' => $user->id])->update(['avatar' => $img_link]);
 
         return response()->json(['status' => 1, 'data' => UserResource::collection(User::where(['id' => $user->id])->get())], 201);
     }
