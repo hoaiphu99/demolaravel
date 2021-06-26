@@ -136,7 +136,7 @@
 </div>
 <!-- Page-body end -->
 </div>
-<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/handle.js') }}"></script>
 <script>
     Validator({
         form: '#form-add-user',
