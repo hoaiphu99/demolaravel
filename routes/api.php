@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\UserApiController;
+use App\Http\Controllers\Api\PostApiController;
 use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\CommentController;
-use App\Http\Controllers\Api\LikeController;
+use App\Http\Controllers\Api\CommentApiController;
+use App\Http\Controllers\Api\LikeApiController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AuthApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,60 +26,60 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Login
-Route::post('login', [AuthController::class, 'login'])->name('api.login');
+Route::post('login', [AuthApiController::class, 'login'])->name('api.login');
 
 // User
-Route::get('user', [UserController::class, 'index'])->name('api.admin.user');
+Route::get('user', [UserApiController::class, 'index'])->name('api.admin.user');
 
-Route::get('user/{id}', [UserController::class, 'show']);
+Route::get('user/{id}', [UserApiController::class, 'show']);
 
-Route::get('user/post/count', [UserController::class, 'getUserWthPostCount']);
+Route::get('user/post/count', [UserApiController::class, 'getUserWthPostCount']);
 
-Route::post('user', [UserController::class, 'store']);
+Route::post('user', [UserApiController::class, 'store']);
 
-Route::put('user/{id}', [UserController::class, 'update']);
+Route::put('user/{id}', [UserApiController::class, 'update']);
 
-Route::delete('user/{id}', [UserController::class, 'destroy']);
+Route::delete('user/{id}', [UserApiController::class, 'destroy']);
 
-Route::get('user/update/count', [UserController::class, 'updateCount']);
+Route::get('user/update/count', [UserApiController::class, 'updateCount']);
 
 // Post
-Route::get('post', [PostController::class, 'index']);
+Route::get('post', [PostApiController::class, 'index']);
 
-Route::get('post/{id}', [PostController::class, 'show']);
+Route::get('post/{id}', [PostApiController::class, 'show']);
 
-Route::get('post/user/{userid}', [PostController::class, 'getPostByUserID']);
+Route::get('post/user/{userid}', [PostApiController::class, 'getPostByUserID']);
 
-Route::get('post/profile/{username}', [PostController::class, 'getPostByUser']);
+Route::get('post/profile/{username}', [PostApiController::class, 'getPostByUser']);
 
-Route::post('post', [PostController::class, 'store'])->name('post.created');
+Route::post('post', [PostApiController::class, 'store'])->name('post.created');
 
-Route::put('post/{id}', [PostController::class, 'update']);
+Route::put('post/{id}', [PostApiController::class, 'update']);
 
-Route::delete('post/{id}', [PostController::class, 'destroy']);
+Route::delete('post/{id}', [PostApiController::class, 'destroy']);
 
-Route::get('post/update/count', [PostController::class, 'updateCount']);
+Route::get('post/update/count', [PostApiController::class, 'updateCount']);
 
-Route::get('post/update/like', [PostController::class, 'updateLike']);
+Route::get('post/update/like', [PostApiController::class, 'updateLike']);
 
 // Comment
-Route::get('comment', [CommentController::class, 'index']);
+Route::get('comment', [CommentApiController::class, 'index']);
 
-Route::get('comment/detail/{id}', [CommentController::class, 'show']);
+Route::get('comment/detail/{id}', [CommentApiController::class, 'show']);
 
-Route::get('comment/{post_id}', [CommentController::class, 'getCommentByPost']);
+Route::get('comment/{post_id}', [CommentApiController::class, 'getCommentByPost']);
 
-Route::post('comment', [CommentController::class, 'store']);
+Route::post('comment', [CommentApiController::class, 'store']);
 
-Route::put('comment/{id}', [CommentController::class, 'update']);
+Route::put('comment/{id}', [CommentApiController::class, 'update']);
 
-Route::delete('comment/{id}', [CommentController::class, 'destroy']);
+Route::delete('comment/{id}', [CommentApiController::class, 'destroy']);
 
 // Like
-Route::get('like', [LikeController::class, 'index']);
+Route::get('like', [LikeApiController::class, 'index']);
 
-Route::post('like', [LikeController::class, 'store']);
+Route::post('like', [LikeApiController::class, 'store']);
 
-Route::put('like/{id}', [LikeController::class, 'update']);
+Route::put('like/{id}', [LikeApiController::class, 'update']);
 
-Route::delete('like/{id}', [LikeController::class, 'destroy']);
+Route::delete('like/{id}', [LikeApiController::class, 'destroy']);

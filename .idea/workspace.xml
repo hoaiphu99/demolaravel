@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PostApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +223,10 @@
       <workItem from="1621999460614" duration="19920000" />
       <workItem from="1622719957594" duration="2221000" />
       <workItem from="1623397001574" duration="166000" />
-      <workItem from="1623401853630" duration="16000" />
+      <workItem from="1623401853630" duration="49000" />
+      <workItem from="1623464700125" duration="849000" />
+      <workItem from="1623466699189" duration="3044000" />
+      <workItem from="1624685296052" duration="664000" />
     </task>
     <servers />
   </component>

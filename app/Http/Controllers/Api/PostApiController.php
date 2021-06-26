@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
-class PostController extends Controller
+class PostApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -146,7 +146,7 @@ class PostController extends Controller
 
         $post = Post::where(['id' => $id])->first();
         $post->update($request->all());
-        
+
         // $file = $request->file('image');
         // $resource = fopen($file, "r") or die("File upload Problems");
         // $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);

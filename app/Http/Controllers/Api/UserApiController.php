@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
-class UserController extends Controller
+class UserApiController extends Controller
 {
     /**
      * Display a listing of the resource.

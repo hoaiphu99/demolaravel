@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Models\User;
 
-class CommentController extends Controller
+class CommentApiController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Config;
 
-class LikeController extends Controller
+class LikeApiController extends Controller
 {
     /**
      * Display a listing of the resource.

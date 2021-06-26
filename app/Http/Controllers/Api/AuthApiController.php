@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Config;
 
-class AuthController extends Controller
+class AuthApiController extends Controller
 {
     public function login(Request $request) {
         $user = User::where(['username' => $request->get('username')])->first();
