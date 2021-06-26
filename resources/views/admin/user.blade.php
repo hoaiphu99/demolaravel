@@ -17,6 +17,19 @@
             <div>
                 <button type="button" class="btn btn-primary btn-insert" >Thêm</button>
             </div>
+            <div class="insert-user">
+                <form action="{{ route('user.create') }}" method="post">
+                    @csrf
+                    <input type="text" class="form-control" name="username" required="required">
+                    <input type="text" class="form-control" name="password" required="required">
+                    <input type="text" class="form-control" name="name" required="required">
+                    <input type="text" class="form-control" name="email" required="required">
+                    <input type="text" class="form-control" name="phone" required="required">
+                    <input type="text" class="form-control" name="birthday" required="required">
+                    {{--<td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i>--}}
+                    <button class="btn btn-primary btn-submit-user" type="submit">Lưu</button>
+                </form>
+            </div>
         </div>
         <div class="col-lg-4">
             <div class="page-header-breadcrumb">
@@ -53,19 +66,7 @@
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr class="insert-user">
-                        <form action="{{ route('user.create') }}" method="post">
-                            @csrf
-                            <td><input type="text" class="form-control" name="username" required="required"></td>
-                            <td><input type="text" class="form-control" name="password" required="required"></td>
-                            <td><input type="text" class="form-control" name="name" required="required"></td>
-                            <td><input type="text" class="form-control" name="email" required="required"></td>
-                            <td><input type="text" class="form-control" name="phone" required="required"></td>
-                            <td><input type="text" class="form-control" name="birthday" required="required"></td>
-                            {{--<td><i class="fa fa-pencil"><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></i></td>--}}
-                            <td><button class="btn btn-primary btn-submit-user" type="submit">Lưu</button></td>
-                        </form>
-                    </tr>
+
                 </thead>
                 <tbody>
                 @foreach($users->data as $u)
