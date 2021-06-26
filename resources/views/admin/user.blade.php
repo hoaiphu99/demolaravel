@@ -62,7 +62,7 @@
                         <input id="avatar" name="avatar" type="file" class="form-control">
                         <span class="form-message"></span>
                     </div>
-                    <button class="btn btn-primary btn-submit-user">Lưu</button>
+                    <button class="btn btn-primary">Lưu</button>
                 </form>
             </div>
         </div>
@@ -157,7 +157,25 @@
             Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
         ],
         onSubmit: function(data) {
-            // Call API
+            const formData = new FormData()
+            formData.append('username', data.username)
+            formData.append('password', data.password)
+            formData.append('name', data.name)
+            formData.append('email', data.email)
+            formData.append('phone', data.phone)
+            formData.append('birthday', data.birthday)
+            formData.append('avatar', data.avatar[0])
+            fetch('http://project-api-levi.herokuapp.com/api/user', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
             console.log(data)
         }
     })
