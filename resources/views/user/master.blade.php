@@ -6,35 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{--    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>--}}
 {{--    <link rel="stylesheet" href="https://unpkg.com/themify@1.0.0/_themify.scss">--}}
-    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/main.min.css')}}">
 
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/color.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/responsive.css')}}">
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/icomoon/style.css')}}">--}}
 
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap.min.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/magnific-popup.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/jquery-ui.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.carousel.min.css')}}">--}}
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/owl.theme.default.min.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/lightgallery.min.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/bootstrap-datepicker.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/fonts/flaticon/font/flaticon.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/swiper.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/aos.css')}}">--}}
-
-{{--  <link rel="stylesheet" href="{{ secure_asset('assets/user/css/style.css')}}">--}}
 
 </head>
 <body ng-app="myApp">
@@ -45,7 +27,7 @@
 				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
 			</span>
         <span class="mh-text">
-				<a href="newsfeed.html" title=""><img src="{{secure_asset('assets/user/images/logo2.png')}}" alt=""></a>
+				<a href="newsfeed.html" title=""><img src="{{asset('assets/user/images/logo2.png')}}" alt=""></a>
 			</span>
         <span class="mh-btns-right">
 				<a class="fa fa-sliders" href="#shoppingbag"></a>
@@ -65,78 +47,7 @@
             <li><a href="{{route('profile.username', ['username' => session()->get('user')->username])}}">Time Line</a>
 
             </li>
-{{--            <li><span>Account Setting</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="create-fav-page.html" title="">create fav page</a></li>--}}
-{{--                    <li><a href="edit-account-setting.html" title="">edit account setting</a></li>--}}
-{{--                    <li><a href="edit-interest.html" title="">edit-interest</a></li>--}}
-{{--                    <li><a href="edit-password.html" title="">edit-password</a></li>--}}
-{{--                    <li><a href="edit-profile-basic.html" title="">edit profile basics</a></li>--}}
-{{--                    <li><a href="edit-work-eductation.html" title="">edit work educations</a></li>--}}
-{{--                    <li><a href="messages.html" title="">message box</a></li>--}}
-{{--                    <li><a href="inbox.html" title="">Inbox</a></li>--}}
-{{--                    <li><a href="notifications.html" title="">notifications page</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>forum</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="forum.html" title="">Forum Page</a></li>--}}
-{{--                    <li><a href="forums-category.html" title="">Fourm Category</a></li>--}}
-{{--                    <li><a href="forum-open-topic.html" title="">Forum Open Topic</a></li>--}}
-{{--                    <li><a href="forum-create-topic.html" title="">Forum Create Topic</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>Our Shop</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="shop.html" title="">Shop Products</a></li>--}}
-{{--                    <li><a href="shop-masonry.html" title="">Shop Masonry Products</a></li>--}}
-{{--                    <li><a href="shop-single.html" title="">Shop Detail Page</a></li>--}}
-{{--                    <li><a href="shop-cart.html" title="">Shop Product Cart</a></li>--}}
-{{--                    <li><a href="shop-checkout.html" title="">Product Checkout</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>Our Blog</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="blog-grid-wo-sidebar.html" title="">Our Blog</a></li>--}}
-{{--                    <li><a href="blog-grid-right-sidebar.html" title="">Blog with R-Sidebar</a></li>--}}
-{{--                    <li><a href="blog-grid-left-sidebar.html" title="">Blog with L-Sidebar</a></li>--}}
-{{--                    <li><a href="blog-masonry.html" title="">Blog Masonry Style</a></li>--}}
-{{--                    <li><a href="blog-list-wo-sidebar.html" title="">Blog List Style</a></li>--}}
-{{--                    <li><a href="blog-list-right-sidebar.html" title="">Blog List with R-Sidebar</a></li>--}}
-{{--                    <li><a href="blog-list-left-sidebar.html" title="">Blog List with L-Sidebar</a></li>--}}
-{{--                    <li><a href="blog-detail.html" title="">Blog Post Detail</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>Portfolio</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="portfolio-2colm.html" title="">Portfolio 2col</a></li>--}}
-{{--                    <li><a href="portfolio-3colm.html" title="">Portfolio 3col</a></li>--}}
-{{--                    <li><a href="portfolio-4colm.html" title="">Portfolio 4col</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>Support & Help</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="support-and-help.html" title="">Support & Help</a></li>--}}
-{{--                    <li><a href="support-and-help-detail.html" title="">Support & Help Detail</a></li>--}}
-{{--                    <li><a href="support-and-help-search-result.html" title="">Support & Help Search Result</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><span>More pages</span>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="careers.html" title="">Careers</a></li>--}}
-{{--                    <li><a href="career-detail.html" title="">Career Detail</a></li>--}}
-{{--                    <li><a href="404.html" title="">404 error page</a></li>--}}
-{{--                    <li><a href="404-2.html" title="">404 Style2</a></li>--}}
-{{--                    <li><a href="faq.html" title="">faq's page</a></li>--}}
-{{--                    <li><a href="insights.html" title="">insights</a></li>--}}
-{{--                    <li><a href="knowledge-base.html" title="">knowledge base</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li><a href="about.html" title="">about</a></li>--}}
-{{--            <li><a href="about-company.html" title="">About Us2</a></li>--}}
-{{--            <li><a href="contact.html" title="">contact</a></li>--}}
-{{--            <li><a href="contact-branches.html" title="">Contact Us2</a></li>--}}
-{{--            <li><a href="widgets.html" title="">Widgts</a></li>--}}
+
         </ul>
     </nav>
     <nav id="shoppingbag">
@@ -208,7 +119,7 @@
 </div><!-- responsive header -->
     <div class="topbar stick">
     <div class="logo">
-        <a title="" href="newsfeed.html"><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
+        <a title="" href="newsfeed.html"><img src="{{asset('assets/user/images/logo.png')}}" alt=""></a>
     </div>
 
     <div class="top-area">
@@ -221,32 +132,6 @@
                 <a href="{{route('profile.username', ['username' => session()->get('user')->username])}}" title="">Profile</a>
 
             </li>
-{{--            <li>--}}
-{{--                <a href="#" title="">account settings</a>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="create-fav-page.html" title="">create fav page</a></li>--}}
-{{--                    <li><a href="edit-account-setting.html" title="">edit account setting</a></li>--}}
-{{--                    <li><a href="edit-interest.html" title="">edit-interest</a></li>--}}
-{{--                    <li><a href="edit-password.html" title="">edit-password</a></li>--}}
-{{--                    <li><a href="edit-profile-basic.html" title="">edit profile basics</a></li>--}}
-{{--                    <li><a href="edit-work-eductation.html" title="">edit work educations</a></li>--}}
-{{--                    <li><a href="messages.html" title="">message box</a></li>--}}
-{{--                    <li><a href="inbox.html" title="">Inbox</a></li>--}}
-{{--                    <li><a href="notifications.html" title="">notifications page</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="#" title="">more pages</a>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="404.html" title="">404 error page</a></li>--}}
-{{--                    <li><a href="about.html" title="">about</a></li>--}}
-{{--                    <li><a href="contact.html" title="">contact</a></li>--}}
-{{--                    <li><a href="faq.html" title="">faq's page</a></li>--}}
-{{--                    <li><a href="insights.html" title="">insights</a></li>--}}
-{{--                    <li><a href="knowledge-base.html" title="">knowledge base</a></li>--}}
-{{--                    <li><a href="widgets.html" title="">Widgts</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
         </ul>
         <ul class="setting-area">
             <li>
@@ -282,7 +167,7 @@
                 <div class="widget">
                     <div class="foot-logo">
                         <div class="logo">
-                            <a href="index-2.html" title=""><img src="{{secure_asset('assets/user/images/logo.png')}}" alt=""></a>
+                            <a href="index-2.html" title=""><img src="{{asset('assets/user/images/logo.png')}}" alt=""></a>
                         </div>
                         <p>
                             The trio took this simple idea and built it into the world’s leading carpooling platform.
@@ -354,7 +239,7 @@
         <div class="row">
             <div class="col-md-12">
                 <span class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                <i><img src="{{secure_asset('assets/user/images/credit-cards.png')}}" alt=""></i>
+                <i><img src="{{asset('assets/user/images/credit-cards.png')}}" alt=""></i>
             </div>
         </div>
     </div>
@@ -423,132 +308,19 @@
         </div>
     </form>
 </div><!-- side panel -->
-{{--  <div class="site-wrap">--}}
 
-{{--    <div class="site-mobile-menu">--}}
-{{--      <div class="site-mobile-menu-header">--}}
-{{--        <div class="site-mobile-menu-close mt-3">--}}
-{{--          <span class="icon-close2 js-menu-toggle"></span>--}}
-{{--        </div>--}}
-{{--      </div>--}}
-{{--      <div class="site-mobile-menu-body"></div>--}}
-{{--    </div>--}}
-
-
-
-
-{{--    <header class="site-navbar py-3" role="banner">--}}
-
-{{--      <div class="container-fluid">--}}
-{{--        <div class="row align-items-center">--}}
-
-{{--          <div class="col-6 col-xl-2" data-aos="fade-down">--}}
-{{--            <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0">Photosen</a></h1>--}}
-{{--          </div>--}}
-{{--          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">--}}
-{{--            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">--}}
-
-{{--              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">--}}
-{{--                <li class="active"><a href="{{ route('index')}}">Home</a></li>--}}
-{{--                <li class="has-children">--}}
-{{--                  <a href="#">Gallery</a>--}}
-{{--                  <ul class="dropdown">--}}
-{{--                    <li><a href="#">Anime</a></li>--}}
-{{--                    <li><a href="#">Travel</a></li>--}}
-{{--                    <li><a href="#">Animal</a></li>--}}
-{{--                    <li><a href="#">Sport</a></li>--}}
-{{--                  </ul>--}}
-{{--                </li>--}}
-{{--                <li><a href="about.html">About</a></li>--}}
-{{--                <li><a href="contact.html">Contact</a></li>--}}
-{{--                <li><a href="{{ route('login') }}">My Account</a></li>--}}
-{{--              </ul>--}}
-{{--            </nav>--}}
-{{--          </div>--}}
-
-{{--          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">--}}
-{{--            <div class="d-none d-xl-inline-block">--}}
-{{--              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">--}}
-{{--                <li>--}}
-{{--                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>--}}
-{{--                </li>--}}
-{{--                <li>--}}
-{{--                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>--}}
-{{--                </li>--}}
-{{--                <li>--}}
-{{--                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>--}}
-{{--                </li>--}}
-{{--                <li>--}}
-{{--                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>--}}
-{{--                </li>--}}
-{{--              </ul>--}}
-{{--            </div>--}}
-
-{{--            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>--}}
-
-{{--          </div>--}}
-
-{{--        </div>--}}
-{{--      </div>--}}
-
-{{--    </header>--}}
-
-{{--    @section('content')--}}
-{{--    @show--}}
-
-
-
-{{--    <div class="footer py-4">--}}
-{{--      <div class="container-fluid text-center">--}}
-{{--        <p>--}}
-{{--          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-{{--          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>--}}
-{{--          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-{{--        </p>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-
-
-{{--  </div>--}}
-
-<script src="{{ secure_asset('assets/user/js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery-ui.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/popper.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/bootstrap.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/owl.carousel.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery.stellar.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery.countdown.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/swiper.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/aos.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{{ secure_asset('assets/user/js/picturefill.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/lightgallery-all.min.js')}}"></script>
-<script src="{{ secure_asset('assets/user/js/jquery.mousewheel.min.js')}}"></script>
-
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/popper.js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ secure_asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
-<script src="{{secure_asset('assets/user/js/script.js')}}"></script>
-<script src="{{secure_asset('assets/user/js/map-init.js')}}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
-<script type="text/javascript" src="{{ secure_asset('vendor/bootstrap.js') }}"></script>
-{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-1.5.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-animate.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-aria.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-messages.min.js') }}"></script>--}}
-{{--  <script type="text/javascript" src="{{ secure_asset('vendor/angular-material.min.js') }}"></script>--}}
-  <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
-
-  <script src="{{ secure_asset('assets/user/js/main.js')}}"></script>
-  <script src="{{ secure_asset('assets/user/main.js')}}"></script>
+    <script src="{{ asset('assets/user/js/backgroundVideo.js')}}"></script>
+    <script src="{{ asset('assets/user/js/custom.js')}}"></script>
+    <script src="{{ asset('assets/user/js/echarts.min.js')}}"></script>
+    <script src="{{ asset('assets/user/js/main.min.js')}}"></script>
+    <script src="{{ asset('assets/user/js/map-init.js')}}"></script>
+    <script src="{{ asset('assets/user/js/script.js')}}"></script>
+    <script src="{{ asset('assets/user/js/userincr.js')}}"></script>
+    <script src="{{ asset('assets/user/js/world.js')}}"></script>
+    <script src="{{ asset('assets/user/js/strip.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/user/js/main.js')}}"></script>
+    <script src="{{ asset('assets/user/main.js')}}"></script>
+    <script src="{{ asset('assets/user/handle.js')}}"></script>
 
   <script>
     $(document).ready(function(){
