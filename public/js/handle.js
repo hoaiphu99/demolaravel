@@ -205,16 +205,11 @@ const postUser = (data) => {
                         <td>${result.data.email}}</td>
                         <td>${result.data.phone}</td>
                         <td>${result.data.birthday}</td>
-                        <td><a href="{{ route('user.detail', ${result.data.id}) }}"><b>Sửa</b></a></td>
-                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate(${result.data.id})">Sửa</b></i></td>--}}
-                        {{--<td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
+                        <td><a href="/${result.data.id}"><b>Sửa</b></a></td>
                         <td>
-                            <form action="{{ route('user.delete', $u->id) }}" method="post">
-                                @method('DELETE')
-                                @csrf
+                            <form action="/delete/${result.data.id}" method="post">
+                                ${@csrf}
                                 <input class="btn btn-danger" type="submit" value="Xóa"/>
-                                <!-- <i class="fa fa-pencil"></i> -->
-                                {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', ${result.data.id}) }}">Xóa</a></i>--}}
                             </form>
                         </td>
                         </tr>`
