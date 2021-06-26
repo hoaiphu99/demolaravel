@@ -60,6 +60,12 @@ p {
 .media-left {
   padding-right: 20px; }
 
+.form-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
 /**====== Custom css end ======**/
 /**  =====================
       Main-body css start
