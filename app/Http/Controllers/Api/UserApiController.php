@@ -47,7 +47,7 @@ class UserApiController extends Controller
                 [
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                     'name' => 'image',
-                    'contents' => $resourcse,
+                    'contents' => $resource,
                 ]
             ]
         ]);
