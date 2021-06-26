@@ -62,7 +62,7 @@
                         <input id="avatar" name="avatar" type="file" class="form-control">
                         <span class="form-message"></span>
                     </div>
-                    <button class="btn btn-primary btn-submit-user" type="submit">Lưu</button>
+                    <button class="btn btn-primary btn-submit-user">Lưu</button>
                 </form>
             </div>
         </div>
