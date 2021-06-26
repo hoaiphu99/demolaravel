@@ -157,28 +157,7 @@
             Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
         ],
         onSubmit: function(data) {
-            const formData = new FormData()
-            formData.append('username', data.username)
-            formData.append('password', data.password)
-            formData.append('name', data.name)
-            formData.append('email', data.email)
-            formData.append('phone', data.phone)
-            formData.append('birthday', data.birthday)
-            formData.append('avatar', data.avatar[0])
-            fetch('http://project-api-levi.herokuapp.com/api/user', {
-                method: 'POST',
-                headers: {
-                    'APIKEY': 'VSBG'
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            postUser(data)
             console.log(data)
         }
     })
