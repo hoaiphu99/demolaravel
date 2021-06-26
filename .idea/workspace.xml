@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/user/js/handle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/user/js/handle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/user/js/handle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +222,7 @@
       <workItem from="1623464700125" duration="849000" />
       <workItem from="1623466699189" duration="3044000" />
       <workItem from="1624685296052" duration="664000" />
-      <workItem from="1624694618033" duration="803000" />
+      <workItem from="1624694618033" duration="1049000" />
     </task>
     <servers />
   </component>

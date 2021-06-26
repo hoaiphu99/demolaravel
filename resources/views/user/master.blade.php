@@ -308,7 +308,7 @@
         </div>
     </form>
 </div><!-- side panel -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/user/js/backgroundVideo.js')}}"></script>
     <script src="{{ asset('assets/user/js/custom.js')}}"></script>
     <script src="{{ asset('assets/user/js/echarts.min.js')}}"></script>
@@ -318,9 +318,7 @@
     <script src="{{ asset('assets/user/js/userincr.js')}}"></script>
     <script src="{{ asset('assets/user/js/world.js')}}"></script>
     <script src="{{ asset('assets/user/js/strip.pkgd.min.js')}}"></script>
-    <script src="{{ asset('assets/user/js/main.js')}}"></script>
-    <script src="{{ asset('assets/user/main.js')}}"></script>
-    <script src="{{ asset('assets/user/handle.js')}}"></script>
+    <script src="{{ asset('assets/user/js/handle.js')}}"></script>
 
   <script>
     $(document).ready(function(){
