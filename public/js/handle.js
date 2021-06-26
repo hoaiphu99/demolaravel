@@ -177,9 +177,6 @@ Validator.isConfirmed = function(selector, getConfirmValue, msg) {
     }
 }
 
-const tbodyElement = document.querySelector("#list-user")
-console.log([tbodyElement])
-
 const postUser = (data) => {
     const formData = new FormData()
     formData.append('username', data.username)
@@ -199,7 +196,28 @@ const postUser = (data) => {
         .then(response => response.json())
         .then(result => {
             const tbodyElement = document.querySelector("#list-user")
-
+            console.log([tbodyElement])
+            const child = `<tr>
+                        <th scope="row">${result.data.id}</th>
+                        <td>${result.data.username}</td>
+                        <td>${result.data.name}</td>
+                        <td>${result.data.email}}</td>
+                        <td>${result.data.phone}</td>
+                        <td>${result.data.birthday}</td>
+                        <td><a href="{{ route('user.detail', ${result.data.id}) }}"><b>Sửa</b></a></td>
+                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate(${result.data.id})">Sửa</b></i></td>--}}
+                        {{--<td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
+                        <td>
+                            <form action="{{ route('user.delete', $u->id) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <input class="btn btn-danger" type="submit" value="Xóa"/>
+                                <!-- <i class="fa fa-pencil"></i> -->
+                                {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', ${result.data.id}) }}">Xóa</a></i>--}}
+                            </form>
+                        </td>
+                    </tr>`
+            tbodyElement.appendChild(document.createElement(child))
             console.log(result)
         })
         .catch(error => {
