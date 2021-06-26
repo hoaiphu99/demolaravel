@@ -197,8 +197,7 @@ const postUser = (data) => {
         .then(result => {
             const tbodyElement = document.querySelector("#list-user")
             console.log([tbodyElement])
-            const child = `<tr>
-                        <th scope="row">${result.data.id}</th>
+            const textNode = `<th scope="row">${result.data.id}</th>
                         <td>${result.data.username}</td>
                         <td>${result.data.name}</td>
                         <td>${result.data.email}}</td>
@@ -215,9 +214,11 @@ const postUser = (data) => {
                                 <!-- <i class="fa fa-pencil"></i> -->
                                 {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', ${result.data.id}) }}">Xóa</a></i>--}}
                             </form>
-                        </td>
-                    </tr>`
-            tbodyElement.appendChild(document.createElement(child))
+                        </td>`
+            const para = document.createElement("tr")
+            const node = document.createTextNode(textNode)
+            para.appendChild(node)
+            tbodyElement.appendChild(para)
             console.log(result)
         })
         .catch(error => {
