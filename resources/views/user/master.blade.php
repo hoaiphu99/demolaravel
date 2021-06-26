@@ -309,8 +309,9 @@
     </form>
 </div><!-- side panel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
     <script src="{{ asset('assets/user/js/backgroundVideo.js')}}"></script>
-    <script src="{{ asset('assets/user/js/custom.js')}}"></script>
+{{--    <script src="{{ asset('assets/user/js/custom.js')}}"></script>--}}
     <script src="{{ asset('assets/user/js/echarts.min.js')}}"></script>
     <script src="{{ asset('assets/user/js/main.min.js')}}"></script>
     <script src="{{ asset('assets/user/js/map-init.js')}}"></script>
