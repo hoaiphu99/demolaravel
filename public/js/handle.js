@@ -178,7 +178,7 @@ Validator.isConfirmed = function(selector, getConfirmValue, msg) {
 }
 
 const tbodyElement = document.querySelector("#list-user")
-console.log(tbodyElement)
+console.log([tbodyElement])
 
 const postUser = (data) => {
     const formData = new FormData()
