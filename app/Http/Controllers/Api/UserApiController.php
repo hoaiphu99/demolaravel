@@ -85,9 +85,9 @@ class UserApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "hello".$request->get('avatar');
+
         $user = User::where(['id' => $id])->first();
-        if ($user->avatar === $request->get('avatar')) {
+        if ($user->avatar == $request->file('avatar')) {
             $user->update($request->all());
             return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
         }
