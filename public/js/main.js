@@ -94,6 +94,7 @@ const updateUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
+            alert('Cập nhật thành công!')
             console.log(result)
         })
         .catch(error => {
