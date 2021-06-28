@@ -87,7 +87,7 @@ class UserApiController extends Controller
     {
 
         $user = User::where(['id' => $id])->first();
-        dd($request->input('image'));
+        dd($request->get('username'));
         if ($user->avatar === $request->get('image')) {
             $user->update($request->all());
             $user->update(['avatar' => $request->get('image')]);
