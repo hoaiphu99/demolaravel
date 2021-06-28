@@ -88,7 +88,7 @@ class UserApiController extends Controller
 
         $user = User::where(['id' => $id])->first();
 
-        if ($user->avatar == $request->get('image')) {
+        if ($user->avatar === $request->get('image')) {
             $user->update($request->all());
             $user->update(['avatar' => $request->get('image')]);
             return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
@@ -102,7 +102,6 @@ class UserApiController extends Controller
             $imgur_response = $imgur_client->post('image', [
                 'headers' => [
                     'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
                 ],
                 'multipart' => [
                     [
