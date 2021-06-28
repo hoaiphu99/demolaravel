@@ -85,39 +85,9 @@ class UserApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->get('avatar'));
         $user = User::where(['id' => $id])->first();
         $user->update($request->all());
-        return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
-//        if ($user->avatar === $request->get('image')) {
-//            $user->update($request->all());
-//            $user->update(['avatar' => $request->get('image')]);
-//            return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
-//        }
-//        else {
-//            $file = $request->file('avatar');
-//            $resource = fopen($file, "r") or die("File upload Problems");
-//
-//            // Upload hinh anh len Imgur bang API
-//            $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-//            $imgur_response = $imgur_client->post('image', [
-//                'headers' => [
-//                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-//                ],
-//                'multipart' => [
-//                    [
-//                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-//                        'name' => 'image',
-//                        'contents' => $resource,
-//                    ]
-//                ]
-//            ]);
-//            $img_link = json_decode($imgur_response->getBody())->data->link;
-//
-//            $user->update($request->all());
-//            $user->update(['avatar' => $img_link]);
-//            return response()->json(['status' => 1, 'data' => $user, 'else' => 'else'], 200);
-//        }
+        return response()->json(['status' => 1, 'data' => $user], 200);
 
     }
 

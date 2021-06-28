@@ -71,7 +71,6 @@ const updateUser = async (data) => {
     formData.append('birthday', data.birthday)
     formData.append('avatar', data.avatar[0])
     // formData.append('image', data.prevAvatar)
-    console.log(JSON.stringify(data))
     await fetch(`${API_URL}/user/${data.id}`, {
         method: 'PUT',
         headers: {
