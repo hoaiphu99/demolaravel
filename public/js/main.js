@@ -70,7 +70,7 @@ const updateUser = async (data) => {
     else {
         const formdata = new FormData();
         formdata.append("image", data.avatar[0]);
-        fetch(`${IMGUR_API_URL}/image`, {
+        await fetch(`${IMGUR_API_URL}/image`, {
             method: 'POST',
             headers: {
                 'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
