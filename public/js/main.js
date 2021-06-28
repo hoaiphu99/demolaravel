@@ -69,7 +69,8 @@ const updateUser = async (data) => {
     formData.append('email', data.email)
     formData.append('phone', data.phone)
     formData.append('birthday', data.birthday)
-    formData.append('avatar', data.avatar.length === 0 ? data.prevAvatar : data.avatar[0])
+    formData.append('avatar', data.avatar[0])
+    formData.append('image', data.prevAvatar)
 
     await fetch(`${API_URL}/user/${data.id}`, {
         method: 'PUT',

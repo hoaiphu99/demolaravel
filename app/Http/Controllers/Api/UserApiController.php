@@ -87,10 +87,10 @@ class UserApiController extends Controller
     {
 
         $user = User::where(['id' => $id])->first();
-        $file = $request->get('avatar');
-        dd($file);
-        if ($user->avatar == $request->file('avatar')) {
+
+        if ($user->avatar == $request->get('image')) {
             $user->update($request->all());
+            $user->update(['avatar' => $request->get('image')]);
             return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
         }
         else {
