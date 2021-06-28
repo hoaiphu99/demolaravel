@@ -1,6 +1,7 @@
 ﻿const API_URL = "http://project-api-levi.herokuapp.com/api"
 const API_KEY = "VSBG"
-
+const IMGUR_API_URL = "https://api.imgur.com/3"
+const IMGUR_CLIENT_ID = "db12bcd4537c063"
 // User //
 const getUser = async () => {
     await fetch(`${API_URL}/user`, {
@@ -62,15 +63,27 @@ const postUser = async (data) => {
 
 const updateUser = async (data) => {
     console.log(data)
-    const formData = new FormData()
-    formData.append('username', data.username)
-    formData.append('password', data.password)
-    formData.append('name', data.name)
-    formData.append('email', data.email)
-    formData.append('phone', data.phone)
-    formData.append('birthday', data.birthday)
-    formData.append('avatar', data.avatar[0])
-    // formData.append('image', data.prevAvatar)
+
+    if (data.avatar.length === 0) {
+        data.avatar = data.prevAvatar
+    }
+    else {
+        const formdata = new FormData();
+        formdata.append("image", data.avatar[0]);
+        fetch(`${IMGUR_API_URL}/image`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
+            },
+            body: formdata
+        })
+            .then(response => response.json())
+            .then(result => {
+                data.avatar = result.data.link
+                console.log(result)
+            })
+            .catch(error => console.log(error))
+    }
     await fetch(`${API_URL}/user/${data.id}`, {
         method: 'PUT',
         headers: {
