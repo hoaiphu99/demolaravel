@@ -319,7 +319,7 @@
     <script src="{{ asset('assets/user/js/userincr.js')}}"></script>
     <script src="{{ asset('assets/user/js/world.js')}}"></script>
     <script src="{{ asset('assets/user/js/strip.pkgd.min.js')}}"></script>
-    <script src="{{ asset('assets/user/js/handle.js')}}"></script>
+    <script src="{{ asset('assets/user/js/validator.js')}}"></script>
 
 {{--  <script>--}}
 {{--    $(document).ready(function(){--}}

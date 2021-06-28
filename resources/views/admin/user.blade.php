@@ -62,7 +62,8 @@
                         <input id="avatar" name="avatar" type="file" class="form-control">
                         <span class="form-message"></span>
                     </div>
-                    <button class="btn btn-primary">Lưu</button>
+                    <button class="btn btn-primary btn-submit-form">Lưu</button>
+                    <button class="btn btn-danger btn-cancel-form" onclick="hideForm()">Hủy</button>
                 </form>
             </div>
         </div>
@@ -105,7 +106,7 @@
                 </thead>
                 <tbody id="list-user">
                 @foreach($users->data as $u)
-                    <tr>
+                    <tr data-id="{{$u->id}}">
                         <th scope="row">{{ $u->id }}</th>
                         <td>{{ $u->username }}</td>
 {{--                        <td>{{ $u->password }}</td>--}}
@@ -113,18 +114,8 @@
                         <td>{{ $u->email }}</td>
                         <td>{{ $u->phone }}</td>
                         <td>{{ $u->birthday }}</td>
-                        <td><a href="{{ route('user.detail', $u->id) }}"><b>Sửa</b></a></td>
-                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$u->id}})">Sửa</b></i></td>--}}
-                        {{--<td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
-                        <td>
-                            <form action="{{ route('user.delete', $u->id) }}" method="post">
-                                @method('DELETE')
-                                @csrf
-                                <input class="btn btn-danger" type="submit" value="Xóa"/>
-                                <!-- <i class="fa fa-pencil"></i> -->
-                                {{--<i class="fa fa-pencil"><a href="{{ route('user.delete', $u->id) }}">Xóa</a></i>--}}
-                            </form>
-                        </td>
+                        <td><a href="{{ route('user.detail', $u->id) }}"><i class="fas fa-edit"></i></a></td>
+                        <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser({{$u->id}})"></i></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -136,7 +127,8 @@
 </div>
 <!-- Page-body end -->
 </div>
-<script type="text/javascript" src="{{ asset('js/handle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 <script>
     Validator({
         form: '#form-add-user',

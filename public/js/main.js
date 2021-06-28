@@ -1,76 +1,115 @@
-﻿var app = angular.module('myApp', ['ngMaterial'], function($interpolateProvider) {
-    $interpolateProvider.startSymbol('<%');
-    $interpolateProvider.endSymbol('%>');
-});
-app.controller('MyController',  function($scope, $http, $location, $window){
+﻿const API_URL = "http://project-api-levi.herokuapp.com/api"
+const API_KEY = "VSBG"
 
-    $scope.show = function(u) {
-		u.show = !u.show;
-	}
-    //$scope.show = false;
-    $scope.show1 = function() {
-		$scope.show = !$scope.show;
-	}
-
-    $http.get("../api/user").then(function (res) {
-        $scope.user = res.data;
-    });
-    // lay duong dan trang dang dung
-    var url = $location.url();
-    $scope.create = function (u) {
-        $scope.show = !$scope.show;
-        var data = $.param({
-            id:u.id,
-            username:u.username,
-            password:u.password,
-            name:u.name,
-            email:u.email,
-            phone:u.phone,
-            birthday:u.birthday
-        });
-        var config = {
-            headers: {
-                'Content-type':'application/x-www-form-urlencoded;charset=UTF-8'
-            }
+// User //
+const getUser = async () => {
+    await fetch(`${API_URL}/user`, {
+        method: 'GET',
+        headers: {
+            'APIKEY': API_KEY
         }
-        $http.post("../api/user", data, config).then(function (res) {
-            $window.location.href = url;
-            console.log(res.data);
-        }, function(res) {
-            console.log(res.data);
-        });
-    }
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
 
-    $scope.update = function (u) {
-        var data = $.param({
-            id:u.id,
-            username:u.username,
-            password:u.password,
-            name:u.name,
-            email:u.email,
-            phone:u.phone,
-            birthday:u.birthday
-        });
-        var config = {
-            headers: {
-                'Content-type':'application/x-www-form-urlencoded;charset=UTF-8'
-            }
+const postUser = async (data) => {
+    const formData = new FormData()
+    formData.append('username', data.username)
+    formData.append('password', data.password)
+    formData.append('name', data.name)
+    formData.append('email', data.email)
+    formData.append('phone', data.phone)
+    formData.append('birthday', data.birthday)
+    formData.append('avatar', data.avatar[0])
+    await fetch(`${API_URL}/user`, {
+        method: 'POST',
+        headers: {
+            'APIKEY': API_KEY
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-user")
+
+            const textNode = `<tr>
+                        <th scope="row">${result.data[0].id}</th>
+                        <td>${result.data[0].username}</td>
+                        <td>${result.data[0].name}</td>
+                        <td>${result.data[0].email}</td>
+                        <td>${result.data[0].phone}</td>
+                        <td>${result.data[0].birthday}</td>
+                        <td><a href="/admin/user/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
+                        <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
+                        </tr>`
+
+            tbodyElement.innerHTML += textNode
+            document.querySelector(".insert-user").style.display = "none"
+
+            alert('Thêm thành công!')
+            console.log(result.data[0])
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const updateUser = async (data) => {
+    console.log(data)
+    const formData = new FormData()
+    formData.append('username', data.username)
+    formData.append('password', data.password)
+    formData.append('name', data.name)
+    formData.append('email', data.email)
+    formData.append('phone', data.phone)
+    formData.append('birthday', data.birthday)
+    formData.append('avatar', data.avatar.length === 0 ? data.prevAvatar : data.avatar[0])
+
+    await fetch(`${API_URL}/user/${data.id}`, {
+        method: 'PUT',
+        headers: {
+            APIKEY: API_KEY
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const deleteUser = async (id) => {
+
+    await fetch(`${API_URL}/user/${id}`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
         }
-        u.show = !u.show;
-        
-        $http.put("../api/user/" + u.id + "",data, config).then(function(res) {
-            console.log(res.data);
-        }, function(res) {
-            console.log(res.data);
-        });
-    }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-user")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
 
-    $scope.delete = function(u) {
-        $http.delete("../api/user/" + u.id + "").then(function(res) {
-            console.log(res.data);
-        }, function(res) {
-            $window.location.href = url;
-            console.log(res.data);
-        });
-    }
-})
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+// Common
+
+const hideForm = () => {
+    document.querySelector(".insert-user").style.display = "none"
+}

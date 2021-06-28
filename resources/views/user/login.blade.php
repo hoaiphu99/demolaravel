@@ -6,13 +6,13 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Wibu Social Network Media</title>
-    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{asset('assets/user/images/fav.png')}}" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/assets/user/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/assets/user/css/themify-icons.css">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/main.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/color.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/responsive.css')}}">
 
 </head>
 <body>
@@ -28,7 +28,7 @@
                             Wibu Media is free to use for as long as you want with two active projects.
                         </p>
                         <div class="friend-logo">
-                            <span><img src="{{secure_asset('assets/user/images/wink.png')}}" alt=""></span>
+                            <span><img src="{{asset('assets/user/images/wink.png')}}" alt=""></span>
                         </div>
                         <a href="#" title="" class="folow-me">Follow Us on</a>
                     </div>
@@ -70,8 +70,8 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="{{secure_asset('assets/user/js/main.min.js')}}"></script>
-<script src="{{secure_asset('assets/user/js/script.js')}}"></script>
+<script src="{{asset('assets/user/js/main.min.js')}}"></script>
+<script src="{{asset('assets/user/js/script.js')}}"></script>
 
 </body>
 
@@ -95,17 +95,17 @@
 {{--    <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">--}}
 {{--    <meta name="author" content="CodedThemes">--}}
 {{--    <!-- Favicon icon -->--}}
-{{--    <link rel="icon" href="{{secure_asset('assets/images/favicon.ico" type="image/x-icon">--}}
+{{--    <link rel="icon" href="{{asset('assets/images/favicon.ico" type="image/x-icon">--}}
 {{--    <!-- Google font-->--}}
-{{--    <link href="{{secure_asset('https://fonts.googleapis.com/assets/user/css?family=Open+Sans:400,600,800" rel="stylesheet">--}}
+{{--    <link href="{{asset('https://fonts.googleapis.com/assets/user/css?family=Open+Sans:400,600,800" rel="stylesheet">--}}
 {{--    <!-- Required Fremwork -->--}}
-{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/assets/user/css/bootstrap/assets/user/css/bootstrap.min.assets/user/css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{asset('assets/assets/user/css/bootstrap/assets/user/css/bootstrap.min.assets/user/css">--}}
 {{--    <!-- themify-icons line icon -->--}}
-{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/icon/themify-icons/themify-icons.assets/user/css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{asset('assets/icon/themify-icons/themify-icons.assets/user/css">--}}
 {{--    <!-- ico font -->--}}
-{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/icon/icofont/assets/user/css/icofont.assets/user/css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{asset('assets/icon/icofont/assets/user/css/icofont.assets/user/css">--}}
 {{--    <!-- Style.assets/user/css -->--}}
-{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{secure_asset('assets/assets/user/css/style.assets/user/css">--}}
+{{--    <link rel="stylesheet" type="text/assets/user/css" href="{{asset('assets/assets/user/css/style.assets/user/css">--}}
 {{--</head>--}}
 
 {{--<body class="fix-menu">--}}
@@ -138,7 +138,7 @@
 {{--                        <form action="{{ route('login') }}" class="md-float-material" method="post">--}}
 {{--                            @csrf--}}
 {{--                            <div class="text-center">--}}
-{{--                                <img src="{{secure_asset('assets/images/auth/logo-dark.png')}}" alt="logo.png">--}}
+{{--                                <img src="{{asset('assets/images/auth/logo-dark.png')}}" alt="logo.png">--}}
 {{--                            </div>--}}
 {{--                            <div class="auth-box">--}}
 {{--                                <div class="row m-b-20">--}}
@@ -169,7 +169,7 @@
 {{--                                        </div>--}}
 {{--                                    </div>--}}
 {{--                                    <div class="col-sm-5 col-xs-12 forgot-phone text-right">--}}
-{{--                                        <a href="{{secure_asset('#" class="text-right f-w-600 text-inverse"> Quên mật khẩu?</a>--}}
+{{--                                        <a href="{{asset('#" class="text-right f-w-600 text-inverse"> Quên mật khẩu?</a>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
 {{--                                <div class="row m-t-30">--}}
@@ -184,7 +184,7 @@
 {{--                                        <p class="text-inverse text-left"><b>Wibugram team</b></p>--}}
 {{--                                    </div>--}}
 {{--                                    <div class="col-md-2">--}}
-{{--                                        <img src="{{secure_asset('assets/images/auth/Logo-small-bottom.png')}}" alt="small-logo.png">--}}
+{{--                                        <img src="{{asset('assets/images/auth/Logo-small-bottom.png')}}" alt="small-logo.png">--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
 
@@ -209,32 +209,32 @@
 {{--    <div class="iew-container">--}}
 {{--        <ul class="iew-download">--}}
 {{--            <li>--}}
-{{--                <a href="{{secure_asset('http://www.google.com/chrome/">--}}
-{{--                    <img src="{{secure_asset('assets/images/browser/chrome.png')}}" alt="Chrome">--}}
+{{--                <a href="{{asset('http://www.google.com/chrome/">--}}
+{{--                    <img src="{{asset('assets/images/browser/chrome.png')}}" alt="Chrome">--}}
 {{--                    <div>Chrome</div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
 {{--            <li>--}}
-{{--                <a href="{{secure_asset('https://www.mozilla.org/en-US/firefox/new/">--}}
-{{--                    <img src="{{secure_asset('assets/images/browser/firefox.png')}}" alt="Firefox">--}}
+{{--                <a href="{{asset('https://www.mozilla.org/en-US/firefox/new/">--}}
+{{--                    <img src="{{asset('assets/images/browser/firefox.png')}}" alt="Firefox">--}}
 {{--                    <div>Firefox</div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
 {{--            <li>--}}
-{{--                <a href="{{secure_asset('http://www.opera.com">--}}
-{{--                    <img src="{{secure_asset('assets/images/browser/opera.png')}}" alt="Opera">--}}
+{{--                <a href="{{asset('http://www.opera.com">--}}
+{{--                    <img src="{{asset('assets/images/browser/opera.png')}}" alt="Opera">--}}
 {{--                    <div>Opera</div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
 {{--            <li>--}}
-{{--                <a href="{{secure_asset('https://www.apple.com/safari/">--}}
-{{--                    <img src="{{secure_asset('assets/images/browser/safari.png')}}" alt="Safari">--}}
+{{--                <a href="{{asset('https://www.apple.com/safari/">--}}
+{{--                    <img src="{{asset('assets/images/browser/safari.png')}}" alt="Safari">--}}
 {{--                    <div>Safari</div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
 {{--            <li>--}}
-{{--                <a href="{{secure_asset('http://windows.microsoft.com/en-us/internet-explorer/download-ie">--}}
-{{--                    <img src="{{secure_asset('assets/images/browser/ie.png')}}" alt="">--}}
+{{--                <a href="{{asset('http://windows.microsoft.com/en-us/internet-explorer/download-ie">--}}
+{{--                    <img src="{{asset('assets/images/browser/ie.png')}}" alt="">--}}
 {{--                    <div>IE (9 & above)</div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
