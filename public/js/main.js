@@ -75,9 +75,10 @@ const updateUser = async (data) => {
     await fetch(`${API_URL}/user/${data.id}`, {
         method: 'PUT',
         headers: {
+            'Content-Type': 'application/json',
             APIKEY: API_KEY
         },
-        body: formData
+        body: JSON.stringify(data)
     })
         .then(response => response.json())
         .then(result => {
