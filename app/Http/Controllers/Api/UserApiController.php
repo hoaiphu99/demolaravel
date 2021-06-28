@@ -87,6 +87,8 @@ class UserApiController extends Controller
     {
 
         $user = User::where(['id' => $id])->first();
+        $file = $request->file('avatar');
+        dd($file);
         if ($user->avatar == $request->file('avatar')) {
             $user->update($request->all());
             return response()->json(['status' => 1, 'data' => $user, 'if' => 'if'], 200);
