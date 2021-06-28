@@ -85,6 +85,7 @@ class UserApiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->file('avatar'));
         $user = User::where(['id' => $id])->first();
         if ($user->avatar === $request->get('avatar')) {
             $user->update($request->all());
