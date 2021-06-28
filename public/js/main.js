@@ -95,6 +95,7 @@ const updateUser = async (data) => {
         .then(response => response.json())
         .then(result => {
             alert('Cập nhật thành công!')
+            document.querySelector(".update-img").src = result.data[0].avatar
             console.log(result)
         })
         .catch(error => {

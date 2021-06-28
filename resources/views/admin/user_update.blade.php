@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label for="avatar" class="form-label">Ảnh đại diện</label>
                             <br>
-                            <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                            <img class="update-img" src = "{{ $u->avatar }}" alt = "" height="200" width="200">
                             <input id="avatar" name="avatar" type="file" class="form-control">
                             <input id="prevAvatar" name="prevAvatar" type="text" value="{{$u->avatar}}" hidden class="form-control">
                             <span class="form-message"></span>
