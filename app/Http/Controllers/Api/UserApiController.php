@@ -32,6 +32,11 @@ class UserApiController extends Controller
      */
     public function store(Request $request)
     {
+        $user_un = User::where(['username' => $request->get('username')])->first();
+        if($user_un != null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+        }
         $user = User::create($request->all());
         $file = $request->file('avatar');
         $resource = fopen($file, "r") or die("File upload Problems");
