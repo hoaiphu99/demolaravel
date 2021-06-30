@@ -47,7 +47,7 @@ class AuthController extends Controller
                 'headers' => [
                     'APIKEY' => Config::get('siteVars.API_KEY')
                 ],
-                'form_params' => [
+                'json' => [
                     'username' => $request->get('username'),
                     'password' => $request->get('password'),
                     'name' => $request->get('name'),
