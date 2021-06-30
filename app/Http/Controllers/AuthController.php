@@ -40,21 +40,29 @@ class AuthController extends Controller
     public function register(Request $request) {
         $picture = 'https://i.imgur.com/BdtG3S7.jpg';
         $base_uri = Config::get('siteVars.API_URL');
-        $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->post('user', [
-            'headers' => [
-                'APIKEY' => Config::get('siteVars.API_KEY')
-            ],
-            'form_params' => [
-                'username' => $request->get('username'),
-                'password' => $request->get('password'),
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'phone' => $request->get('phone'),
-                'birthday' => '1/1/2000',
-                'avatar' => $picture
-            ]
-        ]);
+        try
+        {
+            $client = new Client(['base_uri' => $base_uri]);
+            $response = $client->post('user', [
+                'headers' => [
+                    'APIKEY' => Config::get('siteVars.API_KEY')
+                ],
+                'form_params' => [
+                    'username' => $request->get('username'),
+                    'password' => $request->get('password'),
+                    'name' => $request->get('name'),
+                    'email' => $request->get('email'),
+                    'phone' => $request->get('phone'),
+                    'birthday' => '1/1/2000',
+                    'avatar' => $picture
+                ]
+            ]);
+        }
+        catch(\Exception $e)
+        {
+            return view('errors.404');
+        }
+        
         $data = json_decode($response->getBody()->getContents());
         if (strcmp($data->data, Config::get('siteMsg.fails_msg') == 0))
         {
