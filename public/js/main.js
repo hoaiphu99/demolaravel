@@ -37,24 +37,50 @@ const postUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
-            const tbodyElement = document.querySelector("#list-user")
+            if (result.data[0] == 'Fails')
+            {
+                alert('Username này đã tồn tại!')
+            }
+            else
+            {
+                const tbodyElement = document.querySelector("#list-user")
 
-            const textNode = `<tr>
-                        <th scope="row">${result.data[0].id}</th>
-                        <td>${result.data[0].username}</td>
-                        <td>${result.data[0].name}</td>
-                        <td>${result.data[0].email}</td>
-                        <td>${result.data[0].phone}</td>
-                        <td>${result.data[0].birthday}</td>
-                        <td><a href="/admin/user/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
-                        <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
-                        </tr>`
+                const textNode = `<tr>
+                            <th scope="row">${result.data[0].id}</th>
+                            <td>${result.data[0].username}</td>
+                            <td>${result.data[0].name}</td>
+                            <td>${result.data[0].email}</td>
+                            <td>${result.data[0].phone}</td>
+                            <td>${result.data[0].birthday}</td>
+                            <td><a href="/admin/user/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
+                            <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
+                            </tr>`
 
-            tbodyElement.innerHTML += textNode
-            document.querySelector(".insert-user").style.display = "none"
+                tbodyElement.innerHTML += textNode
+                document.querySelector(".insert-user").style.display = "none"
 
-            alert('Thêm thành công!')
-            console.log(result.data[0])
+                alert('Thêm thành công!')
+                console.log(result.data[0])
+            }
+
+            // const tbodyElement = document.querySelector("#list-user")
+
+            // const textNode = `<tr>
+            //             <th scope="row">${result.data[0].id}</th>
+            //             <td>${result.data[0].username}</td>
+            //             <td>${result.data[0].name}</td>
+            //             <td>${result.data[0].email}</td>
+            //             <td>${result.data[0].phone}</td>
+            //             <td>${result.data[0].birthday}</td>
+            //             <td><a href="/admin/user/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
+            //             <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
+            //             </tr>`
+
+            // tbodyElement.innerHTML += textNode
+            // document.querySelector(".insert-user").style.display = "none"
+
+            // alert('Thêm thành công!')
+            // console.log(result.data[0])
         })
         .catch(error => {
             console.log(error)

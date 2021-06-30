@@ -135,6 +135,7 @@
         formGroupSelector: '.form-group',
         errorSelector: '.form-message',
         rules: [
+            Validator.isRequired('#username', 'Vui lòng nhập tên tài khoản'),
             Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
             Validator.isRequired('#email', 'Vui lòng nhập email'),
             Validator.isEmail('#email'),

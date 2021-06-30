@@ -35,7 +35,7 @@ class UserApiController extends Controller
         $user_un = User::where(['username' => $request->get('username')])->first();
         if($user_un != null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => Config::get('siteMsg.fails_msg')]);
         }
         $user = User::create($request->all());
         $file = $request->file('avatar');
@@ -90,11 +90,11 @@ class UserApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user_un = User::where(['username' => $request->get('username')])->first();
-        if($user_un != null)
-        {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
-        }
+        // $user_un = User::where(['username' => $request->get('username')])->first();
+        // if($user_un != null)
+        // {
+        //     return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => Config::get('siteMsg.fails_msg')]);
+        // }
         $user = User::where(['id' => $id])->first();
         $user->update($request->all());
         return response()->json(['status' => 1, 'data' => $user], 200);
