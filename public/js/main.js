@@ -37,7 +37,7 @@ const postUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
-            if (result.data[0] == 'Fails')
+            if (result.data == 'Fails')
             {
                 alert('Username này đã tồn tại!')
             }
