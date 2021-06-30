@@ -38,6 +38,7 @@ class AuthController extends Controller
     }
 
     public function register(Request $request) {
+        $picture = 'https://i.imgur.com/BdtG3S7.jpg';
         $base_uri = Config::get('siteVars.API_URL');
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->post('user', [
@@ -51,7 +52,7 @@ class AuthController extends Controller
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
                 'birthday' => '1/1/2000',
-                'avatar' => 'https://i.imgur.com/BdtG3S7.jpg'
+                'avatar' => $picture
             ]
         ]);
         $data = json_decode($response->getBody()->getContents());

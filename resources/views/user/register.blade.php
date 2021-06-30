@@ -80,7 +80,8 @@
                                     <input type="checkbox" checked="checked"/><i class="check-box"></i>Accept Terms & Conditions ?
                                 </label>
                             </div>
-                            <a href="{{route('login')}}" title="" class="already-have">Already have an account</a>
+                            <a href="{{route('login')}}" title="" >Already have an account</a>
+                            <!-- class="already-have" -->
                             <div class="submit-btns">
                                 <button class="mtr-btn signin" type="submit"><span>Register</span></button>
                             </div>
