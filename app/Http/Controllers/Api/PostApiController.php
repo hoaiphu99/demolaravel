@@ -115,7 +115,7 @@ class PostApiController extends Controller
         Post::where(['id' => $post->id])->update(['image' => $img_link]);
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection(Post::where(['id' => $post->id])->get())], 201);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 201);
     }
 
     /**
