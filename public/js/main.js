@@ -96,7 +96,7 @@ const updateUser = async (data) => {
     else {
         const formdata = new FormData();
         formdata.append("image", data.avatar[0]);
-        await fetch(`${IMGUR_API_URL}/image`, {
+        await fetch(`${IMGUR_API_URL}/upload`, {
             method: 'POST',
             headers: {
                 'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
@@ -151,12 +151,11 @@ const deleteUser = async (id) => {
 }
 
 // post
-
 const createPost = async (data) => {
     const formData = new FormData()
     formData.append('content', data.content)
-    formData.append('user_id', data.user_id)
     formData.append('image', data.image[0])
+    formData.append('user_id', data.user_id)
     await fetch(`${API_URL}/post`, {
         method: 'POST',
         headers: {
@@ -168,16 +167,14 @@ const createPost = async (data) => {
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
 
-            const textNode = `<tr>
+            tbodyElement.innerHTML = `<tr>
                         <th scope="row">${result.data[0].id}</th>
                         <td>${result.data[0].content}</td>
-                        <td><img src="${result.data[0].content}" alt="" height="100" width="100"></td>
+                        <td><img src="${result.data[0].image}" alt="" height="100" width="100"></td>
                         <td>${result.data[0].user.name}</td>
                         <td><a href="/admin/post/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
                         <td><i class="fas fa-trash" style="cursor: pointer" onclick=""></i></td>
-                        </tr>`
-
-            tbodyElement.innerHTML += textNode
+                        </tr>` + tbodyElement.innerHTML
             document.querySelector(".insert-form").style.display = "none"
 
             alert('Thêm thành công!')

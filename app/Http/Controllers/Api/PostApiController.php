@@ -96,7 +96,7 @@ class PostApiController extends Controller
 
         // Upload hinh anh len Imgur bang API
         $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        $imgur_response = $imgur_client->post('image', [
+        $imgur_response = $imgur_client->post('upload', [
             'headers' => [
                 'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
 
@@ -109,7 +109,7 @@ class PostApiController extends Controller
                 ]
             ]
         ]);
-        $img_link = json_decode($imgur_response->getBody())->data->link;
+        $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
 
         //$link_img = $request->get('image');
         Post::where(['id' => $post->id])->update(['image' => $img_link]);
