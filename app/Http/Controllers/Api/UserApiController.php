@@ -56,7 +56,7 @@ class UserApiController extends Controller
                 ]
             ]
         ]);
-        $img_link = json_decode($imgur_response->getBody())->data->link;
+        $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
 
         User::where(['id' => $user->id])->update(['avatar' => $img_link]);
 
