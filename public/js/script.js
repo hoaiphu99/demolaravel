@@ -6,7 +6,7 @@ $(document).ready(function () {
         );
     });
 
-    const inputAvatar = $('#avatar')
+    const inputAvatar = $('#image')
     inputAvatar.change(() => {
         console.log(inputAvatar[0])
         if (inputAvatar[0].files && inputAvatar[0].files[0]) {

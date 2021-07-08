@@ -112,7 +112,7 @@ class PostApiController extends Controller
         //$link_img = $request->get('image');
         Post::where(['id' => $post->id])->update(['image' => $img_link]);
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 201);
+        return response()->json(['status' => 1, 'data' => [$post]], 201);
     }
 
     /**

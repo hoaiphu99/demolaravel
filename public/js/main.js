@@ -19,7 +19,7 @@ const getUser = async () => {
         })
 }
 
-const postUser = async (data) => {
+const createUser = async (data) => {
     const formData = new FormData()
     formData.append('username', data.username)
     formData.append('password', data.password)
@@ -144,6 +144,44 @@ const deleteUser = async (id) => {
             tbodyElement.removeChild(trElement)
 
             alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+// post
+
+const createPost = async (data) => {
+    const formData = new FormData()
+    formData.append('content', data.content)
+    formData.append('user_id', data.user_id)
+    formData.append('image', data.image[0])
+    await fetch(`${API_URL}/post`, {
+        method: 'POST',
+        headers: {
+            'APIKEY': API_KEY
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+
+            const textNode = `<tr>
+                        <th scope="row">${result.data[0].id}</th>
+                        <td>${result.data[0].content}</td>
+                        <td><img src="${result.data[0].content}" alt="" height="100" width="100"></td>
+                        <td>${result.data[0].user.name}</td>
+                        <td><a href="/admin/post/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
+                        <td><i class="fas fa-trash" style="cursor: pointer" onclick=""></i></td>
+                        </tr>`
+
+            tbodyElement.innerHTML += textNode
+            document.querySelector(".insert-form").style.display = "none"
+
+            alert('Thêm thành công!')
+            console.log(result.data[0])
         })
         .catch(error => {
             console.log(error)

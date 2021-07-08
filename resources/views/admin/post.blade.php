@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="user_id">Người Đăng:</label>
-                        <select class="custom-select custom-select-sm ml-2" style="width: 50%;" name="user_id" aria-label=".form-select-sm example" required>
+                        <select class="custom-select custom-select-sm ml-2" style="width: 50%;" id="user_id" name="user_id" aria-label=".form-select-sm example" required>
                             <option value="" selected>--- Người đăng ---</option>
                             @if(count($dropDownUser))
                                 @foreach($dropDownUser as $u)
@@ -31,8 +31,8 @@
 
                     <div class="form-group">
                         <div class="custom-file">
-                            <input name="avatar" type="file" class="custom-file-input" id="avatar">
-                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                            <input name="image" type="file" class="custom-file-input" id="image">
+                            <label class="custom-file-label" for="image">Chọn ảnh</label>
                         </div>
                         <span class="form-message"></span>
                     </div>
