@@ -3,40 +3,10 @@
 @section('content')
 
     <div class="container">
-        <div  ng-controller="MyController">
-            <div class="page-header card">
-                <div class="row align-items-end">
-                    <div class="col-lg-8">
-                        <div class="page-header-title">
-                            <i class="icofont icofont-table bg-c-blue"></i>
-                            <div class="d-inline">
-                                <h4>Cập Nhật User</h4>
-                            </div>
-                        </div>
-                        <hr>
-                        {{--<div>--}}
-                            {{--<button type="button" class="btn btn-primary btn-insert" >Thêm</button>--}}
-                        {{--</div>--}}
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="page-header-breadcrumb">
-                            <ul class="breadcrumb-title">
-                            <li class="breadcrumb-item">
-                                <a href="{{url('admin/dashboard')}}">
-                                    <i class="icofont icofont-home"></i>
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="{{url('admin/user_update')}}">User</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class = "card text-center">
+        <div class="card mb-2" style="width: 50%;">
             <div class="card-body form-update">
                 @foreach($users->data as $u)
-                    <form method="post" id="form-add-user">
+                    <form method="post" id="form-add">
                         @csrf
                         <div class="form-group">
                             <label for="id" class="form-label">ID</label>
@@ -82,61 +52,8 @@
                             <span class="form-message"></span>
                         </div>
                         <button class="btn btn-primary btn-submit-form">Lưu</button>
-                        <button class="btn btn-danger btn-cancel-form">Hủy</button>
+                        <a href="{{ route('admin.user') }}" class="btn btn-danger btn-cancel-form">Hủy</a>
                     </form>
-{{--                <form action="{{ route('user.update', $u->id) }}" method="post" class="needs-validation" novalidate>--}}
-{{--                <!-- class="needs-validation" novalidate="true" -->--}}
-{{--                    @csrf--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="ten">Họ và Tên:</label>--}}
-{{--                        <input type="text" class="form-control" id="ten" placeholder="Enter name" name="name" value="{{$u->name}}" required="required"/>--}}
-{{--                        <div class="valid-feedback">Valid.</div>--}}
-{{--                        <div class="invalid-feedback">Please fill out this field.</div>--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="uname">Username:</label>--}}
-{{--                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" value="{{$u->username}}" required="required" readonly/>--}}
-{{--                        <!-- <div class="valid-feedback">Valid.</div> -->--}}
-{{--                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="pwd">Password:</label>--}}
-{{--                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="{{$u->password}}" required="required" readonly/>--}}
-{{--                        <!-- <div class="valid-feedback">Valid.</div> -->--}}
-{{--                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="mail">Email:</label>--}}
-{{--                        <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" value="{{$u->email}}" required="required" />--}}
-{{--                        <!-- <div class="valid-feedback">Valid.</div> -->--}}
-{{--                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="sdt">Phone:</label>--}}
-{{--                        <input type="number" class="form-control" id="sdt" placeholder="Enter phone" name="phone" value="{{$u->phone}}" required="required" />--}}
-{{--                        <!-- <div class="valid-feedback">Valid.</div> -->--}}
-{{--                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="ngaysinh">Birthday:</label>--}}
-{{--                        <input type="text" class="form-control" id="ngaysinh" placeholder="Enter birthday" name="birthday" value="{{$u->birthday}}" required="required" />--}}
-{{--                        <!-- <div class="valid-feedback">Valid.</div> -->--}}
-{{--                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="avatar">Avatar</label>--}}
-{{--                        <br>--}}
-{{--                        <img src = "{{ $u->avatar }}" alt = "" height="200" width="200">--}}
-{{--                    </div>--}}
-{{--                    <!-- <div class="form-group form-check">--}}
-{{--                    <label class="form-check-label">--}}
-{{--                        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.--}}
-{{--                        <div class="valid-feedback">Valid.</div>--}}
-{{--                        <div class="invalid-feedback">Check this checkbox to continue.</div>--}}
-{{--                    </label>--}}
-{{--                    </div> -->--}}
-{{--                    <button type="submit" class="btn btn-success">Cập Nhật</button>--}}
-{{--                </form>--}}
                 @endforeach
             </div>
         </div>
@@ -172,7 +89,7 @@
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     <script>
         Validator({
-            form: '#form-add-user',
+            form: '#form-add',
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
