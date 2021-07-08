@@ -5,10 +5,4 @@ $(document).ready(function () {
             {"display": "contents"}
         );
     });
-
-    $('.btn-submit-user').click(function () {
-        $('.insert-form').css(
-            {"display": "none"}
-        );
-    });
 });

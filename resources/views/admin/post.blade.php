@@ -96,38 +96,33 @@
         </div>
     </div>
 
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
     {{-- Validator --}}
-    <script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+
     <script>
-        Validator({
-            form: '#form-add-user',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-                Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
-                Validator.isRequired('#email', 'Vui lòng nhập email'),
-                Validator.isEmail('#email'),
-                Validator.minLength('#password', 6),
-                Validator.isRequired('#password_confirmation'),
-                Validator.isConfirmed('#password_confirmation', function() {
-                    return document.querySelector('#form-add-user #password').value
-                }, 'Mật khẩu nhập lại không chính xác'),
-                // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
-                // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),
-                // Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP'),
-                Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
-            ],
-            onSubmit: function(data) {
-                postUser(data)
-                console.log(data)
-            }
+        document.addEventListener('DOMContentLoaded', () => {
+            Validator({
+                form: '#form-add',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
+                    Validator.isRequired('#email', 'Vui lòng nhập email'),
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                    Validator.isRequired('#password_confirmation'),
+                    Validator.isConfirmed('#password_confirmation', function() {
+                        return document.querySelector('#form-add-user #password').value
+                    }, 'Mật khẩu nhập lại không chính xác'),
+                    // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
+                    // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),
+                    // Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP'),
+                    Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
+                ],
+                onSubmit: function(data) {
+                    postUser(data)
+                    console.log(data)
+                }
+            })
         })
     </script>
 
