@@ -151,7 +151,7 @@ class PostApiController extends Controller
         $post->update($request->all());
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => [$post]], 200);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 200);
     }
 
     /**
