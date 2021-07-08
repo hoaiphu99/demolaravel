@@ -260,7 +260,7 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 

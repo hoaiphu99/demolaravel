@@ -55,10 +55,6 @@ Route::post('comment/create', [HomeController::class, 'postComment'])->name('com
 
 Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');
 
-//Route::post('/category/update/{id}', [Controller::class, 'updateCategory'])->where(['id'])->name('category.update');
-
-//Route::post('/category/create', [Controller::class, 'createCategory'])->name('category.create');
-
 Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     Route::get('dashboard', function () {
         return view('admin.index');
@@ -83,8 +79,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     Route::post('post/update/{id}', [PostController::class, 'updatePost'])->where(['id'])->name('post.update');
 
     Route::delete('post/delete/{id}', [PostController::class, 'deletePost'])->where(['id'])->name('post.delete');
-
-    //Route::get('category', [Controller::class, 'getCategory'])->name('admin.category');
 
     // Comment
     Route::get('comment', [CommentController::class, 'getComment'])->name('admin.comment');

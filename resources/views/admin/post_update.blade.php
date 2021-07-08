@@ -19,9 +19,14 @@
                 <div class="form-group">
                     <div class="col-xs-3">
                         <label for="uname">Người Đăng:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="{{$post->user->id}}" name="user_id" value="{{$post->user->name}}" required="required"/>
-                        <!-- <div class="valid-feedback">Valid.</div> -->
-                        <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
+                        <select class="custom-select custom-select-sm ml-2" style="width: 50%;" name="user_id" aria-label=".form-select-sm example" required>
+                            <option value="" selected>--- Người đăng ---</option>
+                            @if(count($dropDownUser))
+                                @foreach($dropDownUser as $u)
+                                    <option value="{{ $u->id }}" {{ $post->user->id === $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                         @isset($msg)
                         <p>{{$msg}}</p>
                         @endisset

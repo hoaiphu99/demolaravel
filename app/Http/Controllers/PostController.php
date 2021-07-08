@@ -30,7 +30,9 @@ class PostController extends Controller
         $response = $client->get('post/'.$id, [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
-        return view('admin.post_update', ['post' => json_decode($response->getBody()->getContents())->data[0]]);
+        $post = json_decode($response->getBody()->getContents())->data[0];
+        $dropDownUser = $this->dropDownUser();
+        return view('admin.post_update', ['post' => $post, 'dropDownUser' => $dropDownUser]);
     }
 
     public function getPostByUser($username) {
@@ -163,6 +165,6 @@ class PostController extends Controller
         $response = $client->get('user', [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
-
+        return json_decode($response->getBody()->getContents())->data;
     }
 }
