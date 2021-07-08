@@ -109,7 +109,7 @@
                     Validator.minLength('#password', 6),
                     Validator.isRequired('#password_confirmation'),
                     Validator.isConfirmed('#password_confirmation', function() {
-                        return document.querySelector('#form-add-user #password').value
+                        return document.querySelector('#form-add #password').value
                     }, 'Mật khẩu nhập lại không chính xác'),
                     // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
                     // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),

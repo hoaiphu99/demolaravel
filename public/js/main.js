@@ -43,7 +43,7 @@ const postUser = async (data) => {
             }
             else
             {
-                const tbodyElement = document.querySelector("#list-user")
+                const tbodyElement = document.querySelector("#list-data")
 
                 const textNode = `<tr>
                             <th scope="row">${result.data[0].id}</th>
@@ -139,7 +139,7 @@ const deleteUser = async (id) => {
     })
         .then(response => response.json())
         .then(result => {
-            const tbodyElement = document.querySelector("#list-user")
+            const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
