@@ -95,8 +95,8 @@
     </div>
 
     {{-- Validator --}}
-
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             Validator({
                 form: '#form-add',

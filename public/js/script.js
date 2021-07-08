@@ -5,4 +5,22 @@ $(document).ready(function () {
             {"display": "contents"}
         );
     });
+
+    const inputAvatar = $('#avatar')
+    inputAvatar.change(() => {
+        console.log(inputAvatar[0])
+        if (inputAvatar[0].files && inputAvatar[0].files[0]) {
+            const reader = new FileReader()
+            console.log(reader)
+            reader.onload = (e) => {
+                console.log(e)
+                $('#img-avatar')
+                    .attr('src', e.target.result)
+                    .css({width: '50%', height: '200px',})
+                console.log(e.target.result)
+            }
+
+            reader.readAsDataURL(inputAvatar[0].files[0])
+        }
+    })
 });

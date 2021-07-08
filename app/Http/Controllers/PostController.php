@@ -22,7 +22,8 @@ class PostController extends Controller
         } catch (\Exception $e) {
             return view('errors.404');
         }
-        return view('admin.post', ['posts' => json_decode($response->getBody()->getContents())->data]);
+        $dropDownUser = $this->dropDownUser();
+        return view('admin.post', ['posts' => json_decode($response->getBody()->getContents())->data, 'dropDownUser' => $dropDownUser]);
     }
 
     public function getPostDetail($id) {
