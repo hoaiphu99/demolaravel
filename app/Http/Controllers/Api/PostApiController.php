@@ -82,8 +82,6 @@ class PostApiController extends Controller
     {
         //$post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
         $post = Post::create($request->all());
-        //$imgur_uri = 'https://api.imgur.com/3/';
-        //$imgur_clientID = 'db12bcd4537c063';
         $file = $request->file('image');
         $resource = fopen($file, "r") or die("File upload Problems");
 

@@ -64,12 +64,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>ID</th>
                             <th>Username</th>
-                            <th>Name</th>
+                            <th>Họ tên</th>
                             <th>Email</th>
-                            <th>Phone</th>
-                            <th>Birthday</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày sinh</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
@@ -84,7 +84,7 @@
                                 <td>{{ $u->phone }}</td>
                                 <td>{{ $u->birthday }}</td>
                                 <td><a href="{{ route('user.detail', $u->id) }}"><i class="fas fa-edit"></i></a></td>
-                                <td><i class="fas fa-trash" style="cursor: pointer"
+                                <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
                                         onclick="deleteUser({{ $u->id }})"></i></td>
                             </tr>
                         @endforeach

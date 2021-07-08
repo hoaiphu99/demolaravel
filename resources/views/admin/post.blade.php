@@ -64,30 +64,23 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nội dung</th>
-                            <th>Chọn hình ảnh</th>
+                            <th>Hình ảnh</th>
                             <th>Tác giả</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
                     <tbody id="list-data">
-                        @foreach ($posts->data as $p)
+                        @foreach ($posts as $p)
                             <tr>
-                                <th scope="row">{{ $p->content }}</th>
+                                <th scope="row">{{ $p->id }}</th>
+                                <th >{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" height="100" width="100"></td>
                                 <td>{{ $p->user->name }}</td>
-                                <td><a href="{{ route('post.detail', $p->id) }}"><b>Sửa</b></a></td>
-                                <!-- <td><b ng-click="showUpdate({{ $p->id }})">Sửa</b></td> -->
-                                {{-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$p->id}})">Sửa</b></i></td> --}}
-                                {{-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> --}}
-                                <td>
-                                    <form action="{{ route('post.delete', $p->id) }}" method="post">
-                                        @method('DELETE')
-                                        @csrf
-                                        <input class="btn btn-danger" type="submit" value="Xóa" />
-                                        {{-- <i class="fa fa-pencil"><a href="{{ route('post.delete.$p->id', $p->id) }}">Xóa</a></i> --}}
-                                    </form>
-                                </td>
+                                <td><a href="{{ route('post.detail', $p->id) }}"><i class="fas fa-edit"></i></a></td>
+                                <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
+                                       onclick="deletePost({{ $p->id }})"></i></td>
                             </tr>
                         @endforeach
                     </tbody>

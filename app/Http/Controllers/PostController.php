@@ -5,38 +5,39 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
-use GuzzleHttp\Psr7;
 use Intervention\Image\Image;
 use mysql_xdevapi\Exception;
 
 class PostController extends Controller
 {
     public function getPost() {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->get('post', [
-            'headers' => ['APIKEY' => 'VSBG']
-        ]);
-        return view('admin.post', ['posts' => json_decode($response->getBody())]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        try {
+            $response = $client->get('post', [
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+            ]);
+        } catch (\Exception $e) {
+            return view('errors.404');
+        }
+        return view('admin.post', ['posts' => json_decode($response->getBody()->getContents())->data]);
     }
 
     public function getPostDetail($id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->get('post/'.$id, [
-            'headers' => ['APIKEY' => 'VSBG']
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
-        return view('admin.post_update', ['posts' => json_decode($response->getBody())]);
+        return view('admin.post_update', ['post' => json_decode($response->getBody()->getContents())->data[0]]);
     }
 
     public function getPostByUser($username) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         try {
             $response = $client->get('post/profile/'.$username, [
-                'headers' => ['APIKEY' => 'VSBG']
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
             ]);
             $posts = json_decode($response->getBody()->getContents());
             $user = $posts->user;
@@ -51,8 +52,6 @@ class PostController extends Controller
     }
 
     public function createPost(Request $request) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-
         $user_id = $request->input('user_id');
         $user = session()->get('user');
         if($user_id == null) {
@@ -72,10 +71,10 @@ class PostController extends Controller
 //        $resource = fopen($file, "r") or die("File upload Problems");
 
         try {
-            $client = new Client(['base_uri' => $base_uri]);
+            $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
             $response = $client->post('post', [
                 'headers' => [
-                    'APIKEY' => 'VSBG'
+                    'APIKEY' => Config::get('siteVars.API_KEY')
                 ],
                 'multipart' => [
                     [
@@ -94,11 +93,6 @@ class PostController extends Controller
                         'contents' => $user_id,
                     ],
                 ],
-//            'form_params' => [
-//                'content' => $request->input('content'),
-//                'image' => $name,
-//                'user_id' => $request->input('user_id')
-//            ]
             ]);
         }
         catch (\Exception $e) {
@@ -113,104 +107,62 @@ class PostController extends Controller
     }
 
     public function updatePost(Request $request, $id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
-
-        // $user_id = $request->input('user_id');
-        // $user = session()->get('user');
-        // if($user_id == null) {
-        //     $user_id = $user->id;
-        // }
-
-        // $file = $request->file('image');
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
 
         $user_id = $request->get('user_id');
-        $user_response = $client->get('user/'.$user_id, [
-            'headers' => [
-                'APIKEY' => 'VSBG'
-            ]
-        ]);
-        $data = json_decode($user_response->getBody()->getContents());
-        $status = $data->status;
-        if ($status != 1) {
-            $post_response = $client->get('post/'.$id, [
-                'headers' => ['APIKEY' => 'VSBG']
-            ]);
-            return view('admin.post_update', ['posts' => json_decode($post_response->getBody())], ['msg' => 'Mã người dùng không tồn tại!']);
+        $user = session()->get('user');
+        if($user_id == null) {
+            $user_id = $user->id;
         }
+
+//        $user_response = $client->get('user/'.$user_id, [
+//            'headers' => [
+//                'APIKEY' => Config::get('siteVars.API_KEY'),
+//            ]
+//        ]);
+//        $data = json_decode($user_response->getBody()->getContents());
+//        $status = $data->status;
+//
+//        if ($status != 1) {
+//            $post_response = $client->get('post/'.$id, [
+//                'headers' => ['APIKEY' => 'VSBG']
+//            ]);
+//            return view('admin.post_update', ['posts' => json_decode($post_response->getBody()->getContents())], ['msg' => 'Mã người dùng không tồn tại!']);
+//        }
+
         try {
             $response = $client->put('post/'.$id, [
                 'headers' => [
-                    'APIKEY' => 'VSBG'
+                    'APIKEY' => Config::get('siteVars.API_KEY')
                 ],
                 'form_params' => [
-                    'content' => $_POST['content'],
-                    'user_id' => $_POST['user_id'],
-
-                    // 'user_id' => $_POST['image'],
-                    // 'image' => $_POST['multipart' => [
-                    //     [
-                    //         'Content-Type' => 'multipart/form-data',
-                    //         'name' => 'image',
-                    //         'contents' => fopen($file, "r"),
-                    //     ]
-                    // ]],
-                ]
-
-                // 'multipart' => [
-                //     [
-
-                //         'name' => 'content',
-                //         'contents' => $request->input('content'),
-                //     ],
-                //     [
-                //         'Content-Type' => 'multipart/form-data',
-                //         'name' => 'image',
-                //         'contents' => fopen($file, "r"),
-                //     ],
-                //     [
-
-                //         'name' => 'user_id',
-                //         'contents' => $user_id,
-                //     ],
-                // ],
+                    'content' => $request->get('content'),
+                    'user_id' => $user_id,
+                ],
             ]);
         }
         catch (\Exception $e) {
-            echo '<script type="text/javascript">alert("Please upload a image!");</script>';
+            return view('errors.404');
         }
-
-        // $client = new Client(['base_uri' => $base_uri]);
-        // $response = $client->put('post/'.$id, [
-        //     'headers' => [
-        //         'APIKEY' => 'VSBG'
-        //     ],
-        //     'form_params' => [
-        //         'content' => $_POST['username'],
-        //         'password' => $_POST['password'],
-        //         'name' => $_POST['name'],
-        //         'email' => $_POST['email'],
-        //         'phone' => $_POST['phone'],
-        //         'birthday' => $_POST['birthday'],
-        //     ]
-        // ]);
 
         return redirect(route('admin.post'));
     }
 
     public function deletePost($id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->delete('post/'.$id, [
            'headers' => [
-               'APIKEY' => 'VSBG'
+               'APIKEY' => Config::get('siteVars.API_KEY')
            ],
-            /*'form_params' => [
-                'content' => $_POST['content'],
-                'user_id' => $_POST['user_id'],
-                'post_id' => $_POST['post_id'],
-            ]*/
         ]);
         return redirect(route('admin.post'));
+    }
+
+    public function dropDownUser() {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->get('user', [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+
     }
 }

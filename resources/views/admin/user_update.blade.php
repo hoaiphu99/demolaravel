@@ -2,60 +2,61 @@
 @section('title', 'Chỉnh sửa thông tin user')
 @section('content')
 
-    <div class="container">
-        <div class="card mb-2" style="width: 50%;">
-            <div class="card-body form-update">
-                @foreach($users->data as $u)
-                    <form method="post" id="form-add">
-                        @csrf
-                        <div class="form-group">
-                            <label for="id" class="form-label">ID</label>
-                            <input id="id" name="id" type="text" value="{{$u->id}}" disabled class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="username" class="form-label">Tên tài khoản</label>
-                            <input id="username" name="username" type="text" value="{{$u->username}}" disabled class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="form-label">Mật khẩu</label>
-                            <input id="password" name="password" type="text" value="{{$u->password}}" class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="form-label">Họ tên</label>
-                            <input id="name" name="name" type="text" value="{{$u->name}}" class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input id="email" name="email" type="text" value="{{$u->email}}" class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Số điện thoại</label>
-                            <input id="phone" name="phone" type="number" value="{{$u->phone}}" class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
-                            <input id="birthday" name="birthday" type="text" value="{{$u->birthday}}" class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="avatar" class="form-label">Ảnh đại diện</label>
-                            <br>
-                            <img class="update-img" src = "{{ $u->avatar }}" alt = "" height="200" width="200">
-                            <input id="avatar" name="avatar" type="file" class="form-control">
-                            <input id="prevAvatar" name="prevAvatar" type="text" value="{{$u->avatar}}" hidden class="form-control">
-                            <span class="form-message"></span>
-                        </div>
-                        <button class="btn btn-primary btn-submit-form">Lưu</button>
-                        <a href="{{ route('admin.user') }}" class="btn btn-danger btn-cancel-form">Hủy</a>
-                    </form>
-                @endforeach
-            </div>
+    <div>
+        <a href="{{ route('admin.user') }}" type="button" class="btn btn-primary btn-sm mb-3" >Trở về</a>
+    </div>
+    <div class="card mb-2" style="width: 50%;">
+        <div class="card-body form-update">
+            @foreach($users->data as $u)
+                <form method="post" id="form-add">
+                    @csrf
+                    <div class="form-group">
+                        <label for="id" class="form-label">ID</label>
+                        <input id="id" name="id" type="text" value="{{$u->id}}" disabled class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="form-label">Tên tài khoản</label>
+                        <input id="username" name="username" type="text" value="{{$u->username}}" disabled class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input id="password" name="password" type="text" value="{{$u->password}}" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Họ tên</label>
+                        <input id="name" name="name" type="text" value="{{$u->name}}" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" type="text" value="{{$u->email}}" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+                        <input id="phone" name="phone" type="number" value="{{$u->phone}}" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
+                        <input id="birthday" name="birthday" type="text" value="{{$u->birthday}}" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar" class="form-label">Ảnh đại diện</label>
+                        <br>
+                        <img class="update-img" src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                        <input id="avatar" name="avatar" type="file" class="form-control">
+                        <input id="prevAvatar" name="prevAvatar" type="text" value="{{$u->avatar}}" hidden class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <button class="btn btn-primary btn-submit-form">Lưu</button>
+                    <a href="{{ route('admin.user') }}" class="btn btn-danger btn-cancel-form">Hủy</a>
+                </form>
+            @endforeach
         </div>
     </div>
 
