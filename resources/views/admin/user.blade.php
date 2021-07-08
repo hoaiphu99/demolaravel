@@ -117,7 +117,7 @@
                     Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
                 ],
                 onSubmit: function(data) {
-                    postUser(data)
+                    createUser(data)
                     console.log(data)
                 }
             })
