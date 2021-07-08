@@ -2,121 +2,133 @@
 @section('title', 'Bài đăng')
 @section('content')
 
-<!-- Page-header start -->
-<div  ng-controller="PostController">
-<div class="page-header card">
-    <div class="row align-items-end">
-        <div class="col-lg-8">
-            <div class="page-header-title">
-                <i class="icofont icofont-table bg-c-blue"></i>
-                <div class="d-inline">
-                    <h4>Quản lý bài đăng</h4>
-                </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-insert">Thêm</button>
+    </div>
+    <hr>
+    <div class="insert-form">
+        <form method="post" id="form-add">
+            @csrf
+            <div class="form-group">
+                <label for="username" class="form-label">Tên tài khoản</label>
+                <input id="username" name="username" type="text" placeholder="Nhập tên tài khoản" class="form-control">
+                <span class="form-message"></span>
             </div>
-            <hr>
-            <div>
-                <button type="button" class="btn btn-primary" ng-click="show1()">Thêm</button>
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
             </div>
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu"
+                       type="password" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Họ tên</label>
+                <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input id="phone" name="phone" type="number" placeholder="0123456789" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
+                <input id="birthday" name="birthday" type="text" placeholder="VD: username" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="avatar" class="form-label">Ảnh đại diện</label>
+                <input id="avatar" name="avatar" type="file" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <button class="btn btn-primary btn-submit-form">Lưu</button>
+            <button class="btn btn-danger btn-cancel-form" onclick="hideForm()">Hủy</button>
+        </form>
+    </div>
+    <!-- DataTales User -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách bài đăng</h6>
         </div>
-        <div class="col-lg-4">
-            <div class="page-header-breadcrumb">
-                <ul class="breadcrumb-title">
-                <li class="breadcrumb-item">
-                    <a href="{{url('admin/dashboard')}}">
-                        <i class="icofont icofont-home"></i>
-                    </a>
-                </li>
-                <li class="breadcrumb-item"><a href="{{url('admin/post')}}">Bài đăng</a></li>
-            </ul>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nội dung</th>
+                            <th>Chọn hình ảnh</th>
+                            <th>Tác giả</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-data">
+                        @foreach ($posts->data as $p)
+                            <tr>
+                                <th scope="row">{{ $p->content }}</th>
+                                <td><img src="{{ $p->image }}" alt="" height="100" width="100"></td>
+                                <td>{{ $p->user->name }}</td>
+                                <td><a href="{{ route('post.detail', $p->id) }}"><b>Sửa</b></a></td>
+                                <!-- <td><b ng-click="showUpdate({{ $p->id }})">Sửa</b></td> -->
+                                {{-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$p->id}})">Sửa</b></i></td> --}}
+                                {{-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td> --}}
+                                <td>
+                                    <form action="{{ route('post.delete', $p->id) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input class="btn btn-danger" type="submit" value="Xóa" />
+                                        {{-- <i class="fa fa-pencil"><a href="{{ route('post.delete.$p->id', $p->id) }}">Xóa</a></i> --}}
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-</div>
-<!-- Page-header end -->
 
-<!-- Page-body start -->
-<div class="page-body">
-<!-- Hover table card start -->
-<div class="card">
-    <div class="card-block table-border-style">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-{{--                        <th>ID</th>--}}
-                        <th>Nội dung</th>
-                        <th>Chọn hình ảnh</th>
-                        <th>Tác giả</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-{{--                     <tr ng-show="!show" ng-init="p">--}}
-{{--                        <th scope="row">{{ p->id }}</th>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->title"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->description"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->image"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->user_id"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->cate_id"></td>--}}
-{{--                        <td><i class="fa fa-pencil"><a ng-click="create(p)" href="{{url('admin/post')}}">Lưu</a></i></td>--}}
-{{--                    </tr> --}}
-                </thead>
-                <tbody>
-                <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <td><input type="text" class="form-control" name="content"></td>
-                    <td><input type="file" class="form-control" name="image"></td>
-                    <td><input type="text" class="form-control" name="user_id"></td>
-                    <td><button class="btn btn-primary" type="submit">Lưu</button></td>
-                    {{--<td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td>--}}
-                </form>
-                @foreach($posts->data as $p)
-                    <tr>
-                        <th scope="row">{{ $p->content }}</th>
-                        <td><img src = "{{ $p->image }}" alt = "" height="100" width="100"></td>
-                        <td>{{ $p->user->name }}</td>
-                        <td><a href="{{ route('post.detail', $p->id) }}"><b>Sửa</b></a></td>
-                        <!-- <td><b ng-click="showUpdate({{$p->id}})">Sửa</b></td> -->
-                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$p->id}})">Sửa</b></i></td> --}}
-                        {{-- <td><i class="fa fa-pencil"><a href="{{url('admin/user')}}">Xóa</a></i></td>--}}
-                        <td>
-                            <form action="{{ route('post.delete', $p->id) }}" method="post">
-                                @method('DELETE')
-                                @csrf
-                                <input class="btn btn-danger" type="submit" value="Xóa"/>
-                                {{--<i class="fa fa-pencil"><a href="{{ route('post.delete.$p->id', $p->id) }}">Xóa</a></i>--}}
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-{{--                    @foreach ($posts as $p)--}}
-{{--                    <tr>--}}
-{{--                        <th scope="row">{{ $p->id }}</th>--}}
-{{--                        <td>{{ $p->title }}</td>--}}
-{{--                        <td>{{ $p->description }}</td>--}}
-{{--                        <td>{{ $p->image }}</td>--}}
-{{--                        <td>{{ $p->user->name }}</td>--}}
-{{--                        <td>{{ $p->category->name }}</td>--}}
-{{--                        <td><i class="fa fa-pencil"><b ng-click="show(p)">Sửa</b></i></td>--}}
-{{--                        <td><i class="fa fa-pencil"><a ng-click="delete(p)" href="{{url('admin/post')}}">Xóa</a></i></td>--}}
-{{--                    </tr>--}}
-{{--                    @endforeach--}}
-
-{{--                     <tr ng-show="p->show">--}}
-{{--                        <th scope="row">{{ p->id }}</th>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->title"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->description"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->image"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->user_id"></td>--}}
-{{--                        <td><input type="text" class="form-control" ng-model="p->cate_id"></td>--}}
-{{--                        <td><i class="fa fa-pencil"><b ng-click="update(p)">Lưu</b></i></td>--}}
-{{--                    </tr> --}}
-                </tbody>
-            </table>
-        </div>
     </div>
-</div>
-<!-- Hover table card end -->
-</div>
-<!-- Page-body end -->
-</div>
+    <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    {{-- Validator --}}
+    <script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script>
+        Validator({
+            form: '#form-add-user',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
+                Validator.isRequired('#email', 'Vui lòng nhập email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function() {
+                    return document.querySelector('#form-add-user #password').value
+                }, 'Mật khẩu nhập lại không chính xác'),
+                // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
+                // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),
+                // Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP'),
+                Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
+            ],
+            onSubmit: function(data) {
+                postUser(data)
+                console.log(data)
+            }
+        })
+    </script>
+
 @endsection

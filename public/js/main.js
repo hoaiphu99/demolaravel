@@ -37,6 +37,7 @@ const postUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
+<<<<<<< Updated upstream
             if (result.data == 'Fails')
             {
                 alert('Username này đã tồn tại!')
@@ -64,6 +65,9 @@ const postUser = async (data) => {
             }
 
             // const tbodyElement = document.querySelector("#list-user")
+=======
+            const tbodyElement = document.querySelector("#list-data")
+>>>>>>> Stashed changes
 
             // const textNode = `<tr>
             //             <th scope="row">${result.data[0].id}</th>
@@ -76,8 +80,13 @@ const postUser = async (data) => {
             //             <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
             //             </tr>`
 
+<<<<<<< Updated upstream
             // tbodyElement.innerHTML += textNode
             // document.querySelector(".insert-user").style.display = "none"
+=======
+            tbodyElement.innerHTML += textNode
+            document.querySelector(".insert-form").style.display = "none"
+>>>>>>> Stashed changes
 
             // alert('Thêm thành công!')
             // console.log(result.data[0])
@@ -139,7 +148,7 @@ const deleteUser = async (id) => {
     })
         .then(response => response.json())
         .then(result => {
-            const tbodyElement = document.querySelector("#list-user")
+            const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
@@ -153,5 +162,5 @@ const deleteUser = async (id) => {
 // Common
 
 const hideForm = () => {
-    document.querySelector(".insert-user").style.display = "none"
+    document.querySelector(".insert-form").style.display = "none"
 }

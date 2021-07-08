@@ -1,95 +1,136 @@
 @extends('admin.master')
-@section('title', 'Comment')
+@section('title', 'Bình luận')
 @section('content')
 
-<!-- Page-header start -->
-<div  ng-controller="MyController">
-<div class="page-header card">
-    <div class="row align-items-end">
-        <div class="col-lg-8">
-            <div class="page-header-title">
-                <i class="icofont icofont-table bg-c-blue"></i>
-                <div class="d-inline">
-                    <h4>Quản lý Comment</h4>
-                </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-insert">Thêm</button>
+    </div>
+    <hr>
+    <div class="insert-form">
+        <form method="post" id="form-add">
+            @csrf
+            <div class="form-group">
+                <label for="username" class="form-label">Tên tài khoản</label>
+                <input id="username" name="username" type="text" placeholder="Nhập tên tài khoản" class="form-control">
+                <span class="form-message"></span>
             </div>
-            <hr>
-            <!-- <div>
-                <button type="button" class="btn btn-primary" ng-click="show1()">Thêm</button>
-            </div> -->
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu"
+                       type="password" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Họ tên</label>
+                <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input id="phone" name="phone" type="number" placeholder="0123456789" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
+                <input id="birthday" name="birthday" type="text" placeholder="VD: username" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="avatar" class="form-label">Ảnh đại diện</label>
+                <input id="avatar" name="avatar" type="file" class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <button class="btn btn-primary btn-submit-form">Lưu</button>
+            <button class="btn btn-danger btn-cancel-form" onclick="hideForm()">Hủy</button>
+        </form>
+    </div>
+    <!-- DataTales User -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách bình luận</h6>
         </div>
-        <div class="col-lg-4">
-            <div class="page-header-breadcrumb">
-                <ul class="breadcrumb-title">
-                <li class="breadcrumb-item">
-                    <a href="{{url('admin/dashboard')}}">
-                        <i class="icofont icofont-home"></i>
-                    </a>
-                </li>
-                <li class="breadcrumb-item"><a href="{{url('admin/comment')}}">Comment</a></li>
-            </ul>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nội Dung</th>
+                            <th>Người Dùng</th>
+                            <th>ID Bài Đăng</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-data">
+                        @foreach ($comments->data as $cmt)
+                            <tr>
+                                <th scope="row">{{ $cmt->id }}</th>
+                                <td>{{ $cmt->content }}</td>
+                                <td>{{ $cmt->user->username }}</td>
+                                <td>{{ $cmt->post->id }}</td>
+                                <td><a href="{{ route('comment.detail', $cmt->id) }}"><b>Sửa</b></a></td>
+                                {{-- <td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td> --}}
+                                {{-- <td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td> --}}
+                                <td>
+                                    <form action="{{ route('comment.delete', $cmt->id) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input class="btn btn-danger" type="submit" value="Xóa" />
+                                        <!-- <i class="fa fa-pencil"></i> -->
+                                        {{-- <i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i> --}}
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-</div>
-<!-- Page-header end -->
 
-<!-- Page-body start -->
-<div class="page-body">
-<!-- Hover table card start -->
-<div class="card">
-    <div class="card-block table-border-style">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nội Dung</th>
-                        <th>Tên Người Dùng</th>
-                        <th>Bài Đăng</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr ng-show="!show">
-                        <form action="{{ route('comment.create') }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <td></td>
-                            <td><input type="text" class="form-control" name="content"></td>
-                            <td><input type="text" class="form-control" name="user_id"></td>
-                            <td><input type="text" class="form-control" name="post_id"></td>
-                            <td><button class="btn btn-primary" type="submit">Lưu</button></td>
-                            <!-- <td><i class="fa fa-pencil"><button class="btn btn-primary" type="submit">Lưu</button></i></td> -->
-                        </form>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach($comments->data as $cmt)
-                    <tr>
-                        <th scope="row">{{ $cmt->id }}</th>
-                        <td>{{ $cmt->content }}</td>
-                        <td>{{ $cmt->user->name }}</td>
-                        <td>{{ $cmt->post->content }}</td>
-                        <td><a href="{{ route('comment.detail', $cmt->id) }}"><b>Sửa</b></a></td>
-                        {{--<td><i class="fa fa-pencil"><b ng-click="showUpdate({{$cmt->id}})">Sửa</b></i></td>--}}
-                        {{--<td><i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i></td>--}}
-                        <td>
-                        <form action="{{ route('comment.delete', $cmt->id) }}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <input class="btn btn-danger" type="submit" value="Xóa"/>
-                            <!-- <i class="fa fa-pencil"></i> -->
-                            {{--<i class="fa fa-pencil"><a href="{{ route('comment.delete', $m->id) }}">Xóa</a></i>--}}
-                        </form>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
     </div>
-</div>
-<!-- Hover table card end -->
-</div>
-<!-- Page-body end -->
-</div>
+    <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    {{-- Validator --}}
+    <script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script>
+        Validator({
+            form: '#form-add-user',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
+                Validator.isRequired('#email', 'Vui lòng nhập email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function() {
+                    return document.querySelector('#form-add-user #password').value
+                }, 'Mật khẩu nhập lại không chính xác'),
+                // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
+                // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),
+                // Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP'),
+                Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
+            ],
+            onSubmit: function(data) {
+                postUser(data)
+                console.log(data)
+            }
+        })
+    </script>
+
 @endsection

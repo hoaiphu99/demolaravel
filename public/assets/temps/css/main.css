@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.insert-user {
+    display: none;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 13px;
+    line-height: 13px;
+    padding: 4px 0 0;
+}
