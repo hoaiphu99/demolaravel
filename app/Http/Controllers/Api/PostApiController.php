@@ -28,7 +28,8 @@ class PostApiController extends Controller
         $post = Post::all()->sortDesc();
         //$post = Post::orderBy(['id' => 'DESC'])->get();
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection($post)]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)]);
     }
 
     public function getPostByUserID($userid)
@@ -44,7 +45,8 @@ class PostApiController extends Controller
         $user_id = $user->id;
         $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection($posts), 'user' => $user]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection($posts), 'user' => $user]);
     }
 
 //    protected function saveImgBase64($param, $folder)
@@ -112,7 +114,8 @@ class PostApiController extends Controller
         //$link_img = $request->get('image');
         Post::where(['id' => $post->id])->update(['image' => $img_link]);
 
-        return response()->json(['status' => 1, 'data' => [$post]], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection(Post::where(['id' => $post->id])->get())], 201);
     }
 
     /**
@@ -123,13 +126,15 @@ class PostApiController extends Controller
      */
     public function show($id)
     {
-        $post = Post::where(['id' => $id])->get();
-        $post_id = Post::where(['id' => $id])->first();
-        if($post_id == null)
+        //$post = Post::where(['id' => $id])->get();
+        $post = Post::where(['id' => $id])->first();
+        if($post == null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
         }
-        return response()->json(['status' => 1, 'data' => PostResource::collection($post)], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 201);
     }
 
     /**
@@ -145,28 +150,8 @@ class PostApiController extends Controller
         $post = Post::where(['id' => $id])->first();
         $post->update($request->all());
 
-        // $file = $request->file('image');
-        // $resource = fopen($file, "r") or die("File upload Problems");
-        // $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        // $imgur_response = $imgur_client->post('image', [
-        //     'headers' => [
-        //         'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
-        //     ],
-        //     'multipart' => [
-        //         [
-        //             'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-        //             'name' => 'image',
-        //             'contents' => $resource,
-        //         ]
-        //     ]
-        // ]);
-        // $img_link = json_decode($imgur_response->getBody())->data->link;
-
-        //$link_img = $request->get('image');
-        //Post::where(['id' => $post->id])->update(['image' => $img_link]);
-
-        return response()->json(['status' => 1, 'data' => PostResource::collection(Post::all())], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => [$post]], 200);
     }
 
     /**
