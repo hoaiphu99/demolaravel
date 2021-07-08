@@ -89,21 +89,12 @@
                 formGroupSelector: '.form-group',
                 errorSelector: '.form-message',
                 rules: [
-                    Validator.isRequired('#name', 'Vui lòng nhập tên đầy đủ của bạn'),
-                    Validator.isRequired('#email', 'Vui lòng nhập email'),
-                    Validator.isEmail('#email'),
-                    Validator.minLength('#password', 6),
-                    Validator.isRequired('#password_confirmation'),
-                    Validator.isConfirmed('#password_confirmation', function() {
-                        return document.querySelector('#form-add-user #password').value
-                    }, 'Mật khẩu nhập lại không chính xác'),
-                    // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
-                    // Validator.isRequired('input[name="language"]', 'Vui lòng chọn ngôn ngữ'),
-                    // Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP'),
-                    Validator.isRequired('#avatar', 'Vui lòng chọn ảnh đại diện'),
+                    Validator.isRequired('#content', 'Chưa nhập nội dung'),
+                    Validator.isRequired('#user_id', 'Chưa chọn người đăng'),
+                    Validator.isRequired('#image', 'Vui lòng chọn ảnh để đăng'),
                 ],
                 onSubmit: function(data) {
-                    postUser(data)
+                    createPost(data)
                     console.log(data)
                 }
             })
