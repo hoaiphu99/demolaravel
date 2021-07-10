@@ -63,16 +63,6 @@ class PostController extends Controller
 
         $file = $request->file('image');
 
-//        $type = $file->getClientOriginalExtension();
-//        $name = 'post_'.time().'.'.$type;
-//        $path = public_path().'/assets/images/';
-//
-//        $file->move($path, $name);
-//        //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
-//
-//        // Upload hinh anh len Imgur bang API
-//        $resource = fopen($file, "r") or die("File upload Problems");
-
         try {
             $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
             $response = $client->post('post', [
@@ -118,21 +108,6 @@ class PostController extends Controller
             $user_id = $user->id;
         }
 
-//        $user_response = $client->get('user/'.$user_id, [
-//            'headers' => [
-//                'APIKEY' => Config::get('siteVars.API_KEY'),
-//            ]
-//        ]);
-//        $data = json_decode($user_response->getBody()->getContents());
-//        $status = $data->status;
-//
-//        if ($status != 1) {
-//            $post_response = $client->get('post/'.$id, [
-//                'headers' => ['APIKEY' => 'VSBG']
-//            ]);
-//            return view('admin.post_update', ['posts' => json_decode($post_response->getBody()->getContents())], ['msg' => 'Mã người dùng không tồn tại!']);
-//        }
-
         try {
             $response = $client->put('post/'.$id, [
                 'headers' => [
@@ -147,8 +122,9 @@ class PostController extends Controller
         catch (\Exception $e) {
             return view('errors.404');
         }
-
-        return redirect(route('admin.post'));
+        $post = json_decode($response->getBody()->getContents())->data[0];
+        $dropDownUser = $this->dropDownUser();
+        return view('admin.post_update', ['post' => $post, 'dropDownUser' => $dropDownUser, 'msg' => 'Cập nhật thành công']);
     }
 
     public function deletePost($id) {

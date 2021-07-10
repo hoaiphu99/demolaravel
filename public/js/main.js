@@ -185,6 +185,29 @@ const createPost = async (data) => {
         })
 }
 
+const updatePost = async (data) => {
+    console.log(data)
+    await fetch(`${API_URL}/post/${data.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            APIKEY: API_KEY
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            response.json()
+        })
+        .then(result => {
+            alert('Cập nhật thành công!')
+            console.log(result)
+            return result
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 // Common
 
 const hideForm = () => {
