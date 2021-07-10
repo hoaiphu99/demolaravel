@@ -201,7 +201,6 @@ const updatePost = async (data) => {
         .then(result => {
             alert('Cập nhật thành công!')
             console.log(result)
-            return result
         })
         .catch(error => {
             console.log(error)
