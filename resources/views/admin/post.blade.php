@@ -64,7 +64,7 @@
                     </thead>
                     <tbody id="list-data">
                         @foreach ($posts as $p)
-                            <tr>
+                            <tr data-id="{{ $p->id }}">
                                 <th scope="row">{{ $p->id }}</th>
                                 <th >{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" height="100" width="100"></td>

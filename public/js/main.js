@@ -207,6 +207,27 @@ const updatePost = async (data) => {
         })
 }
 
+const deletePost = async (id) => {
+
+    await fetch(`${API_URL}/post/${id}`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 // Common
 
 const hideForm = () => {
