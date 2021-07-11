@@ -121,9 +121,7 @@ class PostApiController extends Controller
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
                 ],
                 'form_params' => [
-                    [
-                        'image' => $resource,
-                    ]
+                    'image' => $resource,
                 ]
             ]);
             $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
