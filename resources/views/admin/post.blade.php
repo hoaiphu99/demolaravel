@@ -59,6 +59,7 @@
                             <th>Nội dung</th>
                             <th>Hình ảnh</th>
                             <th>Tác giả</th>
+                            <th colspan="2">Lượt tương tác</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
@@ -69,6 +70,8 @@
                                 <th >{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" height="100" width="100"></td>
                                 <td>{{ $p->user->name }}</td>
+                                <td><i class="fas fa-comments"></i> {{ $p->comment_count }}</td>
+                                <td><i class="fas fa-heart"></i> {{ $p->like_count }}</td>
                                 <td><a href="{{ route('post.detail', $p->id) }}"><i class="fas fa-edit"></i></a></td>
                                 <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
                                        onclick="deletePost({{ $p->id }})"></i></td>

@@ -78,6 +78,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
 
     Route::post('post/update/{id}', [PostController::class, 'updatePost'])->where(['id'])->name('post.update');
 
+    Route::get('post/comments/{id}', [PostController::class, 'postComments'])->where(['id'])->name('post.comments');
+
     Route::delete('post/delete/{id}', [PostController::class, 'deletePost'])->where(['id'])->name('post.delete');
 
     // Comment

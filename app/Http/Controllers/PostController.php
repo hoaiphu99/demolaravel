@@ -137,6 +137,16 @@ class PostController extends Controller
         return redirect(route('admin.post'));
     }
 
+    public function postComments($id) {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->get('comment/post/'.$id, [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+
+        $comments = json_decode($response->getBody()->getContents())->data[0];
+        return view('admin.post_comments', ['post' => $comments]);
+    }
+
     public function dropDownUser() {
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->get('user', [

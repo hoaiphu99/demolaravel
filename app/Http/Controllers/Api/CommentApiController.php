@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Http\Resources\CommentResource;
 use App\Models\Post;
 use GuzzleHttp\Client;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Models\User;
@@ -16,27 +17,32 @@ class CommentApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
         //
-        $comment = Comment::all()->sortDesc();
+        $comments = Comment::all()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comment)]);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comments)]);
     }
 
+    /**
+     * Display a listing of the resource.
+     * @param  $post_id
+     * @return JsonResponse
+     */
     public function getCommentByPost($post_id) {
-        $comment = Comment::where(['post_id' => $post_id])->get()->sortDesc();
+        $comments = Comment::where(['post_id' => $post_id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comment)]);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comments)]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -53,9 +59,8 @@ class CommentApiController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @param $id
+     * @return JsonResponse
      */
     public function show($id)
     {
@@ -67,9 +72,9 @@ class CommentApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @param $id
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -83,8 +88,8 @@ class CommentApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @param  $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {

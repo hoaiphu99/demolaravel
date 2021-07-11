@@ -7,6 +7,9 @@ use App\Http\Resources\UserResource;
 use App\Models\Post;
 use App\Models\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
@@ -15,12 +18,11 @@ class UserApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
         $user = User::all()->sortDesc();
-        //return response()->json($user);
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
     }
@@ -28,8 +30,8 @@ class UserApiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -44,21 +46,28 @@ class UserApiController extends Controller
         $resource = fopen($file, "r") or die("File upload Problems");
 
         // Upload hinh anh len Imgur bang API
+        $img_link = "";
         $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        $imgur_response = $imgur_client->post('image', [
-            'headers' => [
-                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
-            ],
-            'multipart' => [
-                [
+        try {
+            $imgur_response = $imgur_client->post('image', [
+                'headers' => [
+                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-                    'name' => 'image',
-                    'contents' => $resource,
+                ],
+                'form_params' => [
+                    [
+                        'name' => 'image',
+                        'contents' => $resource,
+                    ]
                 ]
-            ]
-        ]);
-        $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+            ]);
+            $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+        } catch (RequestException $e) {
+            echo Psr7\Message::toString($e->getRequest());
+            if ($e->hasResponse()) {
+                echo Psr7\Message::toString($e->getResponse());
+            }
+        }
 
         $user->update(['avatar' => $img_link]);
 
@@ -69,8 +78,8 @@ class UserApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\JsonResponse
+     * @param  $id
+     * @return JsonResponse
      */
     public function show($id)
     {
@@ -89,9 +98,9 @@ class UserApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -105,8 +114,8 @@ class UserApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\JsonResponse
+     * @param  $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {

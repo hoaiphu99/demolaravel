@@ -9,6 +9,10 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
@@ -21,7 +25,7 @@ class PostApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
@@ -32,6 +36,12 @@ class PostApiController extends Controller
             'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)]);
     }
 
+    /**
+     * Display a listing of the resource by userid.
+     *
+     * @param $userid
+     * @return JsonResponse
+     */
     public function getPostByUserID($userid)
     {
         $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
@@ -39,6 +49,12 @@ class PostApiController extends Controller
         return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
     }
 
+    /**
+     * Display a listing of the resource by username.
+     *
+     * @param $username
+     * @return JsonResponse
+     */
     public function getPostByUser($username)
     {
         $user = User::where(['username' => $username])->first();
@@ -76,8 +92,9 @@ class PostApiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
+     * @throws GuzzleException
      */
 
     public function store(Request $request)
@@ -95,21 +112,28 @@ class PostApiController extends Controller
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
         // Upload hinh anh len Imgur bang API
+        $img_link = "";
         $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        $imgur_response = $imgur_client->post('image', [
-            'headers' => [
-                'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
-            ],
-            'multipart' => [
-                [
+        try {
+            $imgur_response = $imgur_client->post('image', [
+                'headers' => [
+                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
                     'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-                    'name' => 'image',
-                    'contents' => $resource,
+                ],
+                'form_params' => [
+                    [
+                        'name' => 'image',
+                        'contents' => $resource,
+                    ]
                 ]
-            ]
-        ]);
-        $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+            ]);
+            $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+        } catch (RequestException $e) {
+            echo Psr7\Message::toString($e->getRequest());
+            if ($e->hasResponse()) {
+                echo Psr7\Message::toString($e->getResponse());
+            }
+        }
 
         //$link_img = $request->get('image');
         $post->update(['image' => $img_link]);
@@ -122,7 +146,7 @@ class PostApiController extends Controller
      * Display the specified resource.
      *
      * @param $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function show($id)
     {
@@ -140,9 +164,9 @@ class PostApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -157,8 +181,8 @@ class PostApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\JsonResponse
+     * @param  $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {

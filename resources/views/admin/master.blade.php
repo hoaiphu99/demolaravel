@@ -77,11 +77,11 @@
             </li>
 
             <!-- Nav Item - Like -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.like') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Like</span></a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" href="{{ route('admin.like') }}">--}}
+{{--                    <i class="fas fa-fw fa-table"></i>--}}
+{{--                    <span>Like</span></a>--}}
+{{--            </li>--}}
 
 
             <!-- Divider -->
