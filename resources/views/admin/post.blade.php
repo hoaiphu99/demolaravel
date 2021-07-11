@@ -69,7 +69,7 @@
                         @foreach ($posts as $p)
                             <tr data-id="{{ $p->id }}">
                                 <th scope="row">{{ $p->id }}</th>
-                                <th style="width: 50%;">{{ $p->content }}</th>
+                                <th style="width: 30%;">{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" style="width: 50%; height: auto;"></td>
                                 <td>{{ $p->user->name }}</td>
                                 <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.comments', $p->id) }}"><i class="fas fa-comments">

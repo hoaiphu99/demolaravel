@@ -7,52 +7,61 @@
     </div>
     <hr>
     <div class="insert-form">
-        <form method="post" id="form-add">
-            @csrf
-            <div class="form-group">
-                <label for="username" class="form-label">Tên tài khoản</label>
-                <input id="username" name="username" type="text" placeholder="Nhập tên tài khoản" class="form-control">
-                <span class="form-message"></span>
+        <div class="card mb-2" style="width: 50%;">
+            <div class="card-body form-update">
+                <form method="post" id="form-add">
+                    @csrf
+                    <div class="form-group">
+                        <label for="username" class="form-label">Tên tài khoản</label>
+                        <input id="username" name="username" type="text" placeholder="Nhập tên tài khoản" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                        <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu"
+                               type="password" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Họ tên</label>
+                        <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+                        <input id="phone" name="phone" type="number" placeholder="0123456789" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
+                        <input id="birthday" name="birthday" type="text" placeholder="VD: username" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input name="avatar" type="file" class="custom-file-input" id="avatar" onchange="showImage()">
+                            <label class="custom-file-label" for="avatar">Chọn ảnh đại diện</label>
+                        </div>
+                        <span class="form-message"></span>
+                    </div>
+                    <div>
+                        <img class="mt-2 mb-2" id="img-avatar" src="" alt="">
+                    </div>
+                    <button class="btn btn-primary btn-submit-form">Lưu</button>
+                    <button class="btn btn-danger btn-cancel-form" onclick="hideForm()">Hủy</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Mật khẩu</label>
-                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu"
-                       type="password" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="name" class="form-label">Họ tên</label>
-                <input id="name" name="name" type="text" placeholder="Nguyễn Văn A" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="phone" class="form-label">Số điện thoại</label>
-                <input id="phone" name="phone" type="number" placeholder="0123456789" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="birthday" class="form-label">Ngày tháng năm sinh</label>
-                <input id="birthday" name="birthday" type="text" placeholder="VD: username" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="avatar" class="form-label">Ảnh đại diện</label>
-                <input id="avatar" name="avatar" type="file" class="form-control">
-                <span class="form-message"></span>
-            </div>
-            <button class="btn btn-primary btn-submit-form">Lưu</button>
-            <button class="btn btn-danger btn-cancel-form" onclick="hideForm()">Hủy</button>
-        </form>
+        </div>
     </div>
     <!-- DataTales User -->
     <div class="card shadow mb-4">
@@ -122,6 +131,7 @@
                     console.log(data)
                 }
             })
+
         })
 
     </script>

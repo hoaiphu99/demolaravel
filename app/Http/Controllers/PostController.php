@@ -142,9 +142,14 @@ class PostController extends Controller
         $response = $client->get('comment/post/'.$id, [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
-
         $comments = json_decode($response->getBody()->getContents())->data;
-        return view('admin.post_comments', ['comments' => $comments]);
+
+        $response = $client->get('post/'.$id, [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+        $post = json_decode($response->getBody()->getContents())->data[0];
+
+        return view('admin.post_comments', ['comments' => $comments, 'post' => $post]);
     }
 
     public function postLikes($id) {

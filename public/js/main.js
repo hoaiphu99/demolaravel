@@ -232,8 +232,38 @@ const deletePost = async (id) => {
         })
 }
 
+// Comment
+const deleteComment = async (id) => {
+
+    await fetch(`${API_URL}/comment/${id}`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            if (document.querySelector("#list-data")) {
+                const tbodyElement = document.querySelector("#list-data")
+                const trElement = document.querySelector(`tr[data-id="${id}"]`)
+                tbodyElement.removeChild(trElement)
+            }
+            else if (document.querySelector("#comment")) {
+                const commentBlock = document.querySelector("#comment")
+                const cardBlock = document.querySelector('.card')
+                commentBlock.removeChild(cardBlock)
+            }
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 // Common
 
 const hideForm = () => {
     document.querySelector(".insert-form").style.display = "none"
 }
+
+

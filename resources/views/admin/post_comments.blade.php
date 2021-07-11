@@ -6,21 +6,28 @@
     </div>
 
     <div class="text-center">
-        <img src="{{ $comments[0]->post->image }}" class="rounded" alt="{{ $comments[0]->post->content }}" style="width: 10%; height: auto;">
+        <img src="{{ $post->image }}" class="rounded" alt="{{ $post->content }}" style="width: 10%; height: auto;">
     </div>
     <hr>
-    @foreach($comments as $cmt)
-    <div class="card">
-        <h5 class="card-header">{{ $cmt->user->name }}</h5>
-        <div class="card-body">
-            <p class="card-text">{{ $cmt->content }}</p>
-            <hr>
-            <a href="#" class="btn btn-primary btn-sm">
-                <i class="fas fa-trash" style="cursor: pointer;"></i>
-                Xóa
-            </a>
-        </div>
-    </div>
-    <hr>
-    @endforeach
+    @if(count($comments))
+        @foreach($comments as $cmt)
+            <div id="comment">
+                <div class="card">
+                    <h5 class="card-header">{{ $cmt->user->name }}</h5>
+                    <div class="card-body">
+                        <p class="card-text">{{ $cmt->content }}</p>
+                        <hr>
+                        <a onclick="deleteComment({{ $cmt->id }})" class="btn btn-primary btn-sm">
+                            <i class="fas fa-trash" style="cursor: pointer;"></i>
+                            Xóa
+                        </a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        @endforeach
+    @else
+        <h4>Không có bình luận nào.</h4>
+    @endif
+
 @endsection

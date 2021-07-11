@@ -58,21 +58,21 @@
             <!-- Nav Item - User -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.user')}}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-user"></i>
                     <span>User</span></a>
             </li>
 
             <!-- Nav Item - Post -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.post')}}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-images"></i>
                     <span>Post</span></a>
             </li>
 
             <!-- Nav Item - Comment -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.comment') }}">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-comment"></i>
                     <span>Comment</span></a>
             </li>
 

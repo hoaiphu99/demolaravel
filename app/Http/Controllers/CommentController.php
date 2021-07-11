@@ -107,20 +107,12 @@ class CommentController extends Controller
     }
 
     public function deleteComment($id) {
-        // $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $base_uri = Config::get('siteVars.API_URL');
         $client = new Client(['base_uri' => $base_uri]);
         $response = $client->delete('comment/'.$id, [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')],
-        //    'headers' => [
-        //        'APIKEY' => 'VSBG'
-        //    ],
-            /*'form_params' => [
-                'content' => $_POST['content'],
-                'user_id' => $_POST['user_id'],
-                'post_id' => $_POST['post_id'],
-            ]*/
+
         ]);
-        return redirect(route('admin.comment'));
+        return redirect(route('post.comments'));
     }
 }

@@ -93,7 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
 
     Route::post('comment/update/{id}', [CommentController::class, 'updateComment'])->where(['id'])->name('comment.update');
 
-    Route::delete('comment/delete/{id}', [CommentController::class, 'deleteComment'])->where(['id'])->name('comment.delete');
+    Route::get('comment/delete/{id}', [CommentController::class, 'deleteComment'])->where(['id'])->name('comment.delete');
 
     // Like
     Route::get('like', [LikeController::class, 'getLike'])->name('admin.like');
