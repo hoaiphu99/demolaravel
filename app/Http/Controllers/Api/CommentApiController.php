@@ -32,7 +32,7 @@ class CommentApiController extends Controller
      * @param  $post_id
      * @return JsonResponse
      */
-    public function getCommentByPost($post_id) {
+    public function getCommentsByPost($post_id) {
         $comments = Comment::where(['post_id' => $post_id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comments)]);

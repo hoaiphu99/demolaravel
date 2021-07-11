@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Like;
 use App\Http\Resources\LikeResource;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Config;
 
 class LikeApiController extends Controller
@@ -14,7 +16,7 @@ class LikeApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
@@ -26,8 +28,8 @@ class LikeApiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -53,8 +55,8 @@ class LikeApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Like  $like
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return Response
      */
     public function show($id)
     {
@@ -64,9 +66,9 @@ class LikeApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Like  $like
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @param  $id
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -78,10 +80,22 @@ class LikeApiController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  $post_id
+     * @return JsonResponse
+     */
+    public function getLikesByPost($post_id) {
+        $likes = Like::where(['post_id' => $post_id])->get()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Like  $like
-     * @return \Illuminate\Http\JsonResponse
+     * @param  $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {

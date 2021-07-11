@@ -67,7 +67,7 @@ Route::get('comment', [CommentApiController::class, 'index']);
 
 Route::get('comment/{id}', [CommentApiController::class, 'show']);
 
-Route::get('comment/post/{post_id}', [CommentApiController::class, 'getCommentByPost']);
+Route::get('comment/post/{post_id}', [CommentApiController::class, 'getCommentsByPost']);
 
 Route::post('comment', [CommentApiController::class, 'store']);
 
@@ -77,6 +77,8 @@ Route::delete('comment/{id}', [CommentApiController::class, 'destroy']);
 
 // Like
 Route::get('like', [LikeApiController::class, 'index']);
+
+Route::get('like/post/{id}', [LikeApiController::class, 'getLikesByPost']);
 
 Route::post('like', [LikeApiController::class, 'store']);
 

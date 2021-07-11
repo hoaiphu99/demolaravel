@@ -83,9 +83,9 @@
                                 <td>{{ $u->email }}</td>
                                 <td>{{ $u->phone }}</td>
                                 <td>{{ $u->birthday }}</td>
-                                <td><a href="{{ route('user.detail', $u->id) }}"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="{{ route('user.detail', $u->id) }}"><i class="fas fa-edit"></i></a> Sửa</td>
                                 <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
-                                        onclick="deleteUser({{ $u->id }})"></i></td>
+                                        onclick="deleteUser({{ $u->id }})"></i> Xóa</td>
                             </tr>
                         @endforeach
                     </tbody>

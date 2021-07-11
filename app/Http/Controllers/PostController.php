@@ -143,8 +143,18 @@ class PostController extends Controller
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
 
-        $comments = json_decode($response->getBody()->getContents())->data[0];
-        return view('admin.post_comments', ['post' => $comments]);
+        $comments = json_decode($response->getBody()->getContents())->data;
+        return view('admin.post_comments', ['comments' => $comments]);
+    }
+
+    public function postLikes($id) {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->get('like/post/'.$id, [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+
+        $likes = json_decode($response->getBody()->getContents())->data;
+        return view('admin.post_likes', ['likes' => $likes]);
     }
 
     public function dropDownUser() {

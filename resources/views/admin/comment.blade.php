@@ -24,12 +24,12 @@
                         @foreach ($comments->data as $cmt)
                             <tr>
                                 <th scope="row">{{ $cmt->id }}</th>
-                                <td>{{ $cmt->content }}</td>
+                                <td style="width: 50%; ">{{ $cmt->content }}</td>
                                 <td>{{ $cmt->user->username }}</td>
-                                <td><img src="{{ $cmt->post->image }}" alt="" height="100" width="100"></td>
-                                <td><a href="{{ route('comment.detail', $cmt->id) }}"><i class="fas fa-edit"></i></a></td>
+                                <td><img src="{{ $cmt->post->image }}" alt="" style="width: 50%; height: auto;"></td>
+                                <td><a href="{{ route('comment.detail', $cmt->id) }}"><i class="fas fa-edit"></i></a> Sửa</td>
                                 <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
-                                       onclick="deleteComment({{ $cmt->id }})"></i></td>
+                                       onclick="deleteComment({{ $cmt->id }})"></i> Xóa</td>
                             </tr>
                         @endforeach
                     </tbody>

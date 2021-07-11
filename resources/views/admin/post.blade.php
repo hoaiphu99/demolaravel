@@ -67,14 +67,14 @@
                         @foreach ($posts as $p)
                             <tr data-id="{{ $p->id }}">
                                 <th scope="row">{{ $p->id }}</th>
-                                <th >{{ $p->content }}</th>
-                                <td><img src="{{ $p->image }}" alt="" height="100" width="100"></td>
+                                <th style="width: 50%;">{{ $p->content }}</th>
+                                <td><img src="{{ $p->image }}" alt="" style="width: 50%; height: auto;"></td>
                                 <td>{{ $p->user->name }}</td>
-                                <td><i class="fas fa-comments"></i> {{ $p->comment_count }}</td>
-                                <td><i class="fas fa-heart"></i> {{ $p->like_count }}</td>
-                                <td><a href="{{ route('post.detail', $p->id) }}"><i class="fas fa-edit"></i></a></td>
+                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.comments', $p->id) }}"><i class="fas fa-comments"></i> {{ $p->comment_count }}</a></td>
+                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.likes', $p->id) }}"><i class="fas fa-heart" ></i> {{ $p->like_count }}</a></td>
+                                <td><a href="{{ route('post.detail', $p->id) }}"><i class="fas fa-edit"></i></a> Sửa</td>
                                 <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
-                                       onclick="deletePost({{ $p->id }})"></i></td>
+                                       onclick="deletePost({{ $p->id }})"></i> Xóa</td>
                             </tr>
                         @endforeach
                     </tbody>

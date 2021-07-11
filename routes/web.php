@@ -80,6 +80,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
 
     Route::get('post/comments/{id}', [PostController::class, 'postComments'])->where(['id'])->name('post.comments');
 
+    Route::get('post/likes/{id}', [PostController::class, 'postLikes'])->where(['id'])->name('post.likes');
+
     Route::delete('post/delete/{id}', [PostController::class, 'deletePost'])->where(['id'])->name('post.delete');
 
     // Comment
