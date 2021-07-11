@@ -172,6 +172,10 @@ const createPost = async (data) => {
                         <td>${result.data[0].content}</td>
                         <td><img src="${result.data[0].image}" alt="" height="100" width="100"></td>
                         <td>${result.data[0].user.name}</td>
+                        <td><a style="text-decoration: none; color: #858796;" href="/admin/post/comments/${result.data[0].id}">
+                        <i class="fas fa-comments"></i> ${result.data[0].comment_count}</a></td>
+                        <td><a style="text-decoration: none; color: #858796;" href="/admin/post/likes/${result.data[0].id}">
+                        <i class="fas fa-heart" ></i> ${result.data[0].like_count}</a></td>
                         <td><a href="/admin/post/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
                         <td><i class="fas fa-trash" style="cursor: pointer" onclick=""></i></td>
                         </tr>` + tbodyElement.innerHTML

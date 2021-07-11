@@ -70,7 +70,8 @@
                             <th>Email</th>
                             <th>Số điện thoại</th>
                             <th>Ngày sinh</th>
-                            <th colspan="2"></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="list-data">

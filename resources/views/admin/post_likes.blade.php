@@ -10,17 +10,11 @@
     </div>
     <hr>
     @foreach($likes as $l)
-        <div class="card mb-3" style="max-width: 50%; height: auto;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ $l->user->avatar }}" alt="{{ $l->user->name }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $l->user->name }}</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="" style="width: 50%; height: auto;">
+            <a href="{{ route('user.detail', $l->user->id) }}" style="text-decoration: none;">
+                <img src="{{ $l->user->avatar }}" alt="{{ $l->user->name }}" style="width:50px; height: 50px; border-radius: 50%;">
+                <span>{{ $l->user->name }}</span>
+            </a>
         </div>
         <hr>
     @endforeach

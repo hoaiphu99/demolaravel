@@ -59,8 +59,10 @@
                             <th>Nội dung</th>
                             <th>Hình ảnh</th>
                             <th>Tác giả</th>
-                            <th colspan="2">Lượt tương tác</th>
-                            <th colspan="2"></th>
+                            <th>Bình luận</th>
+                            <th>Thích</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="list-data">
@@ -70,8 +72,10 @@
                                 <th style="width: 50%;">{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" style="width: 50%; height: auto;"></td>
                                 <td>{{ $p->user->name }}</td>
-                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.comments', $p->id) }}"><i class="fas fa-comments"></i> {{ $p->comment_count }}</a></td>
-                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.likes', $p->id) }}"><i class="fas fa-heart" ></i> {{ $p->like_count }}</a></td>
+                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.comments', $p->id) }}"><i class="fas fa-comments">
+                                        </i> {{ $p->comment_count }}</a></td>
+                                <td><a style="text-decoration: none; color: #858796;" href="{{ route('post.likes', $p->id) }}">
+                                        <i class="fas fa-heart" ></i> {{ $p->like_count }}</a></td>
                                 <td><a href="{{ route('post.detail', $p->id) }}"><i class="fas fa-edit"></i></a> Sửa</td>
                                 <td><i class="fas fa-trash" style="cursor: pointer; color: red;"
                                        onclick="deletePost({{ $p->id }})"></i> Xóa</td>
