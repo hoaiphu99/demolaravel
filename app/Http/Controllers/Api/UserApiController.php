@@ -56,8 +56,7 @@ class UserApiController extends Controller
                 ],
                 'form_params' => [
                     [
-                        'name' => 'image',
-                        'contents' => $resource,
+                        'image' => $resource,
                     ]
                 ]
             ]);
