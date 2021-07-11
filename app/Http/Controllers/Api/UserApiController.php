@@ -49,13 +49,17 @@ class UserApiController extends Controller
         $img_link = "";
         $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
         try {
-            $imgur_response = $imgur_client->post('upload', [
+            $imgur_response = $imgur_client->post('image', [
                 'headers' => [
                     'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-                    'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+
                 ],
-                'form_params' => [
-                        'image' => $resource,
+                'multipart' => [
+                    [
+                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                        'name' => 'image',
+                        'contents' => $resource,
+                    ]
                 ]
             ]);
             $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
