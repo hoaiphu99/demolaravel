@@ -112,10 +112,10 @@ class PostApiController extends Controller
         $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
 
         //$link_img = $request->get('image');
-        Post::where(['id' => $post->id])->update(['image' => $img_link]);
+        $post->update(['image' => $img_link]);
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection(Post::where(['id' => $post->id])->get())], 201);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 201);
     }
 
     /**
@@ -176,7 +176,7 @@ class PostApiController extends Controller
         $post = Post::where(['id' => $id])->first();
         $post->delete();
 
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null]);
     }
 
     // Ham nay dung de dem lai so comment cua tat ca bai viet

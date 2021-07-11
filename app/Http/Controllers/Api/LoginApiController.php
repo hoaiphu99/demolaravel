@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Config;
 
-class AuthApiController extends Controller
+class LoginApiController extends Controller
 {
     public function login(Request $request) {
         $user = User::where(['username' => $request->get('username')])->first();
@@ -19,7 +20,7 @@ class AuthApiController extends Controller
             if($user->password != $request->get('password'))
                 return response()->json(['status' => Config::get('siteMsg.invalid_code'), 'data' => null, 'message' => 'Sai password']);
             else
-                return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => $user]);
+                return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg') ,'data' => UserResource::collection([$user])]);
         }
     }
 }

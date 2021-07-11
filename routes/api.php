@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\LikeApiController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthApiController;
+use App\Http\Controllers\Api\LoginApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Login
-Route::post('login', [AuthApiController::class, 'login'])->name('api.login');
+Route::post('login', [LoginApiController::class, 'login'])->name('api.login');
 
 // User
 Route::get('user', [UserApiController::class, 'index'])->name('api.admin.user');
@@ -65,9 +65,9 @@ Route::get('post/update/like', [PostApiController::class, 'updateLike']);
 // Comment
 Route::get('comment', [CommentApiController::class, 'index']);
 
-Route::get('comment/detail/{id}', [CommentApiController::class, 'show']);
+Route::get('comment/{id}', [CommentApiController::class, 'show']);
 
-Route::get('comment/{post_id}', [CommentApiController::class, 'getCommentByPost']);
+Route::get('comment/post/{post_id}', [CommentApiController::class, 'getCommentByPost']);
 
 Route::post('comment', [CommentApiController::class, 'store']);
 

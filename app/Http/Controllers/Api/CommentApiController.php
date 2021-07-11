@@ -21,13 +21,15 @@ class CommentApiController extends Controller
     public function index()
     {
         //
-        $comment = Comment::all()->sort();
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)]);
+        $comment = Comment::all()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comment)]);
     }
 
     public function getCommentByPost($post_id) {
         $comment = Comment::where(['post_id' => $post_id])->get()->sortDesc();
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comment)]);
     }
 
     /**
@@ -45,21 +47,21 @@ class CommentApiController extends Controller
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => ++$cmt_count]);
 
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection(Comment::all())], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection(Comment::all())], 201);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        $comment = Comment::where(['id' => $id])->get();
-        //$comment = Comment::find($id);
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection($comment)], 201);
-        //return response()->json(['status' => 1, 'data' => 'ShowDetail!'], 200);
+        $comment = Comment::where(['id' => $id])->first();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 201);
     }
 
     /**
@@ -71,13 +73,11 @@ class CommentApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $comment = Comment::where(['id' => $id]);
+        $comment = Comment::where(['id' => $id])->first();
         $comment->update($request->all());
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'data' => CommentResource::collection(Comment::all())], 200);
-        /*$comment = Comment::findOrFail($id)->first();
-        $comment->update($request->all());
-        return response()->json(['status' => 1, 'data' => $comment], 200);*/
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 200);
+
     }
 
     /**
@@ -86,14 +86,13 @@ class CommentApiController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Comment $comment, $id)
+    public function destroy($id)
     {
-        //
         $comment = Comment::where('id', $id)->first();
         $comment->delete();
         $post = Post::where(['id' => $comment->post_id])->first();
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => --$cmt_count]);
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg')], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 }

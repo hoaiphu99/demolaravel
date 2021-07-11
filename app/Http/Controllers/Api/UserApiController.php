@@ -19,9 +19,10 @@ class UserApiController extends Controller
      */
     public function index()
     {
-        $user = User::all()->sort();
+        $user = User::all()->sortDesc();
         //return response()->json($user);
-        return response()->json(['status' => 1, 'data' => UserResource::collection($user)]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
     }
 
     /**
@@ -35,7 +36,8 @@ class UserApiController extends Controller
         $user_un = User::where(['username' => $request->get('username')])->first();
         if($user_un != null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => Config::get('siteMsg.fails_msg')]);
+            return response()->json(['status' => Config::get('siteMsg.success_code'),
+                'message' => Config::get('siteMsg.success_msg'), 'data' => Config::get('siteMsg.fails_msg')]);
         }
         $user = User::create($request->all());
         $file = $request->file('avatar');
@@ -58,9 +60,10 @@ class UserApiController extends Controller
         ]);
         $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
 
-        User::where(['id' => $user->id])->update(['avatar' => $img_link]);
+        $user->update(['avatar' => $img_link]);
 
-        return response()->json(['status' => 1, 'data' => UserResource::collection(User::where(['id' => $user->id])->get())], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 201);
     }
 
     /**
@@ -71,13 +74,15 @@ class UserApiController extends Controller
      */
     public function show($id)
     {
-        $user = User::where(['id' => $id])->get();
-        $user_id = User::where(['id' => $id])->first();
-        if($user_id == null)
+        //$user = User::where(['id' => $id])->get();
+        $user = User::where(['id' => $id])->first();
+        if($user == null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null]);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
         }
-        return response()->json(['status' => 1, 'data' => UserResource::collection($user)], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 201);
         //return response()->json(['status' => 1, 'data' => $user], 201);
     }
 
@@ -90,14 +95,10 @@ class UserApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $user_un = User::where(['username' => $request->get('username')])->first();
-        // if($user_un != null)
-        // {
-        //     return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => Config::get('siteMsg.fails_msg')]);
-        // }
         $user = User::where(['id' => $id])->first();
         $user->update($request->all());
-        return response()->json(['status' => 1, 'data' => $user], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 200);
 
     }
 
@@ -111,7 +112,8 @@ class UserApiController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user->delete();
-        return response()->json(['status' => 1, 'data' => null], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 
     public function getUserWthPostCount() {

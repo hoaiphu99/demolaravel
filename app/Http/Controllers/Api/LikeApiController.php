@@ -14,20 +14,20 @@ class LikeApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
-        $like = Like::all();
-        return response()->json(['status' => 1, 'data' => LikeResource::collection($like)]);
+        $like = Like::all()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($like)]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -35,7 +35,8 @@ class LikeApiController extends Controller
         $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->get();
         if ($like_find != null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => LikeResource::collection($like_find)], 201);
+            return response()->json(['status' => Config::get('siteMsg.success_code'),
+                'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($like_find)], 201);
         }
 
         $like = Like::create($request->all());
@@ -45,7 +46,8 @@ class LikeApiController extends Controller
         $l_count = $post->like_count;
         $post->update(['like_count' => ++$l_count]);
 
-        return response()->json(['status' => 1, 'data' => LikeResource::collection(Like::all())], 201);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection([$like])], 201);
     }
 
     /**
@@ -64,23 +66,24 @@ class LikeApiController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Like  $like
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
         //
-        $like = Like::where(['id' => $id]);
+        $like = Like::where(['id' => $id])->first();
         $like->update($request->all());
-        return response()->json(['status' => 1, 'data' => LikeResource::collection(Like::all())], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection([$like])], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Like  $like
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Like $like, $id)
+    public function destroy($id)
     {
         //
         $like = Like::where('id', $id)->first();
@@ -88,6 +91,7 @@ class LikeApiController extends Controller
         $post = Post::where(['id' => $like->post_id])->first();
         $like_count = $post->like_count;
         $post->update(['like_count' => --$like_count]);
-        return response()->json(['status' => 1, 'message' => 'Delete Successfully!'], 200);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 }
