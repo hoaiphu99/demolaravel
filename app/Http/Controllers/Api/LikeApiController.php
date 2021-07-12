@@ -34,11 +34,11 @@ class LikeApiController extends Controller
     public function store(Request $request)
     {
         //
-        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->get();
+        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
         if ($like_find != null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection($like_find)], 201);
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection([$like_find])], 201);
         }
 
         $like = Like::create($request->all());
