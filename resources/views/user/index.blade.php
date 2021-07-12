@@ -186,6 +186,7 @@
                                                                 </span> -->
 
                                                                 <form method="POST" id="form-like">
+                                                                    @csrf
                                                                     <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                     <input name="post_id" type="hidden" value="{{$p->id}}">
                                                                     <button type = "submit" class="like like-btn" data-toggle="tooltip" title="Likes">
@@ -523,10 +524,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            form: '#form-like',
-            onSubmit: function(data){
+            {
+                form: '#form-like',
+                onSubmit: function(data){
                 createLike(data)
                 console.log(data)
+            }
         })
     </script>
 
