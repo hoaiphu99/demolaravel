@@ -273,7 +273,7 @@ const createLike = async(user_id, post_id) => {
     formData.append('user_id', user_id);
     formData.append('post_id', post_id);
 
-    await fetch(`${{API_URL}}/post`, {
+    await fetch(`${{API_URL}}/like`, {
         method: 'POST',
         headers:{
             'APIKEY': API_KEY
