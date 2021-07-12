@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Config;
 class AuthController extends Controller
 {
     public function login(Request $request) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $username = $request->get('username');
         $password = $request->get('password');
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->post('login', [
             'headers' => [
-                'APIKEY' => 'VSBG'
+                'APIKEY' => Config::get('siteVars.API_KEY')
             ],
             'form_params' => [
                 'username' => $username,
@@ -28,7 +27,7 @@ class AuthController extends Controller
             return view('user.login', ['msg' => 'Đăng nhập không thành công']);
         }
         else {
-            $user = $data->data;
+            $user = $data->data[0];
             $request->session()->put('user', $user);
             if ($user->utype == 'ADM')
                 return redirect(route('admin.dashboard'));

@@ -6,7 +6,7 @@
     </div>
 
     <div class="text-center">
-        <img src="{{ $likes[0]->post->image }}" class="rounded" alt="{{ $likes[0]->post->content }}" style="width: 10%; height: auto;">
+        <img src="{{ $post->image }}" class="rounded" alt="{{ $post->content }}" style="width: 10%; height: auto;">
     </div>
     <hr>
     @foreach($likes as $l)

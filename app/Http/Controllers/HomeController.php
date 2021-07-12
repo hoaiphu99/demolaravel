@@ -20,7 +20,7 @@ class HomeController extends Controller
         ]);
 
 
-        return view('user.index', ['posts' => json_decode($post_res->getBody())]);
+        return view('user.index', ['posts' => json_decode($post_res->getBody()->getContents())]);
     }
 
     public function singlePost($id) {
@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         $post = json_decode($post_res->getBody())->data[0];
 
-        return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody())]);
+        return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody()->getContents())]);
     }
 
     public function deletePost($id) {

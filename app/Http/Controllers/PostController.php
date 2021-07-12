@@ -157,9 +157,14 @@ class PostController extends Controller
         $response = $client->get('like/post/'.$id, [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
-
         $likes = json_decode($response->getBody()->getContents())->data;
-        return view('admin.post_likes', ['likes' => $likes]);
+
+        $response = $client->get('post/'.$id, [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+        $post = json_decode($response->getBody()->getContents())->data[0];
+
+        return view('admin.post_likes', ['likes' => $likes, 'post' => $post]);
     }
 
     public function dropDownUser() {
