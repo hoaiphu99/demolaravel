@@ -2,6 +2,7 @@
 const API_KEY = "VSBG"
 const IMGUR_API_URL = "https://api.imgur.com/3"
 const IMGUR_CLIENT_ID = "db12bcd4537c063"
+const fails_code = 0
 // User //
 const getUser = async () => {
     await fetch(`${API_URL}/user`, {
@@ -37,7 +38,7 @@ const createUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
-            if (result.data[0] == 'Fails')
+            if (result.status == fails_code)
             {
                 alert('Username này đã tồn tại!')
             }

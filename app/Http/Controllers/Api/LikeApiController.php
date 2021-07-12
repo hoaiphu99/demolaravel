@@ -37,8 +37,8 @@ class LikeApiController extends Controller
         $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->get();
         if ($like_find != null)
         {
-            return response()->json(['status' => Config::get('siteMsg.success_code'),
-                'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($like_find)], 201);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection($like_find)], 201);
         }
 
         $like = Like::create($request->all());

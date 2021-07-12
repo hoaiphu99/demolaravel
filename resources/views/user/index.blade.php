@@ -179,10 +179,19 @@
 															</a>
                                                             </li>
                                                             <li>
-                                                                <span class="like like-btn" onclick="likePost(event, {{ $p->id }})" data-toggle="tooltip" title="Like">
+                                                                <!-- <span class="like like-btn" onclick="likePost(event, {{ $p->id }})" data-toggle="tooltip" title="Like">
                                                                     <i class="ti-heart"></i>
-                                                                    <ins>{{$p->comment_count}}</ins>
-                                                                </span>
+                                                                    <ins>{{$p->like_count}}</ins>
+                                                                </span> -->
+                                                                <form action="{{ route('like.create') }}" method="POST">
+                                                                    @csrf
+                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
+                                                                    <input name="post_id" type="hidden" value="{{$p->id}}">
+                                                                    <button type = "submit" class="btn btn-link" class="like" data-toggle="tooltip" title="like">
+                                                                    <i class="ti-heart"></i>
+                                                                    <ins>{{$p->like_count}}</ins>
+                                                                    </button>
+                                                                </form>
 {{--                                                                <form action="{{ route('like.create') }}" method="POST">--}}
 {{--                                                                    @csrf--}}
 {{--                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">--}}

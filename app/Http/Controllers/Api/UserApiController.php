@@ -38,7 +38,7 @@ class UserApiController extends Controller
         $user_un = User::where(['username' => $request->get('username')])->first();
         if($user_un != null)
         {
-            return response()->json(['status' => Config::get('siteMsg.success_code'),
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.success_msg'), 'data' => Config::get('siteMsg.fails_msg')]);
         }
         $user = User::create($request->all());
