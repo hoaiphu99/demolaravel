@@ -13,33 +13,33 @@ class HomeController extends Controller
 //            return redirect(route('login'));
 //        }
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-        $post_res = $client->get('post', [
+        $response = $client->get('post', [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
         ]);
 
 
-        return view('user.index', ['posts' => json_decode($post_res->getBody()->getContents())]);
+        return view('user.index', ['posts' => json_decode($response->getBody()->getContents())]);
     }
 
     public function singlePost($id) {
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
-        $post_res = $client->get('post/'.$id, [
+        $response = $client->get('post/'.$id, [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
         ]);
+        $post = json_decode($response->getBody()->getContents())->data[0];
 
-        $comment_res = $client->get('comment/'.$id, [
+        $response = $client->get('comment/post/'.$id, [
             'headers' => [
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
         ]);
+        $comments = json_decode($response->getBody()->getContents())->data;
 
-        $post = json_decode($post_res->getBody())->data[0];
-
-        return view('user.post', ['post' => $post, 'comments' => json_decode($comment_res->getBody()->getContents())]);
+        return view('user.post', ['post' => $post, 'comments' => $comments]);
     }
 
     public function deletePost($id) {

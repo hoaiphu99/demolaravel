@@ -4,7 +4,7 @@
 
     <section>
     <div class="feature-photo">
-        <figure><img src="{{secure_asset('assets/user/images/resources/timeline-1.jpg')}}" alt=""></figure>
+        <figure><img src="{{asset('assets/user/images/resources/timeline-1.jpg')}}" alt=""></figure>
         <div class="add-btn">
             <span>1205 followers</span>
             <a href="#" title="" data-ripple="">Add Friend</a>
@@ -133,7 +133,7 @@
                                     <ul class="photos">
                                         @foreach($posts->data as $p)
                                         <li>
-                                            <a class="strip" href="{{route('post.id', ['id' => $p->id])}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+                                            <a class="photo" href="{{route('post.id', ['id' => $p->id])}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
                                                 <img src="{{$p->image}}" alt="{{$p->content}}"></a>
                                         </li>
                                         @endforeach

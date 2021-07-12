@@ -179,17 +179,21 @@
 															</a>
                                                             </li>
                                                             <li>
-                                                                <form action="{{ route('like.create') }}" method="POST">
-                                                                    @csrf
-                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
-                                                                    <input name="post_id" type="hidden" value="{{$p->id}}">
-                                                                    <button type = "submit" class="btn btn-link" class="like" data-toggle="tooltip" title="like">
-                                                                        <!-- <span class="like" data-toggle="tooltip" title="like"> -->
-                                                                            <i class="ti-heart"></i>
-                                                                            <ins>{{$p->like_count}}</ins>
-                                                                        <!-- </span> -->
-                                                                    </button>
-                                                                </form>
+                                                                <span  class="comment" data-toggle="tooltip" title="Comments">
+                                                                    <i class="ti-heart"></i>
+                                                                    <ins>{{$p->comment_count}}</ins>
+                                                                </span>
+{{--                                                                <form action="{{ route('like.create') }}" method="POST">--}}
+{{--                                                                    @csrf--}}
+{{--                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">--}}
+{{--                                                                    <input name="post_id" type="hidden" value="{{$p->id}}">--}}
+{{--                                                                    <button type = "submit" class="btn btn-link" class="like" data-toggle="tooltip" title="like">--}}
+{{--                                                                        <!-- <span class="like" data-toggle="tooltip" title="like"> -->--}}
+{{--                                                                            <i class="ti-heart"></i>--}}
+{{--                                                                            <ins>{{$p->like_count}}</ins>--}}
+{{--                                                                        <!-- </span> -->--}}
+{{--                                                                    </button>--}}
+{{--                                                                </form>--}}
                                                             </li>
                                                             <li class="social-media">
                                                                 <div class="menu">

@@ -89,7 +89,7 @@
                                             </div>
                                             <div class="coment-area">
                                                 <ul class="we-comet">
-                                                    @foreach($comments->data as $cmt)
+                                                    @foreach($comments as $cmt)
                                                     <li>
                                                         <div class="comet-avatar">
                                                             <img src="{{$cmt->user->avatar}}" alt="">
