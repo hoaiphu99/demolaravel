@@ -1,0 +1,3 @@
+[class*=" ti-heart"].liked, [class^=ti-heart].liked {
+    color: red;
+}

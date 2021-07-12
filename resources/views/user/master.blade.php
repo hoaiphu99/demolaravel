@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/user/css/color.css')}}">
     <link rel="stylesheet" href="{{asset('assets/user/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/custom.css')}}">
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
@@ -321,6 +322,9 @@
     <script src="{{ asset('assets/user/js/strip.pkgd.min.js')}}"></script>
     <script src="{{ asset('assets/user/js/validator.js')}}"></script>
 
+    <script type="text/javascript" src="{{ asset('js/validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 {{--  <script>--}}
 {{--    $(document).ready(function(){--}}
 {{--      $('#lightgallery').lightGallery();--}}

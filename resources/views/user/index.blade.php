@@ -88,35 +88,35 @@
                                         <h4 class="widget-title">Who's follownig</h4>
                                         <ul class="followers">
                                             <li>
-                                                <figure><img src="{{secure_asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt=""></figure>
+                                                <figure><img src="{{asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Kelly Bill</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="{{secure_asset('assets/user/images/resources/friend-avatar4.jpg')}}" alt=""></figure>
+                                                <figure><img src="{{asset('assets/user/images/resources/friend-avatar4.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Issabel</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="{{secure_asset('assets/user/images/resources/friend-avatar6.jpg')}}" alt=""></figure>
+                                                <figure><img src="{{asset('assets/user/images/resources/friend-avatar6.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Andrew</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="{{secure_asset('assets/user/images/resources/friend-avatar8.jpg')}}" alt=""></figure>
+                                                <figure><img src="{{asset('assets/user/images/resources/friend-avatar8.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Sophia</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <figure><img src="{{secure_asset('assets/user/images/resources/friend-avatar3.jpg')}}" alt=""></figure>
+                                                <figure><img src="{{asset('assets/user/images/resources/friend-avatar3.jpg')}}" alt=""></figure>
                                                 <div class="friend-meta">
                                                     <h4><a href="time-line.html" title="">Allen</a></h4>
                                                     <a href="#" title="" class="underline">Add Friend</a>
@@ -172,14 +172,14 @@
 
                                                             <li>
 															<a href="{{route('post.id', ['id' => $p->id])}}">
-                                                                <span  class="comment" data-toggle="tooltip" title="Comments">
+                                                                <span class="comment" data-toggle="tooltip" title="Comments">
                                                                     <i class="ti-comments"></i>
                                                                     <ins>{{$p->comment_count}}</ins>
                                                                 </span>
 															</a>
                                                             </li>
                                                             <li>
-                                                                <span  class="comment" data-toggle="tooltip" title="Comments">
+                                                                <span class="like like-btn" onclick="likePost(event, {{ $p->id }})" data-toggle="tooltip" title="Like">
                                                                     <i class="ti-heart"></i>
                                                                     <ins>{{$p->comment_count}}</ins>
                                                                 </span>
@@ -249,7 +249,7 @@
                                         <h4 class="widget-title">Your page</h4>
                                         <div class="your-page">
                                             <figure>
-                                                <a href="#" title=""><img src="{{secure_asset('assets/user/images/resources/friend-avatar9.jpg')}}" alt=""></a>
+                                                <a href="#" title=""><img src="{{asset('assets/user/images/resources/friend-avatar9.jpg')}}" alt=""></a>
                                             </figure>
                                             <div class="page-meta">
                                                 <a href="#" title="" class="underline">My page</a>
@@ -268,25 +268,25 @@
                                                         <a href="#" title="weekly-likes">35 new likes this week</a>
                                                         <div class="users-thumb-list">
                                                             <a href="#" title="Anderw" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-1.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-1.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="frank" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-2.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-2.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sara" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-3.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-3.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Amy" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-4.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-4.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Ema" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-5.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-5.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sophie" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-6.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-6.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Maria" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-7.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-7.jpg')}}" alt="">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -295,25 +295,25 @@
                                                         <a href="#" title="weekly-likes">440 new views this week</a>
                                                         <div class="users-thumb-list">
                                                             <a href="#" title="Anderw" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-1.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-1.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="frank" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-2.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-2.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sara" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-3.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-3.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Amy" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-4.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-4.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Ema" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-5.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-5.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Sophie" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-6.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-6.jpg')}}" alt="">
                                                             </a>
                                                             <a href="#" title="Maria" data-toggle="tooltip">
-                                                                <img src="{{secure_asset('assets/user/images/resources/userlist-7.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/user/images/resources/userlist-7.jpg')}}" alt="">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -343,7 +343,7 @@
                                         <ul id="people-list" class="friendz-list">
                                             <li>
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -353,7 +353,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -363,7 +363,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar3.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar3.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -373,7 +373,7 @@
                                             </li>
                                             <li>
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar4.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar4.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -384,7 +384,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar5.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar5.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -395,7 +395,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar6.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar6.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -406,7 +406,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar7.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar7.jpg')}}" alt="">
                                                     <span class="status f-off"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -417,7 +417,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar5.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar5.jpg')}}" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -428,7 +428,7 @@
                                             <li>
 
                                                 <figure>
-                                                    <img src="{{secure_asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt="">
+                                                    <img src="{{asset('assets/user/images/resources/friend-avatar2.jpg')}}" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
                                                 <div class="friendz-meta">
@@ -449,7 +449,7 @@
                                             <div class="chat-list">
                                                 <ul>
                                                     <li class="me">
-                                                        <div class="chat-thumb"><img src="{{secure_asset('assets/user/images/resources/chatlist1.jpg')}}" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{asset('assets/user/images/resources/chatlist1.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -458,7 +458,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="you">
-                                                        <div class="chat-thumb"><img src="{{secure_asset('assets/user/images/resources/chatlist2.jpg')}}" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{asset('assets/user/images/resources/chatlist2.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -467,7 +467,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="me">
-                                                        <div class="chat-thumb"><img src="{{secure_asset('assets/user/images/resources/chatlist1.jpg')}}" alt=""></div>
+                                                        <div class="chat-thumb"><img src="{{asset('assets/user/images/resources/chatlist1.jpg')}}" alt=""></div>
                                                         <div class="notification-event">
 															<span class="chat-message-item">
 																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -510,103 +510,5 @@
     </section>
 
 
-
-
-
-    {{--    <div class="container-fluid" data-aos="fade" data-aos-delay="500" ng-controller="MyController" >--}}
-{{--        <div class="row">--}}
-{{--             @foreach ($posts->data as $p)--}}
-{{--                <div class="col-lg-4">--}}
-{{--                    <div class="image-wrap-2">--}}
-{{--                        <div class="image-info">--}}
-{{--                            <h2 class="mb-3">{{ $p->name }}</h2>--}}
-{{--                            <a href="{{ route('post.id', ['id' => $p->id]) }}" class="btn btn-outline-white py-2 px-4">Click me</a>--}}
-{{--                        </div>--}}
-{{--                        <img src="{{secure_asset('{{ $p->image }}" alt="{{ $p->content }}" class="img-fluid">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--             @endforeach--}}
-
-{{--            --}}{{-- <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Portrait</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_2.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">People</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Architecture</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Animals</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_5.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Sports</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_6.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Travel</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_7.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">People</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_3.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="image-wrap-2">--}}
-{{--                    <div class="image-info">--}}
-{{--                        <h2 class="mb-3">Architecture</h2>--}}
-{{--                        <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>--}}
-{{--                    </div>--}}
-{{--                    <img src="{{secure_asset('<%  asset('assets/images/img_4.jpg')  %>" alt="Image" class="img-fluid">--}}
-{{--                </div>--}}
-{{--            </div> --}}
-
-{{--        </div>--}}
-{{--    </div>--}}
 
 @endsection

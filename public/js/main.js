@@ -260,6 +260,13 @@ const deleteComment = async (id) => {
         })
 }
 
+// Like
+const likePost = async (event, id) => {
+    console.log(event)
+    event.target.classList.toggle('liked')
+    //await fetch(`${API_URL}/like/${id}`)
+}
+
 // Common
 
 const hideForm = () => {
