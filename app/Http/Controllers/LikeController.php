@@ -55,7 +55,7 @@ class LikeController extends Controller
             //    'post_id' => $_POST['post_id'],
            ]
         ]);
-        $like_exist = json_decode($response->getBody()->getContents())->data[0];
+        $like_exist = json_decode($response->getBody()->getContents());
         $status = $like_exist->status;
         if ($status == 0)
         {
