@@ -59,7 +59,7 @@ class LikeController extends Controller
         $status = $like_exist->status;
         if ($status == 0)
         {
-            $id_like = $like_exist->data[0]->id;
+            $id_like = $like_exist->data->id;
             $response = $client->delete('like/'.$id_like, [
                 'headers' => [
                     'APIKEY' => 'VSBG'
