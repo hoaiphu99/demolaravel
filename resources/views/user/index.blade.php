@@ -523,13 +523,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            Validator({
-                form: '#form-like',
-                onSubmit: function(data){
-                    createLike(data)
-                    console.log(data)
-                }
-            })
+            form: '#form-like',
+            onSubmit: function(data){
+                createLike(data)
+                console.log(data)
         })
     </script>
 
