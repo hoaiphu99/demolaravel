@@ -59,13 +59,12 @@ class LikeController extends Controller
         $status = $like_exist->status;
         if ($status == 0)
         {
-            $id_like = $like_exist->data->id;
+            $id_like = $like_exist->data[0]->id;
             $response = $client->delete('like/'.$id_like, [
                 'headers' => [
                     'APIKEY' => 'VSBG'
                 ],
              ]);
-
         }
         //return redirect(route('admin.like'));
         return redirect(route('index'));
