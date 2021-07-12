@@ -268,6 +268,27 @@ const likePost = async (event, id) => {
     //await fetch(`${API_URL}/like/${id}`)
 }
 
+const createLike = async(user_id, post_id) => {
+    const formData = new FormData();
+    formData.append('user_id', user_id);
+    formData.append('post_id', post_id);
+
+    await fetch(`${{API_URL}}/post`, {
+        method: 'POST',
+        headers:{
+            'API_KEY': APIKEY
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log(result.data[0]);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
 // Common
 
 const hideForm = () => {

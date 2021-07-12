@@ -39,7 +39,7 @@ class UserApiController extends Controller
         if($user_un != null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.success_msg'), 'data' => Config::get('siteMsg.fails_msg')]);
+                'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user_un])]);
         }
         $user = User::create($request->all());
         $file = $request->file('avatar');
