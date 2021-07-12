@@ -180,11 +180,20 @@
                                                             </li>
                                                             <li>
                                                                 {{--<span class="like like-btn" onclick="likePost(event, {{ $p->id }})" data-toggle="tooltip" title="Likes">--}}
-                                                                <span class="like like-btn" onclick="createLike({{session()->get('user')->id}}, {{ $p->id }})" data-toggle="tooltip" title="Likes">
+                                                                <!-- <span class="like like-btn" onclick="createLike({{session()->get('user')->id}}, {{ $p->id }})" data-toggle="tooltip" title="Likes">
                                                                     <i class="ti-heart"></i>
                                                                     <ins>{{$p->like_count}}</ins>
-                                                                </span>
-                                                                
+                                                                </span> -->
+
+                                                                <form method="POST" id="form-like">
+                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
+                                                                    <input name="post_id" type="hidden" value="{{$p->id}}">
+                                                                    <button type = "submit" class="like like-btn" data-toggle="tooltip" title="Likes">
+                                                                        <i class="ti-heart"></i>
+                                                                        <ins>{{$p->like_count}}</ins>
+                                                                    </button>
+                                                                </form>
+
 {{--                                                                <form action="{{ route('like.create') }}" method="POST">--}}
 {{--                                                                    @csrf--}}
 {{--                                                                    <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">--}}
@@ -512,5 +521,16 @@
     </section>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Validator({
+                form: '#form-like',
+                onSubmit: function(data){
+                    createLike(data)
+                    console.log(data)
+                }
+            })
+        })
+    </script>
 
 @endsection

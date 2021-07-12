@@ -268,10 +268,10 @@ const likePost = async (event, id) => {
     //await fetch(`${API_URL}/like/${id}`)
 }
 
-const createLike = async(user_id, post_id) => {
+const createLike = async (data) => {
     const formData = new FormData();
-    formData.append('user_id', user_id);
-    formData.append('post_id', post_id);
+    formData.append('user_id', data.user_id);
+    formData.append('post_id', data.post_id);
 
     await fetch(`${{API_URL}}/like`, {
         method: 'POST',
