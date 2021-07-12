@@ -55,11 +55,11 @@ class LikeController extends Controller
             //    'post_id' => $_POST['post_id'],
            ]
         ]);
-        $like_exist = json_decode($response->getBody()->getContents())->data[0];
+        $like_exist = json_decode($response->getBody()->getContents());
         $status = $like_exist->status;
         if ($status == 0)
         {
-            $id_like = $like_exist->id;
+            $id_like = $like_exist->data[0]->id;
             $response = $client->delete('like/'.$id_like, [
                 'headers' => [
                     'APIKEY' => 'VSBG'
