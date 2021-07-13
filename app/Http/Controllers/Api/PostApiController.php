@@ -65,29 +65,39 @@ class PostApiController extends Controller
             'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection($posts), 'user' => $user]);
     }
 
-//    protected function saveImgBase64($param, $folder)
-//    {
-//        list($extension, $content) = explode(';', $param);
-//        $tmpExtension = explode('/', $extension);
-//        preg_match('/.([0-9]+) /', microtime(), $m);
-//        $fileName = sprintf('img%s%s.%s', date('YmdHis'), $m[1], $tmpExtension[1]);
-//        $content = explode(',', $content)[1];
-//        $destinationPath = public_path().'/'.$folder;
-//        //Image::make(base64_decode($content))->save($destinationPath.'/'.$fileName);
-//        //file_put_contents($destinationPath.'/'.$fileName, base64_decode($content));
-//
-//        $storage = Storage::disk('local');
-//
-//        $checkDirectory = $storage->exists($folder);
-//
-//        if (!$checkDirectory) {
-//            $storage->makeDirectory($folder);
-//        }
-//
-//        $storage->put($folder . '/' . $fileName, base64_decode($content), 'local');
-//
-//        return $fileName;
-//    }
+    /**
+     * Upload Image to Imgur
+     *
+     * @param $resource
+     * @return string
+     * @throws GuzzleException
+     */
+    public function uploadImage($resource) {
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
+        try {
+            $imgur_response = $imgur_client->post('image', [
+                'headers' => [
+                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
+
+                ],
+                'multipart' => [
+                    [
+                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                        'name' => 'image',
+                        'contents' => $resource,
+                    ]
+                ]
+            ]);
+            return $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+
+        } catch (RequestException $e) {
+            echo Psr7\Message::toString($e->getRequest());
+            if ($e->hasResponse()) {
+                echo Psr7\Message::toString($e->getResponse());
+            }
+            return "";
+        }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -111,32 +121,8 @@ class PostApiController extends Controller
         //$file->move($path, $name);
         //$base64String = 'data:image/' . $type . ';base64,' . $encode_data;
 
-        // Upload hinh anh len Imgur bang API
-        $img_link = "";
-        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        try {
-            $imgur_response = $imgur_client->post('image', [
-                'headers' => [
-                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
+        $img_link = $this->uploadImage($resource);
 
-                ],
-                'multipart' => [
-                    [
-                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-                        'name' => 'image',
-                        'contents' => $resource,
-                    ]
-                ]
-            ]);
-            $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
-        } catch (RequestException $e) {
-            echo Psr7\Message::toString($e->getRequest());
-            if ($e->hasResponse()) {
-                echo Psr7\Message::toString($e->getResponse());
-            }
-        }
-
-        //$link_img = $request->get('image');
         $post->update(['image' => $img_link]);
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),

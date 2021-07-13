@@ -7,6 +7,7 @@ use App\Http\Resources\UserResource;
 use App\Models\Post;
 use App\Models\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
 use Illuminate\Http\JsonResponse;
@@ -28,6 +29,40 @@ class UserApiController extends Controller
     }
 
     /**
+     * Upload Image to Imgur
+     *
+     * @param $resource
+     * @return string
+     * @throws GuzzleException
+     */
+    public function uploadImage($resource) {
+        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
+        try {
+            $imgur_response = $imgur_client->post('image', [
+                'headers' => [
+                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
+
+                ],
+                'multipart' => [
+                    [
+                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
+                        'name' => 'image',
+                        'contents' => $resource,
+                    ]
+                ]
+            ]);
+            return $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
+
+        } catch (RequestException $e) {
+            echo Psr7\Message::toString($e->getRequest());
+            if ($e->hasResponse()) {
+                echo Psr7\Message::toString($e->getResponse());
+            }
+            return "";
+        }
+    }
+
+    /*
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -45,30 +80,7 @@ class UserApiController extends Controller
         $file = $request->file('avatar');
         $resource = fopen($file, "r") or die("File upload Problems");
 
-        // Upload hinh anh len Imgur bang API
-        $img_link = "";
-        $imgur_client = new Client(['base_uri' => Config::get('siteVars.IMGUR_URL_API')]);
-        try {
-            $imgur_response = $imgur_client->post('image', [
-                'headers' => [
-                    'Authorization' => 'Client-ID '.Config::get('siteVars.IMGUR_CLIENT_ID'),
-
-                ],
-                'multipart' => [
-                    [
-                        'Content-Type' => 'multipart/form-data; boundary=<calculated when request is sent>',
-                        'name' => 'image',
-                        'contents' => $resource,
-                    ]
-                ]
-            ]);
-            $img_link = json_decode($imgur_response->getBody()->getContents())->data->link;
-        } catch (RequestException $e) {
-            echo Psr7\Message::toString($e->getRequest());
-            if ($e->hasResponse()) {
-                echo Psr7\Message::toString($e->getResponse());
-            }
-        }
+        $img_link = $this->uploadImage($resource);
 
         $user->update(['avatar' => $img_link]);
 

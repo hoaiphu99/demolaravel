@@ -47,14 +47,14 @@ class CommentApiController extends Controller
     public function store(Request $request)
     {
         $comment = Comment::create($request->all());
+        
         // update lai so comment
-        //$comment = json_decode($comment);
         $post = Post::where(['id' => $comment->post_id])->first();
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => ++$cmt_count]);
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection(Comment::all())], 201);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 201);
     }
 
     /**
