@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         for ($i = 0; $i < count($post); $i++) {
             for ($j = 0; $j < count($likes); $j++) {
-                if ($likes[$j]->post_id == $post[$i]->id) {
+                if ($likes[$j]->post->id == $post[$i]->id) {
                     $post[$i]->status = 'liked';
                 }
                 else $post[$i]->status = 'unliked';

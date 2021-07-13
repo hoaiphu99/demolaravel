@@ -102,7 +102,7 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function getLikesByUser($id) {
-        $likes = Like::where(['user_id' => $id])->get()->sortDesc();
+        $likes = Like::where(['user_id' => $id, 'status' => 'liked'])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);
     }
