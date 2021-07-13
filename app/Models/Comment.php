@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $tableName = 'comments';
+    public $timestamps = true;
 
     protected $fillable = [
         'content',
         'user_id',
-        'post_id'
+        'post_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function user(){

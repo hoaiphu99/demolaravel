@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     protected $tableName = 'likes';
+    public $timestamps = true;
 
     protected $fillable = [
+        'status',
         'user_id',
-        'post_id'
+        'post_id',
+        'created_at',
+        'updated_at',
     ];
 
     public function user(){
