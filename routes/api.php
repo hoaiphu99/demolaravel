@@ -31,6 +31,8 @@ Route::post('login', [LoginApiController::class, 'login'])->name('api.login');
 // User
 Route::get('user', [UserApiController::class, 'index'])->name('api.admin.user');
 
+Route::get('user/deleted', [UserApiController::class, 'getUserSoftDeleted']);
+
 Route::get('user/{id}', [UserApiController::class, 'show']);
 
 Route::get('user/post/count', [UserApiController::class, 'getUserWthPostCount']);

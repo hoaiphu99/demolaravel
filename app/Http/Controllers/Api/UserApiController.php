@@ -29,6 +29,18 @@ class UserApiController extends Controller
     }
 
     /**
+     * Display a listing deleted of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function getUserSoftDeleted()
+    {
+        $user = User::onlyTrashed()->get()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
+    }
+
+    /**
      * Upload Image to Imgur
      *
      * @param $resource

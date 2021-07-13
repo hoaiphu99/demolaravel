@@ -17,7 +17,15 @@ class UserController extends Controller
         $response = $client->get('user', [
             'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('admin.user', ['users' => json_decode($response->getBody())]);
+        $users = json_decode($response->getBody()->getContents())->data;
+
+        // get number of user deleted
+        $response = $client->get('user/deleted', [
+            'headers' => ['APIKEY' => 'VSBG']
+        ]);
+        $userDeleted = json_decode($response->getBody()->getContents())->data;
+
+        return view('admin.user', ['users' => $users, 'countDeleted' => count($userDeleted)]);
     }
 
     public function getUserDetail($id) {
