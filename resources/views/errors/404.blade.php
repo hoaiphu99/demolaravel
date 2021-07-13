@@ -7,12 +7,12 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Wibu Social Network Media</title>
-    <link rel="icon" href="{{secure_asset('assets/user/images/fav.png" type="image/png')}}" sizes="16x16">
+    <link rel="icon" href="{{asset('assets/user/images/fav.png" type="image/png')}}" sizes="16x16">
 
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/main.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/style.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/color.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/user/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/main.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/color.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user/css/responsive.css')}}">
 
 </head>
 <body>
@@ -34,8 +34,8 @@
     </div>
 </div>
 
-<script src="{{secure_asset('assets/user/js/main.min.js')}}"></script>
-<script src="{{secure_asset('assets/user/js/script.js')}}"></script>
+<script src="{{asset('assets/user/js/main.min.js')}}"></script>
+<script src="{{asset('assets/user/js/script.js')}}"></script>
 
 </body>
 
