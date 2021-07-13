@@ -131,6 +131,11 @@ class LikeApiController extends Controller
     {
         //
         $like = Like::where('id', $id)->first();
+        if ($like == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $like->delete();
         $post = Post::where(['id' => $like->post_id])->first();
         $like_count = $post->like_count;

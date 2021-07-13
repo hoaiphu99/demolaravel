@@ -130,6 +130,11 @@ class UserApiController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::where(['id' => $id])->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $user->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 200);
@@ -169,6 +174,11 @@ class UserApiController extends Controller
     public function destroy($id)
     {
         $user = User::where('id', $id)->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $user->delete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);

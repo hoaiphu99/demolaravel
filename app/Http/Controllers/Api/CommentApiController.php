@@ -103,6 +103,11 @@ class CommentApiController extends Controller
     public function update(Request $request, $id)
     {
         $comment = Comment::where(['id' => $id])->first();
+        if ($comment == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+            'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $comment->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 200);
@@ -118,6 +123,11 @@ class CommentApiController extends Controller
     public function destroy($id)
     {
         $comment = Comment::where('id', $id)->first();
+        if ($comment == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+            'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $comment->delete();
 
         $post = Post::where(['id' => $comment->post_id])->first();

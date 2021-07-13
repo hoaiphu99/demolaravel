@@ -183,6 +183,11 @@ class PostApiController extends Controller
     {
 
         $post = Post::where(['id' => $id])->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $post->update($request->all());
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -198,6 +203,11 @@ class PostApiController extends Controller
     public function destroy($id)
     {
         $post = Post::where(['id' => $id])->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $post->delete();
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null]);
