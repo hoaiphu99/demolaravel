@@ -30,10 +30,10 @@ class Like extends Model
     ];
 
     public function user(){
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function post(){
-        return $this->belongsTo('App\Models\Post', 'post_id', 'id');
+        return $this->belongsTo(Post::class, 'post_id', 'id');
     }
 }

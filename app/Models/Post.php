@@ -14,6 +14,10 @@ class Post extends Model
     protected $tableName = 'posts';
     public $timestamps = true;
 
+    protected $cascadeDeletes = ['comments', 'likes'];
+
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'content',
         'image',
@@ -32,6 +36,16 @@ class Post extends Model
     ];
 
     public function user() {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'post_id', 'id');
+    }
+
+    public function like()
+    {
+        return $this->hasMany(Like::class, 'post_id', 'id');
     }
 }

@@ -14,6 +14,10 @@ class User extends Model
     protected $tableName = 'users';
     public $timestamps = true;
 
+    protected $cascadeDeletes = ['posts', 'comments', 'likes'];
+
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -55,6 +59,16 @@ class User extends Model
     ];
 
     public function post() {
-        return $this->hasMany('App\Models\Post', 'user_id', 'id');
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
+
+    public function like()
+    {
+        return $this->hasMany(Like::class, 'user_id', 'id');
     }
 }
