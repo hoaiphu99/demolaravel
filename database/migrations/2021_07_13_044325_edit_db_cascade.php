@@ -36,7 +36,7 @@ class EditDbCascade extends Migration
         Schema::table('likes', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['post_id']);
-            
+
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
