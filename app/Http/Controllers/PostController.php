@@ -26,7 +26,7 @@ class PostController extends Controller
         }
 
         try {
-            $response = $client->get('post/deleted', [
+            $response = $client->get('post/trashed', [
                 'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
             ]);
             $postsDeleted = json_decode($response->getBody()->getContents())->data;
@@ -37,6 +37,23 @@ class PostController extends Controller
 
         $dropDownUser = $this->dropDownUser();
         return view('admin.post', ['posts' => $posts, 'countDeleted' => count($postsDeleted), 'dropDownUser' => $dropDownUser]);
+    }
+
+    public function getPostDeleted() {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+
+        try {
+            $response = $client->get('post/trashed', [
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+            ]);
+            $postsDeleted = json_decode($response->getBody()->getContents())->data;
+
+        } catch (\Exception $e) {
+            return view('errors.404');
+        }
+
+        $dropDownUser = $this->dropDownUser();
+        return view('admin.post_trashed', ['posts' => $postsDeleted]);
     }
 
     public function getPostDetail($id) {

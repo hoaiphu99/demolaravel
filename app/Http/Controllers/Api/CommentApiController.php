@@ -138,4 +138,42 @@ class CommentApiController extends Controller
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
+
+    /**
+     * Remove the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function forceDestroy($id)
+    {
+        $comment = Comment::withTrashed()->where('id', $id)->first();
+        if($comment == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $comment->forceDelete();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    /**
+     * Restore the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function restore($id)
+    {
+        $comment = Comment::withTrashed()->where('id', $id)->first();
+        if($comment == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $comment->restore();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
 }

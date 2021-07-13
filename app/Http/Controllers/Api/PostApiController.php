@@ -213,6 +213,44 @@ class PostApiController extends Controller
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null]);
     }
 
+    /**
+     * Remove the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function forceDestroy($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $post->forceDelete();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    /**
+     * Restore the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $post->restore();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
     // Ham nay dung de dem lai so comment cua tat ca bai viet
     public function updateCount(){
         $posts = Post::all();

@@ -74,6 +74,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     // Post
     Route::get('post', [PostController::class, 'getPost'])->name('admin.post');
 
+    Route::get('post/trashed', [PostController::class, 'getPostDeleted'])->name('post.trashed');
+
     //Route::post('post/create', [PostApiController::class, 'createPost'])->name('post.create');
 
     Route::get('post/{id}', [PostController::class, 'getPostDetail'])->where(['id'])->name('post.detail');

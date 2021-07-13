@@ -8,7 +8,7 @@
     <!-- DataTales User -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Người dùng đã xóa</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

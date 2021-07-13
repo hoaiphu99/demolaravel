@@ -66,7 +66,11 @@ Route::post('post', [PostApiController::class, 'store'])->name('post.created');
 
 Route::put('post/{id}', [PostApiController::class, 'update']);
 
+Route::patch('post/{id}/restore', [PostApiController::class, 'restore']);
+
 Route::delete('post/{id}', [PostApiController::class, 'destroy']);
+
+Route::delete('post/{id}/force', [PostApiController::class, 'forceDestroy']);
 
 Route::get('post/update/count', [PostApiController::class, 'updateCount']);
 
@@ -85,7 +89,11 @@ Route::post('comment', [CommentApiController::class, 'store']);
 
 Route::put('comment/{id}', [CommentApiController::class, 'update']);
 
+Route::patch('comment/{id}/restore', [CommentApiController::class, 'restore']);
+
 Route::delete('comment/{id}', [CommentApiController::class, 'destroy']);
+
+Route::delete('comment/{id}/force', [CommentApiController::class, 'forceDestroy']);
 
 // Like
 Route::get('like', [LikeApiController::class, 'index']);

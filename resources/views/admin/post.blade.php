@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="text-right mb-4">
-        <a class="btn btn-outline-secondary" href="#" role="button">Thùng rác ({{ $countDeleted }})</a>
+        <a class="btn btn-outline-secondary" href="{{ route('post.trashed') }}" role="button">Thùng rác (<span id="trashed">{{ $countDeleted }}</span>)</a>
     </div>
     <!-- DataTales User -->
     <div class="card shadow mb-4">
