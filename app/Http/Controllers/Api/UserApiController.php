@@ -141,7 +141,8 @@ class UserApiController extends Controller
     public function getUserWthPostCount() {
         //$user = User::orderBy(['post_count' => 'DESC'])->get();
         $user = User::select('*')->orderByDesc('post_count')->get();
-        return response()->json(['status' => 1, 'data' => UserResource::collection($user)]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+        'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
     }
 
     // Ham nay dung de dem lai so post cua tat ca user

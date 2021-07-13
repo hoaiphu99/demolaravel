@@ -44,6 +44,12 @@ class PostApiController extends Controller
      */
     public function getPostByUserID($userid)
     {
+        $user = User::where(['id' => $userid])->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
 
         return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
@@ -58,6 +64,11 @@ class PostApiController extends Controller
     public function getPostByUser($username)
     {
         $user = User::where(['username' => $username])->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $user_id = $user->id;
         $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
 

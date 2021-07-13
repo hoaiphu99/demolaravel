@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Like;
+use App\Models\User;
 use App\Http\Resources\LikeResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -75,6 +76,7 @@ class LikeApiController extends Controller
         $like = Like::where(['id' => $id])->first();
         if ($like->status == 'liked') {
             $like->update(['status' => 'unliked']);
+            $this->destroy($id);
         }
         else {
             $like->update(['status' => 'liked']);
@@ -90,6 +92,12 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function getLikesByPost($id) {
+        $post = Post::where(['id' => $id])->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $likes = Like::where(['post_id' => $id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);
@@ -102,6 +110,12 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function getLikesByUser($id) {
+        $user = User::where(['id' => $id])->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $likes = Like::where(['user_id' => $id, 'status' => 'liked'])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);

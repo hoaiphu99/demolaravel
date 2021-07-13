@@ -33,6 +33,12 @@ class CommentApiController extends Controller
      * @return JsonResponse
      */
     public function getCommentsByPost($post_id) {
+        $post = Post::where(['id' => $post_id])->first();
+        if($post == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
         $comments = Comment::where(['post_id' => $post_id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comments)]);
@@ -65,6 +71,11 @@ class CommentApiController extends Controller
     public function show($id)
     {
         $comment = Comment::where(['id' => $id])->first();
+        if ($comment == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+            'message' => Config::get('siteMsg.fails_msg'), 'data' => null, 201);
+        }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 201);
     }
