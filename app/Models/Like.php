@@ -18,6 +18,11 @@ class Like extends Model
         'updated_at',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     public function user(){
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }

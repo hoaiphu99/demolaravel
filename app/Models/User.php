@@ -42,6 +42,17 @@ class User extends Model
         'password',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+
     public function post() {
         return $this->hasMany('App\Models\Post', 'user_id', 'id');
     }
