@@ -25,7 +25,7 @@ class UserResource extends JsonResource
             'avatar' => $this->avatar,
             'utype' => $this->utype,
             'post_count' => $this->post_count,
-            'created_at' => date('Y-m-d H:i:s', $this->created_at),
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ];
