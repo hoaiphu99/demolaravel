@@ -20,7 +20,8 @@ class CommentController extends Controller
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
             // 'headers' => ['APIKEY' => 'VSBG']
         ]);
-        return view('admin.comment', ['comments' => json_decode($response->getBody())]);
+        $comments = json_decode($response->getBody()->getContents())->data;
+        return view('admin.comment', ['comments' => $comments]);
     }
 
     public function getCommentDetail($id) {

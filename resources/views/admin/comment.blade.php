@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody id="list-data">
-                        @foreach ($comments->data as $cmt)
+                        @foreach ($comments as $cmt)
                             <tr data-id="{{ $cmt->id }}">
                                 <th scope="row">{{ $cmt->id }}</th>
                                 <td style="width: 50%; ">{{ $cmt->content }}</td>
