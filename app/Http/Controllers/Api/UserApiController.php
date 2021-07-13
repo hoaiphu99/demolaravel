@@ -184,6 +184,44 @@ class UserApiController extends Controller
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 
+    /**
+     * Remove the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function forceDestroy($id)
+    {
+        $user = User::withTrashed()->where('id', $id)->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $user->forceDelete();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    /**
+     * Restore the specified resource from DB
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function restore($id)
+    {
+        $user = User::withTrashed()->where('id', $id)->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $user->restore();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
     public function getUserWthPostCount() {
         //$user = User::orderBy(['post_count' => 'DESC'])->get();
         $user = User::select('*')->orderByDesc('post_count')->get();

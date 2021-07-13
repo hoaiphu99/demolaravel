@@ -31,7 +31,7 @@ Route::post('login', [LoginApiController::class, 'login'])->name('api.login');
 // User
 Route::get('user', [UserApiController::class, 'index'])->name('api.admin.user');
 
-Route::get('user/deleted', [UserApiController::class, 'getUserSoftDeleted']);
+Route::get('user/trashed', [UserApiController::class, 'getUserSoftDeleted']);
 
 Route::get('user/{id}', [UserApiController::class, 'show']);
 
@@ -41,10 +41,13 @@ Route::post('user', [UserApiController::class, 'store']);
 
 Route::post('user/avatar/{id}', [UserApiController::class, 'updateAvatar']);
 
-
 Route::put('user/{id}', [UserApiController::class, 'update']);
 
+Route::patch('user/{id}/restore', [UserApiController::class, 'restore']);
+
 Route::delete('user/{id}', [UserApiController::class, 'destroy']);
+
+Route::delete('user/{id}/force', [UserApiController::class, 'forceDestroy']);
 
 Route::get('user/update/count', [UserApiController::class, 'updateCount']);
 

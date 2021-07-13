@@ -6,35 +6,44 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 
 class UserController extends Controller
 {
     public function getUser() {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->get('user', [
-            'headers' => ['APIKEY' => 'VSBG']
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
         $users = json_decode($response->getBody()->getContents())->data;
 
         // get number of user deleted
-        $response = $client->get('user/deleted', [
-            'headers' => ['APIKEY' => 'VSBG']
+        $response = $client->get('user/trashed', [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
         $userDeleted = json_decode($response->getBody()->getContents())->data;
 
         return view('admin.user', ['users' => $users, 'countDeleted' => count($userDeleted)]);
     }
 
+    public function getUserDeleted() {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->get('user/trashed', [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+        $userDeleted = json_decode($response->getBody()->getContents())->data;
+
+        return view('admin.user_trashed', ['users' => $userDeleted]);
+    }
+
     public function getUserDetail($id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         try
         {
             $response = $client->get('user/'.$id, [
-                'headers' => ['APIKEY' => 'VSBG']
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
             ]);
             $user_detail = json_decode($response->getBody());
         }
@@ -46,11 +55,10 @@ class UserController extends Controller
     }
 
     public function createUser(Request $request) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->post('user', [
             'headers' => [
-                'APIKEY' => 'VSBG'
+                'APIKEY' => Config::get('siteVars.API_KEY')
             ],
             'form_params' => [
                 'username' => $request->get('username'),
@@ -71,31 +79,29 @@ class UserController extends Controller
         return redirect(route('admin.user'));
     }
 
-    public function updateUser($id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+    public function updateUser(Request $request, $id) {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->put('user/'.$id, [
            'headers' => [
-               'APIKEY' => 'VSBG'
+               'APIKEY' => Config::get('siteVars.API_KEY')
            ],
             'form_params' => [
-                'username' => $_POST['username'],
-                'password' => $_POST['password'],
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'birthday' => $_POST['birthday'],
-            ]
+                'username' => $request->get('username'),
+                'password' => $request->get('password'),
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'phone' => $request->get('phone'),
+                'birthday' => $request->get('birthday'),
+            ],
         ]);
         return redirect(route('admin.user'));
     }
 
     public function deleteUser($id) {
-        $base_uri = 'http://project-api-levi.herokuapp.com/api/';
-        $client = new Client(['base_uri' => $base_uri]);
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->delete('user/'.$id, [
            'headers' => [
-               'APIKEY' => 'VSBG'
+               'APIKEY' => Config::get('siteVars.API_KEY')
            ],
             /*'form_params' => [
                 'content' => $_POST['content'],

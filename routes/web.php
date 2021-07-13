@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     // User
     Route::get('user', [UserController::class, 'getUser'])->name('admin.user');
 
+    Route::get('user/trashed', [UserController::class, 'getUserDeleted'])->name('user.trashed');
+
     Route::get('user/{id}', [UserController::class, 'getUserDetail'])->Where(['id'])->name('user.detail');
 
     Route::post('user/update/{id}', [UserController::class, 'updateUser'])->where(['id'])->name('user.update');
