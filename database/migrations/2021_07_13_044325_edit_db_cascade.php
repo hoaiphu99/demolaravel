@@ -14,12 +14,17 @@ class EditDbCascade extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
 
         Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['post_id']);
+
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
@@ -29,6 +34,9 @@ class EditDbCascade extends Migration
         });
 
         Schema::table('likes', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['post_id']);
+            
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
