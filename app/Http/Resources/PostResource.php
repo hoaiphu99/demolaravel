@@ -20,7 +20,10 @@ class PostResource extends JsonResource
             'image' => $this->image,
             'comment_count' => $this->comment_count,
             'like_count' => $this->like_count,
-            'user' => new UserResource($this->user)
+            'user' => new UserResource($this->user),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'deleted_at' => $this->deleted_at,
         ];
     }
 }

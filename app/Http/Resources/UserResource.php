@@ -24,7 +24,10 @@ class UserResource extends JsonResource
             'birthday' => $this->birthday,
             'avatar' => $this->avatar,
             'utype' => $this->utype,
-            'post_count' => $this->post_count
+            'post_count' => $this->post_count,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'deleted_at' => $this->deleted_at,
         ];
     }
 }
