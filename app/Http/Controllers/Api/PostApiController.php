@@ -37,6 +37,19 @@ class PostApiController extends Controller
     }
 
     /**
+     * Display a listing deleted of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function getPostSoftDeleted()
+    {
+        $post = Post::onlyTrashed()->get()->sortDesc();
+
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)]);
+    }
+
+    /**
      * Display a listing of the resource by userid.
      *
      * @param $userid

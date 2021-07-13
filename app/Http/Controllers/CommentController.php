@@ -13,15 +13,20 @@ use Illuminate\Support\Facades\Config;
 class CommentController extends Controller
 {
     public function getComment() {
-        // $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $base_uri = Config::get('siteVars.API_URL');
         $client = new Client(['base_uri' => $base_uri]);
+
         $response = $client->get('comment', [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
-            // 'headers' => ['APIKEY' => 'VSBG']
         ]);
         $comments = json_decode($response->getBody()->getContents())->data;
-        return view('admin.comment', ['comments' => $comments]);
+
+        $response = $client->get('comment/deleted', [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+        $commentsDeleted = json_decode($response->getBody()->getContents())->data;
+
+        return view('admin.comment', ['comments' => $comments, 'countDeleted' => count($commentsDeleted)]);
     }
 
     public function getCommentDetail($id) {

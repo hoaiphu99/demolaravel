@@ -19,11 +19,24 @@ class PostController extends Controller
             $response = $client->get('post', [
                 'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
             ]);
+            $posts = json_decode($response->getBody()->getContents())->data;
+
         } catch (\Exception $e) {
             return view('errors.404');
         }
+
+        try {
+            $response = $client->get('post/deleted', [
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+            ]);
+            $postsDeleted = json_decode($response->getBody()->getContents())->data;
+
+        } catch (\Exception $e) {
+            return view('errors.404');
+        }
+
         $dropDownUser = $this->dropDownUser();
-        return view('admin.post', ['posts' => json_decode($response->getBody()->getContents())->data, 'dropDownUser' => $dropDownUser]);
+        return view('admin.post', ['posts' => $posts, 'countDeleted' => count($postsDeleted), 'dropDownUser' => $dropDownUser]);
     }
 
     public function getPostDetail($id) {

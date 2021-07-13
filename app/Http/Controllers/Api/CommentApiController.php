@@ -28,6 +28,19 @@ class CommentApiController extends Controller
     }
 
     /**
+     * Display a listing deleted of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function getCommentSoftDeleted()
+    {
+        //
+        $comments = Comment::onlyTrashed()->get()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection($comments)]);
+    }
+
+    /**
      * Display a listing of the resource.
      * @param  $post_id
      * @return JsonResponse

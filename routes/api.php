@@ -51,6 +51,8 @@ Route::get('user/update/count', [UserApiController::class, 'updateCount']);
 // Post
 Route::get('post', [PostApiController::class, 'index']);
 
+Route::get('post/deleted', [PostApiController::class, 'getPostSoftDeleted']);
+
 Route::get('post/{id}', [PostApiController::class, 'show']);
 
 Route::get('post/user/{userid}', [PostApiController::class, 'getPostByUserID']);
@@ -69,6 +71,8 @@ Route::get('post/update/like', [PostApiController::class, 'updateLike']);
 
 // Comment
 Route::get('comment', [CommentApiController::class, 'index']);
+
+Route::get('comment/deleted', [CommentApiController::class, 'getCommentSoftDeleted']);
 
 Route::get('comment/{id}', [CommentApiController::class, 'show']);
 
