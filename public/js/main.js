@@ -266,7 +266,7 @@ const likePost = async (event, postId, userId) => {
     console.log(event)
     event.target.classList.toggle('liked')
 
-    const data = {postId, userId}
+    const data = {postId, userId, status: 'liked'}
     await fetch(`${API_URL}/like/handle-like`, {
         method: 'POST',
         headers:{

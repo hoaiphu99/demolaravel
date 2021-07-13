@@ -122,11 +122,11 @@ class LikeApiController extends Controller
     public function handleLike(Request $request) {
         $temp = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
         if ($temp == null) {
-            $this->store($request);
+            return $this->store($request);
         }
         else {
             $like = json_decode($temp);
-            $this->update($like->id);
+            return $this->update($like->id);
         }
     }
 }
