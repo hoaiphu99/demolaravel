@@ -10,7 +10,7 @@ use Dyrynda\Database\Support\CascadeSoftDeletes;
 class Like extends Model
 {
     use SoftDeletes, CascadeSoftDeletes;
-    
+
     protected $tableName = 'likes';
     public $timestamps = true;
 
