@@ -2,8 +2,8 @@
 @section('title', 'Thùng rác')
 @section('content')
 
-    <div class="text-right mb-4">
-        <a class="btn btn-outline-secondary" href="{{ route('admin.post') }}" role="button">Danh sách bài đăng</a>
+    <div class="mb-4">
+        <a class="btn btn-outline-primary" href="{{ route('admin.post') }}" role="button">Danh sách bài đăng</a>
     </div>
     <!-- DataTales User -->
     <div class="card shadow mb-4">
@@ -29,7 +29,7 @@
                             <tr data-id="{{ $p->id }}">
                                 <th scope="row">{{ $p->id }}</th>
                                 <th style="width: 30%;">{{ $p->content }}</th>
-                                <td><img src="{{ $p->image }}" alt="" style="width: 50%; height: auto;"></td>
+                                <td><img src="{{ $p->image }}" alt="" style="width: 30%; height: auto;"></td>
                                 <td>{{ $p->user->name }}</td>
                                 <td>{{ $p->deleted_at }}</td>
                                 <td class="text-center">

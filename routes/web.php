@@ -91,6 +91,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
     // Comment
     Route::get('comment', [CommentController::class, 'getComment'])->name('admin.comment');
 
+    Route::get('comment/trashed', [CommentController::class, 'getCommentDeleted'])->name('comment.trashed');
+
     Route::post('comment/create', [CommentController::class, 'createComment'])->name('comment.create');
 
     Route::get('comment/{id}', [CommentController::class, 'getCommentDetail'])->where(['id'])->name('comment.detail');

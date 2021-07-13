@@ -272,7 +272,53 @@ const deletePost = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
+            const countElement = document.querySelector("#trashed")
+            let count = parseInt(countElement.textContent)
+            count += 1
+            countElement.textContent = String(count)
             alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const forceDeletePost = async (id) => {
+
+    await fetch(`${API_URL}/post/${id}`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const restorePost = async (id) => {
+
+    await fetch(`${API_URL}/post/${id}/restore`, {
+        method: 'PATCH',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Khôi phục thành công!')
         })
         .catch(error => {
             console.log(error)
@@ -294,6 +340,11 @@ const deleteComment = async (id) => {
                 const tbodyElement = document.querySelector("#list-data")
                 const trElement = document.querySelector(`tr[data-id="${id}"]`)
                 tbodyElement.removeChild(trElement)
+
+                const countElement = document.querySelector("#trashed")
+                let count = parseInt(countElement.textContent)
+                count += 1
+                countElement.textContent = String(count)
             }
             else if (document.querySelector("#comment")) {
                 const commentBlock = document.querySelector("#comment")
@@ -301,6 +352,48 @@ const deleteComment = async (id) => {
                 commentBlock.removeChild(cardBlock)
             }
             alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const forceDeleteComment = async (id) => {
+
+    await fetch(`${API_URL}/comment/${id}`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const restoreComment = async (id) => {
+
+    await fetch(`${API_URL}/comment/${id}/restore`, {
+        method: 'PATCH',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Khôi phục thành công!')
         })
         .catch(error => {
             console.log(error)

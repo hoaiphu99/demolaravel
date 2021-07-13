@@ -21,12 +21,24 @@ class CommentController extends Controller
         ]);
         $comments = json_decode($response->getBody()->getContents())->data;
 
-        $response = $client->get('comment/deleted', [
+        $response = $client->get('comment/trashed', [
             'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
         ]);
         $commentsDeleted = json_decode($response->getBody()->getContents())->data;
 
         return view('admin.comment', ['comments' => $comments, 'countDeleted' => count($commentsDeleted)]);
+    }
+
+    public function getCommentDeleted() {
+        $base_uri = Config::get('siteVars.API_URL');
+        $client = new Client(['base_uri' => $base_uri]);
+
+        $response = $client->get('comment/trashed', [
+            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+        ]);
+        $commentsDeleted = json_decode($response->getBody()->getContents())->data;
+
+        return view('admin.comment_trashed', ['comments' => $commentsDeleted]);
     }
 
     public function getCommentDetail($id) {
