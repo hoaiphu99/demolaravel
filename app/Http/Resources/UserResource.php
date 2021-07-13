@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Carbon\Carbon;
 
 class UserResource extends JsonResource
 {
@@ -25,7 +26,7 @@ class UserResource extends JsonResource
             'avatar' => $this->avatar,
             'utype' => $this->utype,
             'post_count' => $this->post_count,
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'created_at' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ];
