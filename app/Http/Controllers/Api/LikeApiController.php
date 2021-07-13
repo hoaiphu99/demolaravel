@@ -86,11 +86,23 @@ class LikeApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  $post_id
+     * @param  $id
      * @return JsonResponse
      */
-    public function getLikesByPost($post_id) {
-        $likes = Like::where(['post_id' => $post_id])->get()->sortDesc();
+    public function getLikesByPost($id) {
+        $likes = Like::where(['post_id' => $id])->get()->sortDesc();
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  $id
+     * @return JsonResponse
+     */
+    public function getLikesByUser($id) {
+        $likes = Like::where(['user_id' => $id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection($likes)]);
     }

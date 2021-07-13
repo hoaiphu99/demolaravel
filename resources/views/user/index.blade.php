@@ -154,7 +154,7 @@
                                     </div>
                                 </div><!-- add post new box -->
                                 <div class="loadMore">
-                                    @foreach($posts->data as $p)
+                                    @foreach($posts as $p)
                                     <div class="central-meta item">
                                         <div class="user-post">
                                             <div class="friend-info">
@@ -180,7 +180,7 @@
                                                             </li>
                                                             <li>
                                                                 <span class="like like-btn" onclick="likePost(event, {{ $p->id }}, {{ session()->get('user')->id }})" data-toggle="tooltip" title="Likes">
-                                                                    <i class="ti-heart"></i>
+                                                                    <i class="ti-heart {{ $p->status == 'liked' ? 'liked' : '' }}"></i>
                                                                     <ins>{{$p->like_count}}</ins>
                                                                 </span>
 

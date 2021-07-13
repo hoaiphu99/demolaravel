@@ -82,6 +82,8 @@ Route::post('like/handle-like', [LikeApiController::class, 'handleLike']);
 
 Route::get('like/post/{id}', [LikeApiController::class, 'getLikesByPost']);
 
+Route::get('like/user/{id}', [LikeApiController::class, 'getLikesByUser']);
+
 Route::post('like', [LikeApiController::class, 'store']);
 
 Route::put('like/{id}', [LikeApiController::class, 'update']);
