@@ -163,7 +163,7 @@
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="{{route('profile.username', ['username' => $p->user->username])}}" title="">{{$p->user->username}}</a></ins>
-                                                    <span>published: june,2 2018 19:PM</span>
+                                                    <span>published: {{$p->created_at}}</span>
                                                 </div>
                                                 <div class="post-meta">
                                                     <a href="{{route('post.id', ['id' => $p->id])}}"><img src="{{$p->image}}" alt=""></a>
@@ -179,7 +179,7 @@
 															</a>
                                                             </li>
                                                             <li>
-                                                                <span class="like like-btn" onclick="likePost(event, {{ $p->id }})" data-toggle="tooltip" title="Likes">
+                                                                <span class="like like-btn" onclick="likePost(event, {{ $p->id }}, {{ session()->get('user')->id }})" data-toggle="tooltip" title="Likes">
                                                                     <i class="ti-heart"></i>
                                                                     <ins>{{$p->like_count}}</ins>
                                                                 </span>

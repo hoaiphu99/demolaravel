@@ -34,12 +34,12 @@ class LikeApiController extends Controller
     public function store(Request $request)
     {
         //
-        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
-        if ($like_find != null)
-        {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection([$like_find])], 201);
-        }
+//        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
+//        if ($like_find != null)
+//        {
+//            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+//                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection([$like_find])], 201);
+//        }
 
         $like = Like::create($request->all());
 
@@ -66,15 +66,19 @@ class LikeApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
      * @param  $id
      * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
         $like = Like::where(['id' => $id])->first();
-        $like->update($request->all());
+        if (json_decode($like)->status == 'liked') {
+            $like->update(['status' => 'unliked']);
+        }
+        else {
+            $like->update(['status' => 'liked']);
+        }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection([$like])], 200);
     }
@@ -107,5 +111,22 @@ class LikeApiController extends Controller
         $post->update(['like_count' => --$like_count]);
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  $request
+     * @return JsonResponse
+     */
+    public function handleLike(Request $request) {
+        $temp = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
+        if ($temp == null) {
+            $this->store($request);
+        }
+        else {
+            $like = json_decode($temp);
+            $this->update($like->id);
+        }
     }
 }

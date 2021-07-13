@@ -262,10 +262,26 @@ const deleteComment = async (id) => {
 }
 
 // Like
-const likePost = async (event, id) => {
+const likePost = async (event, postId, userId) => {
     console.log(event)
     event.target.classList.toggle('liked')
-    //await fetch(`${API_URL}/like/${id}`)
+
+    const data = {postId, userId}
+    await fetch(`${API_URL}/like/handle-like`, {
+        method: 'GET',
+        headers:{
+            'APIKEY': API_KEY,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log('success')
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
 const createLike = async (data) => {
