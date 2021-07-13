@@ -16,10 +16,15 @@ class CommentController extends Controller
         // $base_uri = 'http://project-api-levi.herokuapp.com/api/';
         $base_uri = Config::get('siteVars.API_URL');
         $client = new Client(['base_uri' => $base_uri]);
-        $response = $client->get('comment', [
-            'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
-            // 'headers' => ['APIKEY' => 'VSBG']
-        ]);
+        try
+        {
+            $response = $client->get('comment', [
+                'headers' => ['APIKEY' => Config::get('siteVars.API_KEY')]
+                // 'headers' => ['APIKEY' => 'VSBG']
+            ]);
+        }
+        catch(\Exception $e)
+        {}
         return view('admin.comment', ['comments' => json_decode($response->getBody())]);
     }
 
