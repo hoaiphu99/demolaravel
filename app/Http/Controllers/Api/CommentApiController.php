@@ -74,7 +74,7 @@ class CommentApiController extends Controller
         if ($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-            'message' => Config::get('siteMsg.fails_msg'), 'data' => null, 201);
+            'message' => Config::get('siteMsg.fails_msg'), 'data' => null);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 201);
