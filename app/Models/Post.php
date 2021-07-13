@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 
 class Post extends Model
 {
+    use SoftDeletes, CascadeSoftDeletes;
+
     protected $tableName = 'posts';
     public $timestamps = true;
 
