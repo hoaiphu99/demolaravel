@@ -29,11 +29,11 @@ class Like extends Model
         'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
-    public function user(){
+    public function users(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function post(){
+    public function posts(){
         return $this->belongsTo(Post::class, 'post_id', 'id');
     }
 }
