@@ -125,6 +125,30 @@ class UserApiController extends Controller
     }
 
     /**
+     * Update avatar for user.
+     *
+     * @param Request $request
+     * @param $id
+     * @return JsonResponse
+     */
+    public function updateAvatar(Request $request, $id) {
+        $user = User::where(['id' => $id])->first();
+        if($user == null)
+        {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+        }
+        $file = $request->file('avatar');
+        $resource = fopen($file, "r") or die("File upload Problems");
+
+        $img_link = $this->uploadImage($resource);
+        $user->update(['avatar' => $img_link]);
+
+        return response()->json(['status' => Config::get('siteMsg.success_code'),
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 200);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  $id
