@@ -14,30 +14,25 @@ class EditDbCascade extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('user_id')
-                ->constrained()
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
 
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreignId('user_id')
-                ->constrained()
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('post_id')
-                ->constrained()
+            $table->foreign('post_id')->references('id')->on('posts')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
 
         Schema::table('likes', function (Blueprint $table) {
-            $table->foreignId('user_id')
-                ->constrained()
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('post_id')
-                ->constrained()
+            $table->foreign('post_id')->references('id')->on('posts')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
