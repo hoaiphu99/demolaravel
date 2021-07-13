@@ -37,6 +37,9 @@ Route::get('user/post/count', [UserApiController::class, 'getUserWthPostCount'])
 
 Route::post('user', [UserApiController::class, 'store']);
 
+Route::post('user/avatar/{id}', [UserApiController::class, 'updateAvatar']);
+
+
 Route::put('user/{id}', [UserApiController::class, 'update']);
 
 Route::delete('user/{id}', [UserApiController::class, 'destroy']);
