@@ -18,7 +18,7 @@ class HomeController extends Controller
                 'APIKEY' => Config::get('siteVars.API_KEY'),
             ]
         ]);
-        $post = json_decode($response->getBody()->getContents())->data;
+        $posts = json_decode($response->getBody()->getContents())->data;
 
         $userId = session()->get('user')->id;
         $response = $client->get('like/user/'.$userId, [
@@ -26,16 +26,17 @@ class HomeController extends Controller
         ]);
         $likes = json_decode($response->getBody()->getContents())->data;
 
-        for ($i = 0; $i < count($post); $i++) {
+        for ($i = 0; $i < count($posts); $i++) {
             for ($j = 0; $j < count($likes); $j++) {
-                if ($likes[$j]->post->id == $post[$i]->id) {
-                    $post[$i]->status = 'liked';
+                if ($likes[$j]->post->id === $posts[$i]->id) {
+                    $posts[$i]->status = 'liked';
+                    break;
                 }
-                else $post[$i]->status = 'unliked';
+                else $posts[$i]->status = 'unliked';
             }
         }
 
-        return view('user.index', ['posts' => $post]);
+        return view('user.index', ['posts' => $posts]);
     }
 
     public function singlePost($id) {
