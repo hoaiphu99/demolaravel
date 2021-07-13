@@ -187,17 +187,6 @@ class PostApiController extends Controller
      */
     public function destroy($id)
     {
-        $comment = Comment::where(['post_id' => $id])->get();
-        foreach ($comment as $cmt) {
-            $cmt->delete();
-        }
-
-        $like = Like::where(['post_id' => $id])->get();
-        foreach ($like as $l)
-        {
-            $l->delete();
-        }
-
         $post = Post::where(['id' => $id])->first();
         $post->delete();
 
