@@ -268,7 +268,7 @@ const likePost = async (event, postId, userId) => {
 
     const data = {postId, userId}
     await fetch(`${API_URL}/like/handle-like`, {
-        method: 'GET',
+        method: 'POST',
         headers:{
             'APIKEY': API_KEY,
             'Content-Type': 'application/json',

@@ -78,7 +78,7 @@ Route::delete('comment/{id}', [CommentApiController::class, 'destroy']);
 // Like
 Route::get('like', [LikeApiController::class, 'index']);
 
-Route::get('like/handle-like', [LikeApiController::class, 'handleLike']);
+Route::post('like/handle-like', [LikeApiController::class, 'handleLike']);
 
 Route::get('like/post/{id}', [LikeApiController::class, 'getLikesByPost']);
 
