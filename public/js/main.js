@@ -144,7 +144,53 @@ const deleteUser = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
+            const countElement = document.querySelector("#trashed")
+            let count = parseInt(countElement.textContent)
+            count += 1
+            countElement.textContent = String(count)
             alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const forceDeleteUser = async (id) => {
+
+    await fetch(`${API_URL}/user/${id}/force`, {
+        method: 'DELETE',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Xóa thành công!')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
+const restoreUser = async (id) => {
+
+    await fetch(`${API_URL}/user/${id}/restore`, {
+        method: 'PATCH',
+        headers: {
+            APIKEY: API_KEY
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const tbodyElement = document.querySelector("#list-data")
+            const trElement = document.querySelector(`tr[data-id="${id}"]`)
+            tbodyElement.removeChild(trElement)
+
+            alert('Khôi phục thành công!')
         })
         .catch(error => {
             console.log(error)
