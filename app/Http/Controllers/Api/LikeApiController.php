@@ -43,8 +43,8 @@ class LikeApiController extends Controller
 
         $like = Like::create($request->all());
 
-        $like = json_decode($like);
-        $post = Post::where(['id' => $like->post_id])->first();
+        $tmpLike = json_decode($like);
+        $post = Post::where(['id' => $tmpLike->post_id])->first();
         $l_count = $post->like_count;
         $post->update(['like_count' => ++$l_count]);
 
@@ -73,7 +73,7 @@ class LikeApiController extends Controller
     {
         //
         $like = Like::where(['id' => $id])->first();
-        if (json_decode($like)->status == 'liked') {
+        if ($like->status == 'liked') {
             $like->update(['status' => 'unliked']);
         }
         else {
@@ -120,12 +120,11 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function handleLike(Request $request) {
-        $temp = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
-        if ($temp == null) {
+        $like = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
+        if ($like == null) {
             return $this->store($request);
         }
         else {
-            $like = json_decode($temp);
             return $this->update($like->id);
         }
     }

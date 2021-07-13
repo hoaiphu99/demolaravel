@@ -48,7 +48,7 @@ class CommentApiController extends Controller
     {
         $comment = Comment::create($request->all());
         // update lai so comment
-        $comment = json_decode($comment);
+        //$comment = json_decode($comment);
         $post = Post::where(['id' => $comment->post_id])->first();
         $cmt_count = $post->comment_count;
         $post->update(['comment_count' => ++$cmt_count]);
