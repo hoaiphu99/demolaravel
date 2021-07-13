@@ -58,16 +58,16 @@ class User extends Model
         'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
-    public function post() {
+    public function posts() {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
-    public function like()
+    public function likes()
     {
         return $this->hasMany(Like::class, 'user_id', 'id');
     }
