@@ -20,8 +20,8 @@ class LikeResource extends JsonResource
             'status' => $this->status,
             'user' => new UserResource($this->user),
             'post' => new PostResource($this->post),
-            'created_at' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
+            'created_at' => $this->created_at == null ? $this->created_at : Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at == null ? $this->updated_at : Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
         ];
     }
 }

@@ -26,9 +26,9 @@ class UserResource extends JsonResource
             'avatar' => $this->avatar,
             'utype' => $this->utype,
             'post_count' => $this->post_count,
-            'created_at' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
-            'deleted_at' => Carbon::parse($this->deleted_at)->format('Y-m-d H:i:s'),
+            'created_at' => $this->created_at == null ? $this->created_at : Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at == null ? $this->updated_at : Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
+            'deleted_at' => $this->deleted_at == null ? $this->deleted_at : Carbon::parse($this->deleted_at)->format('Y-m-d H:i:s'),
         ];
     }
 }
