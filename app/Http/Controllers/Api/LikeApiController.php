@@ -151,6 +151,10 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function handleLike(Request $request) {
+        if ($request->get('user_id') == null || $request->get('post_id') == null) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+        }
         $like = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
         if ($like == null) {
             return $this->store($request);
