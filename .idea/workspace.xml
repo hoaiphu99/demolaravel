@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d0d6ba-afbe-4ae1-8a09-e8e76494bbf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/comment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/comment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post_comments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post_comments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/comment_trashed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/comment_trashed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post_trashed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post_trashed.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +149,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/dyrynda/laravel-cascade-soft-deletes" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pJmCKaxhP8ETTi5GujSDUbvFEQ" />
@@ -171,7 +165,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/post_comments.blade.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
@@ -180,11 +174,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\demolaravel\resources\views\admin" />
       <recent name="D:\Documents\php\demolaravel\resources\views\user" />
       <recent name="D:\Documents\hoc-php\demolaravel\app\Http\Resources" />
       <recent name="D:\Documents\hoc-php\demolaravel\public\assets" />
       <recent name="D:\Documents\hoc-php\demolaravel\database\migrations" />
-      <recent name="C:\xampp\htdocs\WebChiaSeAnh\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\demolaravel\public\assets\css" />
@@ -240,7 +234,10 @@
       <workItem from="1625538483156" duration="6592000" />
       <workItem from="1625712919698" duration="19969000" />
       <workItem from="1625884330668" duration="3293000" />
-      <workItem from="1625972216415" duration="15726000" />
+      <workItem from="1625972216415" duration="15772000" />
+      <workItem from="1626056160305" duration="10127000" />
+      <workItem from="1626143297814" duration="37081000" />
+      <workItem from="1626222508774" duration="2679000" />
     </task>
     <servers />
   </component>

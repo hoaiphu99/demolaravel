@@ -2,9 +2,9 @@
 @section('title', 'Bình luận')
 @section('content')
 
-{{--    <div class="text-right mb-4">--}}
-{{--        <a class="btn btn-outline-secondary" href="{{ route('comment.trashed') }}" role="button">Thùng rác (<span id="trashed">{{ $countDeleted }}</span>)</a>--}}
-{{--    </div>--}}
+    <div class="text-right mb-4">
+        <a class="btn btn-outline-secondary" href="{{ route('comment.trashed') }}" role="button">Thùng rác (<span id="trashed">{{ $countDeleted }}</span>)</a>
+    </div>
     <!-- DataTales User -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">

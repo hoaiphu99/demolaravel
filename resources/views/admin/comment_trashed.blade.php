@@ -27,12 +27,26 @@
                         @foreach ($comments as $cmt)
                             <tr data-id="{{ $cmt->id }}">
                                 <th scope="row">{{ $cmt->id }}</th>
-                                <td style="width: 50%; ">{{ $cmt->content }}</td>
-                                <td>{{ $cmt->user->username }}</td>
-                                <td><img src="{{ $cmt->post->image }}" alt="" style="width: 50%; height: auto;"></td>
+                                <td style="width: 30%; ">{{ $cmt->content }}</td>
+                                <td>
+                                    @if($cmt->user)
+                                        {{ $cmt->user->username }}
+                                    @else
+                                        <i>Người dùng này đã bị xóa</i>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($cmt->post != null)
+                                        <img src="{{$cmt->post->image}}" alt="" style="width: 20%; height: auto;">
+                                    @else
+                                        <i>Bài đăng này đã bị xóa</i>
+                                    @endif
+                                </td>
                                 <td>{{ $cmt->deleted_at }}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-primary" onclick="restoreComment({{ $cmt->id }})">Khôi phục
+                                    <button class="btn btn-primary" onclick="restoreComment({{ $cmt->id }},
+                                    {{ $cmt->user == null ? null : $cmt->user->id }}, {{ $cmt->post == null ? null : $cmt->post->id }})">
+                                        Khôi phục
                                         <i class="fas fa-redo"></i>
                                     </button>
                                 </td>

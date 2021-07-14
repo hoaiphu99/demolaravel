@@ -30,10 +30,16 @@
                                 <th scope="row">{{ $p->id }}</th>
                                 <th style="width: 30%;">{{ $p->content }}</th>
                                 <td><img src="{{ $p->image }}" alt="" style="width: 30%; height: auto;"></td>
-                                <td>{{ $p->user->name }}</td>
+                                <td>
+                                    @if($p->user)
+                                        {{ $p->user->username }}
+                                    @else
+                                        <i>Người dùng này đã bị xóa</i>
+                                    @endif
+                                </td>
                                 <td>{{ $p->deleted_at }}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-primary" onclick="restorePost({{ $p->id }})">Khôi phục
+                                    <button class="btn btn-primary" onclick="restorePost({{ $p->id }}, {{ $p->user == null ? null : $p->user->id }})">Khôi phục
                                         <i class="fas fa-redo"></i>
                                     </button>
                                 </td>

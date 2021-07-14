@@ -304,7 +304,11 @@ const forceDeletePost = async (id) => {
         })
 }
 
-const restorePost = async (id) => {
+const restorePost = async (id, user) => {
+    if (user == null) {
+        alert('Người dùng đã bị xóa, không thể khôi phục')
+        return
+    }
 
     await fetch(`${API_URL}/post/${id}/restore`, {
         method: 'PATCH',
@@ -379,7 +383,12 @@ const forceDeleteComment = async (id) => {
         })
 }
 
-const restoreComment = async (id) => {
+const restoreComment = async (id, user, post) => {
+
+    if (user == null || post == null) {
+        alert('Người dùng hoặc bài đăng đã bị xóa, không thể khôi phục')
+        return
+    }
 
     await fetch(`${API_URL}/comment/${id}/restore`, {
         method: 'PATCH',
