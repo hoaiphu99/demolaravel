@@ -92,8 +92,8 @@ class LikeApiController extends Controller
         $post = Post::where(['id' => $id])->first();
         if($post == null)
         {
-            return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null]);
         }
         $likes = Like::where(['post_id' => $id, 'status' => 'liked'])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
