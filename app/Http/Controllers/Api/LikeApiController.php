@@ -35,6 +35,7 @@ class LikeApiController extends Controller
     public function store(Request $request)
     {
         $like = Like::create($request->all());
+        $like->update(['status' => 'liked']);
 
         $tmpLike = json_decode($like);
         $post = Post::where(['id' => $tmpLike->post_id])->first();
