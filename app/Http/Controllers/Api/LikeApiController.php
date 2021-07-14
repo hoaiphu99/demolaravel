@@ -69,7 +69,6 @@ class LikeApiController extends Controller
         $like = Like::where(['id' => $id])->first();
         if ($like->status == 'liked') {
             $like->update(['status' => 'unliked']);
-            $this->destroy($id);
         }
         else {
             $like->update(['status' => 'liked']);
