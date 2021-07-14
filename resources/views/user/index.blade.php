@@ -181,7 +181,7 @@
                                                             <li>
                                                                 <span class="like like-btn" onclick="likePost(event, {{ $p->id }}, {{ session()->get('user')->id }})" data-toggle="tooltip" title="Likes">
                                                                     <i class="ti-heart "></i>
-                                                                    <!-- {{ $p->status === 'liked' ? 'liked' : '' }} -->
+                                                                    {{-- $p->status === 'liked' ? 'liked' : '' --}}
                                                                     <ins>{{$p->like_count}}</ins>
                                                                 </span>
 
