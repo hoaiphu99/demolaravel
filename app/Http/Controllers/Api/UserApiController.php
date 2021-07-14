@@ -156,6 +156,10 @@ class UserApiController extends Controller
                 'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $file = $request->file('avatar');
+        if ($file == null) {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null]);
+        }
         $resource = fopen($file, "r") or die("File upload Problems");
 
         $img_link = $this->uploadImage($resource);
