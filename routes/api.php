@@ -26,10 +26,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Login
-Route::post('login', [LoginApiController::class, 'login'])->name('api.login');
+Route::post('login', [LoginApiController::class, 'login']);
 
 // User
-Route::get('user', [UserApiController::class, 'index'])->name('api.admin.user');
+Route::get('user', [UserApiController::class, 'index']);
 
 Route::get('user/trashed', [UserApiController::class, 'getUserSoftDeleted']);
 
@@ -62,7 +62,7 @@ Route::get('post/user/{userid}', [PostApiController::class, 'getPostByUserID']);
 
 Route::get('post/profile/{username}', [PostApiController::class, 'getPostByUser']);
 
-Route::post('post', [PostApiController::class, 'store'])->name('post.created');
+Route::post('post', [PostApiController::class, 'store']);
 
 Route::put('post/{id}', [PostApiController::class, 'update']);
 

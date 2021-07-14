@@ -50,7 +50,7 @@ class CommentApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $comments = Comment::where(['post_id' => $post_id])->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -87,7 +87,7 @@ class CommentApiController extends Controller
         if ($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-            'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+            'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 201);
@@ -106,7 +106,7 @@ class CommentApiController extends Controller
         if ($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-            'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+            'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $comment->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -126,7 +126,7 @@ class CommentApiController extends Controller
         if ($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-            'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+            'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $comment->delete();
 
@@ -151,7 +151,7 @@ class CommentApiController extends Controller
         if($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $comment->forceDelete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -170,7 +170,7 @@ class CommentApiController extends Controller
         if($comment == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $comment->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
