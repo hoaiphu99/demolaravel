@@ -67,11 +67,16 @@ class LikeApiController extends Controller
     {
         //
         $like = Like::where(['id' => $id])->first();
+        $post = Post::where(['id' => $like->post_id])->first();
         if ($like->status == 'liked') {
             $like->update(['status' => 'unliked']);
+            $l_count = $post->like_count;
+            $post->update(['like_count' => --$l_count]);
         }
         else {
             $like->update(['status' => 'liked']);
+            $l_count = $post->like_count;
+            $post->update(['like_count' => ++$l_count]);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => LikeResource::collection([$like])], 200);
