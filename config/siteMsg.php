@@ -8,5 +8,5 @@ return [
     'invalid_code' => -1,
     'invalid_msg' => 'Không hợp lệ',
     'exist_msg' => 'Đã tồn tại',
-    'notExist_msg' => 'Không tồn tồn tại',
+    'notExist_msg' => 'Không tồn tại',
 ];
