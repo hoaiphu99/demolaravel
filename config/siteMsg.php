@@ -9,5 +9,5 @@ return [
     'invalid_msg' => 'Không hợp lệ',
     'exist_msg' => 'Đã tồn tại',
     'notExist_msg' => 'Không tồn tại',
-    'fileNotExist_msg' => 'Không tồn tại',
+    'fileNotExist_msg' => 'File không tồn tại hoặc chưa chọn',
 ];
