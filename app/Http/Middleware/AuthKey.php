@@ -16,7 +16,11 @@ class AuthKey
      */
     public function handle(Request $request, Closure $next)
     {
+
         $token = $request->header('APIKEY');
+        if ($request->header('Path') == 'login') {
+            return $next($request);
+        }
          if($token == '') {
              return response()->json(['message' => 'No token found!'], 401);
          }
