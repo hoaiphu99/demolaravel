@@ -14,7 +14,7 @@ class AuthController extends Controller
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->post('login', [
             'headers' => [
-                'APIKEY' => Config::get('siteVars.API_KEY')
+                'Path' => 'login'
             ],
             'form_params' => [
                 'username' => $username,
