@@ -65,6 +65,10 @@ class CommentApiController extends Controller
      */
     public function store(Request $request)
     {
+        if ($this->checkExist($request->get('user_id'), $request->get('post_id')))
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+
         $comment = Comment::create($request->all());
 
         // update lai so comment
@@ -108,6 +112,7 @@ class CommentApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
             'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
+
         $comment->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => CommentResource::collection([$comment])], 200);
@@ -175,5 +180,20 @@ class CommentApiController extends Controller
         $comment->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    public function checkExist($user_id, $post_id) {
+        $user = User::where(['id' => $user_id])->first();
+        if($user == null)
+        {
+            return true;
+        }
+
+        $post = Post::where(['id' => $post_id])->first();
+        if($post == null)
+        {
+            return true;
+        }
+        return false;
     }
 }

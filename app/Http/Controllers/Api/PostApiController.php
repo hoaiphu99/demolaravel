@@ -133,7 +133,10 @@ class PostApiController extends Controller
 
     public function store(Request $request)
     {
-        //$post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
+        if ($this->checkExist($request->get('user_id')))
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+
         $post = Post::create($request->all());
         $file = $request->file('image');
         if ($file == null) {
@@ -253,6 +256,15 @@ class PostApiController extends Controller
         $post->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    public function checkExist($user_id) {
+        $user = User::where(['id' => $user_id])->first();
+        if($user == null)
+        {
+            return true;
+        }
+        return false;
     }
 
     // Ham nay dung de dem lai so comment cua tat ca bai viet

@@ -34,14 +34,6 @@ class LikeApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-//        $like_find = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
-//        if ($like_find != null)
-//        {
-//            return response()->json(['status' => Config::get('siteMsg.fails_code'),
-//                'message' => Config::get('siteMsg.fails_msg'), 'data' => LikeResource::collection([$like_find])], 201);
-//        }
-
         $like = Like::create($request->all());
 
         $tmpLike = json_decode($like);
@@ -151,16 +143,38 @@ class LikeApiController extends Controller
      * @return JsonResponse
      */
     public function handleLike(Request $request) {
-        if ($request->get('user_id') == null || $request->get('post_id') == null) {
+        $user_id = $request->get('user_id');
+        $post_id = $request->get('post_id');
+
+        if ($user_id == null || $post_id == null) {
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                 'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
         }
-        $like = Like::where(['user_id' => $request->get('user_id'), 'post_id' => $request->get('post_id')])->first();
+        if ($this->checkExist($user_id, $post_id))
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+
+        $like = Like::where(['user_id' => $user_id, 'post_id' => $post_id])->first();
         if ($like == null) {
             return $this->store($request);
         }
         else {
             return $this->update($like->id);
         }
+    }
+
+    public function checkExist($user_id, $post_id) {
+        $user = User::where(['id' => $user_id])->first();
+        if($user == null)
+        {
+            return true;
+        }
+
+        $post = Post::where(['id' => $post_id])->first();
+        if($post == null)
+        {
+            return true;
+        }
+        return false;
     }
 }
