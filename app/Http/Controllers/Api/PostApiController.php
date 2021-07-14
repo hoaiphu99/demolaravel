@@ -61,7 +61,7 @@ class PostApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
 
@@ -80,7 +80,7 @@ class PostApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $user_id = $user->id;
         $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
@@ -136,6 +136,10 @@ class PostApiController extends Controller
         //$post = Post::create(['content' => 'Test Android', 'image' => 'tmpImage', 'user_id' => 1]);
         $post = Post::create($request->all());
         $file = $request->file('image');
+        if ($file == null) {
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
+                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null]);
+        }
         $resource = fopen($file, "r") or die("File upload Problems");
 
         // Upload truc tiep le heroku (loi moi khi commit se mat het hinh da them truoc do)
@@ -166,7 +170,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 201);
@@ -186,7 +190,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $post->update($request->all());
 
@@ -206,7 +210,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $post->delete();
 
@@ -225,7 +229,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $post->forceDelete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -244,7 +248,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fails_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         $post->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
