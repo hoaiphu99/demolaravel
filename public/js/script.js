@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     const inputImage = $('#image')
     const inputAvatar = $('#avatar')
-    const content = $('#content')
+    const content = $('#content-post')
 
     inputImage.change(() => {
         showImage(inputImage)
@@ -35,11 +35,14 @@ $(document).ready(function () {
     })
 
     const formCreate = $('#form-create')
-    formCreate.submit((e) => {
-        e.preventDefault()
-        console.log(content.value)
+    const btnSubmit = $('#submitBtn')
+    btnSubmit.click(() => {
         if (inputImage[0].files.length === 0) {
             alert('Chưa chọn hình')
+            return
+        }
+        if (content[0].value === "") {
+            alert('Chưa nhập nội dung')
         }
         else {
             formCreate.submit()

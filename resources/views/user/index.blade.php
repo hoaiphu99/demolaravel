@@ -135,7 +135,7 @@
                                         <div class="newpst-input">
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data" id="form-create">
                                                 @csrf
-                                                <textarea rows="2" placeholder="write something" name="content" id="content"></textarea>
+                                                <textarea rows="2" placeholder="write something" name="content" id="content-post"></textarea>
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
@@ -145,7 +145,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <button type="submit">Đăng</button>
+                                                            <button type="button" id="submitBtn">Đăng</button>
                                                         </li>
                                                     </ul>
                                                     <div>
