@@ -89,8 +89,9 @@ class UserApiController extends Controller
                 'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])]);
         }
         $user = User::create($request->all());
-        $file = $request->file('avatar');
-        if ($file != null) {
+        
+        if ($file = $request->hasFile('avatar')) {
+            $file = $request->file('avatar');
             $resource = fopen($file, "r") or die("File upload Problems");
 
             $img_link = $this->uploadImage($resource);
