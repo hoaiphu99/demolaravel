@@ -98,7 +98,9 @@ class UserApiController extends Controller
 
             $user->update(['avatar' => $img_link]);
         }
-
+        else {
+            $user->update(['avatar' => 'https://i.imgur.com/BdtG3S7.jpg']);
+        }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 201);
     }
