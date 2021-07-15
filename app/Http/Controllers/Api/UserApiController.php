@@ -90,11 +90,13 @@ class UserApiController extends Controller
         }
         $user = User::create($request->all());
         $file = $request->file('avatar');
-        $resource = fopen($file, "r") or die("File upload Problems");
+        if ($file != null) {
+            $resource = fopen($file, "r") or die("File upload Problems");
 
-        $img_link = $this->uploadImage($resource);
+            $img_link = $this->uploadImage($resource);
 
-        $user->update(['avatar' => $img_link]);
+            $user->update(['avatar' => $img_link]);
+        }
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 201);

@@ -24,7 +24,7 @@ class AuthController extends Controller
         $data = json_decode($response->getBody()->getContents());
         $status = $data->status;
         if ($status != 1) {
-            return view('user.login', ['msg' => 'Đăng nhập không thành công']);
+            return view('user.login', ['msg' => $data->message]);
         }
         else {
             $user = $data->data[0];

@@ -26,6 +26,7 @@ $(document).ready(function () {
     const inputAvatar = $('#avatar')
 
     inputImage.change(() => {
+        console.log('chọn hình')
         showImage(inputImage)
     })
 

@@ -133,6 +133,24 @@
                                             <img src="{{session()->get('user')->avatar}}" alt="">
                                         </figure>
                                         <div class="newpst-input">
+                                            <form method="post" id="form-add">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="content" class="form-label">Nội dung bài đăng</label>
+                                                    <textarea id="content" name="content" type="text" value="" placeholder="Nhập nội dung" class="form-control"></textarea>
+                                                    <span class="form-message"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="avatar" class="form-label">Ảnh đại diện</label>
+                                                    <br>
+                                                    <img class="update-img" src = "{{ $u->avatar }}" alt = "" height="200" width="200">
+                                                    <input id="avatar" name="avatar" type="file" class="form-control">
+                                                    <input id="prevAvatar" name="prevAvatar" type="text" value="{{$u->avatar}}" hidden class="form-control">
+                                                    <span class="form-message"></span>
+                                                </div>
+                                                <button class="btn btn-primary btn-submit-form">Lưu</button>
+                                                <a href="{{ route('admin.user') }}" class="btn btn-danger btn-cancel-form">Hủy</a>
+                                            </form>
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <textarea rows="2" placeholder="write something" name="content"></textarea>

@@ -39,8 +39,9 @@
                     <div class="log-reg-area sign">
                         <h2 class="log-title">Login</h2>
                         @isset($msg)
-                            <p>{{$msg}}</p>
+                            <span style="color: red;">{{$msg}}</span>
                         @endisset
+                        <br>
                         <form action="{{route('login')}}" method="post">
                             @csrf
                             <div class="form-group">
