@@ -145,7 +145,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <button type="button" id="submitBtn">Đăng</button>
+                                                            <button type="submit" id="submitBtn">Đăng</button>
                                                         </li>
                                                     </ul>
                                                     <div>

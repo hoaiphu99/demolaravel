@@ -33,30 +33,30 @@ $(document).ready(function () {
     inputAvatar.change(() => {
         showImage(inputAvatar)
     })
-    const url = 'http://project-api-levi.herokuapp.com'
-    const formCreate = $('#form-create')
-    const btnSubmit = $('#submitBtn')
-    btnSubmit.click(() => {
-        if (inputImage[0].files.length === 0) {
-            alert('Chưa chọn hình')
-            return
-        }
-        if (content[0].value === "") {
-            alert('Chưa nhập nội dung')
-        }
-        else {
-            const data = new FormData()
-            data.append('content', content[0].value)
-            data.append('image', inputImage[0].files[0])
-            console.log(data)
-            $.ajax({
-                type: 'POST',
-                url: `${url}/post/create`,
-                data: data,
-                success: (data) => {
-                    console.log(data)
-                }
-            })
-        }
-    })
+    // const url = 'http://project-api-levi.herokuapp.com'
+    // const formCreate = $('#form-create')
+    // const btnSubmit = $('#submitBtn')
+    // btnSubmit.click(() => {
+    //     if (inputImage[0].files.length === 0) {
+    //         alert('Chưa chọn hình')
+    //         return
+    //     }
+    //     if (content[0].value === "") {
+    //         alert('Chưa nhập nội dung')
+    //     }
+    //     else {
+    //         const data = new FormData()
+    //         data.append('content', content[0].value)
+    //         data.append('image', inputImage[0].files[0])
+    //         console.log(data)
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: `${url}/post/create`,
+    //             data: data,
+    //             success: (data) => {
+    //                 console.log(data)
+    //             }
+    //         })
+    //     }
+    // })
 });
