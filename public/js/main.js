@@ -423,6 +423,19 @@ const likePost = async (event, postId, userId) => {
     })
         .then(response => response.json())
         .then(result => {
+            console.log()
+            if (event.target.classList.contains('liked')) {
+                const likeCountElement = document.querySelector(`#post-${postId}`)
+                let likeCount = likeCountElement.textContent
+                let updateLikeCount = parseInt(likeCount) - 1
+                likeCountElement.textContent = String(updateLikeCount)
+            }
+            else {
+                const likeCountElement = document.querySelector(`#post-${postId}`)
+                let likeCount = likeCountElement.textContent
+                let updateLikeCount = parseInt(likeCount) + 1
+                likeCountElement.textContent = String(updateLikeCount)
+            }
             event.target.classList.toggle('liked')
             console.log('success')
         })
