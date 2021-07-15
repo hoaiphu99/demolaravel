@@ -46,6 +46,7 @@ $(document).ready(function () {
         }
         else {
             const data = formCreate.serialize()
+            console.log(data)
             $.ajax({
                 type: 'POST',
                 url: `${url}/post/create`,
