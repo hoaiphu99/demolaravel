@@ -33,7 +33,7 @@ $(document).ready(function () {
     inputAvatar.change(() => {
         showImage(inputAvatar)
     })
-
+    const url = 'http://project-api-levi.herokuapp.com'
     const formCreate = $('#form-create')
     const btnSubmit = $('#submitBtn')
     btnSubmit.click(() => {
@@ -45,7 +45,15 @@ $(document).ready(function () {
             alert('Chưa nhập nội dung')
         }
         else {
-            formCreate.submit()
+            const data = formCreate.serialize()
+            $.ajax({
+                type: 'POST',
+                url: `${url}/post/create`,
+                data: data,
+                success: (data) => {
+                    console.log(data)
+                }
+            })
         }
     })
 });
