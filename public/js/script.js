@@ -45,7 +45,9 @@ $(document).ready(function () {
             alert('Chưa nhập nội dung')
         }
         else {
-            const data = formCreate.serialize()
+            const data = new FormData()
+            data.append('content', content[0].value)
+            data.append('image', inputImage[0].files[0])
             console.log(data)
             $.ajax({
                 type: 'POST',
