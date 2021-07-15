@@ -136,6 +136,9 @@ class PostApiController extends Controller
         if ($this->checkExist($request->get('user_id')))
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                 'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+        $user = User::where(['id' => $request->get('user_id')])->first();
+        $postCount = $user->post_count;
+        $user->update(['post_count' => ++$postCount]);
 
         $post = Post::create($request->all());
         $file = $request->file('image');
@@ -215,7 +218,13 @@ class PostApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
+        $user = User::where(['id' => $post->user->id])->first();
+        $postCount = $user->post_count;
+        $user->update(['post_count' => --$postCount]);
+
         $post->delete();
+
+
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null]);
     }
