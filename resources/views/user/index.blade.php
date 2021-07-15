@@ -135,19 +135,22 @@
                                         <div class="newpst-input">
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data" id="form-create">
                                                 @csrf
-                                                <textarea rows="2" placeholder="write something" name="content"></textarea>
+                                                <textarea rows="2" placeholder="write something" name="content" id="content"></textarea>
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
                                                             <i class="ti-image"></i>
                                                             <label class="fileContainer">
-                                                                <input type="file" name="image">
+                                                                <input type="file" name="image" id="image">
                                                             </label>
                                                         </li>
                                                         <li>
                                                             <button type="submit">Đăng</button>
                                                         </li>
                                                     </ul>
+                                                    <div>
+                                                        <img class="mt-2 mb-2" id="img-avatar" src="" alt="">
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>

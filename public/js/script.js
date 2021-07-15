@@ -24,13 +24,25 @@ $(document).ready(function () {
 
     const inputImage = $('#image')
     const inputAvatar = $('#avatar')
+    const content = $('#content')
 
     inputImage.change(() => {
-        console.log('chọn hình')
         showImage(inputImage)
     })
 
     inputAvatar.change(() => {
         showImage(inputAvatar)
+    })
+
+    const formCreate = $('#form-create')
+    formCreate.submit((e) => {
+        e.preventDefault()
+        console.log(content.value)
+        if (inputImage[0].files.length === 0) {
+            alert('Chưa chọn hình')
+        }
+        else {
+            formCreate.submit()
+        }
     })
 });
