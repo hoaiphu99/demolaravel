@@ -12,4 +12,5 @@ return [
     'fileNotExist_msg' => 'File không tồn tại hoặc chưa chọn',
     'errInput_msg' => 'Vui lòng nhập đủ trường',
     'notAllowEdit_msg' => 'Trường này không cho sửa',
+    'whiteSpace_msg' => 'Không được nhập khoảng trắng',
 ];

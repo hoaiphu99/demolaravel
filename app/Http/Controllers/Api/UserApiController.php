@@ -92,6 +92,11 @@ class UserApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                 'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
         }
+        if ($this->checkWhiteSpace($request)) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.whiteSpace_msg'), 'data' => null], 400);
+        }
+
         $user = User::create($request->all());
 
         if ($request->hasFile('avatar')) {
@@ -152,6 +157,10 @@ class UserApiController extends Controller
             if ($request->get('name') == null)
                 return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                     'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
+        }
+        if ($this->checkWhiteSpace($request)) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.whiteSpace_msg'), 'data' => null], 400);
         }
 
         $user->update($request->all());
@@ -243,6 +252,28 @@ class UserApiController extends Controller
         $user->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
+    }
+
+    public function checkWhiteSpace(Request $request) {
+        if ($request->has('username'))
+            if (ctype_space($request->get('username')))
+                return true;
+        if ($request->has('password'))
+            if (ctype_space($request->get('password')))
+                return true;
+        if ($request->has('name'))
+            if (ctype_space($request->get('name')))
+                return true;
+        if ($request->has('email'))
+            if (ctype_space($request->get('email')))
+                return true;
+        if ($request->has('phone'))
+            if (ctype_space($request->get('phone')))
+                return true;
+        if ($request->has('birthday'))
+            if (ctype_space($request->get('birthday')))
+                return true;
+        else return false;
     }
 
     public function getUserWthPostCount() {
