@@ -86,7 +86,7 @@ class UserApiController extends Controller
         if($user_un != null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])], 400);
+                'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])], 200);
         }
         if ($request->get('username') == null || $request->get('password') == null || $request->get('name') == null) {
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
