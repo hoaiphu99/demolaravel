@@ -50,9 +50,13 @@ const createUser = async (data) => {
             return response.json()
         })
         .then(result => {
-            if (result.status == fails_code)
+            if (result.status === fails_code)
             {
                 alert('Username này đã tồn tại!')
+                return
+            }
+            if (result.data === null) {
+                alert(`${result.message}`)
             }
             else
             {
@@ -144,7 +148,7 @@ const updateUser = async (data) => {
             return response.json()
         })
         .then(result => {
-            if (result.data[0] !== null) {
+            if (result.data !== null) {
                 alert('Cập nhật thành công!')
                 document.querySelector(".update-img").src = result.data[0].avatar
             }
@@ -174,6 +178,10 @@ const deleteUser = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -205,6 +213,10 @@ const forceDeleteUser = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -232,6 +244,10 @@ const restoreUser = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -312,6 +328,10 @@ const updatePost = async (data) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             alert('Cập nhật thành công!')
             console.log(result)
         })
@@ -336,6 +356,10 @@ const deletePost = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -367,6 +391,10 @@ const forceDeletePost = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -398,6 +426,10 @@ const restorePost = async (id, user) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -426,6 +458,10 @@ const deleteComment = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             if (document.querySelector("#list-data")) {
                 const tbodyElement = document.querySelector("#list-data")
                 const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -464,6 +500,10 @@ const forceDeleteComment = async (id) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -496,6 +536,10 @@ const restoreComment = async (id, user, post) => {
             return response.json()
         })
         .then(result => {
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
@@ -527,7 +571,10 @@ const likePost = async (event, postId, userId) => {
             return response.json()
         })
         .then(result => {
-            console.log()
+            if (result.data === null) {
+                alert(`${result.message}`)
+                return
+            }
             if (event.target.classList.contains('liked')) {
                 const likeCountElement = document.querySelector(`#post-${postId}`)
                 let likeCount = likeCountElement.textContent
