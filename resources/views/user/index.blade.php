@@ -141,7 +141,7 @@
                                                         <li>
                                                             <i class="ti-image"></i>
                                                             <label class="fileContainer">
-                                                                <input type="file" name="image" id="image">
+                                                                <input type="file" name="image" id="image" required="required">
                                                             </label>
                                                         </li>
                                                         <li>
