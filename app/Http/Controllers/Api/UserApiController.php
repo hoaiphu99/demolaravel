@@ -152,7 +152,7 @@ class UserApiController extends Controller
 
         if ($request->has('name')) {
             if ($request->get('name') == null)
-                return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                return response()->json(['status' => Config::get('siteMsg.fails_code'),
                     'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 200);
         }
 
