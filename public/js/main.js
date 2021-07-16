@@ -67,9 +67,8 @@ const createUser = async (data) => {
                             <td>${result.data[0].birthday}</td>
                             <td><a href="/admin/user/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
                             <td><i class="fas fa-trash" style="cursor: pointer" onclick="deleteUser(${result.data[0].id})"></i></td>
-                            </tr>`
+                            </tr>` + tbodyElement.innerHTML
 
-                tbodyElement.innerHTML += textNode
                 document.querySelector(".insert-form").style.display = "none"
 
                 alert('Thêm thành công!')
