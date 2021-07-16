@@ -18,7 +18,7 @@ class LoginApiController extends Controller
 
         else {
             if($user->password != $request->get('password'))
-                return response()->json(['status' => Config::get('siteMsg.invalid_code'), 'data' => null, 'message' => 'Sai password'], 200);
+                return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null, 'message' => 'Sai password'], 200);
             else
                 return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg') ,'data' => UserResource::collection([$user])], 200);
         }

@@ -134,11 +134,11 @@ class PostApiController extends Controller
     public function store(Request $request)
     {
         if ($this->checkExist($request->get('user_id')))
-            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 200);
 
         if ($request->get('content') == null || $request->get('user_id') == null) {
-            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 200);
         }
 
@@ -207,7 +207,7 @@ class PostApiController extends Controller
         }
         if ($request->has('content')) {
             if ($request->get('content') == null)
-                return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                return response()->json(['status' => Config::get('siteMsg.fails_code'),
                     'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 200);
         }
 
