@@ -144,6 +144,11 @@ class UserApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
+        if ($request->get('name') == null) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
+        }
+
         $user->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 200);
