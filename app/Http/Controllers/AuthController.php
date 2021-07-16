@@ -61,7 +61,7 @@ class AuthController extends Controller
             {
                 return view('user.register', ['msg' => 'The Username existed!']);
             }
-            $user = $data->data;
+            $user = $data->data[0];
             if($user == null)
                 return view('user.login', ['msg' => 'Create account unsuccessfully']);
             session()->put('user', $user);
