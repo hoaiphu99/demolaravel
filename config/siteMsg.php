@@ -10,4 +10,5 @@ return [
     'exist_msg' => 'Đã tồn tại',
     'notExist_msg' => 'Không tồn tại',
     'fileNotExist_msg' => 'File không tồn tại hoặc chưa chọn',
+    'errInput_msg' => 'Vui lòng nhập đủ trường',
 ];

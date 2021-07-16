@@ -136,11 +136,18 @@ class PostApiController extends Controller
         if ($this->checkExist($request->get('user_id')))
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                 'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+
+        if ($request->get('content') == null || $request->get('user_id') == null) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null]);
+        }
+
+        $post = Post::create($request->all());
+
         $user = User::where(['id' => $request->get('user_id')])->first();
         $postCount = $user->post_count;
         $user->update(['post_count' => ++$postCount]);
 
-        $post = Post::create($request->all());
         $file = $request->file('image');
         if ($file == null) {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),

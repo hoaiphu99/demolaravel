@@ -69,6 +69,11 @@ class CommentApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
                 'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
 
+        if ($request->get('content') == null || $request->get('user_id') == null || $request->get('post_id') == null) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null]);
+        }
+
         $comment = Comment::create($request->all());
 
         // update lai so comment

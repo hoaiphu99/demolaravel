@@ -88,6 +88,10 @@ class UserApiController extends Controller
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])]);
         }
+        if ($request->get('username') == null || $request->get('password') == null || $request->get('name') == null) {
+            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null]);
+        }
         $user = User::create($request->all());
 
         if ($request->hasFile('avatar')) {
