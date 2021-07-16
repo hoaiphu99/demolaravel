@@ -153,11 +153,11 @@ class LikeApiController extends Controller
 
         if ($user_id == null || $post_id == null) {
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
-                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 200);
         }
         if ($this->checkExist($user_id, $post_id))
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
-                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 400);
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 200);
 
         $like = Like::where(['user_id' => $user_id, 'post_id' => $post_id])->first();
         if ($like == null) {
