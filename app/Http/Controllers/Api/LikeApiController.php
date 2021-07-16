@@ -71,7 +71,7 @@ class LikeApiController extends Controller
         if ($like->status == 'liked') {
             $like->update(['status' => 'unliked']);
             $l_count = $post->like_count;
-            $post->update(['like_count' => --$l_count]);
+            $post->update(['like_count' => --$l_count < 0 ? 0 : --$l_count]);
         }
         else {
             $like->update(['status' => 'liked']);
@@ -136,7 +136,7 @@ class LikeApiController extends Controller
         $like->delete();
         $post = Post::where(['id' => $like->post_id])->first();
         $like_count = $post->like_count;
-        $post->update(['like_count' => --$like_count]);
+        $post->update(['like_count' => --$like_count < 0 ? 0 : --$like_count]);
         return response()->json(['status' => Config::get('siteMsg.success_code'),
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
