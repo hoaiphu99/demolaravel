@@ -89,7 +89,7 @@ class UserApiController extends Controller
                 'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])], 200);
         }
         if ($request->get('username') == null || $request->get('password') == null || $request->get('name') == null) {
-            return response()->json(['status' => Config::get('siteMsg.invalid_code'),
+            return response()->json(['status' => Config::get('siteMsg.fails_code'),
                 'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 200);
         }
         if ($this->checkWhiteSpace($request)) {
