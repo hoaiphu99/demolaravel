@@ -237,7 +237,7 @@
                 </div>
                 <div class="modal-body">Bạn có chắc chắn đăng xuất tài khoản?.</div>
                 <div class="modal-footer">
-                    <a class="btn btn-primary" href="login.html">Đăng xuất</a>
+                    <a class="btn btn-primary" href="{{route('logout')}}">Đăng xuất</a>
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
                 </div>
             </div>
