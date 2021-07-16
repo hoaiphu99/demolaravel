@@ -56,9 +56,7 @@ Route::post('comment/create', [HomeController::class, 'postComment'])->name('com
 Route::post('like/create', [LikeController::class, 'createLike'])->name('like.create');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'utype'], function() {
-    Route::get('dashboard', function () {
-        return view('admin.index');
-    })->name('admin.dashboard');
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('admin.dashboard');
 
     // User
     Route::get('user', [UserController::class, 'getUser'])->name('admin.user');

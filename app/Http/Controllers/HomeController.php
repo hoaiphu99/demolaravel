@@ -46,6 +46,33 @@ class HomeController extends Controller
         return view('user.index', ['posts' => $posts]);
     }
 
+    public function dashboard() {
+        $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
+        $response = $client->get('user', [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ]
+        ]);
+        $user = json_decode($response->getBody()->getContents())->data;
+
+        $response = $client->get('post', [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ]
+        ]);
+        $posts = json_decode($response->getBody()->getContents())->data;
+
+        $response = $client->get('comment', [
+            'headers' => [
+                'APIKEY' => Config::get('siteVars.API_KEY'),
+            ]
+        ]);
+        $comment = json_decode($response->getBody()->getContents())->data;
+
+        return view('admin.index', ['countPost' => count($posts), 'countComment' => count($comment),
+            'countUser' => count($user)]);
+    }
+
     public function singlePost($id) {
         $client = new Client(['base_uri' => Config::get('siteVars.API_URL')]);
         $response = $client->get('post/'.$id, [
