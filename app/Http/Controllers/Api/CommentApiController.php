@@ -147,8 +147,8 @@ class CommentApiController extends Controller
 
         $post = Post::where(['id' => $comment->post_id])->first();
         if ($post != null) {
-            $cmt_count = $post->comment_count;
-            $post->update(['comment_count' => --$cmt_count < 0 ? 0 : --$cmt_count]);
+            $cmt_count = --$post->comment_count;
+            $post->update(['comment_count' => $cmt_count < 0 ? 0 : $cmt_count]);
         }
 
         return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
