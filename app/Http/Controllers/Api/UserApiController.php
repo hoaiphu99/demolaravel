@@ -254,7 +254,13 @@ class UserApiController extends Controller
             'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 
-    public function checkWhiteSpace(Request $request) {
+    /**
+     * Check khoảng trắng
+     *
+     * @param  $request
+     * @return boolean
+     */
+    public function checkWhiteSpace($request) {
         if ($request->has('username'))
             if (ctype_space($request->get('username')))
                 return true;
@@ -273,7 +279,8 @@ class UserApiController extends Controller
         if ($request->has('birthday'))
             if (ctype_space($request->get('birthday')))
                 return true;
-        else return false;
+
+        return false;
     }
 
     public function getUserWthPostCount() {
