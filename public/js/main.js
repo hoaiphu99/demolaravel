@@ -285,7 +285,7 @@ const deletePost = async (id) => {
 
 const forceDeletePost = async (id) => {
 
-    await fetch(`${API_URL}/post/${id}`, {
+    await fetch(`${API_URL}/post/${id}/force`, {
         method: 'DELETE',
         headers: {
             APIKEY: API_KEY
@@ -364,7 +364,7 @@ const deleteComment = async (id) => {
 
 const forceDeleteComment = async (id) => {
 
-    await fetch(`${API_URL}/comment/${id}`, {
+    await fetch(`${API_URL}/comment/${id}/force`, {
         method: 'DELETE',
         headers: {
             APIKEY: API_KEY
