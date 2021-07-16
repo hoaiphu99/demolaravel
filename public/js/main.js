@@ -121,8 +121,13 @@ const updateUser = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
-            alert('Cập nhật thành công!')
-            document.querySelector(".update-img").src = result.data[0].avatar
+            if (result.data[0] !== null) {
+                alert('Cập nhật thành công!')
+                document.querySelector(".update-img").src = result.data[0].avatar
+            }
+            else {
+                alert(`${result.message}`)
+            }
             console.log(result)
         })
         .catch(error => {
@@ -212,9 +217,10 @@ const createPost = async (data) => {
     })
         .then(response => response.json())
         .then(result => {
-            const tbodyElement = document.querySelector("#list-data")
+            if (result.data[0] !== null) {
+                const tbodyElement = document.querySelector("#list-data")
 
-            tbodyElement.innerHTML = `<tr>
+                tbodyElement.innerHTML = `<tr>
                         <th scope="row">${result.data[0].id}</th>
                         <td>${result.data[0].content}</td>
                         <td><img src="${result.data[0].image}" alt="" height="100" width="100"></td>
@@ -226,9 +232,14 @@ const createPost = async (data) => {
                         <td><a href="/admin/post/${result.data[0].id}"><i class="fas fa-edit"></i></a></td>
                         <td><i class="fas fa-trash" style="cursor: pointer" onclick=""></i></td>
                         </tr>` + tbodyElement.innerHTML
-            document.querySelector(".insert-form").style.display = "none"
+                document.querySelector(".insert-form").style.display = "none"
 
-            alert('Thêm thành công!')
+                alert('Thêm thành công!')
+            }
+            else {
+                alert(`${result.message}`)
+            }
+
             console.log(result.data[0])
         })
         .catch(error => {
