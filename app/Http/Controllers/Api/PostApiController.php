@@ -232,8 +232,8 @@ class PostApiController extends Controller
                 'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 200);
         }
         $user = User::where(['id' => $post->user->id])->first();
-        $postCount = $user->post_count;
-        $user->update(['post_count' => --$postCount < 0 ? 0 : --$postCount]);
+        $postCount = --$user->post_count;
+        $user->update(['post_count' => $postCount < 0 ? 0 : $postCount]);
 
         $post->delete();
 
