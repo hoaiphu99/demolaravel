@@ -75,7 +75,7 @@ const createUser = async (data) => {
 
                 document.querySelector(".insert-form").style.display = "none"
 
-                alert('Thêm thành công!')
+                alert(`${result.message}`)
                 console.log(result.data[0])
             }
 
@@ -149,7 +149,7 @@ const updateUser = async (data) => {
         })
         .then(result => {
             if (result.data !== null) {
-                alert('Cập nhật thành công!')
+                alert(`${result.message}`)
                 document.querySelector(".update-img").src = result.data[0].avatar
             }
             else {
@@ -178,7 +178,7 @@ const deleteUser = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -190,7 +190,7 @@ const deleteUser = async (id) => {
             let count = parseInt(countElement.textContent)
             count += 1
             countElement.textContent = String(count)
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -213,7 +213,7 @@ const forceDeleteUser = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -221,7 +221,7 @@ const forceDeleteUser = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -244,7 +244,7 @@ const restoreUser = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -252,7 +252,7 @@ const restoreUser = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Khôi phục thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -297,7 +297,7 @@ const createPost = async (data) => {
                         </tr>` + tbodyElement.innerHTML
                 document.querySelector(".insert-form").style.display = "none"
 
-                alert('Thêm thành công!')
+                alert(`${result.message}`)
             }
             else {
                 alert(`${result.message}`)
@@ -332,7 +332,7 @@ const updatePost = async (data) => {
                 alert(`${result.message}`)
                 return
             }
-            alert('Cập nhật thành công!')
+            alert(`${result.message}`)
             console.log(result)
         })
         .catch(error => {
@@ -356,7 +356,7 @@ const deletePost = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -368,7 +368,7 @@ const deletePost = async (id) => {
             let count = parseInt(countElement.textContent)
             count += 1
             countElement.textContent = String(count)
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -391,7 +391,7 @@ const forceDeletePost = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -399,7 +399,7 @@ const forceDeletePost = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -426,7 +426,7 @@ const restorePost = async (id, user) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -434,7 +434,7 @@ const restorePost = async (id, user) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Khôi phục thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -458,7 +458,7 @@ const deleteComment = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -477,7 +477,7 @@ const deleteComment = async (id) => {
                 const cardBlock = document.querySelector('.card')
                 commentBlock.removeChild(cardBlock)
             }
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -500,7 +500,7 @@ const forceDeleteComment = async (id) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -508,7 +508,7 @@ const forceDeleteComment = async (id) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Xóa thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
@@ -536,7 +536,7 @@ const restoreComment = async (id, user, post) => {
             return response.json()
         })
         .then(result => {
-            if (result.data === null) {
+            if (result.status === 0) {
                 alert(`${result.message}`)
                 return
             }
@@ -544,7 +544,7 @@ const restoreComment = async (id, user, post) => {
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
             tbodyElement.removeChild(trElement)
 
-            alert('Khôi phục thành công!')
+            alert(`${result.message}`)
         })
         .catch(error => {
             console.log(error)
