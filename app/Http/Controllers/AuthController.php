@@ -57,7 +57,7 @@ class AuthController extends Controller
                 ]
             ]);
             $data = json_decode($response->getBody()->getContents());
-            if (strcmp($data->data, Config::get('siteMsg.fails_msg') == 0))
+            if ($data->status == Config::get('siteMsg.fails_code'))
             {
                 return view('user.register', ['msg' => 'The Username existed!']);
             }
