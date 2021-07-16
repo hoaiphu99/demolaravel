@@ -14,13 +14,13 @@ class LoginApiController extends Controller
         $user = User::where(['username' => $request->get('username')])->first();
         //dd($request->get('password'));
         if($user == null)
-            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null, 'message' => 'User is null']);
+            return response()->json(['status' => Config::get('siteMsg.fails_code'), 'data' => null, 'message' => 'User is null'], 400);
 
         else {
             if($user->password != $request->get('password'))
-                return response()->json(['status' => Config::get('siteMsg.invalid_code'), 'data' => null, 'message' => 'Sai password']);
+                return response()->json(['status' => Config::get('siteMsg.invalid_code'), 'data' => null, 'message' => 'Sai password'], 400);
             else
-                return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg') ,'data' => UserResource::collection([$user])]);
+                return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg') ,'data' => UserResource::collection([$user])], 200);
         }
     }
 }

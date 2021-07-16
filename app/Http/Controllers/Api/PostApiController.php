@@ -33,7 +33,7 @@ class PostApiController extends Controller
         //$post = Post::orderBy(['id' => 'DESC'])->get();
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)]);
+            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)], 200);
     }
 
     /**
@@ -46,7 +46,7 @@ class PostApiController extends Controller
         $post = Post::onlyTrashed()->get()->sortDesc();
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)]);
+            'message' => Config::get('siteMsg.success_msg'),'data' => PostResource::collection($post)], 200);
     }
 
     /**
@@ -61,11 +61,11 @@ class PostApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $posts = Post::where(['user_id' => $userid])->get()->sortDesc();
 
-        return response()->json(['status' => 1, 'data' => PostResource::collection($posts)]);
+        return response()->json(['status' => 1, 'data' => PostResource::collection($posts)], 200);
     }
 
     /**
@@ -80,13 +80,13 @@ class PostApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user_id = $user->id;
         $posts = Post::where(['user_id' => $user_id])->get()->sortDesc();
 
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection($posts), 'user' => $user]);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection($posts), 'user' => $user], 200);
     }
 
     /**
@@ -135,11 +135,11 @@ class PostApiController extends Controller
     {
         if ($this->checkExist($request->get('user_id')))
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
-                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 404);
+                'message' => Config::get('siteMsg.invalid_msg'), 'data' => null], 400);
 
         if ($request->get('content') == null || $request->get('user_id') == null) {
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
-                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
         }
 
         $post = Post::create($request->all());
@@ -151,7 +151,7 @@ class PostApiController extends Controller
         $file = $request->file('image');
         if ($file == null) {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null], 400);
         }
         $resource = fopen($file, "r") or die("File upload Problems");
 
@@ -186,7 +186,7 @@ class PostApiController extends Controller
                 'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 201);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => PostResource::collection([$post])], 200);
     }
 
     /**
@@ -203,7 +203,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $post->update($request->all());
 
@@ -223,7 +223,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user = User::where(['id' => $post->user->id])->first();
         $postCount = $user->post_count;
@@ -233,7 +233,7 @@ class PostApiController extends Controller
 
 
 
-        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null]);
+        return response()->json(['status' => Config::get('siteMsg.success_code'), 'message' => Config::get('siteMsg.success_msg'), 'data' => null], 200);
     }
 
     /**
@@ -248,7 +248,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $post->forceDelete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -267,7 +267,7 @@ class PostApiController extends Controller
         if($post == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $post->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),

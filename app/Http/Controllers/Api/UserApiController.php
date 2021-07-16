@@ -25,7 +25,7 @@ class UserApiController extends Controller
     {
         $user = User::all()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)], 200);
     }
 
     /**
@@ -37,7 +37,7 @@ class UserApiController extends Controller
     {
         $user = User::onlyTrashed()->get()->sortDesc();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)], 200);
     }
 
     /**
@@ -86,11 +86,11 @@ class UserApiController extends Controller
         if($user_un != null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])]);
+                'message' => Config::get('siteMsg.exist_msg'), 'data' => UserResource::collection([$user_un])], 400);
         }
         if ($request->get('username') == null || $request->get('password') == null || $request->get('name') == null) {
             return response()->json(['status' => Config::get('siteMsg.invalid_code'),
-                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.errInput_msg'), 'data' => null], 400);
         }
         $user = User::create($request->all());
 
@@ -122,10 +122,10 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 201);
+            'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection([$user])], 200);
         //return response()->json(['status' => 1, 'data' => $user], 201);
     }
 
@@ -142,7 +142,7 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user->update($request->all());
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -162,12 +162,12 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $file = $request->file('avatar');
         if ($file == null) {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.fileNotExist_msg'), 'data' => null], 400);
         }
         $resource = fopen($file, "r") or die("File upload Problems");
 
@@ -190,7 +190,7 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user->delete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -209,7 +209,7 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user->forceDelete();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -228,7 +228,7 @@ class UserApiController extends Controller
         if($user == null)
         {
             return response()->json(['status' => Config::get('siteMsg.fails_code'),
-                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null]);
+                'message' => Config::get('siteMsg.notExist_msg'), 'data' => null], 400);
         }
         $user->restore();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
@@ -239,7 +239,7 @@ class UserApiController extends Controller
         //$user = User::orderBy(['post_count' => 'DESC'])->get();
         $user = User::select('*')->orderByDesc('post_count')->get();
         return response()->json(['status' => Config::get('siteMsg.success_code'),
-        'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)]);
+        'message' => Config::get('siteMsg.success_msg'), 'data' => UserResource::collection($user)], 200);
     }
 
     // Ham nay dung de dem lai so post cua tat ca user
