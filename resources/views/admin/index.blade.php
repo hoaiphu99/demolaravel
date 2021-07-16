@@ -16,7 +16,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countPost }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <i class="fas fa-images"></i>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countComment }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-comment"></i>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countUser }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-user"></i>
                         </div>
                     </div>
                 </div>
