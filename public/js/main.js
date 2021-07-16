@@ -11,7 +11,13 @@ const getUser = async () => {
             'APIKEY': API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             console.log(result)
         })
@@ -36,7 +42,13 @@ const createUser = async (data) => {
         },
         body: formData
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             if (result.status == fails_code)
             {
@@ -104,7 +116,13 @@ const updateUser = async (data) => {
             },
             body: formdata
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                    return
+                }
+                return response.json()
+            })
             .then(result => {
                 data.avatar = result.data.link
                 console.log(result)
@@ -119,7 +137,13 @@ const updateUser = async (data) => {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             if (result.data[0] !== null) {
                 alert('Cập nhật thành công!')
@@ -143,7 +167,13 @@ const deleteUser = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -168,7 +198,13 @@ const forceDeleteUser = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -189,7 +225,13 @@ const restoreUser = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -215,9 +257,15 @@ const createPost = async (data) => {
         },
         body: formData
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
-            if (result.data[0] !== null) {
+            if (result.data !== null) {
                 const tbodyElement = document.querySelector("#list-data")
 
                 tbodyElement.innerHTML = `<tr>
@@ -258,7 +306,11 @@ const updatePost = async (data) => {
         body: JSON.stringify(data)
     })
         .then(response => {
-            response.json()
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
         })
         .then(result => {
             alert('Cập nhật thành công!')
@@ -277,7 +329,13 @@ const deletePost = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -302,7 +360,13 @@ const forceDeletePost = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -327,7 +391,13 @@ const restorePost = async (id, user) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -349,7 +419,13 @@ const deleteComment = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             if (document.querySelector("#list-data")) {
                 const tbodyElement = document.querySelector("#list-data")
@@ -381,7 +457,13 @@ const forceDeleteComment = async (id) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -407,7 +489,13 @@ const restoreComment = async (id, user, post) => {
             APIKEY: API_KEY
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             const tbodyElement = document.querySelector("#list-data")
             const trElement = document.querySelector(`tr[data-id="${id}"]`)
@@ -432,7 +520,13 @@ const likePost = async (event, postId, userId) => {
         },
         body: JSON.stringify(data),
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                alert('Có lỗi xảy ra vui lòng kiểm tra lại')
+                return
+            }
+            return response.json()
+        })
         .then(result => {
             console.log()
             if (event.target.classList.contains('liked')) {
