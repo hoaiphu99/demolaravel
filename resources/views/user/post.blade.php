@@ -113,7 +113,7 @@
                                                         <div class="post-comt-box">
                                                             <form action="{{route('comment.post')}}" method="post">
                                                                 @csrf
-                                                                <textarea placeholder="Post your comment" name="content"></textarea>
+                                                                <textarea placeholder="Post your comment" name="content" required="required"></textarea>
                                                                 <input name="user_id" type="hidden" value="{{session()->get('user')->id}}">
                                                                 <input name="post_id" type="hidden" value="{{$post->id}}">
                                                                 <div class="add-smiles">

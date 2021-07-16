@@ -135,7 +135,7 @@
                                         <div class="newpst-input">
                                             <form action="{{ route('post.create') }}" method="POST" enctype="multipart/form-data" id="form-create">
                                                 @csrf
-                                                <textarea rows="2" placeholder="write something" name="content" id="content-post"></textarea>
+                                                <textarea rows="2" placeholder="write something" name="content" id="content-post" required="required"></textarea>
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
